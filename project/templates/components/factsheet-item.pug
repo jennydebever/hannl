@@ -1,0 +1,10 @@
+//- @pugdoc
+  name: factsheet-item
+  description: deeltijd praktische informatie factsheet-item
+  examples:
+    - +factsheet-item('Factsheet','hier komt een  tekstje')
+
+mixin factsheet-item(title,text)
+    .row
+        .col-4.col-label #{title}
+        .col-8 #{text}

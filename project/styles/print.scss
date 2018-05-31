@@ -1,0 +1,25 @@
+@page {
+  margin: 1cm;
+  orphans: 4;
+  widows: 3;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+html,
+body {
+  page-break-after: avoid;
+}
+
+p,
+li,
+pre,
+figure,
+blockquote,
+.section {
+  page-break-inside: avoid;
+}

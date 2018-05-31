@@ -1,0 +1,20 @@
+//- @pugdoc
+  name: factsheet
+  description: deeltijd praktische informatie factsheet
+  examples:
+    - +factsheet('Factsheet')
+        
+
+mixin factsheet(title)
+  block section
+    section.row.section--color.factsheet 
+        .container
+            .row
+                span.anchor#factsheet
+                    .col-12 
+                        h2 #{title}
+                        if block
+                            block
+                        else
+                            p no content provided
+                        

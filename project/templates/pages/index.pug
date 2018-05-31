@@ -1,0 +1,15 @@
+extends ./_base
+
+block append vars
+  - pageTitle.push('Homepage')
+
+block main
+  | homepage yay
+  +component3('hallo allemaals', true)
+  +component2('Dit is de titel','Dit is de lead tekst.','Wat doe je tijdens de propedeuse? Wat is een <a href="#">differentiatie</a>? Hoe zit het met stages, minoren en afstuderen? Ontdek het op de tijdlijn van de opleiding Elektrotechniek.')
+  +component2('Dit is de titel','Dit is de lead tekst.','Wat doe je tijdens de propedeuse? Wat is een <a href="#">differentiatie</a>? Hoe zit het met stages, minoren en afstuderen? Ontdek het op de tijdlijn van de opleiding Elektrotechniek.')
+  br
+  +factsheet('Factsheet')
+    +factsheet-item('fff','ggg')
+    +factsheet-item('fff','ggg')
+    +factsheet-item('fff','ggg')

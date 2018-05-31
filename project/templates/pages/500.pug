@@ -1,0 +1,7 @@
+extends ./_base
+
+block append vars
+  - pageTitle.push('Internal server error')
+
+block main
+  +component3('500')

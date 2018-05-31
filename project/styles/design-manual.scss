@@ -1,0 +1,32 @@
+@import '_vars';
+@import '_fonts';
+@import '_text';
+
+.content h1 {
+  color: $color;
+  text-transform: uppercase;
+  font-weight: normal;
+}
+
+.header {
+  background-color: $hanred;
+}
+
+.component {
+  &.is-loading {
+    &::before {
+      border-top-color: $color;
+      border-left-color: $color;
+    }
+  }
+}
+
+.component__meta {
+  &::before {
+    background-color: $color;
+  }
+}
+
+.sidebar__nav__item__link {
+  background-color: $color;
+}
