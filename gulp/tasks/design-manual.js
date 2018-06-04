@@ -62,12 +62,12 @@ const config = {
     serveFolder: 'httpdocs/',
   },
   headHtml: `
-    <link rel='stylesheet' href='/static/css/design-manual.css' />
+    <link rel='stylesheet' href='/lib/css/design-manual.css' />
     <link rel="shortcut icon" href="http://han.nl/favicon.ico">
   `,
   componentHeadHtml: `
     <link rel='shortcut icon' href='http://han.nl/favicon.ico' />
-    <link rel='stylesheet' href='/static/css/theme.css' />
+    <link rel='stylesheet' href='/lib/css/theme.css' />
 
     <style>
     html, body {
@@ -81,8 +81,8 @@ const config = {
     </style>
   `,
   componentBodyHtml: `
-    <script src='/static/js/libs.js' defer></script>
-    <script src='/static/js/app.js' defer></script>
+    <script src='/lib/js/libs.js' defer></script>
+    <script src='/lib/js/app.js' defer></script>
   `
 };
 

@@ -10,18 +10,18 @@ const paths = {
 
   DEST: { // Destination paths
     templates: 'httpdocs/',
-    styles: 'httpdocs/static/css/',
-    scripts: 'httpdocs/static/js/',
+    styles: 'httpdocs/lib/css/',
+    scripts: 'httpdocs/lib/js/',
     styleguide: 'httpdocs/design-system/'
   }
 };
 
 paths.locals = {
-  CSS_URL: '/static/css/',
-  JS_URL: '/static/js/',
-  IMAGES_URL: '/static/images/',
-  FONTS_URL: '/static/fonts/',
-  VIDEOS_URL: '/static/video/',
+  CSS_URL: '/lib/css/',
+  JS_URL: '/lib/js/',
+  IMAGES_URL: '/lib/images/',
+  FONTS_URL: '/lib/fonts/',
+  VIDEOS_URL: '/lib/video/',
   TEMPLATES_PATH: paths.SRC.templates
 };
 
