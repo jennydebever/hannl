@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+  <html style="margin: 0; padding: 0px;">
+  <head>
+    <base target="_blank">
+    <title>typo - Design System - han.nl</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/3.6.0/iframeResizer.contentWindow.min.js"></script>
+
+    <script>
+      (function templatePolyfill() {
+        if ('content' in document.createElement('template')) {
+          return false;
+        }
+
+        var templates = document.getElementsByTagName('template');
+        var plateLen = templates.length;
+
+        for (var x = 0; x < plateLen; ++x) {
+          var template = templates[x];
+          var content = template.childNodes;
+          var fragment = document.createDocumentFragment();
+
+          while (content[0]) {
+            fragment.appendChild(content[0]);
+          }
+
+          template.content = fragment;
+        }
+      })();
+    </script>
+    <style>
+      template {
+        display: none !important;
+      }
+    </style>
+    
+    <link rel='shortcut icon' href='http://han.nl/favicon.ico' />
+    <link rel='stylesheet' href='/static/css/theme.css' />
+
+    <style>
+    html, body {
+      background-color: white;
+    }
+    body > div > hr.demo {
+      margin: 40px 0;
+      border: 0;
+      border-top: 1px solid #f0f4f4;
+    }
+    </style>
+  
+  </head>
+  <body style="margin: 0px; padding: 0px;">
+    <div style="padding: 10px;">
+      <div style="width:80%;margin:0 auto;"><h1>H1 Tijdens de opleiding</h1><p class="lead">Wat doe je tijdens de propedeuse? Wat is een differentiatie? Hoe zit het met stages, minoren en afstuderen? Ontdek het op de tijdlijn van de opleiding Elektrotechniek.</p><p>In je eerste jaar maak je kennis met alle onderdelen van Elektrotechniek: hardware en software programmeren, microcontrollers, elektromechanica.</p><p></p>Je hebt een <a>diploma havo</a>, vwo en mbo (niveau 4), met kennis van <b>natuurkunde en wiskunde</b>op <i>havo-niveau</i>.<h2>H2 Tijdens de opleiding</h2><p>In je eerste jaar maak je kennis met alle onderdelen van Elektrotechniek: hardware en software programmeren, microcontrollers, elektromechanica.</p><h3>H3 Tijdens de opleiding</h3><p>In je eerste jaar maak je kennis met alle onderdelen van Elektrotechniek: hardware en software programmeren, microcontrollers, elektromechanica.</p><h4>H4 Tijdens de opleiding</h4><p>In je eerste jaar maak je kennis met alle onderdelen van Elektrotechniek: hardware en software programmeren, microcontrollers, elektromechanica.</p><h5>H5 Tijdens de opleiding</h5><p>In je eerste jaar maak je kennis met alle onderdelen van Elektrotechniek: hardware en software programmeren, microcontrollers, elektromechanica.<ul><li>Bedrijven</li><li>Gemeenten</li><li>Ingenieursbureaus</li><li>Aannemers</li></ul><ol><li>Bedrijven</li><li>Gemeenten</li><li>Ingenieursbureaus</li><li>Aannemers</li></ol></p></div><div style="width:80%;margin:0 auto;"><h1 class="title">Maak samen hard- en software voor echte projecten</h1><h2 class="title">Maak samen hard- en software voor echte projecten</h2><h3 class="title">Maak samen hard- en software voor echte projecten</h3><h4 class="title">Maak samen hard- en software voor echte projecten</h4><h5 class="title">Maak samen hard- en software voor echte projecten</h5></div>
+    </div>
+    
+    <script src='/static/js/libs.js' defer></script>
+    <script src='/static/js/app.js' defer></script>
+  
+<template class="dm-raw-source" type="design-manual/template">
+<div style="width:80%;margin:0 auto;"><h1>H1 Tijdens de opleiding</h1><p class="lead">Wat doe je tijdens de propedeuse? Wat is een differentiatie? Hoe zit het met stages, minoren en afstuderen? Ontdek het op de tijdlijn van de opleiding Elektrotechniek.</p><p>In je eerste jaar maak je kennis met alle onderdelen van Elektrotechniek: hardware en software programmeren, microcontrollers, elektromechanica.</p><p></p>Je hebt een <a>diploma havo</a>, vwo en mbo (niveau 4), met kennis van <b>natuurkunde en wiskunde</b>op <i>havo-niveau</i>.<h2>H2 Tijdens de opleiding</h2><p>In je eerste jaar maak je kennis met alle onderdelen van Elektrotechniek: hardware en software programmeren, microcontrollers, elektromechanica.</p><h3>H3 Tijdens de opleiding</h3><p>In je eerste jaar maak je kennis met alle onderdelen van Elektrotechniek: hardware en software programmeren, microcontrollers, elektromechanica.</p><h4>H4 Tijdens de opleiding</h4><p>In je eerste jaar maak je kennis met alle onderdelen van Elektrotechniek: hardware en software programmeren, microcontrollers, elektromechanica.</p><h5>H5 Tijdens de opleiding</h5><p>In je eerste jaar maak je kennis met alle onderdelen van Elektrotechniek: hardware en software programmeren, microcontrollers, elektromechanica.<ul><li>Bedrijven</li><li>Gemeenten</li><li>Ingenieursbureaus</li><li>Aannemers</li></ul><ol><li>Bedrijven</li><li>Gemeenten</li><li>Ingenieursbureaus</li><li>Aannemers</li></ol></p></div><div style="width:80%;margin:0 auto;"><h1 class="title">Maak samen hard- en software voor echte projecten</h1><h2 class="title">Maak samen hard- en software voor echte projecten</h2><h3 class="title">Maak samen hard- en software voor echte projecten</h3><h4 class="title">Maak samen hard- en software voor echte projecten</h4><h5 class="title">Maak samen hard- en software voor echte projecten</h5></div>
+</template>
+  </body>
+</html>
