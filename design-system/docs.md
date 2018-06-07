@@ -2,6 +2,9 @@
 
 Hier komt de documentatie van de frontend 
 
-* [homepage](/index.html)
-* [500](/500.html)
-* [404](/404.html)
+## Mapstructuur
+- Documentatie in /docs/
+- Build process in /gulp/
+- Design System in /design-system/
+- Dev build in /httpdocs/
+- Development in /project/
