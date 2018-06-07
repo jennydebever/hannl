@@ -1,0 +1,65 @@
+//- @pugdoc
+  name: Algemeen (Grid)
+  description: Voorbeeld van grid-gebruik. Gebruik `window.HU.ui.grid()` om een grid overlay over de pagina te leggen.
+  capture: all
+  examples:
+    - |
+      style.
+        body > div {
+          padding: 0 !important;
+        }
+
+        .demo-grid {
+          height: 200px;
+          padding-bottom: 20px;
+        }
+
+      .main
+        +demo-grid
+        +demo-grid-full
+        +demo-grid-text
+        +demo-grid-video
+        +demo-grid-half
+        +demo-grid-third
+        +demo-grid-quarter
+
+
+mixin demo-grid
+  .demo-grid
+    each i in (new Array(12))
+      .demo-grid__item: span
+
+mixin demo-grid-full
+  .demo-grid(class='demo-grid--full')
+    .demo-grid__item
+      span 100%
+
+mixin demo-grid-text
+  .demo-grid(class='demo-grid--text')
+    .demo-grid__item
+      span text
+
+mixin demo-grid-video
+  .demo-grid(class='demo-grid--video')
+    .demo-grid__item
+      span video
+
+mixin demo-grid-half
+  .demo-grid(class='demo-grid--half')
+    each i in (new Array(2))
+      .demo-grid__item: span
+
+mixin demo-grid-third
+  .demo-grid(class='demo-grid--third')
+    each i in (new Array(3))
+      .demo-grid__item: span
+
+mixin demo-grid-quarter
+  .demo-grid(class='demo-grid--quarter')
+    each i in (new Array(4))
+      .demo-grid__item: span
+
+
+mixin demo-grid-overlay
+  .demo-grid-overlay
+    +demo-grid
