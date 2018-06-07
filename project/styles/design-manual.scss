@@ -8,6 +8,10 @@
   font-weight: normal;
 }
 
+ul, .content ul {
+  list-style: none;
+}
+
 .header {
   background-color: $hanred;
 }
