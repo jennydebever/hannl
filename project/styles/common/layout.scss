@@ -40,7 +40,7 @@ $grid-item-spacing-l: 20px;
 @mixin grid {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
+  // flex-wrap: wrap;
   max-width: #{$container-width + 40px};
   margin: 0 auto;
 }
