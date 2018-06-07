@@ -50,7 +50,7 @@ const config = {
   nav: [
     { label: 'Index', href: '/design-system/index.html' },
     { label: 'Typograpy', href: '/design-system/typography.html' },
-    // { label: 'Page 2', href: '/design-system/page2.html' },
+    { label: 'Navigatie', href: '/design-system/navigatie.html' },
     // { label: 'Page 3', href: '/design-system/page3.html' },
 	  { label: 'Docs', href: '/design-system/docs.html' }
   ],
