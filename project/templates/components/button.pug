@@ -1,0 +1,37 @@
+//- @pugdoc
+  name: button
+  examples:
+    - |
+      +button()
+
+
+
+//-
+  -var primaryButtonFontColor = "#FFFFFF";
+  -var primaryButtonBackground = "#3FA2F7";
+  -var secondary-button-background = #FFF;
+  -var secondary-button-font-color = #2269BE;
+  -var secondary-button-border = 2px solid #E4F1FD;
+  -var tertiary-button-background = transparent;
+  -var tertiary-button-font-color = #3FA2F7;
+  -var border-radius = 5px;
+  -var tertiary-button-border = 2px solid #6CB9FB;
+  -var hover-degree = 15%;
+
+
+
+  mixin button(font, background, border= none, text)
+    btn(style='color: {font};background-color: {background};border: {border}') !{text}
+  mixin button-primary(text)
+  button({primary-button-font-color}, {primary-button-background}, none, {text})
+mixin button(text)
+  button.btn #{text}
+
+mixin button-primary(text)
+  button.btn.btn-primary !{text}
+
+mixin button-secondary(text)
+  button.btn.btn-secondary !{text}
+
+mixin button-transparent(text)
+  button.btn.btn-transparent !{text}
