@@ -1,27 +1,38 @@
 //- @pugdoc
+  name: button
+
+mixin button(text, title, link)
+  a(href=link, title=title, class=attributes.class) #{text}
+  
+
+//- @pugdoc
   name: button-primary
   examples:
-    - +button-primary('Aanmelden', 'https://www.han.nl', 'titel tekst')
+    - |
+      include ./button
+      +button-primary('Aanmelden', 'https://www.han.nl', 'titel tekst')
 
-mixin button-primary(text, link, titel)
-  a(href=link, title=titel, target='_self')
-    button.btn.btn-primary !{text}
+mixin button-primary(text, link, title)
+  +button(text, link, title)(class='btn-primary')
+
 
 //- @pugdoc
   name: button-secondary
   examples:
-    - +button-secondary('Aanmelden', 'https://www.han.nl', 'titel tekst')
+    - |
+      include ./button
+      +button-secondary('Aanmelden', 'https://www.han.nl', 'titel tekst')
 
-mixin button-secondary(text, link, titel)
-  a(href=link, title=titel, target='_self')
-    button.btn.btn-secondary !{text}
+
+mixin button-secondary(text, link, title)
+  +button(text, link, title)(class='btn-secondary')
 
 //- @pugdoc
   name: button-transparent
   examples:
-    - +button-transparent('Aanmelden', 'https://www.han.nl', 'titel tekst')
+    - |
+      include ./button
+      +button-transparent('Aanmelden', 'https://www.han.nl', 'titel tekst')
 
-mixin button-transparent(text, link, titel)
-  a(href=link, title=titel, target='_self')
-    button.btn.btn-transparent !{text}
-
+mixin button-transparent(text, link, title)
+  +button(text, link, title)(class='btn-transparent')
