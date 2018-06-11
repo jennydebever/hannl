@@ -16,3 +16,4 @@ Als je in de verkeerde branch een wijziging hebt gedaan:
 - switch naar andere branch
 - git stash pop (wijziging doorvoeren vanuit clipboard in huidige branch)
 - commit en sync
+- en klaar is Klara
