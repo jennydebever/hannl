@@ -3,12 +3,32 @@ $fonts-url: '/* @echo FONTS_URL */';
 $images-url: '/* @echo IMAGES_URL */';
 
 // Colors
-$white: #fff;
-$black: #000;
-$color: #454545;
 $hanred: #e50056;
-$lightgrey: #E3E3E3;
-$darkgrey: #272727;
+$deep-red: #b70045;
+
+$fluor-green: #50e3c2;
+$mint-green: #47cbae;
+
+$lemon: #f8e71c;
+$dark-lemon: #decf19;
+
+$bright-blue: #1b20ff;
+$deep-blue: #1216b2;
+
+// highlight colors
+$bright-red: #f00;
+$dark-orange: #ff7800;
+$bright-orange: #f5a623;
+$success-green: #7ed321;
+
+// greys: light to dark
+$white: #fff;
+$grey1: #fafafa;
+$grey2: #e3e3e3;
+$grey3: #919191;
+$grey4: #757575;
+$grey5: #454545;
+$black: #000;
 
 // Fonts
 $font-stack: 'AvenirNextLTW01-Medium';

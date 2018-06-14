@@ -31,14 +31,14 @@ $hover-degree: 15%;
 	@include button($white, $hanred, none);
 }
 @mixin button-secondary() {
-    @include button($darkgrey, $white, $lightgrey);
+    @include button($grey5, $white, $grey2);
 }
 @mixin button-transparent() {
-	@include button($darkgrey, transparent, $lightgrey);
+	@include button($grey5, transparent, $grey2);
 	&:hover {
 		color: $white;
-		background-color: $darkgrey;
-		border: 2px solid $lightgrey;
+		background-color: $grey5;
+		border: 2px solid $grey2;
 	}
 }
 .btn {

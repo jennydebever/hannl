@@ -2,7 +2,7 @@
 @import './typography/fonts';
 
 .content h1 {
-  color: $color;
+  color: $grey5;
   text-transform: uppercase;
   font-weight: normal;
 }
@@ -19,18 +19,18 @@ ul,
 .component {
   &.is-loading {
     &::before {
-      border-top-color: $color;
-      border-left-color: $color;
+      border-top-color: $grey5;
+      border-left-color: $grey5;
     }
   }
 }
 
 .component__meta {
   &::before {
-    background-color: $color;
+    background-color: $grey5;
   }
 }
 
 .sidebar__nav__item__link {
-  background-color: $color;
+  background-color: $grey5;
 }
