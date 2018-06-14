@@ -1,0 +1,106 @@
+//- @pugdoc
+  name: Textmedia picture
+  capture: 0
+
+mixin textmedia-image(options)
+  picture.textmedia__media__picture
+    - var sizes = []
+    - sizes.push({ minWidth: 1200, width: 520, ratio: 1 });
+    - sizes.push({ minWidth: 1024, width: 430, ratio: 1 });
+    - sizes.push({ minWidth: 768, width: 310, ratio: 1 });
+    - sizes.push({ minWidth: 500, width: 310, ratio: 1 });
+    - sizes.push({ minWidth: 1, width: 500, ratio: 1 });
+    +srcset(options.image, sizes)
+
+    img(src='', alt='')
+
+
+//- @pugdoc
+  name: Textmedia video
+  capture: 0
+
+mixin textmedia-video(video)
+  | #{video.source}
+  | #{video.fallback}
+
+
+//- @pugdoc
+  name: Textmedia video button
+  capture: 0
+
+mixin textmedia-video-button(video)
+  | #{video.source}
+  | #{video.fallback}
+  | #{video.link}
+
+
+//- @pugdoc
+  name: Text and Media
+  description: Tekst component met video / afbeelding
+  capture: 0
+
+mixin textmedia(options)
+  include ../utils/srcset
+
+  .textmedia
+    .textmedia__media
+      if options.image
+        +textmedia-image(options)
+
+      if options.video
+        if options.video.link
+          +textmedia-video-button(options.video)
+        else
+          +textmedia-video(options.video)
+    
+    .textmedia__text
+      span.textmedia__text__eyebrow #{options.eyebrow}
+      h2.textmedia__text__title #{options.title}
+      .textmedia__text__body
+        .richtext
+          block
+
+      if options.buttons
+        .textmedia__text__buttons
+          each button in options.buttons
+            .textmedia__text__buttons__button
+              if button.type === 'primary'
+                a.btn-primary(href=button.href) #{button.label}
+            .textmedia__text__buttons__button
+              if button.type === 'secondary'
+                a.btn-secondary(href=button.href) #{button.label}
+
+
+//- @pugdoc
+  name: Sectie (Tekst en Media)
+  description: section text media
+  examples: 
+    - |
+      include ./textmedia
+
+      - var options = {};
+      - options.image = 'koraal.jpg';
+      - options.eyebrow = 'vaardigheden';
+      - options.title = 'Hoe en wat ga je allemaal leren?';
+      - options.buttons = [];
+      - options.buttons.push({ href: '/', label: 'Meld je aan', type: 'primary' });
+      - options.buttons.push({ href: '/', label: 'Meld je aan 2', type: 'secondary' });
+      
+      +textmedia(ALIGNMENT_LEFT, options)
+        p dit is richtext
+
+mixin section-textmedia(alignment, options)
+  - var cls = [];
+  - cls.push('section--textmedia');
+
+  if alignment === ALIGNMENT_RIGHT
+    - cls.push('section--textmedia-right');
+
+  if alignment === ALIGNMENT_LEFT
+    - cls.push('section--textmedia-left');
+
+  .section(class=cls)
+    .section-wrapper
+      .section__content
+        +textmedia(options)
+          block

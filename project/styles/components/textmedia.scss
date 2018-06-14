@@ -1,0 +1,60 @@
+.textmedia {
+  @include breakpoint($bp-s) {
+    @include grid;
+    display: flex;
+  }
+}
+
+
+/**
+ * Media
+ */
+
+.textmedia__media {
+  @include breakpoint($bp-s) {
+    @include grid-item-spaceless(6);
+  }
+}
+
+.textmedia__media__picture {
+  display: block;
+  width: 100%;
+
+  img {
+    display: block;
+  }
+}
+
+
+/**
+ * Text
+ */
+
+.textmedia__text {
+  @include breakpoint($bp-s) {
+    @include grid-item(6);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+}
+
+.textmedia__text__eyebrow {
+  color: red;
+  text-transform: uppercase;
+}
+
+.textmedia__text__title {
+  font-size: 60px;
+}
+
+.textmedia__text__body {
+
+}
+
+.textmedia__text__buttons {
+
+}
+.textmedia__text__buttons__button {
+
+}
