@@ -12,7 +12,7 @@ $hover-degree: 15%;
 @mixin button($font, $background, $border: none) {
 	color: $font;
 	background-color: $background;
-	border: $border;
+	border: 2px solid $border;
 	padding: 24px;
 	font-size: 16px;
 	font-weight: 600;
@@ -31,14 +31,14 @@ $hover-degree: 15%;
 	@include button($white, $hanred, none);
 }
 @mixin button-secondary() {
-    @include button(#272727, $white, $secondary-button-border);
+    @include button($darkgrey, $white, $lightgrey);
 }
 @mixin button-transparent() {
-	@include button($tertiary-button-font-color, transparent, $tertiary-button-border);
+	@include button($darkgrey, transparent, $lightgrey);
 	&:hover {
 		color: $white;
-		background-color: $primary-button-background;
-		border: 2px solid $primary-button-background;
+		background-color: $darkgrey;
+		border: 2px solid $lightgrey;
 	}
 }
 .btn {
