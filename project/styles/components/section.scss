@@ -48,9 +48,7 @@
 }
 
 .section--textmedia {
-  @include grid-item(12);
-  max-width: #{($container-width + 40px)/ 100 * (100 / 12 * 12)};
-  flex-basis: auto;
+  
 }
 
 .section--textmedia-left {
