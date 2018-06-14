@@ -3,7 +3,7 @@
 
 mixin button(text, title, link)
   a(href=link, title=title, class=attributes.class) #{text}
-  
+
 
 //- @pugdoc
   name: button-primary
@@ -23,9 +23,9 @@ mixin button-primary(text, link, title)
       include ./button
       +button-secondary('Aanmelden', 'https://www.han.nl', 'titel tekst')
 
-
 mixin button-secondary(text, link, title)
   +button(text, link, title)(class='btn-secondary')
+
 
 //- @pugdoc
   name: button-transparent

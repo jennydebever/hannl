@@ -1,14 +1,5 @@
 //- buttons.scss
 
-// variables
-$primary-button-background: #3FA2F7;
-$secondary-button-font-color: #2269BE;
-$secondary-button-border: 2px solid #E4F1FD;
-$tertiary-button-font-color: #3FA2F7;
-$border-radius: 5px;
-$tertiary-button-border: 2px solid #6CB9FB;
-$hover-degree: 15%;
-
 @mixin button($font, $background, $border: none) {
 	color: $font;
 	background-color: $background;
@@ -18,10 +9,10 @@ $hover-degree: 15%;
 	font-weight: 600;
 	text-decoration: none;
 	line-height: 16px;
-	
+
 	&:hover {
 		cursor: pointer; 
-		background-color: darken($background, $hover-degree);
+		background-color: darken($background, 15%);
 	}
 	&:focus {
 		box-shadow: none;
@@ -41,17 +32,7 @@ $hover-degree: 15%;
 		border: 2px solid $grey2;
 	}
 }
-.btn {
-	/* qua tekst opmaak zelfde als h4 */
-	position: relative;
-	padding-top: 16px;
-	padding-bottom: 16px;
-	border-radius: $border-radius;
-	text-align: left;
-	font-weight: 500;
-/*	width: 100%; */
-	overflow: hidden;
-}
+
 
 .btn-primary {
     @include button-primary();
