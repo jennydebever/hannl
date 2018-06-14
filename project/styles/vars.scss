@@ -1,0 +1,32 @@
+// Folders
+$fonts-url: '/* @echo FONTS_URL */';
+$images-url: '/* @echo IMAGES_URL */';
+
+// Colors
+$white: #fff;
+$black: #000;
+$color: #454545;
+$hanred: #e50056;
+
+// Fonts
+$font-stack: 'AvenirNextLTW01-Medium';
+$font-heading: 'AvenirNextLTW01-BoldCn';
+
+$primary-color: #454545;
+$primary-color-light: #d3e8fc;
+$primary-color-lighter: #f3f9ff;
+$secondary-color: #fff;
+$link-color: #e50056;
+$link-border-color: #c6ddf0;
+$bg-light-blue: #e9f4fe;
+$bg-blue: #e4f1fd;
+
+// Breakpoints
+$bp-xs: 375px;
+$bp-s: 500px;
+$bp-m: 768px;
+$bp-l: 1024px;
+$bp-xl: 1160px;
+$bp-xxl: 1440px;
+
+$container-width: $bp-xl;

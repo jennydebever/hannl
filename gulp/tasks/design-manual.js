@@ -9,20 +9,6 @@ const locals = require('./data/template-locals');
  * Pug Doc
  */
 
-//gulp.task('pug-doc', (gulpDone) => {
-//  pugDoc({
-//    input: paths.SRC.templates + '**/*.pug',
-//    output: paths.DEST.styleguide + 'pugdoc.json',
-//   locals: Object.assign({}, paths.locals, locals),
-//    complete: (all) => {
-//      console.log(all);
-//      
-//      gulpDone();
-//    }
-//  });
-//});
-
-
 gulp.task('pug-doc', (gulpDone) => {
   pugDoc({
     input: paths.SRC.templates + '**/*.pug',
@@ -40,7 +26,7 @@ const config = {
   output: paths.DEST.styleguide,
   components: paths.DEST.styleguide + 'pugdoc.json',
   pages: 'design-system/',
-  force: (process.env.NODE_ENV === 'prod'),
+  force: false,
   meta: {
     domain: 'han.nl',
     title: 'Design System',
@@ -51,7 +37,6 @@ const config = {
     { label: 'Index', href: '/design-system/index.html' },
     { label: 'Typograpy', href: '/design-system/typography.html' },
     { label: 'Navigatie', href: '/design-system/navigatie.html' },
-    // { label: 'Page 3', href: '/design-system/page3.html' },
 	  { label: 'Docs', href: '/design-system/docs.html' }
   ],
   renderPages: true,

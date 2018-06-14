@@ -1,1 +1,19 @@
-@import '_all';
+@import './vars';
+
+// libs
+@import './libs/breakpoint';
+
+// common
+@import './common/body';
+@import './common/layout';
+
+// typography
+@import './typography/fonts';
+@import './typography/richtext';
+
+// atoms
+@import './components/atoms/button';
+
+// components
+@import './components/section';
+@import './components/hero/hero';
