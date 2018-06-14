@@ -26,7 +26,7 @@ gulp.task('templates:compile', () => {
       gulp.src([
           paths.SRC.templates + 'pages/**/*.pug'
         ])
-        .pipe(gulpif((global.isWatching), emitty.filter(global.emittyChangedFile)))
+        // .pipe(gulpif((global.isWatching), emitty.filter(global.emittyChangedFile)))
         .pipe(debug({title: 'Compiler:'}))
         .pipe(changed(paths.DEST.templates, {extension: '*'}))
         .pipe(plumber())
