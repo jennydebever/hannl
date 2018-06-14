@@ -2,7 +2,7 @@
   name: Textmedia picture
   capture: 0
 
-mixin textmedia-image(options)
+mixin textmedia-image(image)
   picture.textmedia__media__picture
     - var sizes = []
     - sizes.push({ minWidth: 1200, width: 560, ratio: 1 });
@@ -10,7 +10,7 @@ mixin textmedia-image(options)
     - sizes.push({ minWidth: 768, width: 310, ratio: 1 });
     - sizes.push({ minWidth: 500, width: 310, ratio: 1 });
     - sizes.push({ minWidth: 1, width: 500, ratio: 1 });
-    +srcset(options.image, sizes)
+    +srcset(image, sizes)
 
     img(src='', alt='')
 
@@ -20,8 +20,8 @@ mixin textmedia-image(options)
   capture: 0
 
 mixin textmedia-video(video)
-  | #{video.source}
-  | #{video.fallback}
+  video(loop, muted, autoplay, playsinline, defaultmuted, poster=IMGIX_URL + video.fallback + '?w=600&h=600&q=55&fit=crop&dpr=1&auto=format')
+    source(src=video.source, type='video/mp4')
 
 
 //- @pugdoc
@@ -29,8 +29,9 @@ mixin textmedia-video(video)
   capture: 0
 
 mixin textmedia-video-button(video)
-  | #{video.source}
-  | #{video.fallback}
+  video(loop, muted, autoplay, playsinline, defaultmuted, poster=IMGIX_URL + video.fallback + '?w=600&h=600&q=55&fit=crop&dpr=1&auto=format')
+    source(src=video.source, type='video/mp4')
+
   | #{video.link}
 
 
@@ -45,7 +46,7 @@ mixin textmedia(options)
   .textmedia
     .textmedia__media
       if options.image
-        +textmedia-image(options)
+        +textmedia-image(options.image)
 
       if options.video
         if options.video.link
@@ -54,11 +55,16 @@ mixin textmedia(options)
           +textmedia-video(options.video)
     
     .textmedia__text
-      span.textmedia__text__eyebrow #{options.eyebrow}
-      h2.textmedia__text__title #{options.title}
-      .textmedia__text__body
-        .richtext
-          block
+      if options.eyebrow
+        span.textmedia__text__eyebrow #{options.eyebrow}
+      
+      if options.title
+        h2.textmedia__text__title #{options.title}
+
+      if block
+        .textmedia__text__body
+          .richtext
+            block
 
       if options.buttons
         .textmedia__text__buttons
@@ -66,8 +72,8 @@ mixin textmedia(options)
             .textmedia__text__buttons__button
               if button.type === 'primary'
                 a.btn-primary(href=button.href) #{button.label}
-            .textmedia__text__buttons__button
-              if button.type === 'secondary'
+
+              else if button.type === 'secondary'
                 a.btn-secondary(href=button.href) #{button.label}
 
 
@@ -85,9 +91,82 @@ mixin textmedia(options)
       - options.buttons = [];
       - options.buttons.push({ href: '/', label: 'Meld je aan', type: 'primary' });
       - options.buttons.push({ href: '/', label: 'Meld je aan 2', type: 'secondary' });
-      
-      +textmedia(ALIGNMENT_LEFT, options)
+    
+      +section-textmedia(ALIGNMENT_LEFT, options)
         p dit is richtext
+        ul
+          li dsfljsdhflsjhdfl
+          li dsfljsdhflsjhdfl
+          li dsfljsdhflsjhdfl
+          li dsfljsdhflsjhdfl
+          li dsfljsdhflsjhdfl
+          li dsfljsdhflsjhdfl
+          li dsfljsdhflsjhdfl
+          li dsfljsdhflsjhdfl
+          li dsfljsdhflsjhdfl
+          li dsfljsdhflsjhdfl
+          li dsfljsdhflsjhdfl
+          li dsfljsdhflsjhdfl
+          li dsfljsdhflsjhdfl
+          li dsfljsdhflsjhdfl
+          li dsfljsdhflsjhdfl
+      
+      
+      - var options = {};
+      - options.image = 'vrouw-techniek.jpg';
+      - options.eyebrow = 'techniek';
+      - options.title = 'Hoe en wat ga je allemaal leren?';
+      - options.buttons = [];
+      - options.buttons.push({ href: '/', label: 'Meld je aan', type: 'primary' });
+    
+    - |
+      hr.demo
+
+      +section-textmedia(ALIGNMENT_RIGHT, options)
+        p dit is richtext
+        ul
+          li dsfljsdhflsjhdfl
+          li dsfljsdhflsjhdfl
+          li dsfljsdhflsjhdfl
+      
+      - var options = {};
+      - options.video = {};
+      - options.video.fallback = 'koraal.jpg';
+      - options.video.link = '#video1';
+      - options.video.source = 'http://techslides.com/demos/sample-videos/small.mp4';
+      - options.eyebrow = 'techniek';
+      - options.title = 'Hoe en wat ga je allemaal leren?';
+      - options.buttons = [];
+      - options.buttons.push({ href: '/', label: 'Meld je aan', type: 'primary' });
+    
+    - |
+      hr.demo
+    
+      +section-textmedia(ALIGNMENT_RIGHT, options)
+        p dit is richtext
+        ul
+          li dsfljsdhflsjhdfl
+          li dsfljsdhflsjhdfl
+          li dsfljsdhflsjhdfl
+
+    - |
+      hr.demo
+      
+      - var options = {};
+      - options.video = {};
+      - options.video.fallback = 'koraal.jpg';
+      - options.video.source = 'http://techslides.com/demos/sample-videos/small.mp4';
+      - options.eyebrow = 'techniek';
+      - options.title = 'Hoe en wat ga je allemaal leren?';
+      - options.buttons = [];
+      - options.buttons.push({ href: '/', label: 'Meld je aan', type: 'primary' });
+      
+      +section-textmedia(ALIGNMENT_LEFT, options)
+        p dit is richtext
+        ul
+          li dsfljsdhflsjhdfl
+          li dsfljsdhflsjhdfl
+          li dsfljsdhflsjhdfl
 
 mixin section-textmedia(alignment, options)
   - var cls = [];
