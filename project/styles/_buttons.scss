@@ -18,6 +18,7 @@ $hover-degree: 15%;
 	border: $border;
 	
 	&:hover {
+		cursor: pointer; 
 		color: $primary-button-font-color;
 		@if $background == transparent {
 			background-color: $primary-button-background;
