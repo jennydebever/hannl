@@ -9,7 +9,7 @@ $white: fff;
 $black: 000;
 $color: #454545;
 $hanred: #e50056;
-
+ 
 //Fonts
 
 $font-stack:				'AvenirNextLTW01-Medium';
@@ -70,9 +70,11 @@ $line-height-lg-paragraph:	31px;
 
 // Breakpoints
 
-$bp-xs: 360px;
+$bp-xs: 375px;
 $bp-s: 500px;
 $bp-m: 768px;
 $bp-l: 1024px;
 $bp-xl: 1160px;
 $bp-xxl: 1440px;
+
+$container-width: $bp-xl;
