@@ -26,16 +26,13 @@ mixin factsheet-item(obj)
 mixin factsheet(title, items)
   block section
     section.row.section--color.factsheet 
-        .container
-            .row
-                span.anchor#factsheet
-                    .col-12 
-                        h2 #{title}
-                        if block
-                            each item in items
-                                +factsheet-item(item)
-                        else
-                            p no content provided
+        span.anchor#factsheet
+            h2 #{title}
+            if block
+                each item in items
+                    +factsheet-item(item)
+            else
+                p haha bier
 
 //- @pugdoc
     name: Sectie (factsheet)

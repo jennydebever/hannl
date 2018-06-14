@@ -1,6 +1,10 @@
 @import '_vars';
+@import './libs/breakpoint';
+@import './common/layout';
 @import '_fonts';
 @import '_text';
+@import './content/section';
+@import './components/hero';
 @import '_buttons';
 
 body {
