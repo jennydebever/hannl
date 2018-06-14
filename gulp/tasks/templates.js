@@ -21,15 +21,12 @@ gulp.task('templates:lint', () => {
 });
 
 // Pug > HTML
-
 gulp.task('templates:compile', () => {
   return new Promise((resolve, reject) => {
-    console.log(global.emittyChangedFile); 
-	console.log(global.isWatching); 
       gulp.src([
           paths.SRC.templates + 'pages/**/*.pug'
         ])
-        //.pipe(gulpif((global.isWatching), emitty.filter(global.emittyChangedFile)))
+        .pipe(gulpif((global.isWatching), emitty.filter(global.emittyChangedFile)))
         .pipe(debug({title: 'Compiler:'}))
         .pipe(changed(paths.DEST.templates, {extension: '*'}))
         .pipe(plumber())
