@@ -42,16 +42,20 @@
 }
 
 .textmedia__text__eyebrow {
-  color: red;
+  font-size: 18px;
+  color: #919191;
   text-transform: uppercase;
 }
 
 .textmedia__text__title {
-  font-size: 60px;
+  font-size: 34px;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 .textmedia__text__body {
-
+  font-size: 16px;
+  line-height: 27px;
 }
 
 .textmedia__text__buttons {

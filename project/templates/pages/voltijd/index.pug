@@ -7,3 +7,30 @@ block append vars
 
 block main
   | voltijd homepage
+  - var options = {};
+    - options.image = 'koraal.jpg';
+    - options.eyebrow = 'vaardigheden';
+    - options.title = 'Hoe en wat ga je allemaal leren?';
+    - options.buttons = [];
+    - options.buttons.push({ href: '/', label: 'Meld je aan', type: 'primary' });
+    - options.buttons.push({ href: '/', label: 'Meld je aan 2', type: 'secondary' });
+    
+    +section-textmedia(ALIGNMENT_LEFT, options)
+      p We vertellen je niet hoe het moet, maar helpen je om zelf tot de beste oplossing te komen. Afhankelijk van je specialisatie leer je:
+      ul
+        li Hoe regeltechniek en elektrotechnisch ontwerpen werkt.
+        li Alles over aandrijvingen en vermogenselektronica.
+
+  - var options = {};
+    - options.image = 'koraal.jpg';
+    - options.eyebrow = 'vaardigheden';
+    - options.title = 'Hoe en wat ga je allemaal leren?';
+    - options.buttons = [];
+    - options.buttons.push({ href: '/', label: 'Meld je aan', type: 'primary' });
+    - options.buttons.push({ href: '/', label: 'Meld je aan 2', type: 'secondary' });
+    
+    +section-textmedia(ALIGNMENT_RIGHT, options)
+      p We vertellen je niet hoe het moet, maar helpen je om zelf tot de beste oplossing te komen. Afhankelijk van je specialisatie leer je:
+      ul
+        li Hoe regeltechniek en elektrotechnisch ontwerpen werkt.
+        li Alles over aandrijvingen en vermogenselektronica.
