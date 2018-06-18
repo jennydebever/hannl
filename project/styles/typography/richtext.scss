@@ -16,6 +16,10 @@
 .richtext {
   @include page-spacing();
 
+  .big__title {
+    @include big__title();
+  }
+
   h1 {
     @include h1();
     text-transform: uppercase;
@@ -49,6 +53,11 @@
     @include p();
   }
 
+}
+
+.richtext__titles {
+  @include page-spacing();
+  
   h1.title {
     @include h1();
   }
