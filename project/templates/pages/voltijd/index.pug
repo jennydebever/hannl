@@ -34,3 +34,19 @@ block main
       ul
         li Hoe regeltechniek en elektrotechnisch ontwerpen werkt.
         li Alles over aandrijvingen en vermogenselektronica.
+
+  - var options = {};
+      - options.video = {};
+      - options.video.fallback = 'koraal.jpg';
+      - options.video.source = 'https://www.w3schools.com/html/mov_bbb.mp4';
+      - options.eyebrow = 'techniek';
+      - options.title = 'Hoe en wat ga je allemaal leren?';
+      - options.buttons = [];
+      - options.buttons.push({ href: '/', label: 'Meld je aan', type: 'primary' });
+      
+      +section-textmedia(ALIGNMENT_LEFT, options)
+        p dit is richtext
+        ul
+          li dsfljsdhflsjhdfl
+          li dsfljsdhflsjhdfl
+          li dsfljsdhflsjhdfl

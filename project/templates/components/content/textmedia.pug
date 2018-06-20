@@ -20,8 +20,9 @@ mixin textmedia-image(image)
   capture: 0
 
 mixin textmedia-video(video)
-  video(loop, muted, autoplay, playsinline, defaultmuted, poster=IMGIX_URL + video.fallback + '?w=600&h=600&q=55&fit=crop&dpr=1&auto=format')
-    source(src=video.source, type='video/mp4')
+  .textmedia__media__video
+    video(loop, muted, autoplay, playsinline, defaultmuted, poster=IMGIX_URL + video.fallback + '?w=600&h=600&q=55&fit=crop&dpr=1&auto=format')
+      source(src=video.source, type='video/mp4')
 
 
 //- @pugdoc
@@ -29,8 +30,9 @@ mixin textmedia-video(video)
   capture: 0
 
 mixin textmedia-video-button(video)
-  video(loop, muted, autoplay, playsinline, defaultmuted, poster=IMGIX_URL + video.fallback + '?w=600&h=600&q=55&fit=crop&dpr=1&auto=format')
-    source(src=video.source, type='video/mp4')
+  .textmedia__media__video
+    video(loop, muted, autoplay, playsinline, defaultmuted, poster=IMGIX_URL + video.fallback + '?w=600&h=600&q=55&fit=crop&dpr=1&auto=format')
+      source(src=video.source, type='video/mp4')
 
   | #{video.link}
 
@@ -155,7 +157,7 @@ mixin textmedia(options)
       - var options = {};
       - options.video = {};
       - options.video.fallback = 'koraal.jpg';
-      - options.video.source = 'http://techslides.com/demos/sample-videos/small.mp4';
+      - options.video.source = 'https://www.w3schools.com/html/mov_bbb.mp4';
       - options.eyebrow = 'techniek';
       - options.title = 'Hoe en wat ga je allemaal leren?';
       - options.buttons = [];

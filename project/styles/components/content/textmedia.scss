@@ -27,6 +27,24 @@
   }
 }
 
+.textmedia__media__video {
+    position: relative;
+    width: 560px;
+    height: 560px;
+    overflow: hidden;
+  
+  video {
+    position: relative; 
+    right: 0; 
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+    width: auto; 
+    height: auto; 
+    z-index: -100;
+    }
+  }
+
 
 /**
  * Text
@@ -59,8 +77,10 @@
 }
 
 .textmedia__text__buttons {
-
+  display: flex;
+  flex-direction: row;
+  margin-top: 40px;
 }
 .textmedia__text__buttons__button {
-
+  margin-right: 16px;
 }
