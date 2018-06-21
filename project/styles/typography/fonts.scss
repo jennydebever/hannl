@@ -99,6 +99,19 @@
   }
 }
 
+@mixin title1 {
+  font-family: 'Avenir Next LT W01 Bold';
+  font-size: 28px;
+
+  @include breakpoint($bp-m) {
+    font-size: 38px;
+  }
+
+  @include breakpoint($bp-l) {
+    font-size: 48px;
+  }
+}
+
 @mixin eyebrow() {
   font-family: 'Avenir Next LT W01 Bold';
   font-size: 15px;
