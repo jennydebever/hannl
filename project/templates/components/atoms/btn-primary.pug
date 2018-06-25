@@ -1,0 +1,33 @@
+//- @pugdoc
+  name: Knop (Primair)
+  examples:
+    - |
+      .demo-theme-white
+        +btn-primary('Bereken je reistijd', 'https://www.han.nl')
+        +btn-primary('Bereken je reistijd', 'https://www.han.nl', 'arrow')
+        +btn-primary('Bereken je reistijd', 'https://www.han.nl', 'clock-line')
+    - |
+      .demo-theme-red
+        +btn-primary('Bereken je reistijd', 'https://www.han.nl')
+        +btn-primary('Bereken je reistijd', 'https://www.han.nl', 'arrow')
+        +btn-primary('Bereken je reistijd', 'https://www.han.nl', 'clock-line')
+    - |
+      .demo-theme-black
+        +btn-primary('Bereken je reistijd', 'https://www.han.nl')
+        +btn-primary('Bereken je reistijd', 'https://www.han.nl', 'arrow')
+        +btn-primary('Bereken je reistijd', 'https://www.han.nl', 'clock-line')
+
+mixin btn-primary(label, href, icon)
+  include ../../icons/_icon
+
+  a.btn-primary(href=href)
+    
+    //- icon before
+    if icon && icon !== 'arrow'
+      +icon(id=icon)
+
+    span.btn-primary__label #{label}
+
+    //- icon after
+    if icon && icon === 'arrow'
+      +icon(id=icon)

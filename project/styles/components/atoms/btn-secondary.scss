@@ -1,0 +1,25 @@
+.btn-secondary {
+  @include btn-primary;
+  background-color: $white;
+  border: 2px solid $grey2;
+  color: $black;
+
+  &:hover,
+  &:focus {
+    background-color: $hanred;
+    border-color: $hanred;
+    color: $white;
+
+    .icon {
+      fill: $white;
+    }
+  }
+
+  .icon {
+    fill: $black;
+  }
+}
+
+.btn-secondary__label {
+  @include btn-primary-label;
+}

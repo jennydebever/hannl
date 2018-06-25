@@ -14,8 +14,12 @@
 @import './typography/richtext';
 
 // atoms
-@import './components/atoms/button';
+@import './components/atoms/btn-primary';
+@import './components/atoms/btn-secondary';
 
 // components
 @import './components/section';
 @import './components/hero/hero';
+
+// demo
+@import './demo/theme';

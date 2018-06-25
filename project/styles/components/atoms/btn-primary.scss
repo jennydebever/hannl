@@ -1,0 +1,129 @@
+@mixin btn-primary {
+  background-color: $hanred;
+  border: 2px solid $hanred;
+  text-decoration: none;
+  display: inline-flex;
+  vertical-align: top;
+  padding: 0 14px;
+  height: 48px;
+  align-items: center;
+  color: $white;
+  transition: background-color .15s, border-color .15s, color .15s;
+
+  @include breakpoint($bp-m) {
+    padding: 0 18px;
+    height: 56px;
+  }
+
+  @include breakpoint($bp-l) {
+    padding: 0 24px;
+    height: 64px;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: $deep-red;
+    border: 2px solid $deep-red;
+  }
+
+  .icon {
+    fill: $white;
+    transition: fill .15s;
+
+    &:first-child {
+      margin-right: 12px;
+      max-width: 24px;
+    }
+
+    &:last-child {
+      margin-left: 8px;
+      max-width: 16px;
+    }
+  }
+}
+
+.btn-primary {
+  @include btn-primary;
+}
+
+
+/**
+ * Variant for red background
+ * use this in specific components like
+ *
+ * .my-red-component {
+ *   .btn-primary {
+ *     @include btn-primary-on-red;
+ *   }
+ * }
+ */
+
+@mixin btn-primary-on-red {
+  background-color: $white;
+  border: 2px solid $white;
+  color: $black;
+
+  &:hover,
+  &:focus {
+    color: $white;
+    background-color: $deep-red;
+    border: 2px solid $deep-red;
+
+    .icon {
+      fill: $white;
+    }
+  }
+
+  .icon {
+    fill: $black;
+  }
+}
+
+
+/**
+ * Variant for black background
+ * use this in specific components like
+ *
+ * .my-black-component {
+ *   .btn-primary {
+ *     @include btn-primary-on-black;
+ *   }
+ * }
+ */
+
+@mixin btn-primary-on-black {
+  background-color: $white;
+  border: 2px solid $white;
+  color: $black;
+
+  &:hover,
+  &:focus {
+    background-color: $mint-green;
+    border: 2px solid $mint-green;
+  }
+
+  .icon {
+    fill: $black;
+  }
+}
+
+
+/**
+ * Label
+ */
+
+@mixin btn-primary-label {
+  font-size: 14px;
+
+  @include breakpoint($bp-m) {
+    font-size: 15px;
+  }
+
+  @include breakpoint($bp-l) {
+    font-size: 16px;
+  }
+}
+
+.btn-primary__label {
+  @include btn-primary-label;
+}
