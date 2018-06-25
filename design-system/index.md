@@ -1,4 +1,6 @@
 # HAN.nl Design System
+
+!{text-media}
 !{button-primary}
 !{button-secondary}
 !{button-transparent}
