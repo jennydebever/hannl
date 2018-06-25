@@ -14,7 +14,7 @@
 
 .demo-typo__eyebrow {
   @include eyebrow;
-  @include margin-bottom-small;
+  @include margin-bottom-standard;
 }
 
 h2.demo-typo__title {
@@ -32,7 +32,30 @@ h2.demo-typo__title {
   @include margin-bottom-standard;
 }
 
-.demo-typo__paragraph{
+.demo-typo__content{
   @include base;
   @include margin-bottom-large;
+}
+
+.demo-typo__cards{
+  display: flex;
+}
+
+.demo-typo__cards__card {
+  @include breakpoint($bp-s) {
+    @include grid-item(12);
+  }
+
+  @include breakpoint($bp-m) {
+    @include grid-item(6);
+  }
+
+}
+
+.demo-typo__cards__card__title{
+  @include h3;
+}
+
+.demo-typo__cards__card__content{
+  @include base;
 }
