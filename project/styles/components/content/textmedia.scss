@@ -1,7 +1,6 @@
 .textmedia {
   @include breakpoint($bp-s) {
     @include grid;
-    display: flex;
   }
 }
 
@@ -53,27 +52,34 @@
 .textmedia__text {
   @include breakpoint($bp-s) {
     @include grid-item(6);
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
   }
 }
 
 .textmedia__text__eyebrow {
-  font-size: 18px;
-  color: #919191;
-  text-transform: uppercase;
+  @include eyebrow();
 }
 
 .textmedia__text__title {
-  font-size: 34px;
-  font-weight: bold;
-  text-transform: uppercase;
+  @include h2();
+  margin: 21px 0 17px;
 }
 
 .textmedia__text__body {
-  font-size: 16px;
-  line-height: 27px;
+  @include base();
+
+  ul {
+    margin-top: 13px;
+
+    li {
+      margin-bottom: 11px;
+
+      &::before {
+        content: "• ";
+        color: #e50056;
+        margin-right: 7px;
+      }
+    }
+  }
 }
 
 .textmedia__text__buttons {
