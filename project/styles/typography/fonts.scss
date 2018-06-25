@@ -36,6 +36,7 @@
 @mixin h1() {
   font-family: 'Avenir Next LT W01 Bold';
   font-size: 28px;
+  text-transform: uppercase;
 
   @include breakpoint($bp-m) {
     font-size: 38px;
@@ -49,6 +50,7 @@
 @mixin h2() {
   font-family: 'AvenirNextLTW01-BoldCn';
   font-size: 24px;
+  text-transform: uppercase;
 
   @include breakpoint($bp-m) {
     font-size: 29px;
@@ -62,6 +64,7 @@
 @mixin h3() {
   font-family: 'AvenirNextLTW01-BoldCn';
   font-size: 20px;
+  text-transform: uppercase;
 
   @include breakpoint($bp-m) {
     font-size: 22px;
@@ -75,6 +78,7 @@
 @mixin h4() {
   font-family: 'Avenir Next LT W01 Bold';
   font-size: 18px;
+  text-transform: uppercase;
 
 
   @include breakpoint($bp-m) {
@@ -89,6 +93,7 @@
 @mixin h5() {
   font-family: 'Avenir Next LT W01 Bold';
   font-size: 15px;
+  text-transform: uppercase;
 
   @include breakpoint($bp-m) {
     font-size: 18px;
@@ -100,16 +105,28 @@
 }
 
 @mixin title1 {
-  font-family: 'Avenir Next LT W01 Bold';
-  font-size: 28px;
+  @include h1;
+  text-transform: none;
+}
 
-  @include breakpoint($bp-m) {
-    font-size: 38px;
-  }
+@mixin title2 {
+  @include h2;
+  text-transform: none;
+}
 
-  @include breakpoint($bp-l) {
-    font-size: 48px;
-  }
+@mixin title3 {
+  @include h3;
+  text-transform: none;
+}
+
+@mixin title4 {
+  @include h4;
+  text-transform: none;
+}
+
+@mixin title5 {
+  @include h5;
+  text-transform: none;
 }
 
 @mixin eyebrow() {

@@ -1,2 +1,3 @@
 # Typography
 !{typo}
+!{Typography Demo}

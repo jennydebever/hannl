@@ -1,0 +1,25 @@
+.demo-typo {
+  @include grid;
+  display: block;
+}
+
+.demo-typo__eyebrow {
+  @include eyebrow;
+}
+
+h2.demo-typo__title {
+  @include h2;
+  
+  &::after {
+    color: $hanred;
+    content: '_';
+  }
+}
+
+.demo-typo__intro {
+  @include lead;
+}
+
+.demo-typo__paragraph{
+  @include base;
+}
