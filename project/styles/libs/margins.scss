@@ -1,0 +1,11 @@
+@mixin margin-bottom-standard {
+  margin-bottom: 1em;
+}
+
+@mixin margin-bottom-small {
+  margin-bottom: 0.5em;
+}
+
+@mixin margin-bottom-large {
+  margin-bottom: 2em;
+}

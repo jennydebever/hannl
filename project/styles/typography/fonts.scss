@@ -23,6 +23,7 @@
   font-family: 'Avenir Next LT W01 Bold';
   font-size: 28px;
   color: #ffffff;
+  text-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
 
   @include breakpoint($bp-m) {
     font-size: 45px;
@@ -130,7 +131,7 @@
 }
 
 @mixin eyebrow() {
-  font-family: 'Avenir Next LT W01 Bold';
+  font-family: 'AvenirNextLTW01-BoldCn';
   font-size: 15px;
   color: #a9a9a9;
   text-transform: uppercase;

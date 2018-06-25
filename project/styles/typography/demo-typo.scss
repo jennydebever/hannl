@@ -3,12 +3,23 @@
   display: block;
 }
 
+.demo-typo__bigtitle {
+  @include big__title;
+  @include margin-bottom-small;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 4px rgba(0,0,0,.2);
+  //background-color: #000;
+  //opacity: 0.1;
+}
+
 .demo-typo__eyebrow {
   @include eyebrow;
+  @include margin-bottom-small;
 }
 
 h2.demo-typo__title {
   @include h2;
+  @include margin-bottom-small;
   
   &::after {
     color: $hanred;
@@ -18,8 +29,10 @@ h2.demo-typo__title {
 
 .demo-typo__intro {
   @include lead;
+  @include margin-bottom-standard;
 }
 
 .demo-typo__paragraph{
   @include base;
+  @include margin-bottom-large;
 }
