@@ -1,7 +1,7 @@
 @mixin btn-primary {
   @include focusable($black);
   background-color: $hanred;
-  border: 3px solid $hanred;
+  border: 2px solid $hanred;
   text-decoration: none;
   display: inline-flex;
   vertical-align: top;
@@ -31,6 +31,8 @@
   .icon {
     fill: currentColor;
     transition: fill .1s;
+    margin-top: 8px;
+    margin-bottom: 8px;
 
     &:first-child {
       margin-right: 12px;
