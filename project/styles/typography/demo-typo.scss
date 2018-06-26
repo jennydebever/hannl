@@ -21,7 +21,7 @@ h2.demo-typo__title {
   @include margin-bottom-small;
   
   @include breakpoint($bp-m) {
-    &::after {
+    &:after {
       color: $hanred;
       content: '_';
     }
