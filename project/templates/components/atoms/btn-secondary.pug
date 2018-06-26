@@ -5,29 +5,34 @@
       .demo-theme-white
         +btn-secondary('Meld je aan', 'https://www.han.nl')
         +btn-secondary('Meld je aan', 'https://www.han.nl', 'arrow')
+        +btn-secondary('Meld je aan', 'https://www.han.nl', 'external')
         +btn-secondary('Meld je aan', 'https://www.han.nl', 'clock-line')
     - |
       .demo-theme-red
         +btn-secondary('Meld je aan', 'https://www.han.nl')
         +btn-secondary('Meld je aan', 'https://www.han.nl', 'arrow')
+        +btn-secondary('Meld je aan', 'https://www.han.nl', 'external')
         +btn-secondary('Meld je aan', 'https://www.han.nl', 'clock-line')
     - |
       .demo-theme-black
         +btn-secondary('Meld je aan', 'https://www.han.nl')
         +btn-secondary('Meld je aan', 'https://www.han.nl', 'arrow')
+        +btn-secondary('Meld je aan', 'https://www.han.nl', 'external')
         +btn-secondary('Meld je aan', 'https://www.han.nl', 'clock-line')
 
 mixin btn-secondary(label, href, icon)
   include ../../icons/_icon
 
   a.btn-secondary(href=href)
+
+    - var iconsAfter = ['arrow', 'external']
     
     //- icon before
-    if icon && icon !== 'arrow'
+    if icon && iconsAfter.indexOf(icon) === -1
       +icon(id=icon)
 
     span.btn-secondary__label #{label}
 
     //- icon after
-    if icon && icon === 'arrow'
+    if icon && iconsAfter.indexOf(icon) > -1
       +icon(id=icon)

@@ -1,0 +1,25 @@
+//- @pugdoc
+  name: Knop (Strong link)
+  examples:
+    - |
+      .demo-theme-white
+        +strong-link('Gebruik het contactformulier', '/')
+        +strong-link('Gebruik het contactformulier', 'https://www.han.nl')
+    - |
+      .demo-theme-red
+        +strong-link('Gebruik het contactformulier', '/')
+        +strong-link('Gebruik het contactformulier', 'https://www.han.nl')
+    - |
+      .demo-theme-black
+        +strong-link('Gebruik het contactformulier', '/')
+        +strong-link('Gebruik het contactformulier', 'https://www.han.nl')
+
+mixin strong-link(label, href)
+  include ../../icons/_icon
+
+  a.strong-link(href=href)
+    span.strong-link__label #{label}
+    if href.indexOf('http') > -1
+      +icon#external
+    else
+      +icon#arrow

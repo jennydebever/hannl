@@ -2,7 +2,8 @@
   padding: 10px 10px 0 10px;
 
   .btn-primary,
-  .btn-secondary {
+  .btn-secondary,
+  .strong-link {
     margin-right: 10px;
     margin-bottom: 10px;
   }
@@ -24,6 +25,10 @@
   .btn-secondary {
     @include btn-secondary-on-red;
   }
+
+  .strong-link {
+    @include strong-link-on-red;
+  }
 }
 
 .demo-theme-black {
@@ -36,5 +41,9 @@
 
   .btn-secondary {
     @include btn-secondary-on-black;
+  }
+
+  .strong-link {
+    @include strong-link-on-black;
   }
 }
