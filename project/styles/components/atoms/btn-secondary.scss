@@ -1,7 +1,7 @@
 .btn-secondary {
   @include btn-primary;
   background-color: $white;
-  border: 2px solid $grey2;
+  border-color: $grey2;
   color: $black;
 
   &:hover,
@@ -19,6 +19,76 @@
     fill: $black;
   }
 }
+
+/**
+ * Variant for red background
+ * use this in specific components like
+ *
+ * .my-red-component {
+ *   .btn-primary {
+ *     @include btn-secondary-on-red;
+ *   }
+ * }
+ */
+
+@mixin btn-secondary-on-red {
+  background-color: $hanred;
+  border-color: $white;
+  color: $white;
+
+  &:hover,
+  &:focus {
+    color: $black;
+    background-color: $white;
+    border-color: $white;
+
+    .icon {
+      fill: $black;
+    }
+  }
+
+  .icon {
+    fill: $white;
+  }
+}
+
+
+/**
+ * Variant for black background
+ * use this in specific components like
+ *
+ * .my-black-component {
+ *   .btn-primary {
+ *     @include btn-secondary-on-black;
+ *   }
+ * }
+ */
+
+@mixin btn-secondary-on-black {
+  background-color: $black;
+  border-color: $white;
+  color: $white;
+
+  &:hover,
+  &:focus {
+    background-color: $mint-green;
+    border-color: $mint-green;
+    color: $black;
+
+    .icon {
+      fill: $black;
+    }
+  }
+
+  .icon {
+    fill: $white;
+  }
+}
+
+
+/**
+ * Label
+ */
 
 .btn-secondary__label {
   @include btn-primary-label;

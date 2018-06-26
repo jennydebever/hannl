@@ -16,19 +16,25 @@
 .demo-theme-red {
   @include demo-theme;
   background-color: $hanred;
-  
-  .btn-primary,
-  .btn-secondary {
+
+  .btn-primary {
     @include btn-primary-on-red;
+  }
+
+  .btn-secondary {
+    @include btn-secondary-on-red;
   }
 }
 
 .demo-theme-black {
   @include demo-theme;
   background-color: $black;
-  
-  .btn-primary,
-  .btn-secondary {
+
+  .btn-primary {
     @include btn-primary-on-black;
+  }
+
+  .btn-secondary {
+    @include btn-secondary-on-black;
   }
 }
