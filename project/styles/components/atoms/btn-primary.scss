@@ -6,19 +6,20 @@
   display: inline-flex;
   vertical-align: top;
   padding: 0 14px;
-  height: 48px;
+  min-height: 48px;
   align-items: center;
   color: $white;
+  line-height: 1.4;
   transition: background-color .1s, border-color .1s, color .1s;
 
   @include breakpoint($bp-m) {
     padding: 0 18px;
-    height: 56px;
+    min-height: 56px;
   }
 
   @include breakpoint($bp-l) {
     padding: 0 24px;
-    height: 64px;
+    min-height: 64px;
   }
 
   &:hover,
@@ -34,11 +35,13 @@
     &:first-child {
       margin-right: 12px;
       max-width: 24px;
+      max-height: 24px;
     }
 
     &:last-child {
       margin-left: 8px;
       max-width: 16px;
+      max-height: 16px;
     }
   }
 }
@@ -105,6 +108,8 @@
 
 @mixin btn-primary-label {
   font-size: 14px;
+  padding: 8px 0;
+  display: block;
 
   @include breakpoint($bp-m) {
     font-size: 15px;
