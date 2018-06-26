@@ -32,4 +32,4 @@ mixin srcset(image, sizes)
 
 mixin srcset-source(image, params, sizesAttr, mediaAttr)
   include ./querystring
-  source(srcset='https://hannl-eightmedia.imgix.net/' + image + '?' + querystring(params) + ' ' + (params.w * params.dpr) + 'w', sizes=sizesAttr, media=mediaAttr)
+  source(srcset=IMGIX_URL + image + '?' + querystring(params) + ' ' + (params.w * params.dpr) + 'w', sizes=sizesAttr, media=mediaAttr)
