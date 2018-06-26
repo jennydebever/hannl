@@ -24,7 +24,7 @@
 mixin btn-primary(label, href, icon)
   include ../../icons/_icon
 
-  a.btn-primary(href=href)
+  a.btn-primary(href=href)&attributes(attributes)
 
     - var iconsAfter = ['arrow', 'external']
     
