@@ -1,18 +1,156 @@
-// sass-lint:disable no-duplicate-properties
-@font-face {
-  font-family: 'AvenirNextLTW01-Medium';
-  src: url(' /lib/fonts/1a7c9181-cd24-4943-a9d9-d033189524e0.eot?#iefix');
-  src: url('/lib/fonts/1a7c9181-cd24-4943-a9d9-d033189524e0.eot?#iefix') format('eot'), url('/lib/fonts/627fbb5a-3bae-4cd9-b617-2f923e29d55e.woff2') format('woff2'), url('/lib/fonts/f26faddb-86cc-4477-a253-1e1287684336.woff') format('woff'), url('/lib/fonts/63a74598-733c-4d0c-bd91-b01bffcd6e69.ttf') format('truetype'), url('/lib/fonts/a89d6ad1-a04f-4a8f-b140-e55478dbea80.svg#a89d6ad1-a04f-4a8f-b140-e55478dbea80') format('svg');
+@mixin big__title() {
+  font-family: $bold;
+  font-size: 28px;
+  color: #ffffff;
+  text-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+
+  @include breakpoint($bp-m) {
+    font-size: 45px;
+  }
+
+  @include breakpoint($bp-l) {
+    font-size: 61px;
+  }
 }
 
-@font-face {
-  font-family: 'Avenir Next LT W01 Bold';
-  src: url('/lib/fonts/dccb10af-07a2-404c-bfc7-7750e2716bc1.eot?#iefix');
-  src: url('/lib/fonts/dccb10af-07a2-404c-bfc7-7750e2716bc1.eot?#iefix') format('eot'), url('/lib/fonts/14c73713-e4df-4dba-933b-057feeac8dd1.woff2') format('woff2'), url('/lib/fonts/b8e906a1-f5e8-4bf1-8e80-82c646ca4d5f.woff') format('woff'), url('/lib/fonts/890bd988-5306-43ff-bd4b-922bc5ebdeb4.ttf') format('truetype'), url('/lib/fonts/ed104d8c-7f39-4e8b-90a9-4076be06b857.svg#ed104d8c-7f39-4e8b-90a9-4076be06b857') format('svg');
+@mixin h1() {
+  font-family: $bold;
+  font-size: 28px;
+  text-transform: uppercase;
+
+  @include breakpoint($bp-m) {
+    font-size: 38px;
+  }
+
+  @include breakpoint($bp-l) {
+    font-size: 48px;
+  }
 }
 
-@font-face {
-  font-family: 'AvenirNextLTW01-BoldCn';
-  src: url('/lib/fonts/07690b8a-c348-4c53-8de3-59f7cfef9ee8.eot?#iefix');
-  src: url('/lib/fonts/07690b8a-c348-4c53-8de3-59f7cfef9ee8.eot?#iefix') format('eot'), url('/lib/fonts/9f6106aa-36e0-4cfb-8cda-c3354eab2461.woff2') format('woff2'), url('/lib/fonts/ff039068-be8b-415c-b1a9-24eedee1c3ab.woff') format('woff'), url('/lib/fonts/cdd2cecb-bd0e-41e5-9ecd-ef60f52a35be.ttf') format('truetype'), url('/lib/fonts/390c08bc-8d21-4af3-95a1-a73c21f189cd.svg#390c08bc-8d21-4af3-95a1-a73c21f189cd') format('svg');
+@mixin h2() {
+  font-family: $bold-condensed;
+  font-size: 24px;
+  text-transform: uppercase;
+
+  @include breakpoint($bp-m) {
+    font-size: 29px;
+  }
+
+  @include breakpoint($bp-l) {
+    font-size: 34px;
+  }
+}
+
+@mixin h3() {
+  font-family: $bold-condensed;
+  font-size: 20px;
+  text-transform: uppercase;
+
+  @include breakpoint($bp-m) {
+    font-size: 22px;
+  }
+
+  @include breakpoint($bp-l) {
+    font-size: 24px;
+  }
+}
+
+@mixin h4() {
+  font-family: $bold;
+  font-size: 18px;
+  text-transform: uppercase;
+
+
+  @include breakpoint($bp-m) {
+    font-size: 20px;
+  }
+
+  @include breakpoint($bp-l) {
+    font-size: 21px;
+  }
+}
+
+@mixin h5() {
+  font-family: $bold;
+  font-size: 15px;
+  text-transform: uppercase;
+
+  @include breakpoint($bp-m) {
+    font-size: 18px;
+  }
+
+  @include breakpoint($bp-l) {
+    font-size: 19px;
+  }
+}
+
+@mixin title1 {
+  @include h1;
+  text-transform: none;
+}
+
+@mixin title2 {
+  @include h2;
+  text-transform: none;
+}
+
+@mixin title3 {
+  @include h3;
+  text-transform: none;
+}
+
+@mixin title4 {
+  @include h4;
+  text-transform: none;
+}
+
+@mixin title5 {
+  @include h5;
+  text-transform: none;
+}
+
+@mixin eyebrow() {
+  font-family: $bold-condensed;
+  font-size: 15px;
+  color: #a9a9a9;
+  text-transform: uppercase;
+
+
+  @include breakpoint($bp-m) {
+    font-size: 17px;
+  }
+
+  @include breakpoint($bp-l) {
+    font-size: 18px;
+  }
+}
+
+@mixin lead() {
+  font-family: $medium;
+  font-size: 18px;
+  line-height: 29px;
+
+
+  @include breakpoint($bp-m) {
+    font-size: 22px;
+    line-height: 33px;
+  }
+}
+
+// Also used for ul/ol
+@mixin p() {
+  font-family: $medium;
+  font-size: 16px;
+  line-height: 25px;
+
+  @include breakpoint($bp-m) {
+    font-size: 18px;
+    line-height: 31px;
+  }
+}
+
+@mixin base() {
+  font-family: $medium;
+  font-size: 16px;
+  line-height: 27px;
 }

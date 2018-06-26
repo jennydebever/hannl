@@ -1,5 +1,6 @@
 @mixin btn-primary {
   @include focusable($black);
+  font-family: $demi;
   background-color: $hanred;
   border: 2px solid $hanred;
   text-decoration: none;
