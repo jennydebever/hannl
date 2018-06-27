@@ -1,3 +1,4 @@
+const pug = require('pug');
 const gulp = require('gulp');
 const paths = require('../paths');
 const pugDoc = require('pug-doc');
@@ -52,6 +53,7 @@ const config = {
     <link rel="shortcut icon" href="http://han.nl/favicon.ico">
   `,
   componentHeadHtml: `
+    ${pug.compileFile(paths.SRC.templates + 'icons/_symbols.pug')()}
     <link rel='shortcut icon' href='http://han.nl/favicon.ico' />
     <link rel='stylesheet' href='/lib/css/theme.css' />
 

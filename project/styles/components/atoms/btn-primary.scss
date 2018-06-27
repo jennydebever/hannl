@@ -1,0 +1,128 @@
+@mixin btn-primary {
+  @include focusable($black);
+  font-family: $demi;
+  background-color: $hanred;
+  border: 2px solid $hanred;
+  text-decoration: none;
+  display: inline-flex;
+  vertical-align: top;
+  padding: 0 14px;
+  min-height: 48px;
+  align-items: center;
+  color: $white;
+  line-height: 1.4;
+  transition: background-color .1s, border-color .1s, color .1s;
+
+  @include breakpoint($bp-m) {
+    padding: 0 18px;
+    min-height: 56px;
+  }
+
+  @include breakpoint($bp-l) {
+    padding: 0 24px;
+    min-height: 64px;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: $deep-red;
+    border-color: $deep-red;
+  }
+
+  .icon {
+    fill: currentColor;
+    transition: fill .1s;
+    margin-top: 8px;
+    margin-bottom: 8px;
+
+    &:first-child {
+      margin-right: 12px;
+      max-width: 24px;
+      max-height: 24px;
+    }
+
+    &:last-child {
+      margin-left: 8px;
+      max-width: 16px;
+      max-height: 16px;
+    }
+  }
+}
+
+.btn-primary {
+  @include btn-primary;
+}
+
+
+/**
+ * Variant for red background
+ * use this in specific components like
+ *
+ * .my-red-component {
+ *   .btn-primary {
+ *     @include btn-primary-on-red;
+ *   }
+ * }
+ */
+
+@mixin btn-primary-on-red {
+  @include focusable($white);
+  background-color: $white;
+  border-color: $white;
+  color: $black;
+
+  &:hover,
+  &:focus {
+    color: $white;
+    background-color: $deep-red;
+    border-color: $deep-red;
+  }
+}
+
+
+/**
+ * Variant for black background
+ * use this in specific components like
+ *
+ * .my-black-component {
+ *   .btn-primary {
+ *     @include btn-primary-on-black;
+ *   }
+ * }
+ */
+
+@mixin btn-primary-on-black {
+  @include focusable($white);
+  background-color: $white;
+  border-color: $white;
+  color: $black;
+
+  &:hover,
+  &:focus {
+    background-color: $mint-green;
+    border-color: $mint-green;
+  }
+}
+
+
+/**
+ * Label
+ */
+
+@mixin btn-primary-label {
+  font-size: 14px;
+  padding: 8px 0;
+  display: block;
+
+  @include breakpoint($bp-m) {
+    font-size: 15px;
+  }
+
+  @include breakpoint($bp-l) {
+    font-size: 16px;
+  }
+}
+
+.btn-primary__label {
+  @include btn-primary-label;
+}
