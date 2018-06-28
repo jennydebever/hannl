@@ -4,7 +4,7 @@
 }
 
 .demo-typo__bigtitle {
-  @include big__title;
+  @include bigtitle;
   @include margin-bottom-small;
 
   text-transform: uppercase;
@@ -19,13 +19,7 @@
 h2.demo-typo__title {
   @include h2;
   @include margin-bottom-small;
-  
-  @include breakpoint($bp-m) {
-    &:after {
-      color: $hanred;
-      content: '_';
-    }
-  }
+  @include underscore;
 }
 
 .demo-typo__intro {
