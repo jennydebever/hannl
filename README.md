@@ -21,12 +21,7 @@ In demo-typo.scss is te zien hoe de mixins ingezet kunnen worden in een componen
  h2.demo-typo__title {
    @include h2;
    @include margin-bottom-small;
-   @include breakpoint($bp-m) {
-     &:after {
-       color: $hanred;
-       content: '_';
-     }
-   }
+   @include underscore
  }
 ```
 
