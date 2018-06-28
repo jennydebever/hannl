@@ -1,4 +1,4 @@
 window.HAN = {};
 
-console.log('app.js');
+require('./components/content/collapsible')
 require('./utils/grid');
