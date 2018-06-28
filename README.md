@@ -17,7 +17,7 @@ In fonts.scss zijn de mixins van de fonts gedefinieerd
 
 In demo-typo.scss is te zien hoe de mixins ingezet kunnen worden in een component. Elk element krijgt een class (h1.demo) en deze krijgt z'n eigen opmaak. De underscore achter de titel is optioneel, soms wordt deze wel ingezet en soms niet. In overleg met designers geen standaard van gemaakt.
 
-'''css
+```css
  h2.demo-typo__title {
    @include h2;
    @include margin-bottom-small;
@@ -28,6 +28,6 @@ In demo-typo.scss is te zien hoe de mixins ingezet kunnen worden in een componen
      }
    }
  }
-'''
+```
 
 Ook is in libs margins.scss aangemaakt met daarin de standaard margins. Is nu nog vrij basaal, maar zal waarschijnlijk nog veel uitgebreider worden.
