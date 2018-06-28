@@ -1,0 +1,86 @@
+.strong-link {
+  @include btn-primary;
+  color: $hanred;
+  background-color: transparent;
+  border: 0;
+
+  .icon-arrow {
+    fill: currentColor;
+  }
+
+  &:hover,
+  &:focus {
+    color: $deep-red;
+    background-color: transparent;
+  }
+}
+
+/**
+ * Variant for red background
+ * use this in specific components like
+ *
+ * .my-red-component {
+ *   .strong-link {
+ *     @include strong-link-on-red;
+ *   }
+ * }
+ */
+
+@mixin strong-link-on-red {
+  @include focusable($white);
+  color: $white;
+
+  &:hover,
+  &:focus {
+    color: $white;
+  }
+}
+
+/**
+ * Variant for black background
+ * use this in specific components like
+ *
+ * .my-black-component {
+ *   .strong-link {
+ *     @include strong-link-on-black;
+ *   }
+ * }
+ */
+
+@mixin strong-link-on-black {
+  @include focusable($white);
+  color: $mint-green;
+
+  &:hover,
+  &:focus {
+    color: $mint-green;
+  }
+}
+
+/**
+ * Label
+ */
+
+.strong-link__label {
+  @include btn-primary-label;
+  position: relative;
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 4px;
+    right: 0;
+    height: 2px;
+    background-color: transparent;
+    transition: background-color .1s;
+  }
+
+  // sass-lint:disable-block force-pseudo-nesting
+  .strong-link:hover & {
+    &::after {
+      background-color: currentColor;
+    }
+  }
+}
