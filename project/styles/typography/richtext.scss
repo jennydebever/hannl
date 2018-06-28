@@ -41,12 +41,16 @@
     }
   }
 
-  ul {
+  ul li {
     &::before {
       content: "• ";
       color: $hanred;
       margin-right: 7px;
     }
+  }
+
+  ol {
+    margin-left: 18px;
   }
 
   table {
@@ -71,4 +75,4 @@
   p {
     @include base;
   }
-} 
+}
