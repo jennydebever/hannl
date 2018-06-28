@@ -1,8 +1,8 @@
 # Components
 ## Naamgeving
 Voor de namen van de componenten zoeken we naar metaforen en persoonlijkheid en willen we dat het het doel van het component communiceert. Zo is het component makkelijker te onthouden. 
-Naast de naam van een component werken we ook met een schaal om  onderscheid te kunnen maken tussen componenten die veel dezelfde (visuele) eigenschappen in zich dragen.
-We werken met twee verschillende schalen om die visuele eigenschappen van de componenten uit te kunnen drukken: een Visual Loudness Scale en een Visual Wideness Scale. 
+Naast de naam van een component werken we ook met een schaal om  onderscheid te kunnen maken tussen componenten die veel dezelfde  eigenschappen in zich dragen zoals call to actions.
+We werken met twee verschillende schalen om de visuele eigenschappen van de componenten uit te kunnen drukken: een Visual Loudness Scale en een Visual Wideness Scale. 
 ### Visual Loudness Scale 
 Drukt uit hoeveel visueel lawaai een component maakt. 
 #### De schaal
@@ -27,6 +27,7 @@ Drukt uit hoeveel visuele ruimte een component inneemt.
 ## Accordion
 ### Contents
 !{accordion}
+![accordion](https://user-images.githubusercontent.com/9093958/42027419-f40031ce-7ac9-11e8-97bb-bb9bbe6f1977.jpg)
 
 ## Bio and testimonial
 ### Contents
@@ -71,6 +72,7 @@ Drukt uit hoeveel visuele ruimte een component inneemt.
 ### Text-List
 #### Contents
 !{double-column-text-list}
+![double-column-text-list](https://user-images.githubusercontent.com/9093958/42025827-dd73528c-7ac5-11e8-9482-9e0ec0915960.jpg)
 !{triple-column-text-list}
 
 ### Link-List
@@ -81,7 +83,7 @@ Drukt uit hoeveel visuele ruimte een component inneemt.
 ### Image-List
 #### Contents
 !{single-column-image-list}
-!{single-column-text-list}
+!{single-column-image-list}
 
 ## Maps
 ### Contents
@@ -102,10 +104,17 @@ Drukt uit hoeveel visuele ruimte een component inneemt.
 !{table}
 !{table-interactive}
 
+## Text
+!{double-column-text}
+![double-column-text](https://user-images.githubusercontent.com/9093958/42026419-555f5740-7ac7-11e8-9a6e-31f8fecb7495.jpg)
+
 ## Text and Media
 ### Contents
+!{tam-skinny}
+![text-and-media-skinny](https://user-images.githubusercontent.com/9093958/42026182-c139e6de-7ac6-11e8-82f6-7daa1a83c016.jpg)
+![text-and-media-skinny-buttons](https://user-images.githubusercontent.com/9093958/42026197-c917b930-7ac6-11e8-8c9a-433441174c22.jpg)
 !{tam-regular}
-[InVision](https://invis.io/RDKNEZZB7QA#/301168870_--_C-_TAP_4-4_Alinea_-xl-)
+![text-and-media-regular](https://user-images.githubusercontent.com/9093958/42027770-c3db9758-7aca-11e8-8019-09d45b10cef5.jpg)
 !{tam-fat}
 !{tam-whale}
 !{tam-highlight}
