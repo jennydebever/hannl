@@ -6,7 +6,8 @@ https://han-devteam.netlify.com/
 
 ## Typography
 
-In fonts.scss zijn de mixins van de fonts gedefinieerd
+In /styles/libs/fonts.scss staan alle fonts. Niet gebruikte fonts zijn uitgecommentarieerd.
+In /styles/typography/fonts.scss zijn de mixins van de fonts gedefinieerd
 - bigtitle
 - h1 t/m h5
 - title1 t/m title4
@@ -36,4 +37,4 @@ In demo-typo.scss is te zien hoe de mixins ingezet kunnen worden in een componen
 }
 ```
 
-Ook is in libs margins.scss aangemaakt met daarin de standaard margins. Is nu nog vrij basaal, maar zal waarschijnlijk nog veel uitgebreider worden.
+In styles/typograpy/richtext.scss is de opmaak van de standaardtekst die uit de editor komt opgemaakt, zodat tekst altijd opmaak heeft. In styles/libs is margins.scss aangemaakt met daarin de standaard margins. Is nu nog vrij basaal, maar zal waarschijnlijk nog veel uitgebreider worden.
