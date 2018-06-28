@@ -44,6 +44,8 @@ mixin textmedia-video-button(video)
 
 mixin textmedia(options)
   include ../../utils/srcset
+  include ../atoms/btn-primary
+  include ../atoms/btn-secondary
 
   .textmedia
     .textmedia__media
@@ -73,10 +75,10 @@ mixin textmedia(options)
           each button in options.buttons
             .textmedia__text__buttons__button
               if button.type === 'primary'
-                a.btn-primary(href=button.href) #{button.label}
+                +btn-primary(button.label, button.href)
 
               else if button.type === 'secondary'
-                a.btn-secondary(href=button.href) #{button.label}
+                +btn-secondary(button.label, button.href)
 
 
 //- @pugdoc

@@ -1,0 +1,81 @@
+//- @pugdoc
+  name: Algemeen (Iconen)
+  description: Overzicht van alle gebruikte iconen.
+  attributes:
+    - {string} id - used for the xlink
+    - {string} class - class to be set on the svg
+  example: |
+    style.
+      .display-icon {
+        display: inline-block;
+        border: 1px solid #ccc;
+        background-color: whitesmoke;
+        padding: 14px;
+        text-align: center;
+        margin: 3px;
+        position: relative;
+        min-width: 54px;
+      }
+
+      .display-icon:hover {
+        z-index: 1;
+      }
+
+      [class^="icon-"] {
+        transition: transform .15s ease-out;
+      }
+
+      .display-icon:hover [class^="icon-"] {
+        transform: scale(1.1, 1.1);
+      }
+
+      .display-icon svg {
+        fill: #111;
+      }
+
+    +icon#arrow
+    +icon#chevron
+    +icon#download
+    +icon#external
+    +icon#clock-line
+
+
+    script.
+      var $$icons = document.querySelectorAll('div > [class^="icon-"]');
+      for (var i = 0, l = $$icons.length; i < l; ++i) {
+        var $icon = $$icons[i];
+
+        var $wrapper = document.createElement('span');
+        $wrapper.classList.add('display-icon');
+        $wrapper.setAttribute('title', $icon.firstChild.getAttribute('xlink:href'));
+
+        $icon.parentNode.insertBefore($wrapper, $icon);
+        $wrapper.appendChild($icon);
+      }
+
+
+mixin icon
+
+  //- viewbox dimensions go here [x, y, width, height]
+  - var VIEWBOXES = {};
+  - VIEWBOXES['arrow'] = [0, 0, 48, 40];
+  - VIEWBOXES['chevron'] = [0, 0, 26, 48];
+  - VIEWBOXES['external'] = [0, 0, 48, 44];
+  - VIEWBOXES['download'] = [0, 0, 36, 48];
+  - VIEWBOXES['clock-line'] = [0, 0, 48, 48];
+
+  //- get viewbox from  viewbox definitions file
+  - var viewBox;
+  if VIEWBOXES[attributes.id]
+    - viewBox = VIEWBOXES[attributes.id];
+  else
+    - console.error('ICON ERROR: viewbox not found for ' + attributes.id + ' - see /icons/_icon.pug');
+
+
+  //- add icon-class
+  - var cls = 'icon-' + attributes.id;
+  if attributes.class
+    - cls += ' ' + attributes.class
+
+  if attributes.id
+    | <svg class="icon #{cls}" aria-hidden="true" viewBox="#{viewBox.join(' ')}" width="#{viewBox[2]}" height="#{viewBox[3]}"><use xlink:href="##{attributes.id}"></use></svg>

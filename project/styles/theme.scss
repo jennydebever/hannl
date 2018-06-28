@@ -1,4 +1,5 @@
 @import './vars';
+@import './libs/fonts';
 
 // libs
 @import './libs/normalize';
@@ -8,15 +9,21 @@
 // common
 @import './common/body';
 @import './common/layout';
+@import './common/accessibility';
 
 // typography
 @import './typography/fonts';
 @import './typography/richtext';
 
 // atoms
-@import './components/atoms/button';
+@import './components/atoms/btn-primary';
+@import './components/atoms/btn-secondary';
+@import './components/atoms/strong-link';
 
 // components
 @import './components/section';
 @import './components/hero/hero';
 @import './components/content/textmedia';
+
+// demo
+@import './demo/theme';

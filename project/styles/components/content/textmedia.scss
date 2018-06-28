@@ -56,16 +56,16 @@
 }
 
 .textmedia__text__eyebrow {
-  @include eyebrow();
+  @include eyebrow;
 }
 
 .textmedia__text__title {
-  @include h2();
+  @include h2;
   margin: 21px 0 17px;
 }
 
 .textmedia__text__body {
-  @include base();
+  @include base;
 
   ul {
     margin-top: 13px;
