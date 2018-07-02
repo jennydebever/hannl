@@ -1,8 +1,8 @@
-@mixin big__title() {
-  font-family: $bold;
+@mixin bigtitle {
+  font-family: $bold-condensed;
   font-size: 28px;
-  color: #ffffff;
-  text-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  color: $white;
+  text-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2);
 
   @include breakpoint($bp-m) {
     font-size: 45px;
@@ -13,7 +13,7 @@
   }
 }
 
-@mixin h1() {
+@mixin h1 {
   font-family: $bold;
   font-size: 28px;
   text-transform: uppercase;
@@ -27,7 +27,7 @@
   }
 }
 
-@mixin h2() {
+@mixin h2 {
   font-family: $bold-condensed;
   font-size: 24px;
   text-transform: uppercase;
@@ -41,7 +41,7 @@
   }
 }
 
-@mixin h3() {
+@mixin h3 {
   font-family: $bold-condensed;
   font-size: 20px;
   text-transform: uppercase;
@@ -55,7 +55,7 @@
   }
 }
 
-@mixin h4() {
+@mixin h4 {
   font-family: $bold;
   font-size: 18px;
   text-transform: uppercase;
@@ -70,7 +70,7 @@
   }
 }
 
-@mixin h5() {
+@mixin h5 {
   font-family: $bold;
   font-size: 15px;
   text-transform: uppercase;
@@ -109,12 +109,11 @@
   text-transform: none;
 }
 
-@mixin eyebrow() {
+@mixin eyebrow {
   font-family: $bold-condensed;
   font-size: 15px;
-  color: #a9a9a9;
+  color: $grey3;
   text-transform: uppercase;
-
 
   @include breakpoint($bp-m) {
     font-size: 17px;
@@ -125,32 +124,62 @@
   }
 }
 
-@mixin lead() {
-  font-family: $medium;
+@mixin lead {
+  font-family: $demi;
   font-size: 18px;
-  line-height: 29px;
-
+  line-height: 1.6;
 
   @include breakpoint($bp-m) {
     font-size: 22px;
-    line-height: 33px;
+    line-height: 1.5;
+  }
+
+  @include breakpoint($bp-l) {
+    font-size: 24px;
   }
 }
 
 // Also used for ul/ol
-@mixin p() {
+@mixin p {
   font-family: $medium;
   font-size: 16px;
-  line-height: 25px;
+  line-height: 1.6;
 
   @include breakpoint($bp-m) {
     font-size: 18px;
-    line-height: 31px;
+    line-height: 1.7;
   }
 }
 
-@mixin base() {
+@mixin base {
   font-family: $medium;
   font-size: 16px;
-  line-height: 27px;
+  line-height: 1.7;
+}
+
+/** 
+* Underscore can be used in titles
+*/
+
+@mixin underscore {
+  @include breakpoint($bp-m) {
+    &::after {
+      color: $hanred;
+      content: '_';
+    }
+  }
+}
+
+/**
+* Normal links
+*/
+
+@mixin link {
+  color: $hanred;
+  text-decoration: underline;
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
 }

@@ -46,3 +46,17 @@
 .section--richtext {
   @include section-inner;
 }
+
+/**
+ * Collapsibles
+ */
+
+.section--collapsibles {
+  @include section-inner;
+
+  .section__content__title {
+    @include h2;
+    @include underscore;
+    @include margin-bottom-standard;
+  }
+}

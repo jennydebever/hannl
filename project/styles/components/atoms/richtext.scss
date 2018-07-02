@@ -1,0 +1,85 @@
+/**
+ * Richtext WYSIWYG elements styling
+ */
+
+@mixin richtext {
+  @include page-spacing;
+
+  h1 {
+    @include h1;
+  }
+
+  h2 {
+    @include h2;
+  }
+
+  h3 {
+    @include h3;
+  }
+
+  h4 {
+    @include h4;
+  }
+
+  h5 {
+    @include h5;
+  }
+
+  p {
+    @include p;
+  }
+
+  a {
+    @include link;
+  }
+
+  ul,
+  ol {
+    margin-top: 13px;
+
+    li {
+      margin-bottom: 11px;
+    }
+  }
+
+  ul li {
+    &::before {
+      content: '• ';
+      color: $hanred;
+      margin-right: 7px;
+    }
+  }
+
+  ol {
+    margin-left: 18px;
+  }
+
+  table {
+    border: solid 2px $hanred;
+
+    th {
+      font-weight: bold;
+    }
+
+    th,
+    td {
+      padding: 5px 15px;
+    }
+  }
+}
+
+.richtext {
+  @include richtext;
+}
+
+/**
+* Paragraph text is smaller on medium and large devices.
+*/
+
+.richtext-small {
+  @include richtext;
+
+  p {
+    @include base;
+  }
+}

@@ -4,11 +4,11 @@
 }
 
 .demo-typo__bigtitle {
-  @include big__title;
+  @include bigtitle;
   @include margin-bottom-small;
 
   text-transform: uppercase;
-  text-shadow: 2px 2px 4px rgba(0,0,0,.2);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, .2);
 }
 
 .demo-typo__eyebrow {
@@ -16,16 +16,10 @@
   @include margin-bottom-standard;
 }
 
-h2.demo-typo__title {
+.demo-typo__title {
   @include h2;
   @include margin-bottom-small;
-  
-  @include breakpoint($bp-m) {
-    &::after {
-      color: $hanred;
-      content: '_';
-    }
-  }
+  @include underscore;
 }
 
 .demo-typo__intro {
@@ -33,12 +27,12 @@ h2.demo-typo__title {
   @include margin-bottom-standard;
 }
 
-.demo-typo__content{
+.demo-typo__content {
   @include base;
   @include margin-bottom-large;
 }
 
-.demo-typo__cards{
+.demo-typo__cards {
   @include grid;
 }
 
@@ -48,17 +42,16 @@ h2.demo-typo__title {
   }
 
   @include breakpoint($bp-m) {
-      @include grid-item(6);
+    @include grid-item(6);
   }
-  
 }
 
-.demo-typo__cards__card__title{
+.demo-typo__cards__card__title {
   @include title3;
   @include margin-bottom-small;
 }
 
-.demo-typo__cards__card__content{
+.demo-typo__cards__card__content {
   @include base;
   @include margin-bottom-large;
 }

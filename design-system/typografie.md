@@ -1,3 +1,3 @@
 # Typography
-!{typo}
+!{Richtext}
 !{Typography Demo}

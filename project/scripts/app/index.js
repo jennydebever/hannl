@@ -1,4 +1,4 @@
 window.HAN = {};
 
-require('./components/content/collapsible')
+require('./components/content/collapsibles')
 require('./utils/grid');
