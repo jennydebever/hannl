@@ -1,0 +1,46 @@
+//- @pugdoc
+  name: Uitklappers
+  capture: 0
+
+mixin collapsibles(items)
+  include ../../icons/_icon
+  include ../../utils/slugify
+
+  ol.collapsibles(class='js-collapsibles')
+    each item in items
+      - var cls = ['js-collapsibles__item'];
+      if (item.open)
+        - cls.push(locals.OPEN_CLASS);
+
+      li.collapsibles__item(class=cls)
+        h3.collapsibles__item__title
+          button.collapsibles__item__title__button(type='button', aria-expanded='false', class='js-collapsibles__item__button', aria-controls=slugify(item.title))
+            | #{item.title}
+            span.icon(class='icon-chevron-down', aria-hidden='true')
+
+        .collapsibles__item__content(id=slugify(item.title), class='js-collapsibles__item__content')
+          .richtext !{item.body}
+
+
+//- @pugdoc
+  name: Sectie (Uitklappers)
+  description: |
+    Sectie met uitklappers. Bevat een titel en een lijst van één of meerdere uitklapbare titel/richtext paren. Iedere uitklapper kan vooraf `status: open` worden krijgen.
+  examples:
+    - |
+      include ./collapsibles
+
+      - items = [];
+      - items.push({ title: 'Algemene eisen aan het bedrijf/de organisatie:', body: 'De vacature sluit aan bij het profiel van één (of meerdere) van de onderstaande studierichtingen. Het betreft een arbeidsovereenkomst (géén stage!) voor een functie van minimaal 20 uur - voor de duur van minimaal een half jaar. <ul><li>De organisatie steunt de ontwikkeling van de werknemer-student en de keuze voor de combinatie van werken en leren.</li><li>De organisatie ziet meerwaarde in de combinatie van werken en leren.</li><li>De organisatie stelt informatie en informatiebronnen beschikbaar voor het maken van beroepsproducten.</li><li>De organisatie heeft voldoende complexiteit.</li></ul>', open: true })
+      - items.push({ title: 'Wensen ten aanzien van de bedrijfscoach in de organisatie:', body: '<ul><li>Dit is iemand die vakinhoudelijk ten minste het opleidingsniveau heeft waarvoor hij of zij de werknemer - student opleidt (HBO werk- en denkniveau).</li><li>Verder is de bedrijfscoach in staat beroepscompetenties op een goede manier over te dragen op de werknemer-student.</li><li>De bedrijfscoach is tevens in staat om beroepscompetenties op een goede manier te beoordelen.</li></ul>', open: false })
+      - items.push({ title: 'Eisen ten aanzien van de functie:', body: '<ul><li>De te verrichten werkzaamheden sluiten zo veel mogelijk aan bij de inhoud en het profiel van de opleiding.</li><li>Bij de start van de studie dient de functie minimaal op MBO/MBO+ niveau te zijn. Niveau van de taken en werkzaamheden lopen op van operationeel (1e jaar), operationeel/tactisch (2e jaar) tactisch (3e jaar) en tactisch/strategisch in het 4e leerjaar. </li></ul>', open: false })
+      +section-collapsibles('Voor werkgevers', items)
+
+mixin section-collapsibles(title, items)
+  .section(class=cls)
+    .section-wrapper
+      if title
+        h2.section__title #{title}
+
+      .section__content
+        +collapsibles(items)

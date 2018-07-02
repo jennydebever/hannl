@@ -55,6 +55,8 @@
     "vinyl-source-stream": "^2.0.0"
   },
   "dependencies": {
-    "delegate-events": "^1.1.1"
+    "delegate-events": "^1.1.1",
+    "keymirror": "^0.1.1",
+    "track-focus": "^1.0.0"
   }
 }
