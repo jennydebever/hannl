@@ -1,0 +1,49 @@
+@mixin demo-theme {
+  padding: 10px 10px 0 10px;
+
+  .btn-primary,
+  .btn-secondary,
+  .strong-link {
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+}
+
+.demo-theme-white {
+  @include demo-theme;
+  background-color: $white;
+}
+
+.demo-theme-red {
+  @include demo-theme;
+  background-color: $hanred;
+
+  .btn-primary {
+    @include btn-primary-on-red;
+  }
+
+  .btn-secondary {
+    @include btn-secondary-on-red;
+  }
+
+  .strong-link {
+    @include strong-link-on-red;
+  }
+}
+
+.demo-theme-black {
+  @include demo-theme;
+  background-color: $black;
+
+  .btn-primary {
+    @include btn-primary-on-black;
+  }
+
+  .btn-secondary {
+    @include btn-secondary-on-black;
+  }
+
+  .strong-link {
+    @include strong-link-on-black;
+  }
+}

@@ -10,6 +10,7 @@
 // common
 @import './common/body';
 @import './common/layout';
+@import './common/accessibility';
 
 // typography
 @import './typography/text';
@@ -17,8 +18,13 @@
 
 // atoms
 @import './components/atoms/richtext';
-@import './components/atoms/button';
+@import './components/atoms/btn-primary';
+@import './components/atoms/btn-secondary';
+@import './components/atoms/strong-link';
 
 // components
 @import './components/section';
 @import './components/hero/hero';
+
+// demo
+@import './demo/theme';
