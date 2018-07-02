@@ -5,6 +5,7 @@
 @import './libs/normalize';
 @import './libs/reset';
 @import './libs/breakpoint';
+@import './libs/margins';
 
 // common
 @import './common/body';
@@ -12,10 +13,11 @@
 @import './common/accessibility';
 
 // typography
-@import './typography/fonts';
-@import './typography/richtext';
+@import './typography/text';
+@import './typography/demo-typo';
 
 // atoms
+@import './components/atoms/richtext';
 @import './components/atoms/btn-primary';
 @import './components/atoms/btn-secondary';
 @import './components/atoms/strong-link';

@@ -36,7 +36,7 @@ const config = {
   },
   nav: [
     { label: 'Index', href: '/design-system/index.html' },
-    { label: 'Typograpy', href: '/design-system/typography.html' },
+    { label: 'Typografie', href: '/design-system/typografie.html' },
     { label: 'Navigatie', href: '/design-system/navigatie.html' },
 	  { label: 'Docs', href: '/design-system/docs.html' }
   ],
