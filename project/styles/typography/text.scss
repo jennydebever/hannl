@@ -2,7 +2,7 @@
   font-family: $bold-condensed;
   font-size: 28px;
   color: $white;
-  text-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+  text-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2);
 
   @include breakpoint($bp-m) {
     font-size: 45px;
@@ -115,7 +115,6 @@
   color: $grey3;
   text-transform: uppercase;
 
-
   @include breakpoint($bp-m) {
     font-size: 17px;
   }
@@ -129,7 +128,6 @@
   font-family: $medium;
   font-size: 18px;
   line-height: 1.6;
-
 
   @include breakpoint($bp-m) {
     font-size: 22px;
@@ -161,7 +159,7 @@
 
 @mixin underscore {
   @include breakpoint($bp-m) {
-    &:after {
+    &::after {
       color: $hanred;
       content: '_';
     }

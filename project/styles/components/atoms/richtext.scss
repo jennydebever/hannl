@@ -4,6 +4,7 @@
 
 @mixin richtext {
   @include page-spacing;
+
   h1 {
     @include h1;
   }
@@ -43,7 +44,7 @@
 
   ul li {
     &::before {
-      content: "• ";
+      content: '• ';
       color: $hanred;
       margin-right: 7px;
     }
@@ -77,6 +78,7 @@
 
 .richtext-small {
   @include richtext;
+
   p {
     @include base;
   }

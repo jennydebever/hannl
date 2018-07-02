@@ -13,10 +13,10 @@
 
 // typography
 @import './typography/text';
-@import './typography/richtext';
 @import './typography/demo-typo';
 
 // atoms
+@import './components/atoms/richtext';
 @import './components/atoms/button';
 
 // components
