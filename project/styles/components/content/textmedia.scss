@@ -1,6 +1,10 @@
 .textmedia {
-  @include breakpoint($bp-s) {
-    @include grid;
+  @include grid;
+  // align-items: center;
+  margin: 32px 0;
+
+  @include breakpoint($bp-l) {
+    align-items: center;
   }
 }
 
@@ -10,8 +14,36 @@
  */
 
 .textmedia__media {
-  @include breakpoint($bp-s) {
+  @include grid-item(12);
+  position: relative;
+  margin-bottom: 32px;
+
+  @include breakpoint($bp-m) {
+    @include grid-item(5);
+  }
+
+  @include breakpoint($bp-l) {
     @include grid-item(6);
+  }
+
+  .textmedia__caption {
+    position: absolute;
+    right: 8px;
+    bottom: 0;
+    left: 8px;
+    background: rgba(12,1,28, 0.3);
+    color: $white;
+    font-size: 13px;
+    padding: 16px;
+  }
+
+  @include breakpoint($bp-l) {
+    .textmedia__caption {
+      right: 20px;
+      left: 20px;
+      font-size: 14px;
+      padding: 24px;
+   }
   }
 }
 
@@ -27,22 +59,29 @@
 }
 
 .textmedia__media__video {
-    position: relative;
-    width: 560px;
-    height: 560px;
-    overflow: hidden;
+  display: block;
+  width: 100%;
   
   video {
-    position: relative; 
-    right: 0; 
-    bottom: 0;
-    min-width: 100%; 
-    min-height: 100%;
-    width: auto; 
-    height: auto; 
+    max-width: 560px;
+  }
+
+  .play-pause {
+    position: absolute;
+    right: 40px;
+    bottom: 23px;
+    z-index: 99;
+    color: $white;
+    width: 12px;
+    height: 16px;
+    border-right: 4px solid $white;
+    border-left: 4px solid $white;
     
+    span {
+      font-size: 0;
     }
   }
+}
 
 
 /**
@@ -50,7 +89,13 @@
  */
 
 .textmedia__text {
-  @include breakpoint($bp-s) {
+  @include grid-item(12);
+
+  @include breakpoint($bp-m) {
+    @include grid-item(7);
+  }
+
+  @include breakpoint($bp-l) {
     @include grid-item(6);
   }
 }
@@ -66,20 +111,8 @@
 
 .textmedia__text__body {
   @include base;
-
-  ul {
-    margin-top: 13px;
-
-    li {
-      margin-bottom: 11px;
-
-      &::before {
-        content: "• ";
-        color: #e50056;
-        margin-right: 7px;
-      }
-    }
-  }
+  
+  align-items: center;
 }
 
 .textmedia__text__buttons {

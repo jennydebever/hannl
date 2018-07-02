@@ -23,6 +23,8 @@ mixin textmedia-video(video)
   .textmedia__media__video
     video(loop, muted, autoplay, playsinline, defaultmuted, poster=IMGIX_URL + video.fallback + '?w=600&h=600&q=55&fit=crop&dpr=1&auto=format')
       source(src=video.source, type='video/mp4')
+    button(type='button' class='play-pause') 
+      span play
 
 
 //- @pugdoc
@@ -51,12 +53,21 @@ mixin textmedia(options)
     .textmedia__media
       if options.image
         +textmedia-image(options.image)
+        if options.caption
+          .textmedia__caption 
+            span #{options.caption}
 
       if options.video
         if options.video.link
           +textmedia-video-button(options.video)
+          if options.caption
+            .textmedia__caption 
+              span #{options.caption}
         else
           +textmedia-video(options.video)
+          if options.caption
+            .textmedia__caption 
+              span #{options.caption}
     
     .textmedia__text
       if options.eyebrow
@@ -75,10 +86,10 @@ mixin textmedia(options)
           each button in options.buttons
             .textmedia__text__buttons__button
               if button.type === 'primary'
-                +btn-primary(button.label, button.href)
+                +btn-primary(button.label, button.href, "arrow")
 
               else if button.type === 'secondary'
-                +btn-secondary(button.label, button.href)
+                +btn-secondary(button.label, button.href, "arrow")
 
 
 //- @pugdoc
@@ -87,6 +98,11 @@ mixin textmedia(options)
   examples: 
     - |
       include ./textmedia
+
+      style.
+        body > div {
+          padding: 0 !important;
+        }
 
       - var options = {};
       - options.image = 'koraal.jpg';
@@ -105,6 +121,24 @@ mixin textmedia(options)
       
       - var options = {};
       - options.image = 'vrouw-techniek.jpg';
+      - options.caption = 'Een korte beschrijving van deze image';
+      - options.eyebrow = 'BAANKANSEN';
+      - options.title = 'Wat kun je allemaal worden met elektrotechniek?';
+      - options.buttons = [];
+      - options.buttons.push({ href: '/', label: 'Meld je aan', type: 'primary' });
+      - options.buttons.push({ href: '/', label: 'Meld je aan 2', type: 'secondary' });
+    
+    - |
+      hr.demo
+
+      +section-textmedia(ALIGNMENT_RIGHT, options)
+        p Een systeem- of service-engineer die windturbines verbetert. Een soft-of hardware-ontwikkelaar die alledaagse apparaten slimmer maakt. Of een commercieel engineer die weet hoe je techniek aan de man brengt.
+      
+      - var options = {};
+      - options.video = {};
+      - options.video.fallback = 'koraal.jpg';
+      - options.video.source = 'https://scontent-ams3-1.cdninstagram.com/vp/8d797093ba82e7cece022a04d6c3b6f1/5B3C7B17/t50.2886-16/36413058_916788551861710_2111943609669386240_n.mp4';
+      - options.caption = 'Een korte beschrijving van deze video';
       - options.eyebrow = 'techniek';
       - options.title = 'Hoe en wat ga je allemaal leren?';
       - options.buttons = [];
@@ -112,25 +146,6 @@ mixin textmedia(options)
     
     - |
       hr.demo
-
-      +section-textmedia(ALIGNMENT_RIGHT, options)
-        p dit is richtext
-        ul
-          li dsfljsdhflsjhdfl
-          li dsfljsdhflsjhdfl
-          li dsfljsdhflsjhdfl
-      
-      - var options = {};
-      - options.video = {};
-      - options.video.fallback = 'koraal.jpg';
-      - options.video.source = 'https://www.w3schools.com/html/mov_bbb.mp4';
-      - options.eyebrow = 'techniek';
-      - options.title = 'Hoe en wat ga je allemaal leren?';
-      - options.buttons = [];
-      - options.buttons.push({ href: '/', label: 'Meld je aan', type: 'primary' });
-    
-    - |
-      hr.demo
     
       +section-textmedia(ALIGNMENT_RIGHT, options)
         p dit is richtext
@@ -145,7 +160,7 @@ mixin textmedia(options)
       - var options = {};
       - options.video = {};
       - options.video.fallback = 'koraal.jpg';
-      - options.video.source = 'https://www.w3schools.com/html/mov_bbb.mp4';
+      - options.video.source = 'https://scontent-ams3-1.cdninstagram.com/vp/8d797093ba82e7cece022a04d6c3b6f1/5B3C7B17/t50.2886-16/36413058_916788551861710_2111943609669386240_n.mp4';
       - options.eyebrow = 'techniek';
       - options.title = 'Hoe en wat ga je allemaal leren?';
       - options.buttons = [];
