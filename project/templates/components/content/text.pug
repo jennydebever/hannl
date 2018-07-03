@@ -1,0 +1,18 @@
+//- @pugdoc
+  name: text
+  description: Section Text
+  examples:
+    - |
+      +section-text
+        .demo-typo__eyebrow Beroepen
+        .demo-typo__title Wat kun je allemaal worden met Elektrotechniek
+        demo-typo__content Een systeem- of service-engineer die windturbines verbetert. Een soft- of hardware-ontwikkelaar die alledaagse apparaten slimmer maakt. Of een commercieel engineer die weet hoe je techniek aan de man brengt.
+
+
+mixin section-text
+  include ../atoms/richtext
+  .section
+    .section-wrapper
+      .section__content
+        +richtext
+          block
