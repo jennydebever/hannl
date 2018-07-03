@@ -3,16 +3,21 @@
   description: Section Text
   examples:
     - |
-      +section-text
-        .demo-typo__eyebrow Beroepen
-        .demo-typo__title Wat kun je allemaal worden met Elektrotechniek
-        demo-typo__content Een systeem- of service-engineer die windturbines verbetert. Een soft- of hardware-ontwikkelaar die alledaagse apparaten slimmer maakt. Of een commercieel engineer die weet hoe je techniek aan de man brengt.
+      +section-text('','')
+        p De deeltijdstudenten die zich toeleggen op sustainable energy gaan samen met onze onderzoekers problemen in duurzame energievoorziening te lijf. Dit doen we met en in bedrijven waar we nauw mee samenwerken, vooral uit onze regio. Deze regio heeft de potentie om uit te blinken in de ontwikkeling van duurzame energievoorziening. Onze masterstudenten doen mee in de voorhoede.
+      hr.demo
+      +section-text('Beroepen','Wat kun je worden met Elektrotechniek?')
+        p Door de afgewogen combinatie van theoretische kennis en praktische vaardigheden ben je op een breed terrein deskundig. De vraag naar elektrotechnici is groot. Het diploma wordt hoog gewaardeerd, zowel in het bedrijfsleven als bij de overheid. Bedrijven waar elektrotechnici aan het werk gaan zijn NXP, TenneT, Essent, GTI, middelgrote bedrijven zoals Alewijnse, Medtronics, KEMA en kleine bedrijven zoals Profline, Mechatronics.
 
-
-mixin section-text
+mixin section-text(eyebrow,title)
   include ../atoms/richtext
-  .section
+  .section.section--richtext
     .section-wrapper
+      if title
+        .section__header
+          if eyebrow
+            .section__header__eyebrow #{eyebrow}
+          h2.section__header__title #{title}
       .section__content
         +richtext
           block

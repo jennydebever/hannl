@@ -46,3 +46,16 @@
 .section--richtext {
   @include section-inner;
 }
+
+.section__header__eyebrow {
+  @include eyebrow;
+  @include margin-bottom-standard;
+  @include page-spacing;
+}
+
+.section__header__title {
+  @include h2;
+  @include underscore;
+  @include margin-bottom-standard;
+  @include page-spacing;
+}
