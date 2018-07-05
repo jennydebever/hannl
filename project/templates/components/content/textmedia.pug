@@ -21,9 +21,9 @@ mixin textmedia-image(image)
 
 mixin textmedia-video(video)
   .textmedia__media__video
-    video(loop, muted, autoplay, playsinline, defaultmuted, poster=IMGIX_URL + video.fallback + '?w=600&h=600&q=55&fit=crop&dpr=1&auto=format')
+    video(loop, muted, autoplay, playsinline, defaultmuted, poster=IMGIX_URL + video.fallback + '?w=600&h=600&q=55&fit=crop&dpr=1&auto=format' id=options.id)
       source(src=video.source, type='video/mp4')
-    button(type='button' class='play-pause') 
+    button(type='button' class='play-pause playing' id='button1' data-target=options.id)
       span play
 
 
@@ -135,9 +135,10 @@ mixin textmedia(options)
         p Een systeem- of service-engineer die windturbines verbetert. Een soft-of hardware-ontwikkelaar die alledaagse apparaten slimmer maakt. Of een commercieel engineer die weet hoe je techniek aan de man brengt.
       
       - var options = {};
+      - options.id = 'video1'
       - options.video = {};
       - options.video.fallback = 'koraal.jpg';
-      - options.video.source = 'https://scontent-ams3-1.cdninstagram.com/vp/8d797093ba82e7cece022a04d6c3b6f1/5B3C7B17/t50.2886-16/36413058_916788551861710_2111943609669386240_n.mp4';
+      - options.video.source = 'https://scontent-ams3-1.cdninstagram.com/vp/7e25b3cf0a6192241c2fe42182f5183f/5B406F97/t50.2886-16/36413058_916788551861710_2111943609669386240_n.mp4?efg=eyJ1cmxnZW4iOiJ1cmxnZW5fZnJvbV9pZyJ9';
       - options.caption = 'Een korte beschrijving van deze video';
       - options.eyebrow = 'techniek';
       - options.title = 'Hoe en wat ga je allemaal leren?';
@@ -158,9 +159,10 @@ mixin textmedia(options)
       hr.demo
       
       - var options = {};
+      - options.id = 'video2'
       - options.video = {};
       - options.video.fallback = 'koraal.jpg';
-      - options.video.source = 'https://scontent-ams3-1.cdninstagram.com/vp/8d797093ba82e7cece022a04d6c3b6f1/5B3C7B17/t50.2886-16/36413058_916788551861710_2111943609669386240_n.mp4';
+      - options.video.source = 'https://scontent-ams3-1.cdninstagram.com/vp/7e25b3cf0a6192241c2fe42182f5183f/5B406F97/t50.2886-16/36413058_916788551861710_2111943609669386240_n.mp4?efg=eyJ1cmxnZW4iOiJ1cmxnZW5fZnJvbV9pZyJ9';
       - options.eyebrow = 'techniek';
       - options.title = 'Hoe en wat ga je allemaal leren?';
       - options.buttons = [];

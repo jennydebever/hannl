@@ -20,6 +20,9 @@
 
   @include breakpoint($bp-m) {
     @include grid-item(5);
+    margin-bottom: 68px;
+    padding-left: 8px;
+    padding-right: 8px;
   }
 
   @include breakpoint($bp-l) {
@@ -35,15 +38,18 @@
     color: $white;
     font-size: 13px;
     padding: 16px;
-  }
 
-  @include breakpoint($bp-l) {
-    .textmedia__caption {
+    @include breakpoint($bp-m) {
+      right: 16px;
+      left: 16px;
+    }
+
+    @include breakpoint($bp-l) {
       right: 20px;
       left: 20px;
       font-size: 14px;
       padding: 24px;
-   }
+    }
   }
 }
 
@@ -63,22 +69,59 @@
   width: 100%;
   
   video {
-    max-width: 560px;
+    width: 100%;
+    display: block;
   }
 
   .play-pause {
     position: absolute;
-    right: 40px;
-    bottom: 23px;
+    right: 27px;
+    bottom: 18px;
     z-index: 99;
     color: $white;
     width: 12px;
     height: 16px;
-    border-right: 4px solid $white;
-    border-left: 4px solid $white;
-    
+
+    @include breakpoint($bp-l) {
+      right: 37px;
+      bottom: 22px;
+      // background: red;
+    }
+
+    @include breakpoint($bp-m) {
+      right: 30px;
+      bottom: 16px;
+      // background: blue;
+    }
+
     span {
       font-size: 0;
+    }
+
+    &.playing {
+      border-right: 4px solid $white;
+      border-left: 4px solid $white;
+    }
+
+    &.paused {
+      border: 0;
+      background: transparent;
+      box-sizing: border-box;
+      width: 0;
+
+      border-color: transparent transparent transparent $white;
+      transition: 100ms all ease;
+      cursor: pointer;
+
+      // play state
+      border-style: solid;
+      border-width: 9px 0 9px 13px;
+      right: 25px;
+      bottom: 17px;
+    }
+
+    &:focus {
+      outline:0;
     }
   }
 }
