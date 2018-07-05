@@ -74,6 +74,12 @@
 }
 
 .collapsible__content {
+  padding-bottom: 16px;
+
+  @include breakpoint($bp-m) {
+    padding-bottom: 24px;
+  }
+
   &:focus {
     outline: 0;
   }

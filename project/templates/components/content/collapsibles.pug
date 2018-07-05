@@ -9,9 +9,7 @@ mixin collapsibles(items)
 
   ol.collapsibles(class='js-collapsibles')
     each item in items
-      - var cls = ['js-collapsible'];
-
-      li.collapsibles__item(class=cls)
+      li.collapsibles__item(class='js-collapsible')
         .collapsible
           h3.collapsible__title
             button.collapsible__title__button(type='button', aria-expanded=(item.is_open ? 'false' : 'true'), class='js-collapsible__button', aria-controls=slugify(item.title))
@@ -26,7 +24,7 @@ mixin collapsibles(items)
 //- @pugdoc
   name: Sectie (Uitklappers)
   description: |
-    Sectie met uitklappers. Bevat een titel en een lijst van één of meerdere uitklapbare titel/richtext paren. Iedere uitklapper kan vooraf `status: open` worden krijgen.
+    Sectie met uitklappers. Bevat een titel en een lijst van één of meerdere uitklapbare titel/richtext paren. Iedere uitklapper kan vooraf `status: open` worden krijgen door op de button aria-expanded="true" te zetten.
   examples:
     - |
       include ./collapsibles
