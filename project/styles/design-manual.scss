@@ -1,15 +1,13 @@
 @import './vars';
+@import './libs/fonts';
+@import './libs/breakpoint';
+@import './typography/text';
 
 
 .content h1 {
   color: $grey5;
   text-transform: uppercase;
   font-weight: normal;
-}
-
-ul,
-.content ul {
-  list-style: none;
 }
 
 .header {
@@ -33,4 +31,16 @@ ul,
 
 .sidebar__nav__item__link {
   background-color: $grey5;
+}
+
+.content h1 {
+  @include h1;
+}
+
+.content h2 {
+  @include h2;
+}
+
+.content h3 {
+  @include h3;
 }
