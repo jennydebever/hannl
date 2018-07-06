@@ -11,13 +11,15 @@
 
 mixin section-text(eyebrow,title)
   include ../atoms/richtext
-  .section.section--richtext
+  .section(class="section--text")
     .section-wrapper
       if title
         .section__header
-          if eyebrow
-            .section__header__eyebrow #{eyebrow}
-          h2.section__header__title #{title}
+          h2.section__header__title
+            if eyebrow
+              span.section__header__title__eyebrow #{eyebrow}
+              span.accessibility :&nbsp;
+            span.section__header__title__text #{title}  
       .section__content
         +richtext
           block
