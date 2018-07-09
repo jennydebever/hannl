@@ -47,6 +47,14 @@
   @include section-inner;
 }
 
+/**
+ * Collapsibles
+ */
+
+.section--collapsibles {
+  @include section-inner;
+}
+
 .section__header__title__eyebrow {
   @include eyebrow;
   @include margin-bottom-standard;

@@ -55,6 +55,10 @@
     "vinyl-source-stream": "^2.0.0"
   },
   "dependencies": {
+    "delegate-events": "^1.1.1",
+    "find-parent": "^2.0.2",
+    "keymirror": "^0.1.1",
+    "slide-anim": "^1.2.0",
     "track-focus": "^1.0.0"
   }
 }

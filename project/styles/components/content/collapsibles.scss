@@ -1,0 +1,86 @@
+.collapsibles {
+  list-style: none;
+  margin: 0 0 1px 0;
+  padding: 0;
+}
+
+.collapsibles__item {
+  border-top: 1px solid $grey3;
+  border-bottom: 1px solid $grey3;
+  margin-bottom: -1px;
+  background-color: $white;
+}
+
+/**
+ * Single collapsible
+ */
+
+// .collapsible {}
+
+.collapsible__title {
+  margin: 0;
+}
+
+.collapsible__title__button {
+  @include focusable($hanred);
+  @include lead;
+  color: $black;
+  outline: 0;
+  border: 0;
+  background: transparent;
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 16px 30px 16px 8px;
+  position: relative;
+  transition: color .15s;
+  line-height: 1.4;
+
+  @include breakpoint($bp-m) {
+    padding: 24px 50px 24px 16px;
+  }
+
+  &:hover {
+    text-decoration: underline;
+    color: $hanred;
+
+    .icon-chevron {
+      fill: $hanred;
+    }
+  }
+
+  .icon-chevron {
+    position: absolute;
+    right: 13px;
+    top: 24px;
+    fill: $black;
+    transition: fill .15s, transform .15s;
+    transform: rotate(90deg);
+    transform-origin: 50% 50%;
+    width: 6px;
+    height: auto;
+
+    @include breakpoint($bp-m) {
+      top: 32px;
+      right: 21px;
+      width: 10px;
+    }
+
+    .is-open & {
+      transform: rotate(-90deg);
+      fill: $hanred;
+    }
+  }
+}
+
+.collapsible__content {
+  padding-bottom: 16px;
+
+  @include breakpoint($bp-m) {
+    padding-bottom: 24px;
+  }
+
+  &:focus {
+    outline: 0;
+  }
+}
