@@ -3,13 +3,6 @@
 @import './libs/breakpoint';
 @import './typography/text';
 
-
-.content h1 {
-  color: $grey5;
-  text-transform: uppercase;
-  font-weight: normal;
-}
-
 .header {
   background-color: $hanred;
 }
@@ -35,6 +28,9 @@
 
 .content h1 {
   @include h1;
+  color: $grey5;
+  text-transform: uppercase;
+  font-weight: normal;
 }
 
 .content h2 {
