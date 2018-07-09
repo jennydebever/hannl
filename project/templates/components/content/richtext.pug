@@ -1,25 +1,19 @@
 //- @pugdoc
-  name: text
-  description: Section Text
+  name: Sectie (Richtext)
+  description: Sectie met eyebrow, kop en richtext content
   examples:
     - |
-      +section-text('','')
+      +section-richtext('','')
         p De deeltijdstudenten die zich toeleggen op sustainable energy gaan samen met onze onderzoekers problemen in duurzame energievoorziening te lijf. Dit doen we met en in bedrijven waar we nauw mee samenwerken, vooral uit onze regio. Deze regio heeft de potentie om uit te blinken in de ontwikkeling van duurzame energievoorziening. Onze masterstudenten doen mee in de voorhoede.
+    - |
       hr.demo
-      +section-text('Beroepen','Wat kun je worden met Elektrotechniek?')
+      +section-richtext('Beroepen','Wat kun je worden met Elektrotechniek?')
         p Door de afgewogen combinatie van theoretische kennis en praktische vaardigheden ben je op een breed terrein deskundig. De vraag naar elektrotechnici is groot. Het diploma wordt hoog gewaardeerd, zowel in het bedrijfsleven als bij de overheid. Bedrijven waar elektrotechnici aan het werk gaan zijn NXP, TenneT, Essent, GTI, middelgrote bedrijven zoals Alewijnse, Medtronics, KEMA en kleine bedrijven zoals Profline, Mechatronics.
 
-mixin section-text(eyebrow,title)
+mixin section-richtext(eyebrow, title)
+  include ./section
   include ../atoms/richtext
-  .section(class="section--text")
-    .section-wrapper
-      if title
-        .section__header
-          h2.section__header__title
-            if eyebrow
-              span.section__header__title__eyebrow #{eyebrow}
-              span.accessibility :&nbsp;
-            span.section__header__title__text #{title}  
-      .section__content
-        +richtext
-          block
+
+  +section(title, eyebrow)(class='section--richtext')
+    +richtext
+      block

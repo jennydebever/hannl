@@ -40,20 +40,8 @@
 }
 
 /**
- * Default section
+ * Default section title
  */
-
-.section--text {
-  @include section-inner;
-}
-
-/**
- * Collapsibles
- */
-
-.section--collapsibles {
-  @include section-inner;
-}
 
 .section__header__title__eyebrow {
   @include eyebrow;
@@ -66,4 +54,20 @@
   @include underscore;
   @include margin-bottom-standard;
   display: block;
+}
+
+/**
+ * Default section
+ */
+
+.section--richtext {
+  @include section-inner;
+}
+
+/**
+ * Collapsibles
+ */
+
+.section--collapsibles {
+  @include section-inner;
 }

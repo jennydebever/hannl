@@ -36,10 +36,7 @@ mixin collapsibles(items)
       +section-collapsibles('Voor werkgevers', items)
 
 mixin section-collapsibles(title, items)
-  .section(class='section--collapsibles')
-    .section-wrapper
-      .section__content
-        if title
-          h2.section__content__title #{title}
-          
-        +collapsibles(items)
+  include ./section
+
+  +section(null, title)(class='section--collapsibles')
+    +collapsibles(items)

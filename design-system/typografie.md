@@ -1,3 +1,0 @@
-# Typography
-!{Richtext}
-!{Typography Demo}

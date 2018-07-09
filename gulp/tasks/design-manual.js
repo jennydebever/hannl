@@ -37,6 +37,7 @@ const config = {
   nav: [
     { label: 'Index', href: '/design-system/index.html' },
     { label: 'Atomen', href: '/design-system/atomen.html' },
+    { label: 'Content', href: '/design-system/content.html' },
     { label: 'Navigatie', href: '/design-system/navigatie.html' },
 	  { label: 'Docs ↗', href: '/docs/index.html' }
   ],
