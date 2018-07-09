@@ -56,6 +56,11 @@
   display: block;
 }
 
+.section__header__intro {
+  @include p;
+  @include margin-bottom-standard;
+}
+
 /**
  * Default section
  */
