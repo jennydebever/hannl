@@ -1,1 +1,4 @@
-console.log('app.js');
+window.HAN = {};
+
+require('./components/content/collapsibles')
+require('./utils/grid');

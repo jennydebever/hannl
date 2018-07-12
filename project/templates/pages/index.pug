@@ -1,16 +1,10 @@
 extends ./_base
+include ../utils/todo
 
 block append vars
   - pageTitle.push('Homepage')
 
 block main
-  | homepage yay
-  +component3('hallo allemaal, wat fijn dat je er bent.', true)
-  +component2('Dit is de titel','Dit is de lead tekst.','Wat doe je tijdens de propedeuse? Wat is een <a href="#">differentiatie</a>? Hoe zit het met stages, minoren en afstuderen? Ontdek het op de tijdlijn van de opleiding Elektrotechniek.')
-  +component2('Dit is de titel','Dit is de lead tekst.','Wat doe je tijdens de propedeuse? Wat is een <a href="#">differentiatie</a>? Hoe zit het met stages, minoren en afstuderen? Ontdek het op de tijdlijn van de opleiding Elektrotechniek.')
-  br
-  - var items = [];
-  - items.push({ title: 'ggg', body: 'fff' })
-  - items.push({ title: 'ggg', body: 'fff' })
-  - items.push({ title: 'ggg', body: 'fff' })
-  +factsheet('Factsheet', items)
+  +todo('hero')
+  +todo('intro')
+  +todo('text media video')

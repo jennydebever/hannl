@@ -12,7 +12,8 @@ const paths = {
     templates: 'httpdocs/',
     styles: 'httpdocs/lib/css/',
     scripts: 'httpdocs/lib/js/',
-    styleguide: 'httpdocs/design-system/'
+    designsystem: 'httpdocs/design-system/',
+    docs: 'httpdocs/docs/'
   }
 };
 

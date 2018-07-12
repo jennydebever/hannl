@@ -1,1 +1,31 @@
-@import '_all';
+@import './vars';
+@import './libs/fonts';
+
+// libs
+@import './libs/normalize';
+@import './libs/reset';
+@import './libs/breakpoint';
+@import './libs/margins';
+
+// common
+@import './common/body';
+@import './common/layout';
+@import './common/accessibility';
+
+// typography
+@import './typography/text';
+@import './typography/demo-typo';
+
+// atoms
+@import './components/atoms/richtext';
+@import './components/atoms/btn-primary';
+@import './components/atoms/btn-secondary';
+@import './components/atoms/strong-link';
+
+// components
+@import './components/section';
+@import './components/hero/hero';
+@import './components/content/collapsibles';
+
+// demo
+@import './demo/theme';

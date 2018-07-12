@@ -19,8 +19,8 @@ gulp.task('styles:lint', () => {
     paths.SRC.styles + '**/*.scss',
     '!' + paths.SRC.styles + 'libs/*.scss'
     ])
-   .pipe(sassLint())
-   .pipe(sassLint.format());
+    .pipe(sassLint())
+    .pipe(sassLint.format());
 });
 
 

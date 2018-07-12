@@ -1,4 +1,5 @@
 node_modules/
+<<<<<<< HEAD
 
 ### macOS ###
 # General
@@ -27,3 +28,6 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+=======
+.DS_Store
+>>>>>>> master

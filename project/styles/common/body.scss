@@ -1,0 +1,19 @@
+html,
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: $medium;
+  touch-action: manipulation;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/**
+ * Sharpen images
+ */
+
+img {
+  image-rendering: -webkit-optimize-contrast; //sass-lint:disable-line no-misspelled-properties
+}

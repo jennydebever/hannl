@@ -1,11 +1,13 @@
 # HAN.nl Design System
-!{component1}
-!{component2}
-!{component3}
-!{factsheet}
-!{factsheet-item}
-!{typography}
 
-* [homepage](/index.html)
-* [500](/500.html)
-* [404](/404.html) 
+
+---
+
+## Is het HAN.NL?
+We vragen ons bij aanpassingen aan het design system altijd af, is het __HAN.NL__:
+
+* Hoogwaardig
+* Accessible
+* Nieuw
+* Nodig
+* Lange termijn

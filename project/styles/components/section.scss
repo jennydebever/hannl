@@ -1,0 +1,78 @@
+.section {
+  @include page-spacing;
+  position: relative;
+  overflow: hidden;
+}
+
+.section-wrapper {
+  @include grid;
+  position: relative;
+}
+
+
+/**
+ * Text section
+ */
+@mixin section-inner-item {
+  @include grid-item(8);
+  max-width: #{($container-width + 40px)/ 100 * (100 / 12 * 8)};
+  flex-basis: auto;
+}
+
+@mixin section-inner {
+  .section__header {
+    @include section-inner-item;
+    width: 100%;
+  }
+
+  .section__content {
+    @include section-inner-item;
+  }
+}
+
+
+/**
+ * Content
+ */
+
+.section__content {
+  width: 100%;
+}
+
+/**
+ * Default section title
+ */
+
+.section__header__title__eyebrow {
+  @include eyebrow;
+  @include margin-bottom-standard;
+  display: block;
+}
+
+.section__header__title__text {
+  @include h2;
+  @include underscore;
+  @include margin-bottom-standard;
+  display: block;
+}
+
+.section__header__intro {
+  @include p;
+  @include margin-bottom-standard;
+}
+
+/**
+ * Default section
+ */
+
+.section--richtext {
+  @include section-inner;
+}
+
+/**
+ * Collapsibles
+ */
+
+.section--collapsibles {
+  @include section-inner;
+}

@@ -1,16 +1,7 @@
-@import '_vars';
-@import '_fonts';
-@import '_text';
-
-.content h1 {
-  color: $color;
-  text-transform: uppercase;
-  font-weight: normal;
-}
-
-ul, .content ul {
-  list-style: none;
-}
+@import './vars';
+@import './libs/fonts';
+@import './libs/breakpoint';
+@import './typography/text';
 
 .header {
   background-color: $hanred;
@@ -19,18 +10,33 @@ ul, .content ul {
 .component {
   &.is-loading {
     &::before {
-      border-top-color: $color;
-      border-left-color: $color;
+      border-top-color: $grey5;
+      border-left-color: $grey5;
     }
   }
 }
 
 .component__meta {
   &::before {
-    background-color: $color;
+    background-color: $grey5;
   }
 }
 
 .sidebar__nav__item__link {
-  background-color: $color;
+  background-color: $grey5;
+}
+
+.content h1 {
+  @include h1;
+  color: $grey5;
+  text-transform: uppercase;
+  font-weight: normal;
+}
+
+.content h2 {
+  @include h2;
+}
+
+.content h3 {
+  @include h3;
 }

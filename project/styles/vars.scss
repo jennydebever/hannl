@@ -1,0 +1,57 @@
+// Folders
+$fonts-url: '/* @echo FONTS_URL */';
+$images-url: '/* @echo IMAGES_URL */';
+
+// Colors
+$hanred: #e50056;
+$deep-red: #b70045;
+
+$fluor-green: #50e3c2;
+$mint-green: #47cbae;
+
+$lemon: #f8e71c;
+$dark-lemon: #decf19;
+
+$bright-blue: #1b20ff;
+$deep-blue: #1216b2;
+
+// highlight colors
+$bright-red: #f00;
+$dark-orange: #ff7800;
+$bright-orange: #f5a623;
+$success-green: #7ed321;
+
+// greys: light to dark
+$white: #fff;
+$grey1: #fafafa;
+$grey2: #e3e3e3;
+$grey3: #919191;
+$grey4: #757575;
+$grey5: #454545;
+$black: #000;
+
+// Fonts
+$medium: 'AvenirNextLTW01-Medium', 'Avenir next', 'Avenir', sans-serif;;
+$medium-italic: 'AvenirNextLTW01-MediumI_721278', 'Avenir next', 'Avenir', sans-serif;;
+$demi: 'Avenir Next LT W01 Demi', 'Avenir next', 'Avenir', sans-serif;;
+$bold: 'Avenir Next LT W01 Bold', 'Avenir next', 'Avenir', sans-serif;;
+$bold-condensed: 'AvenirNextLTW01-BoldCn', 'Avenir next', 'Avenir', sans-serif;;
+
+$primary-color: #454545;
+$primary-color-light: #d3e8fc;
+$primary-color-lighter: #f3f9ff;
+$secondary-color: #fff;
+$link-color: #e50056;
+$link-border-color: #c6ddf0;
+$bg-light-blue: #e9f4fe;
+$bg-blue: #e4f1fd;
+
+// Breakpoints
+$bp-xs: 375px;
+$bp-s: 500px;
+$bp-m: 768px;
+$bp-l: 1024px;
+$bp-xl: 1160px;
+$bp-xxl: 1440px;
+
+$container-width: $bp-xl;

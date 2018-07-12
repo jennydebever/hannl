@@ -16,4 +16,5 @@ gulp.task('watch', () => {
   gulp.watch(paths.SRC.scripts + 'libs/**/*.js', gulp.series('browser:notify', 'scripts:libs'));
   gulp.watch(paths.SRC.scripts + 'head/**/*.js', gulp.series('browser:notify', 'scripts:head'));
   gulp.watch('design-system/**/*.md', gulp.series('design-manual'));
+  gulp.watch('docs/**/*.md', gulp.series('docs'));
 });
