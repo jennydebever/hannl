@@ -6,4 +6,4 @@ if (!window.HAN) {
   };
 }
 
-console.log('head.js');
+console.log("head.js");
