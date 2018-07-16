@@ -147,7 +147,7 @@ used for USP -› obsolete?
 
 ## Maps
 ### Contents
-!{map}
+!{worldmap}
 
 !{map-and-address}
 ![map-and-address](https://user-images.githubusercontent.com/9093958/42761576-33851a06-890e-11e8-9b3e-e41632fda5de.jpg)
@@ -242,7 +242,7 @@ used for USP -› obsolete?
 ## Quote
 ### Contents
 !{quote-skinny}
-
+![quote-skinny](https://user-images.githubusercontent.com/9093958/42767769-26f4bc28-891e-11e8-8336-a0bf801bef4b.jpg)
 
 !{quote-regular}
 ![quote-regular](https://user-images.githubusercontent.com/9093958/42764853-f280a58a-8916-11e8-9624-80c8b37a8adb.jpg)
@@ -252,8 +252,10 @@ used for USP -› obsolete?
 ## Specials
 ### Contents
 !{modulator}
+![modulator](https://user-images.githubusercontent.com/9093958/42767903-6e92a1da-891e-11e8-806a-78512d028987.jpg)
 
 !{finish-line}
+![finish-line](https://user-images.githubusercontent.com/9093958/42767967-948d1e10-891e-11e8-86dc-62d367ef5ed1.jpg)
 
 !{dora}
 ![dora](https://user-images.githubusercontent.com/9093958/42765166-afebf0ca-8917-11e8-983d-ec3045651ddf.jpg)
