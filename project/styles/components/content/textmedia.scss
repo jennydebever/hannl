@@ -30,6 +30,11 @@
     @include grid-item-spaceless(6);
     height: inherit;
     margin: 0;
+    flex-basis: auto;
+  }
+
+  @include breakpoint($bp-xl) {
+    @include grid-item(6);
   }
 
   .textmedia__caption {
@@ -134,6 +139,11 @@
   }
 
   @include breakpoint($bp-l) {
+    @include grid-item(6);
+    flex-grow: 1;
+  }
+
+  @include breakpoint($bp-xl) {
     @include grid-item(6);
   }
 }
