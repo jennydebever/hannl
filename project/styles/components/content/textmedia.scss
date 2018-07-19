@@ -23,7 +23,7 @@
   @include breakpoint($bp-m) {
     margin-left: 32px;
     margin-right: 32px;
-    height: 439px;
+    height: 350px;
   }
 
   @include breakpoint($bp-l) {
@@ -50,6 +50,8 @@
     @include breakpoint($bp-l) {
       font-size: 14px;
       padding: 24px;
+      right: 20px;
+      left: 20px;
     }
   }
 }
@@ -117,6 +119,7 @@
 
     @include breakpoint($bp-l) {
       bottom: 15px;
+      right: 30px;
     }
 
     &:focus {
