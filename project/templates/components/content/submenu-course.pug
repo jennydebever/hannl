@@ -1,0 +1,48 @@
+//- @pugdoc
+  name: Submenu-course-item
+  description: Item van een submenu van een opleidingspagina. 
+  capture: 0
+
+mixin submenu-course-item(item)
+  h3 #{item.title}
+  p #{item.link}
+
+
+//- @pugdoc
+  name: Submenu-course
+  description: submenu van een opleidingspagina.
+  examples:
+  - |
+    div(style="height: 1000px")
+      +submenu-course(items)
+
+mixin submenu-course(items)
+  nav(role='navigation').submenu
+    ul.dropdown__main
+      li
+        a(href='#') Home
+      li.dropdown__submenu
+        a.dropdown__submenu__button.active(href="javascript:void(0)") Voor je begint
+        ul.dropdown
+          li.dropdown__submenu
+            a.dropdown__submenu__button(href='javascript:void(0)') Dropdown 1
+            ul.dropdown
+              li
+                a(href='#') Linkje 1.1
+              li
+                a(href='#') Linkje 2.2
+      li.dropdown__submenu
+        a.dropdown__submenu__button(href="javascript:void(0)") Tijdens je studie
+          ul.dropdown
+            li
+              a(href='#') Linkje 1.1
+            li
+              a(href='#') Linkje 2.2
+      li
+        a(href='#') Wat ga je worden
+      li
+        a(href='#') FAQ
+      li
+        a(href='#') Nog een link
+      li
+        a(href="#") Contact

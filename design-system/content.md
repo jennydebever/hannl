@@ -1,6 +1,7 @@
 # Content
 
 ## Content
+!{Submenu-course}
 !{Sectie (Richtext)}
 !{Sectie (Uitklappers)}
 
