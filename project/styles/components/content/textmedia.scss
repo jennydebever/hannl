@@ -21,8 +21,8 @@
   border-radius: 4px;
 
   @include breakpoint($bp-m) {
-    margin-left: 32px;
-    margin-right: 32px;
+    margin-left: 5%;
+    margin-right: 5%;
     height: 350px;
   }
 
@@ -39,9 +39,9 @@
 
   .textmedia__caption {
     position: absolute;
-    right: 0;
     bottom: 0;
     left: 0;
+    right: 0;
     background: rgba(12,1,28, 0.3);
     color: $white;
     font-size: 13px;
@@ -50,6 +50,7 @@
     @include breakpoint($bp-l) {
       font-size: 14px;
       padding: 24px;
+      width: 90%;
     }
   }
 }
@@ -62,16 +63,27 @@
     width: 100%;
     height: 100%;
     display: block;
+    border-radius: 4px;
+
+    @include breakpoint($bp-l) {
+      width: 90%;
+    }
   }
 }
 
 .textmedia__media__video {
   display: block;
   width: 100%;
+  position: relative;
   
   video {
     width: 100%;
     display: block;
+    border-radius: 4px;
+    
+    @include breakpoint($bp-l) {
+      width: 90%;
+    }
   }
 
   .play-pause {
@@ -115,7 +127,12 @@
       border-width: 8px 0 8px 12px;
     }
 
+    @include breakpoint($bp-m) {
+      top: 310px;
+    }
+
     @include breakpoint($bp-l) {
+      top: inherit;
       bottom: 15px;
       right: 15px;
     }
@@ -171,4 +188,37 @@
 }
 .textmedia__text__buttons__button {
   margin-right: 16px;
+}
+
+.section--textmedia-left {
+  @include breakpoint($bp-l) {
+    .textmedia__media__picture img,
+    .textmedia__media__video video {
+      margin-right: auto;
+    }
+
+    .textmedia__media .textmedia__caption {
+      left: 0;
+      right: inherit;
+    }
+
+    .textmedia__media__video .play-pause {
+      right: 70px;
+    }
+  }
+  
+}
+
+.section--textmedia-right {
+  @include breakpoint($bp-l) {
+    .textmedia__media__picture img,
+    .textmedia__media__video video {
+      margin-left: auto;
+    }
+
+    .textmedia__media .textmedia__caption {
+      left: inherit;
+      right: 0;
+    }
+  }
 }
