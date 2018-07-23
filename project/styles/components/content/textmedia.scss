@@ -30,7 +30,7 @@
     @include grid-item-spaceless(6);
     height: inherit;
     margin: 0;
-    flex-basis: auto;
+    // flex-basis: auto;
   }
 
   @include breakpoint($bp-xl) {
@@ -50,8 +50,6 @@
     @include breakpoint($bp-l) {
       font-size: 14px;
       padding: 24px;
-      right: 20px;
-      left: 20px;
     }
   }
 }
@@ -119,7 +117,7 @@
 
     @include breakpoint($bp-l) {
       bottom: 15px;
-      right: 30px;
+      right: 15px;
     }
 
     &:focus {
