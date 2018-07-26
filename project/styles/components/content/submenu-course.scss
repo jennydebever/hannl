@@ -1,4 +1,7 @@
 .submenu {
+  position: fixed;
+  bottom: 6.67rem;
+  width: 100%;
   background-color: $black;
   color: $white;
   text-align: right;
@@ -8,9 +11,53 @@
     margin: 0 2rem 0 0;
     padding: 0;
 
+    & > li:first-child {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background-color: $black;
+    }
+
     li {
+      position: relative;
       padding-top: 1rem;
-      font-weight: 900;
+      font-weight: 600;
+
+      &.dropdown__submenu {
+
+        &.current {
+          background-color: rgba(255, 255, 255, .2);
+        }
+      }
+
+      .coursetitle {
+        display: inline-block;
+        float: left;
+        margin-left: 3rem;
+        @include underscore;
+      }
+
+      .icon {
+        display: inline-block;
+        fill: $hanred;
+        border-bottom: 2px solid $grey4;
+        margin-bottom: -1.2rem;
+        margin-left: 8px;
+        padding-bottom: .8rem;
+        height: 32px;
+        width: 32px;
+        /*
+        position: absolute;
+        top: 24px;
+        padding-top: 1rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        line-height: 25px;
+        height: 24px;
+        width: auto;
+        background-color: transparent;
+        */
+      }
 
       a {
         color: $white;
@@ -18,8 +65,9 @@
         //border-bottom: 1px solid $grey1;
         margin-top: 1rem;
         margin-bottom: 1rem;
+        line-height: 25px;
         //width: 100%;
-        
+
         &.dropdown__submenu__button {
           border-bottom: 0;
         }
@@ -29,36 +77,32 @@
           padding-top: 1rem;
           padding-bottom: 1rem;
           margin-bottom: 0;
-          border-bottom: 3px solid $hanred;
-          background-color: $grey5;
+          border-bottom: 4px solid $hanred;
 
-          & + .dropdown {
-            background-color: $grey5;
+          .icon {
+            display: none;
           }
         }
       }
 
       .dropdown {
+
         a {
           border-bottom: 1px solid $grey1;
         }
+
         .dropdown__submenu {
           padding-top: 2rem;
           padding-bottom: 2rem;
 
           .dropdown__submenu__button {
             font-weight: 900;
-            
-            &::after {
-              content: 'arrow-right';
-              border-bottom: 2px solid $grey2;
-            }
           }
 
           li {
+
             a {
               font-weight: 500;
-              border-bottom: 0;
             }
           }
         }
@@ -68,6 +112,10 @@
     & > li {
       padding-top: 2rem;
       font-weight: 900;
+      border-bottom: 1px solid rgba(255, 255, 255, .15);
+      margin-right: -32px;
+      padding-right: 32px;
+      padding-bottom: 48px;
     }
   }
 }

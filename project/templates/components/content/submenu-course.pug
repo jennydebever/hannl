@@ -13,36 +13,89 @@ mixin submenu-course-item(item)
   description: submenu van een opleidingspagina.
   examples:
   - |
-    div(style="height: 1000px")
-      +submenu-course(items)
+    div(style="height: 2000px")
+      +submenu-course('Elektrotechniek', items, 'arrow')
 
-mixin submenu-course(items)
+mixin submenu-course(title,items, icon)
+  include ../atoms/richtext
+  include ../../icons/_icon
+
   nav(role='navigation').submenu
     ul.dropdown__main
-      li
+      li.current
+        +richtext
+          h4.coursetitle !{title}
         a(href='#') Home
+          +icon#arrow
       li.dropdown__submenu
-        a.dropdown__submenu__button.active(href="javascript:void(0)") Voor je begint
+        a.dropdown__submenu__button.active(href="javascript:void(0)") Ontdekken
+          +icon#arrow
+        ul.dropdown
+          li
+            a(href='#') Elektro in het kort
+          li
+            a(href='#') Studenten aan het woord
+          li
+            a(href='#') Projecten en nieuws
+          li
+            a(href='#') De locatie
+      li
+        a(href='#') Jouw toekomst
+          +icon#arrow        
+        ul.dropdown
+          li
+            a(href='#') Beroepen en bedrijven
+          li
+            a(href='#') Professionals over het vak
+          li
+            a(href='#') Doorstuderen
+      li.dropdown__submenu.current
+        a.dropdown__submenu__button.active(href="javascript:void(0)") De studieopbouw
+          +icon#arrow
         ul.dropdown
           li.dropdown__submenu
-            a.dropdown__submenu__button(href='javascript:void(0)') Dropdown 1
+            a.dropdown__submenu__button(href='javascript:void(0)') Jaar 1
             ul.dropdown
               li
-                a(href='#') Linkje 1.1
+                a(href='#') Je propedeuse jaar
+        ul.dropdown
+          li.dropdown__submenu
+            a.dropdown__submenu__button(href='javascript:void(0)') Jaar 2
+            ul.dropdown
               li
-                a(href='#') Linkje 2.2
-      li.dropdown__submenu
-        a.dropdown__submenu__button(href="javascript:void(0)") Tijdens je studie
-          ul.dropdown
-            li
-              a(href='#') Linkje 1.1
-            li
-              a(href='#') Linkje 2.2
+                a(href='#') Je verdiepende jaar
+        ul.dropdown
+          li.dropdown__submenu
+            a.dropdown__submenu__button(href='javascript:void(0)') Jaar 3
+            ul.dropdown
+              li
+                a(href='#') Stage en minor
+        ul.dropdown
+          li.dropdown__submenu
+            a.dropdown__submenu__button(href='javascript:void(0)') Jaar 4
+            ul.dropdown
+              li
+                a(href='#') Afstuderen
       li
-        a(href='#') Wat ga je worden
+        a(href='#') Maak kennis
+          +icon#arrow
+        ul.dropdown
+          li
+            a(href='#') Kom de HAN ontdekken
+          li
+            a(href='#') Studeren in Arnhem
       li
-        a(href='#') FAQ
-      li
-        a(href='#') Nog een link
+        a(href='#') Praktische info
+          +icon#arrow
+        ul.dropdown
+          li
+            a(href='#') De toelatingseisen
+          li
+            a(href='#') Aanmeldprocedure
+          li
+            a(href='#') Studeren met een beperking
+          li
+            a(href='#') Opleidingskosten
       li
         a(href="#") Contact
+          +icon#arrow
