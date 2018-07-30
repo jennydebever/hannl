@@ -1,21 +1,44 @@
-.submenu {
-  position: fixed;
-  bottom: 6.67rem;
+#submenu {
   width: 100%;
   background-color: $black;
   color: $white;
   text-align: right;
+
+  &.bottom {
+    position: fixed;
+    bottom: 6.65rem;
+  }
 
   .dropdown__main {
     list-style-type: none;
     margin: 0 2rem 0 0;
     padding: 0;
 
-    & > li:first-child {
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      background-color: $black;
+    & > li > a {
+      display: inline-block;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      margin-bottom: 0;
+    }
+
+    #homeBar {
+      &.bottom {
+        position: fixed;
+        bottom: 0;
+      }
+    }
+
+    .hide {
+      // display: none;
+      position: absolute;
+      visibility: hidden;
+      display: none;
+    }
+
+    .show {
+      position: relative;
+      visibility: visible;
+      display: inline-block;
     }
 
     li {
@@ -27,11 +50,15 @@
 
         &.current {
           background-color: rgba(255, 255, 255, .2);
+
+          & * {
+            background-color: transparent;
+          }
         }
       }
 
       .coursetitle {
-        display: inline-block;
+        // display: inline-block;
         float: left;
         margin-left: 3rem;
         @include underscore;
@@ -62,11 +89,9 @@
       a {
         color: $white;
         text-decoration: none;
-        //border-bottom: 1px solid $grey1;
         margin-top: 1rem;
         margin-bottom: 1rem;
         line-height: 25px;
-        //width: 100%;
 
         &.dropdown__submenu__button {
           border-bottom: 0;
@@ -116,6 +141,45 @@
       margin-right: -32px;
       padding-right: 32px;
       padding-bottom: 48px;
+
+      &:first-child {
+        width: 100%;
+        background-color: $black;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 678px) {
+  #submenu {
+    .dropdown__main {
+      overflow: auto;
+      overflow-x: scroll;
+      white-space: nowrap;
+      margin: 0;
+
+      & > li {
+        position: relative;
+        vertical-align: top;
+        width: 30%;
+        margin-right: 0;
+        border-bottom: 0;
+      }
+
+      li {
+        background-color: $black;
+      }
+
+      #homeBar {
+        .icon {
+          fill: $white;
+
+          &.bottom {
+            fill: $hanred;
+            transition: rotate(90deg);
+          }
+        }
+      }
     }
   }
 }

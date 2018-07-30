@@ -13,21 +13,21 @@ mixin submenu-course-item(item)
   description: submenu van een opleidingspagina.
   examples:
   - |
-    div(style="height: 2000px")
+    div(style="height: 1000px")
       +submenu-course('Elektrotechniek', items, 'arrow')
 
 mixin submenu-course(title,items, icon)
   include ../atoms/richtext
   include ../../icons/_icon
 
-  nav(role='navigation').submenu
+  nav(role='navigation')#submenu
     ul.dropdown__main
-      li.current
+      li#homeBar
         +richtext
           h4.coursetitle !{title}
-        a(href='#') Home
-          +icon#arrow
-      li.dropdown__submenu
+          +icon#chevron
+        //a(id='homes') Home
+      li.dropdown__submenu.hide
         a.dropdown__submenu__button.active(href="javascript:void(0)") Ontdekken
           +icon#arrow
         ul.dropdown
@@ -39,7 +39,7 @@ mixin submenu-course(title,items, icon)
             a(href='#') Projecten en nieuws
           li
             a(href='#') De locatie
-      li
+      li.hide
         a(href='#') Jouw toekomst
           +icon#arrow        
         ul.dropdown
@@ -49,7 +49,7 @@ mixin submenu-course(title,items, icon)
             a(href='#') Professionals over het vak
           li
             a(href='#') Doorstuderen
-      li.dropdown__submenu.current
+      li.dropdown__submenu.current.hide
         a.dropdown__submenu__button.active(href="javascript:void(0)") De studieopbouw
           +icon#arrow
         ul.dropdown
@@ -76,7 +76,7 @@ mixin submenu-course(title,items, icon)
             ul.dropdown
               li
                 a(href='#') Afstuderen
-      li
+      li.hide
         a(href='#') Maak kennis
           +icon#arrow
         ul.dropdown
@@ -84,7 +84,7 @@ mixin submenu-course(title,items, icon)
             a(href='#') Kom de HAN ontdekken
           li
             a(href='#') Studeren in Arnhem
-      li
+      li.hide
         a(href='#') Praktische info
           +icon#arrow
         ul.dropdown
@@ -96,6 +96,6 @@ mixin submenu-course(title,items, icon)
             a(href='#') Studeren met een beperking
           li
             a(href='#') Opleidingskosten
-      li
+      li.hide
         a(href="#") Contact
           +icon#arrow
