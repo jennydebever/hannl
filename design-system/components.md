@@ -31,6 +31,7 @@ Drukt uit hoeveel visuele ruimte een component inneemt.
 !{accordion-regular}
 ![accordion-regular](https://user-images.githubusercontent.com/9093958/42027419-f40031ce-7ac9-11e8-97bb-bb9bbe6f1977.jpg)
 
+
 ## Bio and testimonial
 ### Contents
 !{bio-skinny}
@@ -45,6 +46,7 @@ Drukt uit hoeveel visuele ruimte een component inneemt.
 !{testimonial-regular}
 ![testimonial-regular](https://user-images.githubusercontent.com/9093958/43150607-9d98bcba-8f6a-11e8-9023-c847f474c928.jpg)
 
+
 ## Call for Action
 ### Contents
 !{ask-for-action}
@@ -56,6 +58,7 @@ Drukt uit hoeveel visuele ruimte een component inneemt.
 
 !{scream-for-action}
 ![scream-for-action](https://user-images.githubusercontent.com/9093958/42751734-fc688a20-88eb-11e8-9e69-6cd15dba4118.jpg)
+
 
 ## Cards
 ### Contents
@@ -74,10 +77,12 @@ used for USP -› obsolete?
 !{card-news-event-regular}
 ![card-news-event-regular](https://user-images.githubusercontent.com/9093958/43150715-e586f76c-8f6a-11e8-88ee-3a077e1cdf61.jpg)
 
+
 ## Carousel
 ### Contents
 !{carousel-whale}
 ![carousel-whale](https://user-images.githubusercontent.com/9093958/42751828-53dd4386-88ec-11e8-950a-65375aa3674b.jpg)
+
 
 ## Contact
 ### Contents
@@ -89,6 +94,7 @@ used for USP -› obsolete?
 
 !{contact-whale}
 ![contact-whale](https://user-images.githubusercontent.com/9093958/42753424-32aa4286-88f1-11e8-943e-e1fcae73b9bd.jpg)
+
 
 ## Facts
 ### Contents
@@ -116,6 +122,13 @@ used for USP -› obsolete?
 !{fact-up-fat}
 ![fact-up-fat](https://user-images.githubusercontent.com/9093958/42753800-5140afb8-88f2-11e8-917a-9d3591149bfb.jpg)
 
+
+## Filters
+### Contents
+!{filters-skinnny}
+![filters-skinnny](https://user-images.githubusercontent.com/9093958/43398219-b0e55ab6-9407-11e8-91c0-349495fa264d.jpg)
+
+
 ## Heroes
 ### Contents
 !{course-hero-skinny}
@@ -127,6 +140,20 @@ used for USP -› obsolete?
 !{course-hero-whale}
 ![course-hero-whale](https://user-images.githubusercontent.com/9093958/42756706-96dee462-88fd-11e8-9f1e-458e7a116042.jpg)
 
+
+## Images
+### Image row
+#### Contents
+!{imagerow-triple-landscape}
+![imagerow-triple-landscape](https://user-images.githubusercontent.com/9093958/43398040-2824934a-9407-11e8-8a1a-afc9919e0e3a.jpg)
+
+!{imagerow-triple-portrait}
+![imagerow-triple-portrait](https://user-images.githubusercontent.com/9093958/42764296-8ab1b38c-8915-11e8-921d-e8319722012c.jpg)
+
+### Image grid
+#### Contents
+!{imagegrid-gremlins}
+![imagegrid-gremlins](https://user-images.githubusercontent.com/9093958/43399160-6bfc350c-940a-11e8-8d2f-4ab68c9916ff.jpg)
 
 
 ## Lists
@@ -157,6 +184,7 @@ used for USP -› obsolete?
 !{image-list-triple-column}
 ![image-list-triple-column](https://user-images.githubusercontent.com/9093958/43391802-f1907188-93f1-11e8-8b7c-a997b71d29fb.jpg)
 
+
 ## Maps
 ### Contents
 !{worldmap}
@@ -168,6 +196,7 @@ used for USP -› obsolete?
 ![route-ov](https://user-images.githubusercontent.com/9093958/42761615-59c8179a-890e-11e8-813c-3e1171498b73.jpg)
 
 !{route-road}
+
 
 ## Navigation
 ### Contents
@@ -183,13 +212,12 @@ used for USP -› obsolete?
 !{nav-switch}
 ![nav-switch](https://user-images.githubusercontent.com/9093958/42762843-ab2c63cc-8911-11e8-8fe7-d9c56801b568.jpg)
 
+
 ## Sliders
 ### Contents
-!{slider-skinny}
-![slider-skinny](https://user-images.githubusercontent.com/9093958/42764296-8ab1b38c-8915-11e8-921d-e8319722012c.jpg)
-
 !{slider-regular}
 ![slider-regular](https://user-images.githubusercontent.com/9093958/42764378-c68d51ea-8915-11e8-9a96-a22ca1458ea3.jpg)
+
 
 ## Tables
 ### Contents
@@ -209,10 +237,13 @@ with tooltip
 
 
 ## Tabs
+### Contents
 !{tabs-regular}
 ![tabs-regular](https://user-images.githubusercontent.com/9093958/42764991-47da4f5e-8917-11e8-910d-25dccbbc45ab.jpg)
 
+
 ## Takeover
+### Contents
 !{take-over-hero-1}
 ![take-over-hero](https://user-images.githubusercontent.com/9093958/42764892-0b03213c-8917-11e8-897d-3167b60ba331.jpg)
 
@@ -222,12 +253,15 @@ with tooltip
 !{take-over-regular}
 ![take-over-regular](https://user-images.githubusercontent.com/9093958/42764894-0b202c1e-8917-11e8-94ab-7705c7c184a9.png)
 
+
 ## Text
+### Contents
 !{text-double-column}
 ![text-double-column](https://user-images.githubusercontent.com/9093958/42026419-555f5740-7ac7-11e8-9a6e-31f8fecb7495.jpg)
 
 !{text-lead}
 ![text-lead](https://user-images.githubusercontent.com/9093958/42763092-5aff0f0c-8912-11e8-9395-fb7f7c524a64.jpg)
+
 
 ## Text and Media
 ### Contents
@@ -253,6 +287,12 @@ with tooltip
 !{text-and-media-highlight}
 ![text-and-media-highlight](https://user-images.githubusercontent.com/9093958/42765146-a20127aa-8917-11e8-80c4-090906eca060.jpg)
 
+
+##Tooltip
+### Contents
+!{tooltip-regular}
+![tooltip-regular](https://user-images.githubusercontent.com/9093958/43395195-889e1d7c-93fd-11e8-86fc-e8cfbfc82903.jpg)
+
 ## Quote
 ### Contents
 !{quote-skinny}
@@ -273,3 +313,6 @@ with tooltip
 
 !{dora}
 ![dora](https://user-images.githubusercontent.com/9093958/42765166-afebf0ca-8917-11e8-983d-ec3045651ddf.jpg)
+
+!{the-education-navigator-regular}
+![the-education-navigator-regular](https://user-images.githubusercontent.com/9093958/43398337-1183f832-9408-11e8-81ef-ff08a956d581.jpg)
