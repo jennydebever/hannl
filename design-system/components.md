@@ -42,6 +42,9 @@ Drukt uit hoeveel visuele ruimte een component inneemt.
 !{bio-card}
 ![bio-card](https://user-images.githubusercontent.com/9093958/42752747-2f05a5be-88ef-11e8-9af6-efeace834c19.jpg)
 
+!{testimonial-regular}
+![testimonial-regular](https://user-images.githubusercontent.com/9093958/43150607-9d98bcba-8f6a-11e8-9023-c847f474c928.jpg)
+
 ## Call for Action
 ### Contents
 !{ask-for-action}
@@ -67,6 +70,9 @@ used for USP -› obsolete?
 !{card-regular} 
 -› obsolete?
 ![card-regular](https://user-images.githubusercontent.com/9093958/42753119-292fa2ec-88f0-11e8-8827-630aec24ba41.jpg)
+
+!{card-news-event-regular}
+![card-news-event-regular](https://user-images.githubusercontent.com/9093958/43150715-e586f76c-8f6a-11e8-88ee-3a077e1cdf61.jpg)
 
 ## Carousel
 ### Contents
@@ -135,15 +141,21 @@ used for USP -› obsolete?
 ### Link-List
 #### Contents
 !{link-list-double-column}
-![link-list-double-column](https://user-images.githubusercontent.com/9093958/42764837-e5bdad48-8916-11e8-9153-fac38d9f01b5.jpg)
+![link-list-double-column](https://user-images.githubusercontent.com/9093958/43392065-cf19e30e-93f2-11e8-959b-5967fd9583d2.jpg)
 
 !{link-list-triple-column}
-![link-list-triple-column](https://user-images.githubusercontent.com/9093958/42760509-fe413c56-890a-11e8-9383-aaeafb2c4f58.jpg)
+![link-list-triple-column](https://user-images.githubusercontent.com/9093958/43392066-cf32345e-93f2-11e8-8c39-3fef44b9642e.jpg)
 
 ### Image-List
 #### Contents
 !{image-list-single-column}
 ![image-list-single-column](https://user-images.githubusercontent.com/9093958/42761476-faaf5d54-890d-11e8-8e0b-64d119cdcb49.jpg)
+
+!{image-list-double-column}
+![image-list-double-column](https://user-images.githubusercontent.com/9093958/43391801-f173bf16-93f1-11e8-9eae-b4429e3bcc57.jpg)
+
+!{image-list-triple-column}
+![image-list-triple-column](https://user-images.githubusercontent.com/9093958/43391802-f1907188-93f1-11e8-8b7c-a997b71d29fb.jpg)
 
 ## Maps
 ### Contents
