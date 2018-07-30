@@ -71,7 +71,9 @@ mixin textmedia(options)
     
     .textmedia__text
       if options.eyebrow
-        span.textmedia__text__eyebrow #{options.eyebrow}
+        .textmedia__header
+          h2.textmedia__header__title
+            span.textmedia__header__eyebrow #{options.eyebrow}
       
       if options.title
         h2.textmedia__text__title #{options.title}
