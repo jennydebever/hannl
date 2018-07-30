@@ -53,6 +53,9 @@ Drukt uit hoeveel visuele ruimte een component inneemt.
 ![ask-for-action](https://user-images.githubusercontent.com/9093958/42752668-e9224b06-88ee-11e8-9720-31a55d494fde.jpg)
 ![ask-for-action-hover](https://user-images.githubusercontent.com/9093958/42752667-e905bdd8-88ee-11e8-9a39-4e78ea0bdc1c.jpg)
 
+!{insist-for-action}
+![insist-for-action](https://user-images.githubusercontent.com/9093958/43399673-f93f8670-940b-11e8-80b6-207827f1a8b0.jpg)
+
 !{shout-for-action}
 ![shout-for-action](https://user-images.githubusercontent.com/9093958/42751769-14c36c0c-88ec-11e8-9f9b-841afbac2ebf.jpg)
 
@@ -316,3 +319,6 @@ with tooltip
 
 !{the-education-navigator-regular}
 ![the-education-navigator-regular](https://user-images.githubusercontent.com/9093958/43398337-1183f832-9408-11e8-81ef-ff08a956d581.jpg)
+
+!{timeline}
+De timeline van Studie-Inhoud
