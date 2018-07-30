@@ -50,7 +50,6 @@
     @include breakpoint($bp-l) {
       font-size: 14px;
       padding: 24px;
-      width: 90%;
     }
   }
 }
@@ -217,8 +216,21 @@
     }
 
     .textmedia__media .textmedia__caption {
-      left: inherit;
+      left: 49px;
       right: 0;
+    }
+  }
+
+  @include breakpoint($bp-xl) {
+    .textmedia__media__picture img,
+    .textmedia__media__video video {
+      margin-left: auto;
+    }
+
+    .textmedia__media .textmedia__caption {
+      left: 76px;
+      right: 20px;
+      // background:red;
     }
   }
 }
