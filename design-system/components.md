@@ -200,7 +200,9 @@ used for USP -› obsolete?
 ![table-fat](https://user-images.githubusercontent.com/9093958/42764620-5c1dd0c2-8916-11e8-938f-0114bade5500.jpg)
 
 !{table-whale}
-![table-whale](https://user-images.githubusercontent.com/9093958/42764623-5c6cc6be-8916-11e8-99fd-7dc6a4b47b03.jpg)
+![table-whale](https://user-images.githubusercontent.com/9093958/43392311-97efbccc-93f3-11e8-982c-eade5186a661.jpg)
+with tooltip
+![table-whale-tooltip](https://user-images.githubusercontent.com/9093958/43392310-97d884b2-93f3-11e8-8fde-d6817dc5b0ec.jpg)
 
 !{table-interactive}
 ![table-interactive](https://user-images.githubusercontent.com/9093958/42764621-5c3b5714-8916-11e8-9bb4-923913edbe35.jpg)
