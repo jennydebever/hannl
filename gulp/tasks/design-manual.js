@@ -36,8 +36,10 @@ const config = {
   nav: [
     { label: "Index", href: "/design-system/index.html" },
     { label: "Atomen", href: "/design-system/atomen.html" },
+    { label: "Componenten", href: "/design-system/components.html" },
     { label: "Content", href: "/design-system/content.html" },
     { label: "Navigatie", href: "/design-system/navigatie.html" },
+    { label: "Design Principles", href: "/design-system/design-principles.html" },
     { label: "Docs ↗", href: "/docs/index.html" }
   ],
   renderPages: true,
