@@ -1,41 +1,83 @@
-var menu = document.getElementById('homeBar');
+var delegate = require("delegate-events");
+var constants = require("../../../constants");
+var slideUp = require("slide-anim").slideUp;
+var slideDown = require("slide-anim").slideDown;
+var findParent = require("find-parent");
 
-function setBottom() {
-  var homeBar = document.getElementById('homeBar');
+/**
+ * Open/close collapsible item
+ * checks aria-expanded attribute on button
+ * to decide whether to expand or not
+ */
 
-  if (homeBar.classList.contains('bottom')) {
-    homeBar.classList.remove('bottom');
-    document.getElementById('submenu').classList.remove('bottom');
-    // document.getElementsByClass('icon').classList.remove('bottom');
+function toggle($btn, $content, speed) {
+  if (!$btn || !$content) {
+    return;
   }
-  else {
-    homeBar.classList.add('bottom');
-    document.getElementById('submenu').classList.add('bottom');
-    // document.getElementsByClass('icon').classList.add('bottom');
+
+  // get button collapsible parent
+  var $collapsible = findParent.byClassName($content, "js-collapsible");
+
+  // current state: not expanded
+  if ($btn.getAttribute("aria-expanded") === "false") {
+    // set expanded
+    $btn.setAttribute("aria-expanded", true);
+
+    // add is-open class
+    $collapsible.classList.add(constants.OPEN_CLASS);
+
+    // animate open content div
+    slideDown($content, { duration: speed || 200 }).then(function() {
+      // make focusable
+      $content.setAttribute("tabIndex", "-1");
+
+      // set focus for screenreaders
+      $content.focus();
+    });
+
+    // current state: expanded
+  } else {
+    // set not expanded
+    $btn.setAttribute("aria-expanded", false);
+
+    // remove is-open class
+    $collapsible.classList.remove(constants.OPEN_CLASS);
+
+    // animate close content div
+    slideUp($content, { duration: speed || 200 });
   }
 }
 
-function toggleMenu() {
-  var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
-  var hiddenItems = document.querySelectorAll('.hide');
+/**
+ * Toggle collapsible on button click
+ * find element referenced by aria-controls and toggle
+ */
 
-  if(width <= 991) {
-    setBottom();
-  }
-
-  for (var i = 0; i < hiddenItems.length; i++) {
-    var element = hiddenItems[i];
-
-    if (element.classList.contains('show')) {
-      element.classList.remove('show');
-    }
-    else {
-      element.classList.add('show');
-    }
+function onButtonClick(e) {
+  var $btn = e.delegateTarget;
+  var rel = $btn.getAttribute("aria-controls");
+  if (rel) {
+    toggle($btn, document.getElementById(rel));
   }
 }
 
-menu.addEventListener( "click", function(event) {
-    event.stopPropagation();
-    toggleMenu();
-});
+delegate.bind(document.body, ".js-collapsible__button", "click", onButtonClick);
+
+/**
+ * Hide/show all collapsibles on load̦
+ */
+
+function toggleOnLoad() {
+  var $$collapsibles = document.querySelectorAll(".js-collapsible");
+  for (var i = 0, l = $$collapsibles.length; i < l; ++i) {
+    // find buttton and content elements
+    var $collapsible = $$collapsibles[i];
+    var $btn = $collapsible.querySelector(".js-collapsible__button");
+    var $content = $collapsible.querySelector(".js-collapsible__content");
+
+    // show/hide with 1ms speed
+    toggle($btn, $content, 1);
+  }
+}
+
+toggleOnLoad();

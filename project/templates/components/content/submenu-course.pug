@@ -1,101 +1,65 @@
 //- @pugdoc
-  name: Submenu-course-item
-  description: Item van een submenu van een opleidingspagina. 
+  name: Menu-items
   capture: 0
 
-mixin submenu-course-item(item)
-  h3 #{item.title}
-  p #{item.link}
+mixin menu-items(items)
+  include ../atoms/richtext
+  include ../../icons/_icon
+  include ../../utils/slugify
+
+
+
+      each item in items
+        li.collapsibles__item(class='js-collapsible')
+          .collapsible
+            h3.collapsible__title
+                | #{item.title}
+                //- +icon#chevron
+
+                +richtext
+                  | !{item.body}
 
 
 //- @pugdoc
   name: Submenu-course
-  description: submenu van een opleidingspagina.
+  description: |
+    Sectie met uitklappers. Bevat een titel en een lijst van één of meerdere uitklapbare titel/richtext paren. Iedere uitklapper kan vooraf `status: open` worden krijgen door op de button aria-expanded="true" te zetten.
   examples:
-  - |
-    div(style="height: 1000px")
-      +submenu-course('Elektrotechniek', items, 'arrow')
+    - |
+      include ./submenu-course
 
-mixin submenu-course(title,items, icon)
+      - items = [];
+      - items.push({title: 'Ontdekken', submenu: '<ul><li>Elektro in het kort</li><li>Studenten aan het woord</li><li>Projecten en nieuws</li><li>De locatie</li></ul>'})
+      - items.push({title: 'Jouw toekomst', submenu: '<ul><li>Beroepen en bedrijven</li><li>Professionals over het vak</li><li>Doorstuderen</li></ul>'})
+      - items.push({title: 'De studieopbouw', submenu: '<ul><li>Jaar 1<br/>Je propedeuse jaar</li><li>Jaar 2<br/>Je verdiepende jaar</li><li>Jaar 3<br/>Stage en minor</li><li>Jaar 4<br/>Afstuderen</li><li>Doorstuderen</li></ul>'})
+      - items.push({title: 'Maak kennis', submenu: '<ul><li>Kom de HAN ontdekken</li><li>Studeren in Arnhem</li><li>Doorstuderen</li></ul>'})
+      - items.push({title: 'Praktische info', submenu: '<ul><li>De toelatingseisen</li><li>Aanmeldprocedure</li><li>Studeren met een beperking</li><li>Opleidingskosten</li></ul>'})
+      +submenu-collapsibles('Elektrotechniek', items)
+
+mixin submenu-collapsibles(title, items)
   include ../atoms/richtext
   include ../../icons/_icon
+  include ../../utils/slugify
+  include ./section
 
-  nav(role='navigation')#submenu
-    ul.dropdown__main
-      li#homeBar
-        +richtext
-          h4.coursetitle !{title}
-          +icon#chevron
-        //a(id='homes') Home
-      li.dropdown__submenu.hide
-        a.dropdown__submenu__button.active(href="javascript:void(0)") Ontdekken
-          +icon#arrow
-        ul.dropdown
-          li
-            a(href='#') Elektro in het kort
-          li
-            a(href='#') Studenten aan het woord
-          li
-            a(href='#') Projecten en nieuws
-          li
-            a(href='#') De locatie
-      li.hide
-        a(href='#') Jouw toekomst
-          +icon#arrow        
-        ul.dropdown
-          li
-            a(href='#') Beroepen en bedrijven
-          li
-            a(href='#') Professionals over het vak
-          li
-            a(href='#') Doorstuderen
-      li.dropdown__submenu.current.hide
-        a.dropdown__submenu__button.active(href="javascript:void(0)") De studieopbouw
-          +icon#arrow
-        ul.dropdown
-          li.dropdown__submenu
-            a.dropdown__submenu__button(href='javascript:void(0)') Jaar 1
-            ul.dropdown
-              li
-                a(href='#') Je propedeuse jaar
-        ul.dropdown
-          li.dropdown__submenu
-            a.dropdown__submenu__button(href='javascript:void(0)') Jaar 2
-            ul.dropdown
-              li
-                a(href='#') Je verdiepende jaar
-        ul.dropdown
-          li.dropdown__submenu
-            a.dropdown__submenu__button(href='javascript:void(0)') Jaar 3
-            ul.dropdown
-              li
-                a(href='#') Stage en minor
-        ul.dropdown
-          li.dropdown__submenu
-            a.dropdown__submenu__button(href='javascript:void(0)') Jaar 4
-            ul.dropdown
-              li
-                a(href='#') Afstuderen
-      li.hide
-        a(href='#') Maak kennis
-          +icon#arrow
-        ul.dropdown
-          li
-            a(href='#') Kom de HAN ontdekken
-          li
-            a(href='#') Studeren in Arnhem
-      li.hide
-        a(href='#') Praktische info
-          +icon#arrow
-        ul.dropdown
-          li
-            a(href='#') De toelatingseisen
-          li
-            a(href='#') Aanmeldprocedure
-          li
-            a(href='#') Studeren met een beperking
-          li
-            a(href='#') Opleidingskosten
-      li.hide
-        a(href="#") Contact
-          +icon#arrow
+  +section(null, null)(class='section--submenu-course')
+    ol.collapsibles(class='js-collapsibles')
+      li.collapsibles__item(class='js-collapsible')
+        .collapsible
+          h3.collapsible__title
+            button.collapsible__title__button(type='button', aria-expanded='true', class='js-collapsible__button', aria-controls=slugify(title))
+              | #{title}
+              +icon#chevron
+
+          .collapsible__content(id=slugify(title), class='js-collapsible__content')
+            +richtext
+              ul
+                each item in items
+                  li
+                    .submenu__title !{item.title}
+                      +icon#arrow
+                    | !{item.submenu}
+          h3.collapsible__title
+            button.collapsible__title__button(type='button', aria-expanded='true', class='js-collapsible__button', aria-controls=slugify(title))
+              | #{title}
+              +icon#chevron
