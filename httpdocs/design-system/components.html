@@ -1,0 +1,547 @@
+<!DOCTYPE html><html lang="en"><head><title>Components - Design System - han.nl</title><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=Edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta http-equiv="cleartype" content="on"><link rel="stylesheet" type="text/css" href="./all.min.css">
+    <link rel='stylesheet' href='/lib/css/design-manual.css' />
+    <link rel="shortcut icon" href="http://han.nl/favicon.ico">
+  </head><body class="components-page" id="top"><input class="hamburger-toggle" type="checkbox" id="hamburger"><label class="close-sidebar" for="hamburger"></label><div class="sidebar"><ul class="sidebar__nav"><li class="sidebar__nav__item"><a class="sidebar__nav__item__link" href="/design-system/index.html">Index</a></li><li class="sidebar__nav__item"><a class="sidebar__nav__item__link" href="/design-system/atomen.html">Atomen</a></li><li class="sidebar__nav__item"><a class="sidebar__nav__item__link is-active" href="/design-system/components.html">Componenten</a></li><li class="sidebar__nav__item"><a class="sidebar__nav__item__link" href="/design-system/content.html">Content</a></li><li class="sidebar__nav__item"><a class="sidebar__nav__item__link" href="/design-system/navigatie.html">Navigatie</a></li><li class="sidebar__nav__item"><a class="sidebar__nav__item__link" href="/design-system/design-principles.html">Design Principles</a></li><li class="sidebar__nav__item"><a class="sidebar__nav__item__link" href="/docs/index.html">Docs ↗</a></li></ul><ul class="sidebar__inpage"><li class="sidebar__inpage__item js-sidebar__item" data-rel="naamgeving" title="Naamgeving"><a class="sidebar__inpage__item__link" href="#naamgeving">Naamgeving</a></li><li class="sidebar__inpage__item js-sidebar__item" data-rel="accordion" title="Accordion"><a class="sidebar__inpage__item__link" href="#accordion">Accordion</a></li><li class="sidebar__inpage__item js-sidebar__item" data-rel="bio-and-testimonial" title="Bio and testimonial"><a class="sidebar__inpage__item__link" href="#bio-and-testimonial">Bio and testimonial</a></li><li class="sidebar__inpage__item js-sidebar__item" data-rel="call-for-action" title="Call for Action"><a class="sidebar__inpage__item__link" href="#call-for-action">Call for Action</a></li><li class="sidebar__inpage__item js-sidebar__item" data-rel="cards" title="Cards"><a class="sidebar__inpage__item__link" href="#cards">Cards</a></li><li class="sidebar__inpage__item js-sidebar__item" data-rel="carousel" title="Carousel"><a class="sidebar__inpage__item__link" href="#carousel">Carousel</a></li><li class="sidebar__inpage__item js-sidebar__item" data-rel="contact" title="Contact"><a class="sidebar__inpage__item__link" href="#contact">Contact</a></li><li class="sidebar__inpage__item js-sidebar__item" data-rel="facts" title="Facts"><a class="sidebar__inpage__item__link" href="#facts">Facts</a></li><li class="sidebar__inpage__item js-sidebar__item" data-rel="filters" title="Filters"><a class="sidebar__inpage__item__link" href="#filters">Filters</a></li><li class="sidebar__inpage__item js-sidebar__item" data-rel="heroes" title="Heroes"><a class="sidebar__inpage__item__link" href="#heroes">Heroes</a></li><li class="sidebar__inpage__item js-sidebar__item" data-rel="images" title="Images"><a class="sidebar__inpage__item__link" href="#images">Images</a></li><li class="sidebar__inpage__item js-sidebar__item" data-rel="lists" title="Lists"><a class="sidebar__inpage__item__link" href="#lists">Lists</a></li><li class="sidebar__inpage__item js-sidebar__item" data-rel="maps" title="Maps"><a class="sidebar__inpage__item__link" href="#maps">Maps</a></li><li class="sidebar__inpage__item js-sidebar__item" data-rel="navigation" title="Navigation"><a class="sidebar__inpage__item__link" href="#navigation">Navigation</a></li><li class="sidebar__inpage__item js-sidebar__item" data-rel="sliders" title="Sliders"><a class="sidebar__inpage__item__link" href="#sliders">Sliders</a></li><li class="sidebar__inpage__item js-sidebar__item" data-rel="tables" title="Tables"><a class="sidebar__inpage__item__link" href="#tables">Tables</a></li><li class="sidebar__inpage__item js-sidebar__item" data-rel="tabs" title="Tabs"><a class="sidebar__inpage__item__link" href="#tabs">Tabs</a></li><li class="sidebar__inpage__item js-sidebar__item" data-rel="takeover" title="Takeover"><a class="sidebar__inpage__item__link" href="#takeover">Takeover</a></li><li class="sidebar__inpage__item js-sidebar__item" data-rel="text" title="Text"><a class="sidebar__inpage__item__link" href="#text">Text</a></li><li class="sidebar__inpage__item js-sidebar__item" data-rel="text-and-media" title="Text and Media"><a class="sidebar__inpage__item__link" href="#text-and-media">Text and Media</a></li><li class="sidebar__inpage__item js-sidebar__item" data-rel="quote" title="Quote"><a class="sidebar__inpage__item__link" href="#quote">Quote</a></li><li class="sidebar__inpage__item js-sidebar__item" data-rel="specials" title="Specials"><a class="sidebar__inpage__item__link" href="#specials">Specials</a></li></ul></div><div class="main"><header class="header clearfix"><label class="header__link header__hamburger" for="hamburger">☰</label><ul class="header__nav"><li class="header__nav__item"><a class="header__nav__item__link" href="/design-system/index.html">Index</a></li><li class="header__nav__item"><a class="header__nav__item__link" href="/design-system/atomen.html">Atomen</a></li><li class="header__nav__item"><a class="header__nav__item__link is-active" href="/design-system/components.html">Componenten</a></li><li class="header__nav__item"><a class="header__nav__item__link" href="/design-system/content.html">Content</a></li><li class="header__nav__item"><a class="header__nav__item__link" href="/design-system/navigatie.html">Navigatie</a></li><li class="header__nav__item"><a class="header__nav__item__link" href="/design-system/design-principles.html">Design Principles</a></li><li class="header__nav__item"><a class="header__nav__item__link" href="/docs/index.html">Docs ↗</a></li></ul><ul class="breadcrumbs"><li class="breadcrumbs__item js-breadcrumb"></li></ul><div class="header__meta"><div class="header__meta__info"><div class="header__meta__info__domain">han.nl</div><div class="header__meta__info__title">Design System<span class="header__meta__info__version">v0.1.0</span></div></div><img class="header__meta__avatar" src="https://www.han.nl/lib/css/han/images/default/han_oh.gif"></div></header><div class="content"><h1 id="components">Components</h1>
+<h2 id="naamgeving">Naamgeving</h2>
+<p>Voor de namen van de componenten zoeken we naar metaforen en persoonlijkheid en willen we dat het het doel van het component communiceert. Zo is het component makkelijker te onthouden. 
+Naast de naam van een component werken we ook met een schaal om  onderscheid te kunnen maken tussen componenten die veel dezelfde  eigenschappen in zich dragen zoals call to actions.
+We werken met twee verschillende schalen om de visuele eigenschappen van de componenten uit te kunnen drukken: een Visual Loudness Scale en een Visual Wideness Scale. </p>
+<h3 id="visual-loudness-scale">Visual Loudness Scale</h3>
+<p>Drukt uit hoeveel visueel lawaai een component maakt. </p>
+<h4 id="de-schaal">De schaal</h4>
+<ul>
+<li>Whisper</li>
+<li>Murmur</li>
+<li>Ask</li>
+<li>Insist</li>
+<li>Shout</li>
+<li>Scream</li>
+<li>Roar</li>
+</ul>
+<h3 id="visual-wideness-scale">Visual Wideness Scale</h3>
+<p>Drukt uit hoeveel visuele ruimte een component inneemt.</p>
+<h4 id="de-schaal">De schaal</h4>
+<ul>
+<li>Skeleton</li>
+<li>Skinny</li>
+<li>Regular</li>
+<li>Fat</li>
+<li>Whale</li>
+</ul>
+<hr>
+<h2 id="accordion">Accordion</h2>
+<div class="table-of-contents"><ul class="table-of-contents__list"><li class="table-of-contents__list__item table-of-contents__list__item--error"><a class="table-of-contents__list__item__link" href="#accordion-regular"><svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6.872 5.807L1.858 10.87c-.085.087-.187.13-.304.13-.117 0-.218-.043-.304-.13L.128 9.738C.043 9.65 0 9.548 0 9.43c0-.118.043-.22.128-.307L3.716 5.5.128 1.877C.043 1.79 0 1.687 0 1.57c0-.12.043-.22.128-.308L1.25.13c.086-.087.187-.13.304-.13.117 0 .22.043.304.13l5.014 5.063c.085.086.128.19.128.307 0 .118-.043.22-.128.307z" fill-rule="nonzero" />
+</svg>accordion-regular</a></li></ul></div><div class="component-wrapper"><div class="component js-section has-error" id="accordion-regular"><h3 class="component__title">accordion-regular</h3><div class="component__meta"></div></div></div>
+<img src="https://user-images.githubusercontent.com/9093958/42027419-f40031ce-7ac9-11e8-97bb-bb9bbe6f1977.jpg" alt="accordion-regular"><h2 id="bio-and-testimonial">Bio and testimonial</h2>
+<div class="table-of-contents"><ul class="table-of-contents__list"><li class="table-of-contents__list__item table-of-contents__list__item--error"><a class="table-of-contents__list__item__link" href="#bio-skinny"><svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6.872 5.807L1.858 10.87c-.085.087-.187.13-.304.13-.117 0-.218-.043-.304-.13L.128 9.738C.043 9.65 0 9.548 0 9.43c0-.118.043-.22.128-.307L3.716 5.5.128 1.877C.043 1.79 0 1.687 0 1.57c0-.12.043-.22.128-.308L1.25.13c.086-.087.187-.13.304-.13.117 0 .22.043.304.13l5.014 5.063c.085.086.128.19.128.307 0 .118-.043.22-.128.307z" fill-rule="nonzero" />
+</svg>bio-skinny</a></li><li class="table-of-contents__list__item table-of-contents__list__item--error"><a class="table-of-contents__list__item__link" href="#bio-regular"><svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6.872 5.807L1.858 10.87c-.085.087-.187.13-.304.13-.117 0-.218-.043-.304-.13L.128 9.738C.043 9.65 0 9.548 0 9.43c0-.118.043-.22.128-.307L3.716 5.5.128 1.877C.043 1.79 0 1.687 0 1.57c0-.12.043-.22.128-.308L1.25.13c.086-.087.187-.13.304-.13.117 0 .22.043.304.13l5.014 5.063c.085.086.128.19.128.307 0 .118-.043.22-.128.307z" fill-rule="nonzero" />
+</svg>bio-regular</a></li><li class="table-of-contents__list__item table-of-contents__list__item--error"><a class="table-of-contents__list__item__link" href="#bio-card"><svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6.872 5.807L1.858 10.87c-.085.087-.187.13-.304.13-.117 0-.218-.043-.304-.13L.128 9.738C.043 9.65 0 9.548 0 9.43c0-.118.043-.22.128-.307L3.716 5.5.128 1.877C.043 1.79 0 1.687 0 1.57c0-.12.043-.22.128-.308L1.25.13c.086-.087.187-.13.304-.13.117 0 .22.043.304.13l5.014 5.063c.085.086.128.19.128.307 0 .118-.043.22-.128.307z" fill-rule="nonzero" />
+</svg>bio-card</a></li><li class="table-of-contents__list__item table-of-contents__list__item--error"><a class="table-of-contents__list__item__link" href="#testimonial-regular"><svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6.872 5.807L1.858 10.87c-.085.087-.187.13-.304.13-.117 0-.218-.043-.304-.13L.128 9.738C.043 9.65 0 9.548 0 9.43c0-.118.043-.22.128-.307L3.716 5.5.128 1.877C.043 1.79 0 1.687 0 1.57c0-.12.043-.22.128-.308L1.25.13c.086-.087.187-.13.304-.13.117 0 .22.043.304.13l5.014 5.063c.085.086.128.19.128.307 0 .118-.043.22-.128.307z" fill-rule="nonzero" />
+</svg>testimonial-regular</a></li></ul></div><div class="component-wrapper"><div class="component js-section has-error" id="bio-skinny"><h3 class="component__title">bio-skinny</h3><div class="component__meta"></div></div></div>
+<img src="https://user-images.githubusercontent.com/9093958/42761401-b4f80216-890d-11e8-9a62-bfd3129caa05.jpg" alt="bio-skinny"><div class="component-wrapper"><div class="component js-section has-error" id="bio-regular"><h3 class="component__title">bio-regular</h3><div class="component__meta"></div></div></div>
+<img src="https://user-images.githubusercontent.com/9093958/42751556-6f9e5cf0-88eb-11e8-8f35-1e9c763840b6.jpg" alt="bio-regular"><div class="component-wrapper"><div class="component js-section has-error" id="bio-card"><h3 class="component__title">bio-card</h3><div class="component__meta"></div></div></div>
+<img src="https://user-images.githubusercontent.com/9093958/42752747-2f05a5be-88ef-11e8-9af6-efeace834c19.jpg" alt="bio-card"><div class="component-wrapper"><div class="component js-section has-error" id="testimonial-regular"><h3 class="component__title">testimonial-regular</h3><div class="component__meta"></div></div></div>
+<img src="https://user-images.githubusercontent.com/9093958/43150607-9d98bcba-8f6a-11e8-9023-c847f474c928.jpg" alt="testimonial-regular"><h2 id="call-for-action">Call for Action</h2>
+<div class="table-of-contents"><ul class="table-of-contents__list"><li class="table-of-contents__list__item table-of-contents__list__item--error"><a class="table-of-contents__list__item__link" href="#ask-for-action"><svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6.872 5.807L1.858 10.87c-.085.087-.187.13-.304.13-.117 0-.218-.043-.304-.13L.128 9.738C.043 9.65 0 9.548 0 9.43c0-.118.043-.22.128-.307L3.716 5.5.128 1.877C.043 1.79 0 1.687 0 1.57c0-.12.043-.22.128-.308L1.25.13c.086-.087.187-.13.304-.13.117 0 .22.043.304.13l5.014 5.063c.085.086.128.19.128.307 0 .118-.043.22-.128.307z" fill-rule="nonzero" />
+</svg>ask-for-action</a></li><li class="table-of-contents__list__item table-of-contents__list__item--error"><a class="table-of-contents__list__item__link" href="#insist-for-action"><svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6.872 5.807L1.858 10.87c-.085.087-.187.13-.304.13-.117 0-.218-.043-.304-.13L.128 9.738C.043 9.65 0 9.548 0 9.43c0-.118.043-.22.128-.307L3.716 5.5.128 1.877C.043 1.79 0 1.687 0 1.57c0-.12.043-.22.128-.308L1.25.13c.086-.087.187-.13.304-.13.117 0 .22.043.304.13l5.014 5.063c.085.086.128.19.128.307 0 .118-.043.22-.128.307z" fill-rule="nonzero" />
+</svg>insist-for-action</a></li><li class="table-of-contents__list__item table-of-contents__list__item--error"><a class="table-of-contents__list__item__link" href="#shout-for-action"><svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6.872 5.807L1.858 10.87c-.085.087-.187.13-.304.13-.117 0-.218-.043-.304-.13L.128 9.738C.043 9.65 0 9.548 0 9.43c0-.118.043-.22.128-.307L3.716 5.5.128 1.877C.043 1.79 0 1.687 0 1.57c0-.12.043-.22.128-.308L1.25.13c.086-.087.187-.13.304-.13.117 0 .22.043.304.13l5.014 5.063c.085.086.128.19.128.307 0 .118-.043.22-.128.307z" fill-rule="nonzero" />
+</svg>shout-for-action</a></li><li class="table-of-contents__list__item table-of-contents__list__item--error"><a class="table-of-contents__list__item__link" href="#scream-for-action"><svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6.872 5.807L1.858 10.87c-.085.087-.187.13-.304.13-.117 0-.218-.043-.304-.13L.128 9.738C.043 9.65 0 9.548 0 9.43c0-.118.043-.22.128-.307L3.716 5.5.128 1.877C.043 1.79 0 1.687 0 1.57c0-.12.043-.22.128-.308L1.25.13c.086-.087.187-.13.304-.13.117 0 .22.043.304.13l5.014 5.063c.085.086.128.19.128.307 0 .118-.043.22-.128.307z" fill-rule="nonzero" />
+</svg>scream-for-action</a></li></ul></div><div class="component-wrapper"><div class="component js-section has-error" id="ask-for-action"><h3 class="component__title">ask-for-action</h3><div class="component__meta"></div></div></div>
+<img src="https://user-images.githubusercontent.com/9093958/42752668-e9224b06-88ee-11e8-9720-31a55d494fde.jpg" alt="ask-for-action">
+<img src="https://user-images.githubusercontent.com/9093958/42752667-e905bdd8-88ee-11e8-9a39-4e78ea0bdc1c.jpg" alt="ask-for-action-hover"><div class="component-wrapper"><div class="component js-section has-error" id="insist-for-action"><h3 class="component__title">insist-for-action</h3><div class="component__meta"></div></div></div>
+<img src="https://user-images.githubusercontent.com/9093958/43399673-f93f8670-940b-11e8-80b6-207827f1a8b0.jpg" alt="insist-for-action"><div class="component-wrapper"><div class="component js-section has-error" id="shout-for-action"><h3 class="component__title">shout-for-action</h3><div class="component__meta"></div></div></div>
+<img src="https://user-images.githubusercontent.com/9093958/42751769-14c36c0c-88ec-11e8-9f9b-841afbac2ebf.jpg" alt="shout-for-action"><div class="component-wrapper"><div class="component js-section has-error" id="scream-for-action"><h3 class="component__title">scream-for-action</h3><div class="component__meta"></div></div></div>
+<img src="https://user-images.githubusercontent.com/9093958/42751734-fc688a20-88eb-11e8-9e69-6cd15dba4118.jpg" alt="scream-for-action"><h2 id="cards">Cards</h2>
+<div class="table-of-contents"><ul class="table-of-contents__list"><li class="table-of-contents__list__item table-of-contents__list__item--error"><a class="table-of-contents__list__item__link" href="#card-skeleton"><svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6.872 5.807L1.858 10.87c-.085.087-.187.13-.304.13-.117 0-.218-.043-.304-.13L.128 9.738C.043 9.65 0 9.548 0 9.43c0-.118.043-.22.128-.307L3.716 5.5.128 1.877C.043 1.79 0 1.687 0 1.57c0-.12.043-.22.128-.308L1.25.13c.086-.087.187-.13.304-.13.117 0 .22.043.304.13l5.014 5.063c.085.086.128.19.128.307 0 .118-.043.22-.128.307z" fill-rule="nonzero" />
+</svg>card-skeleton</a></li><li class="table-of-contents__list__item table-of-contents__list__item--error"><a class="table-of-contents__list__item__link" href="#card-skinny"><svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6.872 5.807L1.858 10.87c-.085.087-.187.13-.304.13-.117 0-.218-.043-.304-.13L.128 9.738C.043 9.65 0 9.548 0 9.43c0-.118.043-.22.128-.307L3.716 5.5.128 1.877C.043 1.79 0 1.687 0 1.57c0-.12.043-.22.128-.308L1.25.13c.086-.087.187-.13.304-.13.117 0 .22.043.304.13l5.014 5.063c.085.086.128.19.128.307 0 .118-.043.22-.128.307z" fill-rule="nonzero" />
+</svg>card-skinny</a></li><li class="table-of-contents__list__item table-of-contents__list__item--error"><a class="table-of-contents__list__item__link" href="#card-regular"><svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6.872 5.807L1.858 10.87c-.085.087-.187.13-.304.13-.117 0-.218-.043-.304-.13L.128 9.738C.043 9.65 0 9.548 0 9.43c0-.118.043-.22.128-.307L3.716 5.5.128 1.877C.043 1.79 0 1.687 0 1.57c0-.12.043-.22.128-.308L1.25.13c.086-.087.187-.13.304-.13.117 0 .22.043.304.13l5.014 5.063c.085.086.128.19.128.307 0 .118-.043.22-.128.307z" fill-rule="nonzero" />
+</svg>card-regular</a></li><li class="table-of-contents__list__item table-of-contents__list__item--error"><a class="table-of-contents__list__item__link" href="#card-news-event-regular"><svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6.872 5.807L1.858 10.87c-.085.087-.187.13-.304.13-.117 0-.218-.043-.304-.13L.128 9.738C.043 9.65 0 9.548 0 9.43c0-.118.043-.22.128-.307L3.716 5.5.128 1.877C.043 1.79 0 1.687 0 1.57c0-.12.043-.22.128-.308L1.25.13c.086-.087.187-.13.304-.13.117 0 .22.043.304.13l5.014 5.063c.085.086.128.19.128.307 0 .118-.043.22-.128.307z" fill-rule="nonzero" />
+</svg>card-news-event-regular</a></li></ul></div><div class="component-wrapper"><div class="component js-section has-error" id="card-skeleton"><h3 class="component__title">card-skeleton</h3><div class="component__meta"></div></div></div> 
+used for USP -› obsolete?
+<img src="https://user-images.githubusercontent.com/9093958/42753121-2946cfc6-88f0-11e8-8dcb-38086b14b8b7.jpg" alt="card-skeleton"><div class="component-wrapper"><div class="component js-section has-error" id="card-skinny"><h3 class="component__title">card-skinny</h3><div class="component__meta"></div></div></div> 
+used for USP -› obsolete?
+<img src="https://user-images.githubusercontent.com/9093958/42753122-2964ab5e-88f0-11e8-9c8a-41fb36d4739d.jpg" alt="card-skinny"><div class="component-wrapper"><div class="component js-section has-error" id="card-regular"><h3 class="component__title">card-regular</h3><div class="component__meta"></div></div></div> 
+-› obsolete?
+<img src="https://user-images.githubusercontent.com/9093958/42753119-292fa2ec-88f0-11e8-8827-630aec24ba41.jpg" alt="card-regular"><div class="component-wrapper"><div class="component js-section has-error" id="card-news-event-regular"><h3 class="component__title">card-news-event-regular</h3><div class="component__meta"></div></div></div>
+<img src="https://user-images.githubusercontent.com/9093958/43150715-e586f76c-8f6a-11e8-88ee-3a077e1cdf61.jpg" alt="card-news-event-regular"><h2 id="carousel">Carousel</h2>
+<div class="table-of-contents"><ul class="table-of-contents__list"><li class="table-of-contents__list__item table-of-contents__list__item--error"><a class="table-of-contents__list__item__link" href="#carousel-whale"><svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6.872 5.807L1.858 10.87c-.085.087-.187.13-.304.13-.117 0-.218-.043-.304-.13L.128 9.738C.043 9.65 0 9.548 0 9.43c0-.118.043-.22.128-.307L3.716 5.5.128 1.877C.043 1.79 0 1.687 0 1.57c0-.12.043-.22.128-.308L1.25.13c.086-.087.187-.13.304-.13.117 0 .22.043.304.13l5.014 5.063c.085.086.128.19.128.307 0 .118-.043.22-.128.307z" fill-rule="nonzero" />
+</svg>carousel-whale</a></li></ul></div><div class="component-wrapper"><div class="component js-section has-error" id="carousel-whale"><h3 class="component__title">carousel-whale</h3><div class="component__meta"></div></div></div>
+<img src="https://user-images.githubusercontent.com/9093958/42751828-53dd4386-88ec-11e8-950a-65375aa3674b.jpg" alt="carousel-whale"><h2 id="contact">Contact</h2>
+<div class="table-of-contents"><ul class="table-of-contents__list"><li class="table-of-contents__list__item table-of-contents__list__item--error"><a class="table-of-contents__list__item__link" href="#contact-card-skinny-1"><svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6.872 5.807L1.858 10.87c-.085.087-.187.13-.304.13-.117 0-.218-.043-.304-.13L.128 9.738C.043 9.65 0 9.548 0 9.43c0-.118.043-.22.128-.307L3.716 5.5.128 1.877C.043 1.79 0 1.687 0 1.57c0-.12.043-.22.128-.308L1.25.13c.086-.087.187-.13.304-.13.117 0 .22.043.304.13l5.014 5.063c.085.086.128.19.128.307 0 .118-.043.22-.128.307z" fill-rule="nonzero" />
+</svg>contact-card-skinny-1</a></li><li class="table-of-contents__list__item table-of-contents__list__item--error"><a class="table-of-contents__list__item__link" href="#contact-card-regular-2"><svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6.872 5.807L1.858 10.87c-.085.087-.187.13-.304.13-.117 0-.218-.043-.304-.13L.128 9.738C.043 9.65 0 9.548 0 9.43c0-.118.043-.22.128-.307L3.716 5.5.128 1.877C.043 1.79 0 1.687 0 1.57c0-.12.043-.22.128-.308L1.25.13c.086-.087.187-.13.304-.13.117 0 .22.043.304.13l5.014 5.063c.085.086.128.19.128.307 0 .118-.043.22-.128.307z" fill-rule="nonzero" />
+</svg>contact-card-regular-2</a></li><li class="table-of-contents__list__item table-of-contents__list__item--error"><a class="table-of-contents__list__item__link" href="#contact-whale"><svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6.872 5.807L1.858 10.87c-.085.087-.187.13-.304.13-.117 0-.218-.043-.304-.13L.128 9.738C.043 9.65 0 9.548 0 9.43c0-.118.043-.22.128-.307L3.716 5.5.128 1.877C.043 1.79 0 1.687 0 1.57c0-.12.043-.22.128-.308L1.25.13c.086-.087.187-.13.304-.13.117 0 .22.043.304.13l5.014 5.063c.085.086.128.19.128.307 0 .118-.043.22-.128.307z" fill-rule="nonzero" />
+</svg>contact-whale</a></li></ul></div><div class="component-wrapper"><div class="component js-section has-error" id="contact-card-skinny-1"><h3 class="component__title">contact-card-skinny-1</h3><div class="component__meta"></div></div></div>
+<img src="https://user-images.githubusercontent.com/9093958/42753422-32715bec-88f1-11e8-907e-632b8acc414d.jpg" alt="contact-card-skinny-1"><div class="component-wrapper"><div class="component js-section has-error" id="contact-card-regular-2"><h3 class="component__title">contact-card-regular-2</h3><div class="component__meta"></div></div></div>
+<img src="https://user-images.githubusercontent.com/9093958/42753423-328d4b7c-88f1-11e8-895f-6e381a2f5302.jpg" alt="contact-card-skinny-2"><div class="component-wrapper"><div class="component js-section has-error" id="contact-whale"><h3 class="component__title">contact-whale</h3><div class="component__meta"></div></div></div>
+<img src="https://user-images.githubusercontent.com/9093958/42753424-32aa4286-88f1-11e8-943e-e1fcae73b9bd.jpg" alt="contact-whale"><h2 id="facts">Facts</h2>
+<div class="table-of-contents"><ul class="table-of-contents__list"><li class="table-of-contents__list__item table-of-contents__list__item--error"><a class="table-of-contents__list__item__link" href="#fact-accreditaties"><svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6.872 5.807L1.858 10.87c-.085.087-.187.13-.304.13-.117 0-.218-.043-.304-.13L.128 9.738C.043 9.65 0 9.548 0 9.43c0-.118.043-.22.128-.307L3.716 5.5.128 1.877C.043 1.79 0 1.687 0 1.57c0-.12.043-.22.128-.308L1.25.13c.086-.087.187-.13.304-.13.117 0 .22.043.304.13l5.014 5.063c.085.086.128.19.128.307 0 .118-.043.22-.128.307z" fill-rule="nonzero" />
+</svg>fact-accreditaties</a></li><li class="table-of-contents__list__item table-of-contents__list__item--error"><a class="table-of-contents__list__item__link" href="#fact-down-regular"><svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6.872 5.807L1.858 10.87c-.085.087-.187.13-.304.13-.117 0-.218-.043-.304-.13L.128 9.738C.043 9.65 0 9.548 0 9.43c0-.118.043-.22.128-.307L3.716 5.5.128 1.877C.043 1.79 0 1.687 0 1.57c0-.12.043-.22.128-.308L1.25.13c.086-.087.187-.13.304-.13.117 0 .22.043.304.13l5.014 5.063c.085.086.128.19.128.307 0 .118-.043.22-.128.307z" fill-rule="nonzero" />
+</svg>fact-down-regular</a></li><li class="table-of-contents__list__item table-of-contents__list__item--error"><a class="table-of-contents__list__item__link" href="#fact-rating-star"><svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6.872 5.807L1.858 10.87c-.085.087-.187.13-.304.13-.117 0-.218-.043-.304-.13L.128 9.738C.043 9.65 0 9.548 0 9.43c0-.118.043-.22.128-.307L3.716 5.5.128 1.877C.043 1.79 0 1.687 0 1.57c0-.12.043-.22.128-.308L1.25.13c.086-.087.187-.13.304-.13.117 0 .22.043.304.13l5.014 5.063c.085.086.128.19.128.307 0 .118-.043.22-.128.307z" fill-rule="nonzero" />
+</svg>fact-rating-star</a></li><li class="table-of-contents__list__item table-of-contents__list__item--error"><a class="table-of-contents__list__item__link" href="#fact-sic-skinny"><svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6.872 5.807L1.858 10.87c-.085.087-.187.13-.304.13-.117 0-.218-.043-.304-.13L.128 9.738C.043 9.65 0 9.548 0 9.43c0-.118.043-.22.128-.307L3.716 5.5.128 1.877C.043 1.79 0 1.687 0 1.57c0-.12.043-.22.128-.308L1.25.13c.086-.087.187-.13.304-.13.117 0 .22.043.304.13l5.014 5.063c.085.086.128.19.128.307 0 .118-.043.22-.128.307z" fill-rule="nonzero" />
+</svg>fact-sic-skinny</a></li><li class="table-of-contents__list__item table-of-contents__list__item--error"><a class="table-of-contents__list__item__link" href="#fact-sic-fat"><svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6.872 5.807L1.858 10.87c-.085.087-.187.13-.304.13-.117 0-.218-.043-.304-.13L.128 9.738C.043 9.65 0 9.548 0 9.43c0-.118.043-.22.128-.307L3.716 5.5.128 1.877C.043 1.79 0 1.687 0 1.57c0-.12.043-.22.128-.308L1.25.13c.086-.087.187-.13.304-.13.117 0 .22.043.304.13l5.014 5.063c.085.086.128.19.128.307 0 .118-.043.22-.128.307z" fill-rule="nonzero" />
+</svg>fact-sic-fat</a></li><li class="table-of-contents__list__item table-of-contents__list__item--error"><a class="table-of-contents__list__item__link" href="#fact-timetable-regular"><svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6.872 5.807L1.858 10.87c-.085.087-.187.13-.304.13-.117 0-.218-.043-.304-.13L.128 9.738C.043 9.65 0 9.548 0 9.43c0-.118.043-.22.128-.307L3.716 5.5.128 1.877C.043 1.79 0 1.687 0 1.57c0-.12.043-.22.128-.308L1.25.13c.086-.087.187-.13.304-.13.117 0 .22.043.304.13l5.014 5.063c.085.086.128.19.128.307 0 .118-.043.22-.128.307z" fill-rule="nonzero" />
+</svg>fact-timetable-regular</a></li><li class="table-of-contents__list__item table-of-contents__list__item--error"><a class="table-of-contents__list__item__link" href="#fact-up-regular"><svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6.872 5.807L1.858 10.87c-.085.087-.187.13-.304.13-.117 0-.218-.043-.304-.13L.128 9.738C.043 9.65 0 9.548 0 9.43c0-.118.043-.22.128-.307L3.716 5.5.128 1.877C.043 1.79 0 1.687 0 1.57c0-.12.043-.22.128-.308L1.25.13c.086-.087.187-.13.304-.13.117 0 .22.043.304.13l5.014 5.063c.085.086.128.19.128.307 0 .118-.043.22-.128.307z" fill-rule="nonzero" />
+</svg>fact-up-regular</a></li><li class="table-of-contents__list__item table-of-contents__list__item--error"><a class="table-of-contents__list__item__link" href="#fact-up-fat"><svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6.872 5.807L1.858 10.87c-.085.087-.187.13-.304.13-.117 0-.218-.043-.304-.13L.128 9.738C.043 9.65 0 9.548 0 9.43c0-.118.043-.22.128-.307L3.716 5.5.128 1.877C.043 1.79 0 1.687 0 1.57c0-.12.043-.22.128-.308L1.25.13c.086-.087.187-.13.304-.13.117 0 .22.043.304.13l5.014 5.063c.085.086.128.19.128.307 0 .118-.043.22-.128.307z" fill-rule="nonzero" />
+</svg>fact-up-fat</a></li></ul></div><div class="component-wrapper"><div class="component js-section has-error" id="fact-accreditaties"><h3 class="component__title">fact-accreditaties</h3><div class="component__meta"></div></div></div>
+<img src="https://user-images.githubusercontent.com/9093958/42762987-1217c11c-8912-11e8-9885-27dce237e36a.jpg" alt="fact-accreditaties"><div class="component-wrapper"><div class="component js-section has-error" id="fact-down-regular"><h3 class="component__title">fact-down-regular</h3><div class="component__meta"></div></div></div>
+<img src="https://user-images.githubusercontent.com/9093958/42753796-50d77430-88f2-11e8-8b83-2d5abe63ef96.jpg" alt="fact-down-regular"><div class="component-wrapper"><div class="component js-section has-error" id="fact-rating-star"><h3 class="component__title">fact-rating-star</h3><div class="component__meta"></div></div></div>
+<img src="https://user-images.githubusercontent.com/9093958/42762887-c744db8e-8911-11e8-8ce6-5ae8f0bf5dde.jpg" alt="fact-rating-star"><div class="component-wrapper"><div class="component js-section has-error" id="fact-sic-skinny"><h3 class="component__title">fact-sic-skinny</h3><div class="component__meta"></div></div></div>
+<img src="https://user-images.githubusercontent.com/9093958/42753798-510c68b6-88f2-11e8-93ea-2f00eb294e31.jpg" alt="fact-sic-skinny"><div class="component-wrapper"><div class="component js-section has-error" id="fact-sic-fat"><h3 class="component__title">fact-sic-fat</h3><div class="component__meta"></div></div></div>
+<img src="https://user-images.githubusercontent.com/9093958/42753797-50f34d5e-88f2-11e8-8de3-b03c202a7855.jpg" alt="fact-sic-fat"><div class="component-wrapper"><div class="component js-section has-error" id="fact-timetable-regular"><h3 class="component__title">fact-timetable-regular</h3><div class="component__meta"></div></div></div>
+<img src="https://user-images.githubusercontent.com/9093958/42753799-512884ce-88f2-11e8-9af4-9a2e7f49ee18.jpg" alt="fact-timetable-regular"><div class="component-wrapper"><div class="component js-section has-error" id="fact-up-regular"><h3 class="component__title">fact-up-regular</h3><div class="component__meta"></div></div></div>
+<img src="https://user-images.githubusercontent.com/9093958/42753801-51593a92-88f2-11e8-9ef7-f01d3ab26ad4.jpg" alt="fact-up-regular"><div class="component-wrapper"><div class="component js-section has-error" id="fact-up-fat"><h3 class="component__title">fact-up-fat</h3><div class="component__meta"></div></div></div>
+<img src="https://user-images.githubusercontent.com/9093958/42753800-5140afb8-88f2-11e8-917a-9d3591149bfb.jpg" alt="fact-up-fat"><h2 id="filters">Filters</h2>
+<div class="table-of-contents"><ul class="table-of-contents__list"><li class="table-of-contents__list__item table-of-contents__list__item--error"><a class="table-of-contents__list__item__link" href="#filters-skinnny"><svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6.872 5.807L1.858 10.87c-.085.087-.187.13-.304.13-.117 0-.218-.043-.304-.13L.128 9.738C.043 9.65 0 9.548 0 9.43c0-.118.043-.22.128-.307L3.716 5.5.128 1.877C.043 1.79 0 1.687 0 1.57c0-.12.043-.22.128-.308L1.25.13c.086-.087.187-.13.304-.13.117 0 .22.043.304.13l5.014 5.063c.085.086.128.19.128.307 0 .118-.043.22-.128.307z" fill-rule="nonzero" />
+</svg>filters-skinnny</a></li></ul></div><div class="component-wrapper"><div class="component js-section has-error" id="filters-skinnny"><h3 class="component__title">filters-skinnny</h3><div class="component__meta"></div></div></div>
+<img src="https://user-images.githubusercontent.com/9093958/43398219-b0e55ab6-9407-11e8-91c0-349495fa264d.jpg" alt="filters-skinnny"><h2 id="heroes">Heroes</h2>
+<div class="table-of-contents"><ul class="table-of-contents__list"><li class="table-of-contents__list__item table-of-contents__list__item--error"><a class="table-of-contents__list__item__link" href="#course-hero-skinny"><svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6.872 5.807L1.858 10.87c-.085.087-.187.13-.304.13-.117 0-.218-.043-.304-.13L.128 9.738C.043 9.65 0 9.548 0 9.43c0-.118.043-.22.128-.307L3.716 5.5.128 1.877C.043 1.79 0 1.687 0 1.57c0-.12.043-.22.128-.308L1.25.13c.086-.087.187-.13.304-.13.117 0 .22.043.304.13l5.014 5.063c.085.086.128.19.128.307 0 .118-.043.22-.128.307z" fill-rule="nonzero" />
+</svg>course-hero-skinny</a></li><li class="table-of-contents__list__item table-of-contents__list__item--error"><a class="table-of-contents__list__item__link" href="#course-hero-regular"><svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6.872 5.807L1.858 10.87c-.085.087-.187.13-.304.13-.117 0-.218-.043-.304-.13L.128 9.738C.043 9.65 0 9.548 0 9.43c0-.118.043-.22.128-.307L3.716 5.5.128 1.877C.043 1.79 0 1.687 0 1.57c0-.12.043-.22.128-.308L1.25.13c.086-.087.187-.13.304-.13.117 0 .22.043.304.13l5.014 5.063c.085.086.128.19.128.307 0 .118-.043.22-.128.307z" fill-rule="nonzero" />
+</svg>course-hero-regular</a></li><li class="table-of-contents__list__item table-of-contents__list__item--error"><a class="table-of-contents__list__item__link" href="#course-hero-whale"><svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6.872 5.807L1.858 10.87c-.085.087-.187.13-.304.13-.117 0-.218-.043-.304-.13L.128 9.738C.043 9.65 0 9.548 0 9.43c0-.118.043-.22.128-.307L3.716 5.5.128 1.877C.043 1.79 0 1.687 0 1.57c0-.12.043-.22.128-.308L1.25.13c.086-.087.187-.13.304-.13.117 0 .22.043.304.13l5.014 5.063c.085.086.128.19.128.307 0 .118-.043.22-.128.307z" fill-rule="nonzero" />
+</svg>course-hero-whale</a></li></ul></div><div class="component-wrapper"><div class="component js-section has-error" id="course-hero-skinny"><h3 class="component__title">course-hero-skinny</h3><div class="component__meta"></div></div></div>
+<img src="https://user-images.githubusercontent.com/9093958/42756831-13649b08-88fe-11e8-89a0-b0afd2727fbf.jpg" alt="course-hero-skinny"><div class="component-wrapper"><div class="component js-section has-error" id="course-hero-regular"><h3 class="component__title">course-hero-regular</h3><div class="component__meta"></div></div></div>
+<img src="https://user-images.githubusercontent.com/9093958/42756829-134770a0-88fe-11e8-82c2-54eee1aaaafa.jpg" alt="course-hero-regular"><div class="component-wrapper"><div class="component js-section has-error" id="course-hero-whale"><h3 class="component__title">course-hero-whale</h3><div class="component__meta"></div></div></div>
+<img src="https://user-images.githubusercontent.com/9093958/42756706-96dee462-88fd-11e8-9f1e-458e7a116042.jpg" alt="course-hero-whale"><h2 id="images">Images</h2>
+<h3 id="image-row">Image row</h3>
+<div class="table-of-contents"><ul class="table-of-contents__list"><li class="table-of-contents__list__item table-of-contents__list__item--error"><a class="table-of-contents__list__item__link" href="#imagerow-triple-landscape"><svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6.872 5.807L1.858 10.87c-.085.087-.187.13-.304.13-.117 0-.218-.043-.304-.13L.128 9.738C.043 9.65 0 9.548 0 9.43c0-.118.043-.22.128-.307L3.716 5.5.128 1.877C.043 1.79 0 1.687 0 1.57c0-.12.043-.22.128-.308L1.25.13c.086-.087.187-.13.304-.13.117 0 .22.043.304.13l5.014 5.063c.085.086.128.19.128.307 0 .118-.043.22-.128.307z" fill-rule="nonzero" />
+</svg>imagerow-triple-landscape</a></li><li class="table-of-contents__list__item table-of-contents__list__item--error"><a class="table-of-contents__list__item__link" href="#imagerow-triple-portrait"><svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6.872 5.807L1.858 10.87c-.085.087-.187.13-.304.13-.117 0-.218-.043-.304-.13L.128 9.738C.043 9.65 0 9.548 0 9.43c0-.118.043-.22.128-.307L3.716 5.5.128 1.877C.043 1.79 0 1.687 0 1.57c0-.12.043-.22.128-.308L1.25.13c.086-.087.187-.13.304-.13.117 0 .22.043.304.13l5.014 5.063c.085.086.128.19.128.307 0 .118-.043.22-.128.307z" fill-rule="nonzero" />
+</svg>imagerow-triple-portrait</a></li></ul></div><div class="component-wrapper"><div class="component js-section has-error" id="imagerow-triple-landscape"><h3 class="component__title">imagerow-triple-landscape</h3><div class="component__meta"></div></div></div>
+<img src="https://user-images.githubusercontent.com/9093958/43398040-2824934a-9407-11e8-8a1a-afc9919e0e3a.jpg" alt="imagerow-triple-landscape"><div class="component-wrapper"><div class="component js-section has-error" id="imagerow-triple-portrait"><h3 class="component__title">imagerow-triple-portrait</h3><div class="component__meta"></div></div></div>
+<img src="https://user-images.githubusercontent.com/9093958/42764296-8ab1b38c-8915-11e8-921d-e8319722012c.jpg" alt="imagerow-triple-portrait"><h3 id="image-grid">Image grid</h3>
+<div class="table-of-contents"><ul class="table-of-contents__list"><li class="table-of-contents__list__item table-of-contents__list__item--error"><a class="table-of-contents__list__item__link" href="#imagegrid-gremlins"><svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6.872 5.807L1.858 10.87c-.085.087-.187.13-.304.13-.117 0-.218-.043-.304-.13L.128 9.738C.043 9.65 0 9.548 0 9.43c0-.118.043-.22.128-.307L3.716 5.5.128 1.877C.043 1.79 0 1.687 0 1.57c0-.12.043-.22.128-.308L1.25.13c.086-.087.187-.13.304-.13.117 0 .22.043.304.13l5.014 5.063c.085.086.128.19.128.307 0 .118-.043.22-.128.307z" fill-rule="nonzero" />
+</svg>imagegrid-gremlins</a></li></ul></div><div class="component-wrapper"><div class="component js-section has-error" id="imagegrid-gremlins"><h3 class="component__title">imagegrid-gremlins</h3><div class="component__meta"></div></div></div>
+<img src="https://user-images.githubusercontent.com/9093958/43399160-6bfc350c-940a-11e8-8d2f-4ab68c9916ff.jpg" alt="imagegrid-gremlins"><h2 id="lists">Lists</h2>
+<h3 id="text-list">Text-List</h3>
+<div class="table-of-contents"><ul class="table-of-contents__list"><li class="table-of-contents__list__item table-of-contents__list__item--error"><a class="table-of-contents__list__item__link" href="#text-list-double-column"><svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6.872 5.807L1.858 10.87c-.085.087-.187.13-.304.13-.117 0-.218-.043-.304-.13L.128 9.738C.043 9.65 0 9.548 0 9.43c0-.118.043-.22.128-.307L3.716 5.5.128 1.877C.043 1.79 0 1.687 0 1.57c0-.12.043-.22.128-.308L1.25.13c.086-.087.187-.13.304-.13.117 0 .22.043.304.13l5.014 5.063c.085.086.128.19.128.307 0 .118-.043.22-.128.307z" fill-rule="nonzero" />
+</svg>text-list-double-column</a></li><li class="table-of-contents__list__item table-of-contents__list__item--error"><a class="table-of-contents__list__item__link" href="#text-list-triple-column"><svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6.872 5.807L1.858 10.87c-.085.087-.187.13-.304.13-.117 0-.218-.043-.304-.13L.128 9.738C.043 9.65 0 9.548 0 9.43c0-.118.043-.22.128-.307L3.716 5.5.128 1.877C.043 1.79 0 1.687 0 1.57c0-.12.043-.22.128-.308L1.25.13c.086-.087.187-.13.304-.13.117 0 .22.043.304.13l5.014 5.063c.085.086.128.19.128.307 0 .118-.043.22-.128.307z" fill-rule="nonzero" />
+</svg>text-list-triple-column</a></li></ul></div><div class="component-wrapper"><div class="component js-section has-error" id="text-list-double-column"><h3 class="component__title">text-list-double-column</h3><div class="component__meta"></div></div></div>
+<img src="https://user-images.githubusercontent.com/9093958/42025827-dd73528c-7ac5-11e8-9482-9e0ec0915960.jpg" alt="text-list-double-column"><div class="component-wrapper"><div class="component js-section has-error" id="text-list-triple-column"><h3 class="component__title">text-list-triple-column</h3><div class="component__meta"></div></div></div>
+<img src="https://user-images.githubusercontent.com/9093958/42760297-4ced35fe-890a-11e8-9b41-d7629b57cefa.jpg" alt="text-list-triple-column"><h3 id="link-list">Link-List</h3>
+<div class="table-of-contents"><ul class="table-of-contents__list"><li class="table-of-contents__list__item table-of-contents__list__item--error"><a class="table-of-contents__list__item__link" href="#link-list-double-column"><svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6.872 5.807L1.858 10.87c-.085.087-.187.13-.304.13-.117 0-.218-.043-.304-.13L.128 9.738C.043 9.65 0 9.548 0 9.43c0-.118.043-.22.128-.307L3.716 5.5.128 1.877C.043 1.79 0 1.687 0 1.57c0-.12.043-.22.128-.308L1.25.13c.086-.087.187-.13.304-.13.117 0 .22.043.304.13l5.014 5.063c.085.086.128.19.128.307 0 .118-.043.22-.128.307z" fill-rule="nonzero" />
+</svg>link-list-double-column</a></li><li class="table-of-contents__list__item table-of-contents__list__item--error"><a class="table-of-contents__list__item__link" href="#link-list-triple-column"><svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6.872 5.807L1.858 10.87c-.085.087-.187.13-.304.13-.117 0-.218-.043-.304-.13L.128 9.738C.043 9.65 0 9.548 0 9.43c0-.118.043-.22.128-.307L3.716 5.5.128 1.877C.043 1.79 0 1.687 0 1.57c0-.12.043-.22.128-.308L1.25.13c.086-.087.187-.13.304-.13.117 0 .22.043.304.13l5.014 5.063c.085.086.128.19.128.307 0 .118-.043.22-.128.307z" fill-rule="nonzero" />
+</svg>link-list-triple-column</a></li></ul></div><div class="component-wrapper"><div class="component js-section has-error" id="link-list-double-column"><h3 class="component__title">link-list-double-column</h3><div class="component__meta"></div></div></div>
+<img src="https://user-images.githubusercontent.com/9093958/43392065-cf19e30e-93f2-11e8-959b-5967fd9583d2.jpg" alt="link-list-double-column"><div class="component-wrapper"><div class="component js-section has-error" id="link-list-triple-column"><h3 class="component__title">link-list-triple-column</h3><div class="component__meta"></div></div></div>
+<img src="https://user-images.githubusercontent.com/9093958/43392066-cf32345e-93f2-11e8-8c39-3fef44b9642e.jpg" alt="link-list-triple-column"><h3 id="image-list">Image-List</h3>
+<div class="table-of-contents"><ul class="table-of-contents__list"><li class="table-of-contents__list__item table-of-contents__list__item--error"><a class="table-of-contents__list__item__link" href="#image-list-single-column"><svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6.872 5.807L1.858 10.87c-.085.087-.187.13-.304.13-.117 0-.218-.043-.304-.13L.128 9.738C.043 9.65 0 9.548 0 9.43c0-.118.043-.22.128-.307L3.716 5.5.128 1.877C.043 1.79 0 1.687 0 1.57c0-.12.043-.22.128-.308L1.25.13c.086-.087.187-.13.304-.13.117 0 .22.043.304.13l5.014 5.063c.085.086.128.19.128.307 0 .118-.043.22-.128.307z" fill-rule="nonzero" />
+</svg>image-list-single-column</a></li><li class="table-of-contents__list__item table-of-contents__list__item--error"><a class="table-of-contents__list__item__link" href="#image-list-double-column"><svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6.872 5.807L1.858 10.87c-.085.087-.187.13-.304.13-.117 0-.218-.043-.304-.13L.128 9.738C.043 9.65 0 9.548 0 9.43c0-.118.043-.22.128-.307L3.716 5.5.128 1.877C.043 1.79 0 1.687 0 1.57c0-.12.043-.22.128-.308L1.25.13c.086-.087.187-.13.304-.13.117 0 .22.043.304.13l5.014 5.063c.085.086.128.19.128.307 0 .118-.043.22-.128.307z" fill-rule="nonzero" />
+</svg>image-list-double-column</a></li><li class="table-of-contents__list__item table-of-contents__list__item--error"><a class="table-of-contents__list__item__link" href="#image-list-triple-column"><svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6.872 5.807L1.858 10.87c-.085.087-.187.13-.304.13-.117 0-.218-.043-.304-.13L.128 9.738C.043 9.65 0 9.548 0 9.43c0-.118.043-.22.128-.307L3.716 5.5.128 1.877C.043 1.79 0 1.687 0 1.57c0-.12.043-.22.128-.308L1.25.13c.086-.087.187-.13.304-.13.117 0 .22.043.304.13l5.014 5.063c.085.086.128.19.128.307 0 .118-.043.22-.128.307z" fill-rule="nonzero" />
+</svg>image-list-triple-column</a></li></ul></div><div class="component-wrapper"><div class="component js-section has-error" id="image-list-single-column"><h3 class="component__title">image-list-single-column</h3><div class="component__meta"></div></div></div>
+<img src="https://user-images.githubusercontent.com/9093958/42761476-faaf5d54-890d-11e8-8e0b-64d119cdcb49.jpg" alt="image-list-single-column"><div class="component-wrapper"><div class="component js-section has-error" id="image-list-double-column"><h3 class="component__title">image-list-double-column</h3><div class="component__meta"></div></div></div>
+<img src="https://user-images.githubusercontent.com/9093958/43391801-f173bf16-93f1-11e8-9eae-b4429e3bcc57.jpg" alt="image-list-double-column"><div class="component-wrapper"><div class="component js-section has-error" id="image-list-triple-column"><h3 class="component__title">image-list-triple-column</h3><div class="component__meta"></div></div></div>
+<img src="https://user-images.githubusercontent.com/9093958/43391802-f1907188-93f1-11e8-8b7c-a997b71d29fb.jpg" alt="image-list-triple-column"><h2 id="maps">Maps</h2>
+<div class="table-of-contents"><ul class="table-of-contents__list"><li class="table-of-contents__list__item table-of-contents__list__item--error"><a class="table-of-contents__list__item__link" href="#worldmap"><svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6.872 5.807L1.858 10.87c-.085.087-.187.13-.304.13-.117 0-.218-.043-.304-.13L.128 9.738C.043 9.65 0 9.548 0 9.43c0-.118.043-.22.128-.307L3.716 5.5.128 1.877C.043 1.79 0 1.687 0 1.57c0-.12.043-.22.128-.308L1.25.13c.086-.087.187-.13.304-.13.117 0 .22.043.304.13l5.014 5.063c.085.086.128.19.128.307 0 .118-.043.22-.128.307z" fill-rule="nonzero" />
+</svg>worldmap</a></li><li class="table-of-contents__list__item table-of-contents__list__item--error"><a class="table-of-contents__list__item__link" href="#map-and-address"><svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6.872 5.807L1.858 10.87c-.085.087-.187.13-.304.13-.117 0-.218-.043-.304-.13L.128 9.738C.043 9.65 0 9.548 0 9.43c0-.118.043-.22.128-.307L3.716 5.5.128 1.877C.043 1.79 0 1.687 0 1.57c0-.12.043-.22.128-.308L1.25.13c.086-.087.187-.13.304-.13.117 0 .22.043.304.13l5.014 5.063c.085.086.128.19.128.307 0 .118-.043.22-.128.307z" fill-rule="nonzero" />
+</svg>map-and-address</a></li><li class="table-of-contents__list__item table-of-contents__list__item--error"><a class="table-of-contents__list__item__link" href="#route-ov"><svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6.872 5.807L1.858 10.87c-.085.087-.187.13-.304.13-.117 0-.218-.043-.304-.13L.128 9.738C.043 9.65 0 9.548 0 9.43c0-.118.043-.22.128-.307L3.716 5.5.128 1.877C.043 1.79 0 1.687 0 1.57c0-.12.043-.22.128-.308L1.25.13c.086-.087.187-.13.304-.13.117 0 .22.043.304.13l5.014 5.063c.085.086.128.19.128.307 0 .118-.043.22-.128.307z" fill-rule="nonzero" />
+</svg>route-ov</a></li><li class="table-of-contents__list__item table-of-contents__list__item--error"><a class="table-of-contents__list__item__link" href="#route-road"><svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6.872 5.807L1.858 10.87c-.085.087-.187.13-.304.13-.117 0-.218-.043-.304-.13L.128 9.738C.043 9.65 0 9.548 0 9.43c0-.118.043-.22.128-.307L3.716 5.5.128 1.877C.043 1.79 0 1.687 0 1.57c0-.12.043-.22.128-.308L1.25.13c.086-.087.187-.13.304-.13.117 0 .22.043.304.13l5.014 5.063c.085.086.128.19.128.307 0 .118-.043.22-.128.307z" fill-rule="nonzero" />
+</svg>route-road</a></li></ul></div><div class="component-wrapper"><div class="component js-section has-error" id="worldmap"><h3 class="component__title">worldmap</h3><div class="component__meta"></div></div></div><div class="component-wrapper"><div class="component js-section has-error" id="map-and-address"><h3 class="component__title">map-and-address</h3><div class="component__meta"></div></div></div>
+<img src="https://user-images.githubusercontent.com/9093958/42761576-33851a06-890e-11e8-9b3e-e41632fda5de.jpg" alt="map-and-address"><div class="component-wrapper"><div class="component js-section has-error" id="route-ov"><h3 class="component__title">route-ov</h3><div class="component__meta"></div></div></div>
+<img src="https://user-images.githubusercontent.com/9093958/42761615-59c8179a-890e-11e8-813c-3e1171498b73.jpg" alt="route-ov"><div class="component-wrapper"><div class="component js-section has-error" id="route-road"><h3 class="component__title">route-road</h3><div class="component__meta"></div></div></div><h2 id="navigation">Navigation</h2>
+<div class="table-of-contents"><ul class="table-of-contents__list"><li class="table-of-contents__list__item table-of-contents__list__item--error"><a class="table-of-contents__list__item__link" href="#nav-course"><svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6.872 5.807L1.858 10.87c-.085.087-.187.13-.304.13-.117 0-.218-.043-.304-.13L.128 9.738C.043 9.65 0 9.548 0 9.43c0-.118.043-.22.128-.307L3.716 5.5.128 1.877C.043 1.79 0 1.687 0 1.57c0-.12.043-.22.128-.308L1.25.13c.086-.087.187-.13.304-.13.117 0 .22.043.304.13l5.014 5.063c.085.086.128.19.128.307 0 .118-.043.22-.128.307z" fill-rule="nonzero" />
+</svg>nav-course</a></li><li class="table-of-contents__list__item table-of-contents__list__item--error"><a class="table-of-contents__list__item__link" href="#nav-switch"><svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6.872 5.807L1.858 10.87c-.085.087-.187.13-.304.13-.117 0-.218-.043-.304-.13L.128 9.738C.043 9.65 0 9.548 0 9.43c0-.118.043-.22.128-.307L3.716 5.5.128 1.877C.043 1.79 0 1.687 0 1.57c0-.12.043-.22.128-.308L1.25.13c.086-.087.187-.13.304-.13.117 0 .22.043.304.13l5.014 5.063c.085.086.128.19.128.307 0 .118-.043.22-.128.307z" fill-rule="nonzero" />
+</svg>nav-switch</a></li></ul></div><div class="component-wrapper"><div class="component js-section has-error" id="nav-course"><h3 class="component__title">nav-course</h3><div class="component__meta"></div></div></div>
+<img src="https://user-images.githubusercontent.com/9093958/42762796-85e44bca-8911-11e8-9aa1-55b9e17032bb.jpg" alt="nav-course-xl"><p><img src="https://user-images.githubusercontent.com/9093958/42762670-2657a7ce-8911-11e8-814b-eec01d67fee8.jpg" alt="nav-course-m">
+<img src="https://user-images.githubusercontent.com/9093958/42762759-6cbb292a-8911-11e8-82de-873fab91bdf0.jpg" alt="nav-course-m-expand"></p>
+<p><img src="https://user-images.githubusercontent.com/9093958/42762562-f33b75be-8910-11e8-8ef6-dc7356d7c780.png" alt="nav-course-sm">
+<img src="https://user-images.githubusercontent.com/9093958/42762466-bfca8788-8910-11e8-8df1-442897a194a3.png" alt="nav-course-sm-expanded"></p>
+<div class="component-wrapper"><div class="component js-section has-error" id="nav-switch"><h3 class="component__title">nav-switch</h3><div class="component__meta"></div></div></div>
+<img src="https://user-images.githubusercontent.com/9093958/42762843-ab2c63cc-8911-11e8-8fe7-d9c56801b568.jpg" alt="nav-switch"><h2 id="sliders">Sliders</h2>
+<div class="table-of-contents"><ul class="table-of-contents__list"><li class="table-of-contents__list__item table-of-contents__list__item--error"><a class="table-of-contents__list__item__link" href="#slider-regular"><svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6.872 5.807L1.858 10.87c-.085.087-.187.13-.304.13-.117 0-.218-.043-.304-.13L.128 9.738C.043 9.65 0 9.548 0 9.43c0-.118.043-.22.128-.307L3.716 5.5.128 1.877C.043 1.79 0 1.687 0 1.57c0-.12.043-.22.128-.308L1.25.13c.086-.087.187-.13.304-.13.117 0 .22.043.304.13l5.014 5.063c.085.086.128.19.128.307 0 .118-.043.22-.128.307z" fill-rule="nonzero" />
+</svg>slider-regular</a></li></ul></div><div class="component-wrapper"><div class="component js-section has-error" id="slider-regular"><h3 class="component__title">slider-regular</h3><div class="component__meta"></div></div></div>
+<img src="https://user-images.githubusercontent.com/9093958/42764378-c68d51ea-8915-11e8-9a96-a22ca1458ea3.jpg" alt="slider-regular"><h2 id="tables">Tables</h2>
+<div class="table-of-contents"><ul class="table-of-contents__list"><li class="table-of-contents__list__item table-of-contents__list__item--error"><a class="table-of-contents__list__item__link" href="#table-regular"><svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6.872 5.807L1.858 10.87c-.085.087-.187.13-.304.13-.117 0-.218-.043-.304-.13L.128 9.738C.043 9.65 0 9.548 0 9.43c0-.118.043-.22.128-.307L3.716 5.5.128 1.877C.043 1.79 0 1.687 0 1.57c0-.12.043-.22.128-.308L1.25.13c.086-.087.187-.13.304-.13.117 0 .22.043.304.13l5.014 5.063c.085.086.128.19.128.307 0 .118-.043.22-.128.307z" fill-rule="nonzero" />
+</svg>table-regular</a></li><li class="table-of-contents__list__item table-of-contents__list__item--error"><a class="table-of-contents__list__item__link" href="#table-fat"><svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6.872 5.807L1.858 10.87c-.085.087-.187.13-.304.13-.117 0-.218-.043-.304-.13L.128 9.738C.043 9.65 0 9.548 0 9.43c0-.118.043-.22.128-.307L3.716 5.5.128 1.877C.043 1.79 0 1.687 0 1.57c0-.12.043-.22.128-.308L1.25.13c.086-.087.187-.13.304-.13.117 0 .22.043.304.13l5.014 5.063c.085.086.128.19.128.307 0 .118-.043.22-.128.307z" fill-rule="nonzero" />
+</svg>table-fat</a></li><li class="table-of-contents__list__item table-of-contents__list__item--error"><a class="table-of-contents__list__item__link" href="#table-whale"><svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6.872 5.807L1.858 10.87c-.085.087-.187.13-.304.13-.117 0-.218-.043-.304-.13L.128 9.738C.043 9.65 0 9.548 0 9.43c0-.118.043-.22.128-.307L3.716 5.5.128 1.877C.043 1.79 0 1.687 0 1.57c0-.12.043-.22.128-.308L1.25.13c.086-.087.187-.13.304-.13.117 0 .22.043.304.13l5.014 5.063c.085.086.128.19.128.307 0 .118-.043.22-.128.307z" fill-rule="nonzero" />
+</svg>table-whale</a></li><li class="table-of-contents__list__item table-of-contents__list__item--error"><a class="table-of-contents__list__item__link" href="#table-interactive"><svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6.872 5.807L1.858 10.87c-.085.087-.187.13-.304.13-.117 0-.218-.043-.304-.13L.128 9.738C.043 9.65 0 9.548 0 9.43c0-.118.043-.22.128-.307L3.716 5.5.128 1.877C.043 1.79 0 1.687 0 1.57c0-.12.043-.22.128-.308L1.25.13c.086-.087.187-.13.304-.13.117 0 .22.043.304.13l5.014 5.063c.085.086.128.19.128.307 0 .118-.043.22-.128.307z" fill-rule="nonzero" />
+</svg>table-interactive</a></li></ul></div><div class="component-wrapper"><div class="component js-section has-error" id="table-regular"><h3 class="component__title">table-regular</h3><div class="component__meta"></div></div></div>
+<img src="https://user-images.githubusercontent.com/9093958/42764622-5c541592-8916-11e8-9c66-42df8854f1e3.jpg" alt="table-regular"><div class="component-wrapper"><div class="component js-section has-error" id="table-fat"><h3 class="component__title">table-fat</h3><div class="component__meta"></div></div></div>
+<img src="https://user-images.githubusercontent.com/9093958/42764620-5c1dd0c2-8916-11e8-938f-0114bade5500.jpg" alt="table-fat"><div class="component-wrapper"><div class="component js-section has-error" id="table-whale"><h3 class="component__title">table-whale</h3><div class="component__meta"></div></div></div>
+<img src="https://user-images.githubusercontent.com/9093958/43392311-97efbccc-93f3-11e8-982c-eade5186a661.jpg" alt="table-whale">
+with tooltip
+<img src="https://user-images.githubusercontent.com/9093958/43392310-97d884b2-93f3-11e8-8fde-d6817dc5b0ec.jpg" alt="table-whale-tooltip"><div class="component-wrapper"><div class="component js-section has-error" id="table-interactive"><h3 class="component__title">table-interactive</h3><div class="component__meta"></div></div></div>
+<img src="https://user-images.githubusercontent.com/9093958/42764621-5c3b5714-8916-11e8-9bb4-923913edbe35.jpg" alt="table-interactive"><h2 id="tabs">Tabs</h2>
+<div class="table-of-contents"><ul class="table-of-contents__list"><li class="table-of-contents__list__item table-of-contents__list__item--error"><a class="table-of-contents__list__item__link" href="#tabs-regular"><svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6.872 5.807L1.858 10.87c-.085.087-.187.13-.304.13-.117 0-.218-.043-.304-.13L.128 9.738C.043 9.65 0 9.548 0 9.43c0-.118.043-.22.128-.307L3.716 5.5.128 1.877C.043 1.79 0 1.687 0 1.57c0-.12.043-.22.128-.308L1.25.13c.086-.087.187-.13.304-.13.117 0 .22.043.304.13l5.014 5.063c.085.086.128.19.128.307 0 .118-.043.22-.128.307z" fill-rule="nonzero" />
+</svg>tabs-regular</a></li></ul></div><div class="component-wrapper"><div class="component js-section has-error" id="tabs-regular"><h3 class="component__title">tabs-regular</h3><div class="component__meta"></div></div></div>
+<img src="https://user-images.githubusercontent.com/9093958/42764991-47da4f5e-8917-11e8-910d-25dccbbc45ab.jpg" alt="tabs-regular"><h2 id="takeover">Takeover</h2>
+<div class="table-of-contents"><ul class="table-of-contents__list"><li class="table-of-contents__list__item table-of-contents__list__item--error"><a class="table-of-contents__list__item__link" href="#take-over-hero-1"><svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6.872 5.807L1.858 10.87c-.085.087-.187.13-.304.13-.117 0-.218-.043-.304-.13L.128 9.738C.043 9.65 0 9.548 0 9.43c0-.118.043-.22.128-.307L3.716 5.5.128 1.877C.043 1.79 0 1.687 0 1.57c0-.12.043-.22.128-.308L1.25.13c.086-.087.187-.13.304-.13.117 0 .22.043.304.13l5.014 5.063c.085.086.128.19.128.307 0 .118-.043.22-.128.307z" fill-rule="nonzero" />
+</svg>take-over-hero-1</a></li><li class="table-of-contents__list__item table-of-contents__list__item--error"><a class="table-of-contents__list__item__link" href="#take-over-hero-2"><svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6.872 5.807L1.858 10.87c-.085.087-.187.13-.304.13-.117 0-.218-.043-.304-.13L.128 9.738C.043 9.65 0 9.548 0 9.43c0-.118.043-.22.128-.307L3.716 5.5.128 1.877C.043 1.79 0 1.687 0 1.57c0-.12.043-.22.128-.308L1.25.13c.086-.087.187-.13.304-.13.117 0 .22.043.304.13l5.014 5.063c.085.086.128.19.128.307 0 .118-.043.22-.128.307z" fill-rule="nonzero" />
+</svg>take-over-hero-2</a></li><li class="table-of-contents__list__item table-of-contents__list__item--error"><a class="table-of-contents__list__item__link" href="#take-over-regular"><svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6.872 5.807L1.858 10.87c-.085.087-.187.13-.304.13-.117 0-.218-.043-.304-.13L.128 9.738C.043 9.65 0 9.548 0 9.43c0-.118.043-.22.128-.307L3.716 5.5.128 1.877C.043 1.79 0 1.687 0 1.57c0-.12.043-.22.128-.308L1.25.13c.086-.087.187-.13.304-.13.117 0 .22.043.304.13l5.014 5.063c.085.086.128.19.128.307 0 .118-.043.22-.128.307z" fill-rule="nonzero" />
+</svg>take-over-regular</a></li></ul></div><div class="component-wrapper"><div class="component js-section has-error" id="take-over-hero-1"><h3 class="component__title">take-over-hero-1</h3><div class="component__meta"></div></div></div>
+<img src="https://user-images.githubusercontent.com/9093958/42764892-0b03213c-8917-11e8-897d-3167b60ba331.jpg" alt="take-over-hero"><div class="component-wrapper"><div class="component js-section has-error" id="take-over-hero-2"><h3 class="component__title">take-over-hero-2</h3><div class="component__meta"></div></div></div>
+<img src="https://user-images.githubusercontent.com/9093958/42765050-6aa75450-8917-11e8-9003-ff4d734a9a1f.jpg" alt="take-over-hero-2"><div class="component-wrapper"><div class="component js-section has-error" id="take-over-regular"><h3 class="component__title">take-over-regular</h3><div class="component__meta"></div></div></div>
+<img src="https://user-images.githubusercontent.com/9093958/42764894-0b202c1e-8917-11e8-94ab-7705c7c184a9.png" alt="take-over-regular"><h2 id="text">Text</h2>
+<div class="table-of-contents"><ul class="table-of-contents__list"><li class="table-of-contents__list__item table-of-contents__list__item--error"><a class="table-of-contents__list__item__link" href="#text-double-column"><svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6.872 5.807L1.858 10.87c-.085.087-.187.13-.304.13-.117 0-.218-.043-.304-.13L.128 9.738C.043 9.65 0 9.548 0 9.43c0-.118.043-.22.128-.307L3.716 5.5.128 1.877C.043 1.79 0 1.687 0 1.57c0-.12.043-.22.128-.308L1.25.13c.086-.087.187-.13.304-.13.117 0 .22.043.304.13l5.014 5.063c.085.086.128.19.128.307 0 .118-.043.22-.128.307z" fill-rule="nonzero" />
+</svg>text-double-column</a></li><li class="table-of-contents__list__item table-of-contents__list__item--error"><a class="table-of-contents__list__item__link" href="#text-lead"><svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6.872 5.807L1.858 10.87c-.085.087-.187.13-.304.13-.117 0-.218-.043-.304-.13L.128 9.738C.043 9.65 0 9.548 0 9.43c0-.118.043-.22.128-.307L3.716 5.5.128 1.877C.043 1.79 0 1.687 0 1.57c0-.12.043-.22.128-.308L1.25.13c.086-.087.187-.13.304-.13.117 0 .22.043.304.13l5.014 5.063c.085.086.128.19.128.307 0 .118-.043.22-.128.307z" fill-rule="nonzero" />
+</svg>text-lead</a></li></ul></div><div class="component-wrapper"><div class="component js-section has-error" id="text-double-column"><h3 class="component__title">text-double-column</h3><div class="component__meta"></div></div></div>
+<img src="https://user-images.githubusercontent.com/9093958/42026419-555f5740-7ac7-11e8-9a6e-31f8fecb7495.jpg" alt="text-double-column"><div class="component-wrapper"><div class="component js-section has-error" id="text-lead"><h3 class="component__title">text-lead</h3><div class="component__meta"></div></div></div>
+<img src="https://user-images.githubusercontent.com/9093958/42763092-5aff0f0c-8912-11e8-9395-fb7f7c524a64.jpg" alt="text-lead"><h2 id="text-and-media">Text and Media</h2>
+<div class="table-of-contents"><ul class="table-of-contents__list"><li class="table-of-contents__list__item table-of-contents__list__item--error"><a class="table-of-contents__list__item__link" href="#card-text-and-media-regular-usp"><svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6.872 5.807L1.858 10.87c-.085.087-.187.13-.304.13-.117 0-.218-.043-.304-.13L.128 9.738C.043 9.65 0 9.548 0 9.43c0-.118.043-.22.128-.307L3.716 5.5.128 1.877C.043 1.79 0 1.687 0 1.57c0-.12.043-.22.128-.308L1.25.13c.086-.087.187-.13.304-.13.117 0 .22.043.304.13l5.014 5.063c.085.086.128.19.128.307 0 .118-.043.22-.128.307z" fill-rule="nonzero" />
+</svg>card-text-and-media-regular-usp</a></li><li class="table-of-contents__list__item table-of-contents__list__item--error"><a class="table-of-contents__list__item__link" href="#text-and-media-skinny"><svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6.872 5.807L1.858 10.87c-.085.087-.187.13-.304.13-.117 0-.218-.043-.304-.13L.128 9.738C.043 9.65 0 9.548 0 9.43c0-.118.043-.22.128-.307L3.716 5.5.128 1.877C.043 1.79 0 1.687 0 1.57c0-.12.043-.22.128-.308L1.25.13c.086-.087.187-.13.304-.13.117 0 .22.043.304.13l5.014 5.063c.085.086.128.19.128.307 0 .118-.043.22-.128.307z" fill-rule="nonzero" />
+</svg>text-and-media-skinny</a></li><li class="table-of-contents__list__item table-of-contents__list__item--error"><a class="table-of-contents__list__item__link" href="#text-and-media-regular"><svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6.872 5.807L1.858 10.87c-.085.087-.187.13-.304.13-.117 0-.218-.043-.304-.13L.128 9.738C.043 9.65 0 9.548 0 9.43c0-.118.043-.22.128-.307L3.716 5.5.128 1.877C.043 1.79 0 1.687 0 1.57c0-.12.043-.22.128-.308L1.25.13c.086-.087.187-.13.304-.13.117 0 .22.043.304.13l5.014 5.063c.085.086.128.19.128.307 0 .118-.043.22-.128.307z" fill-rule="nonzero" />
+</svg>text-and-media-regular</a></li><li class="table-of-contents__list__item table-of-contents__list__item--error"><a class="table-of-contents__list__item__link" href="#text-and-media-whale"><svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6.872 5.807L1.858 10.87c-.085.087-.187.13-.304.13-.117 0-.218-.043-.304-.13L.128 9.738C.043 9.65 0 9.548 0 9.43c0-.118.043-.22.128-.307L3.716 5.5.128 1.877C.043 1.79 0 1.687 0 1.57c0-.12.043-.22.128-.308L1.25.13c.086-.087.187-.13.304-.13.117 0 .22.043.304.13l5.014 5.063c.085.086.128.19.128.307 0 .118-.043.22-.128.307z" fill-rule="nonzero" />
+</svg>text-and-media-whale</a></li><li class="table-of-contents__list__item table-of-contents__list__item--error"><a class="table-of-contents__list__item__link" href="#text-and-media-highlight"><svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6.872 5.807L1.858 10.87c-.085.087-.187.13-.304.13-.117 0-.218-.043-.304-.13L.128 9.738C.043 9.65 0 9.548 0 9.43c0-.118.043-.22.128-.307L3.716 5.5.128 1.877C.043 1.79 0 1.687 0 1.57c0-.12.043-.22.128-.308L1.25.13c.086-.087.187-.13.304-.13.117 0 .22.043.304.13l5.014 5.063c.085.086.128.19.128.307 0 .118-.043.22-.128.307z" fill-rule="nonzero" />
+</svg>text-and-media-highlight</a></li></ul></div><div class="component-wrapper"><div class="component js-section has-error" id="card-text-and-media-regular (USP)"><h3 class="component__title">card-text-and-media-regular (USP)</h3><div class="component__meta"></div></div></div>
+<img src="https://user-images.githubusercontent.com/9093958/42763161-87983c00-8912-11e8-83be-dd6315ca658e.jpg" alt="card-text-and-media-regular"><div class="component-wrapper"><div class="component js-section has-error" id="text-and-media-skinny"><h3 class="component__title">text-and-media-skinny</h3><div class="component__meta"></div></div></div>
+<img src="https://user-images.githubusercontent.com/9093958/42026182-c139e6de-7ac6-11e8-82f6-7daa1a83c016.jpg" alt="text-and-media-skinny">
+<img src="https://user-images.githubusercontent.com/9093958/42026197-c917b930-7ac6-11e8-8c9a-433441174c22.jpg" alt="text-and-media-skinny-buttons"><div class="component-wrapper"><div class="component js-section has-error" id="text-and-media-regular"><h3 class="component__title">text-and-media-regular</h3><div class="component__meta"></div></div></div>
+<img src="https://user-images.githubusercontent.com/9093958/42027770-c3db9758-7aca-11e8-8019-09d45b10cef5.jpg" alt="text-and-media-regular"><p>{text-and-media-fat-center}
+<img src="https://user-images.githubusercontent.com/9093958/42765528-8e0267ae-8918-11e8-83e2-100b29a7354e.jpg" alt="text-and-media-fat-center">
+{text-and-media-fat-left}
+<img src="https://user-images.githubusercontent.com/9093958/42765529-8e1c2d1a-8918-11e8-9871-eac4549d8d00.jpg" alt="text-and-media-fat-left">
+{text-and-media-fat-right}
+<img src="https://user-images.githubusercontent.com/9093958/42765530-8e3a9f7a-8918-11e8-81dc-49386f0ea8dd.jpg" alt="text-and-media-fat-right"></p>
+<div class="component-wrapper"><div class="component js-section has-error" id="text-and-media-whale"><h3 class="component__title">text-and-media-whale</h3><div class="component__meta"></div></div></div><div class="component-wrapper"><div class="component js-section has-error" id="text-and-media-highlight"><h3 class="component__title">text-and-media-highlight</h3><div class="component__meta"></div></div></div>
+<img src="https://user-images.githubusercontent.com/9093958/42765146-a20127aa-8917-11e8-80c4-090906eca060.jpg" alt="text-and-media-highlight"><p>##Tooltip</p>
+<div class="table-of-contents"><ul class="table-of-contents__list"><li class="table-of-contents__list__item table-of-contents__list__item--error"><a class="table-of-contents__list__item__link" href="#tooltip-regular"><svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6.872 5.807L1.858 10.87c-.085.087-.187.13-.304.13-.117 0-.218-.043-.304-.13L.128 9.738C.043 9.65 0 9.548 0 9.43c0-.118.043-.22.128-.307L3.716 5.5.128 1.877C.043 1.79 0 1.687 0 1.57c0-.12.043-.22.128-.308L1.25.13c.086-.087.187-.13.304-.13.117 0 .22.043.304.13l5.014 5.063c.085.086.128.19.128.307 0 .118-.043.22-.128.307z" fill-rule="nonzero" />
+</svg>tooltip-regular</a></li></ul></div><div class="component-wrapper"><div class="component js-section has-error" id="tooltip-regular"><h3 class="component__title">tooltip-regular</h3><div class="component__meta"></div></div></div>
+<img src="https://user-images.githubusercontent.com/9093958/43395195-889e1d7c-93fd-11e8-86fc-e8cfbfc82903.jpg" alt="tooltip-regular"><h2 id="quote">Quote</h2>
+<div class="table-of-contents"><ul class="table-of-contents__list"><li class="table-of-contents__list__item table-of-contents__list__item--error"><a class="table-of-contents__list__item__link" href="#quote-skinny"><svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6.872 5.807L1.858 10.87c-.085.087-.187.13-.304.13-.117 0-.218-.043-.304-.13L.128 9.738C.043 9.65 0 9.548 0 9.43c0-.118.043-.22.128-.307L3.716 5.5.128 1.877C.043 1.79 0 1.687 0 1.57c0-.12.043-.22.128-.308L1.25.13c.086-.087.187-.13.304-.13.117 0 .22.043.304.13l5.014 5.063c.085.086.128.19.128.307 0 .118-.043.22-.128.307z" fill-rule="nonzero" />
+</svg>quote-skinny</a></li><li class="table-of-contents__list__item table-of-contents__list__item--error"><a class="table-of-contents__list__item__link" href="#quote-regular"><svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6.872 5.807L1.858 10.87c-.085.087-.187.13-.304.13-.117 0-.218-.043-.304-.13L.128 9.738C.043 9.65 0 9.548 0 9.43c0-.118.043-.22.128-.307L3.716 5.5.128 1.877C.043 1.79 0 1.687 0 1.57c0-.12.043-.22.128-.308L1.25.13c.086-.087.187-.13.304-.13.117 0 .22.043.304.13l5.014 5.063c.085.086.128.19.128.307 0 .118-.043.22-.128.307z" fill-rule="nonzero" />
+</svg>quote-regular</a></li></ul></div><div class="component-wrapper"><div class="component js-section has-error" id="quote-skinny"><h3 class="component__title">quote-skinny</h3><div class="component__meta"></div></div></div>
+<img src="https://user-images.githubusercontent.com/9093958/42767769-26f4bc28-891e-11e8-8336-a0bf801bef4b.jpg" alt="quote-skinny"><div class="component-wrapper"><div class="component js-section has-error" id="quote-regular"><h3 class="component__title">quote-regular</h3><div class="component__meta"></div></div></div>
+<img src="https://user-images.githubusercontent.com/9093958/42764853-f280a58a-8916-11e8-9624-80c8b37a8adb.jpg" alt="quote-regular"><hr>
+<h2 id="specials">Specials</h2>
+<div class="table-of-contents"><ul class="table-of-contents__list"><li class="table-of-contents__list__item table-of-contents__list__item--error"><a class="table-of-contents__list__item__link" href="#modulator"><svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6.872 5.807L1.858 10.87c-.085.087-.187.13-.304.13-.117 0-.218-.043-.304-.13L.128 9.738C.043 9.65 0 9.548 0 9.43c0-.118.043-.22.128-.307L3.716 5.5.128 1.877C.043 1.79 0 1.687 0 1.57c0-.12.043-.22.128-.308L1.25.13c.086-.087.187-.13.304-.13.117 0 .22.043.304.13l5.014 5.063c.085.086.128.19.128.307 0 .118-.043.22-.128.307z" fill-rule="nonzero" />
+</svg>modulator</a></li><li class="table-of-contents__list__item table-of-contents__list__item--error"><a class="table-of-contents__list__item__link" href="#finish-line"><svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6.872 5.807L1.858 10.87c-.085.087-.187.13-.304.13-.117 0-.218-.043-.304-.13L.128 9.738C.043 9.65 0 9.548 0 9.43c0-.118.043-.22.128-.307L3.716 5.5.128 1.877C.043 1.79 0 1.687 0 1.57c0-.12.043-.22.128-.308L1.25.13c.086-.087.187-.13.304-.13.117 0 .22.043.304.13l5.014 5.063c.085.086.128.19.128.307 0 .118-.043.22-.128.307z" fill-rule="nonzero" />
+</svg>finish-line</a></li><li class="table-of-contents__list__item table-of-contents__list__item--error"><a class="table-of-contents__list__item__link" href="#dora"><svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6.872 5.807L1.858 10.87c-.085.087-.187.13-.304.13-.117 0-.218-.043-.304-.13L.128 9.738C.043 9.65 0 9.548 0 9.43c0-.118.043-.22.128-.307L3.716 5.5.128 1.877C.043 1.79 0 1.687 0 1.57c0-.12.043-.22.128-.308L1.25.13c.086-.087.187-.13.304-.13.117 0 .22.043.304.13l5.014 5.063c.085.086.128.19.128.307 0 .118-.043.22-.128.307z" fill-rule="nonzero" />
+</svg>dora</a></li><li class="table-of-contents__list__item table-of-contents__list__item--error"><a class="table-of-contents__list__item__link" href="#the-education-navigator-regular"><svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6.872 5.807L1.858 10.87c-.085.087-.187.13-.304.13-.117 0-.218-.043-.304-.13L.128 9.738C.043 9.65 0 9.548 0 9.43c0-.118.043-.22.128-.307L3.716 5.5.128 1.877C.043 1.79 0 1.687 0 1.57c0-.12.043-.22.128-.308L1.25.13c.086-.087.187-.13.304-.13.117 0 .22.043.304.13l5.014 5.063c.085.086.128.19.128.307 0 .118-.043.22-.128.307z" fill-rule="nonzero" />
+</svg>the-education-navigator-regular</a></li><li class="table-of-contents__list__item table-of-contents__list__item--error"><a class="table-of-contents__list__item__link" href="#timeline"><svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6.872 5.807L1.858 10.87c-.085.087-.187.13-.304.13-.117 0-.218-.043-.304-.13L.128 9.738C.043 9.65 0 9.548 0 9.43c0-.118.043-.22.128-.307L3.716 5.5.128 1.877C.043 1.79 0 1.687 0 1.57c0-.12.043-.22.128-.308L1.25.13c.086-.087.187-.13.304-.13.117 0 .22.043.304.13l5.014 5.063c.085.086.128.19.128.307 0 .118-.043.22-.128.307z" fill-rule="nonzero" />
+</svg>timeline</a></li></ul></div><div class="component-wrapper"><div class="component js-section has-error" id="modulator"><h3 class="component__title">modulator</h3><div class="component__meta"></div></div></div>
+<img src="https://user-images.githubusercontent.com/9093958/42767903-6e92a1da-891e-11e8-806a-78512d028987.jpg" alt="modulator"><div class="component-wrapper"><div class="component js-section has-error" id="finish-line"><h3 class="component__title">finish-line</h3><div class="component__meta"></div></div></div>
+<img src="https://user-images.githubusercontent.com/9093958/42767967-948d1e10-891e-11e8-86dc-62d367ef5ed1.jpg" alt="finish-line"><div class="component-wrapper"><div class="component js-section has-error" id="dora"><h3 class="component__title">dora</h3><div class="component__meta"></div></div></div>
+<img src="https://user-images.githubusercontent.com/9093958/42765166-afebf0ca-8917-11e8-983d-ec3045651ddf.jpg" alt="dora"><div class="component-wrapper"><div class="component js-section has-error" id="the-education-navigator-regular"><h3 class="component__title">the-education-navigator-regular</h3><div class="component__meta"></div></div></div>
+<img src="https://user-images.githubusercontent.com/9093958/43398337-1183f832-9408-11e8-81ef-ff08a956d581.jpg" alt="the-education-navigator-regular"><div class="component-wrapper"><div class="component js-section has-error" id="timeline"><h3 class="component__title">timeline</h3><div class="component__meta"></div></div></div>
+De timeline van Studie-Inhoud</div><a class="scrolltop" href="#top"></a><script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/3.6.0/iframeResizer.min.js" defer></script><script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/10.5.2/lazyload.min.js" defer></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.14.0/prism.min.js" defer></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.14.0/components/prism-markup-templating.js" defer></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.14.0/components/prism-scss.min.js" defer></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.14.0/components/prism-css.min.js" defer></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.14.0/components/prism-clike.min.js" defer></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.14.0/components/prism-javascript.min.js" defer></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.14.0/components/prism-diff.min.js" defer></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.14.0/components/prism-json.min.js" defer></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.14.0/components/prism-markdown.min.js" defer></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.14.0/components/prism-bash.min.js" defer></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.14.0/components/prism-markdown.min.js" defer></script><script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.7.5/beautify-html.min.js" defer></script><script src="https://unpkg.com/interactjs@1.3.3/dist/interact.min.js" defer></script><script>!function e(t, n, r) { function o(c, u) { if (!n[c]) { if (!t[c]) { var a = "function" == typeof require && require; if (!u && a) return a(c, !0); if (i) return i(c, !0); var f = new Error("Cannot find module '" + c + "'"); throw f.code = "MODULE_NOT_FOUND", f } var d = n[c] = { exports: {} }; t[c][0].call(d.exports, function (e) { var n = t[c][1][e]; return o(n || e) }, d, d.exports, e, t, n, r) } return n[c].exports } for (var i = "function" == typeof require && require, c = 0; c < r.length; c++)o(r[c]); return o }({ 1: [function (e, t, n) { window.delegate = e("delegate-events") }, { "delegate-events": 4 }], 2: [function (e, t, n) { var r = e("matches-selector"); t.exports = function (e, t, n) { for (var o = n ? e : e.parentNode; o && o !== document;) { if (r(o, t)) return o; o = o.parentNode } } }, { "matches-selector": 5 }], 3: [function (e, t, n) { var r, o, i; function c() { r = window.addEventListener ? "addEventListener" : "attachEvent", o = window.removeEventListener ? "removeEventListener" : "detachEvent", i = "addEventListener" !== r ? "on" : "" } n.bind = function (e, t, n, o) { return r || c(), e[r](i + t, n, o || !1), n }, n.unbind = function (e, t, n, r) { return o || c(), e[o](i + t, n, r || !1), n } }, {}], 4: [function (e, t, n) { var r = e("closest"), o = e("component-event"), i = ["focus", "blur"]; n.bind = function (e, t, n, c, u) { return -1 !== i.indexOf(n) && (u = !0), o.bind(e, n, function (n) { var o = n.target || n.srcElement; n.delegateTarget = r(o, t, !0, e), n.delegateTarget && c.call(e, n) }, u) }, n.unbind = function (e, t, n, r) { -1 !== i.indexOf(t) && (r = !0), o.unbind(e, t, n, r) } }, { closest: 2, "component-event": 3 }], 5: [function (e, t, n) { var r = Element.prototype, o = r.matchesSelector || r.webkitMatchesSelector || r.mozMatchesSelector || r.msMatchesSelector || r.oMatchesSelector; t.exports = function (e, t) { if (o) return o.call(e, t); for (var n = e.parentNode.querySelectorAll(t), r = 0; r < n.length; ++r)if (n[r] == e) return !0; return !1 } }, {}] }, {}, [1]);
+</script><script>function setupDesignManual() {
+  var constants = {
+    EVENT_SECTION_INVIEW: 'section-in-view',
+    LOADING_CLASS: 'is-loading',
+    ACTIVE_CLASS: 'is-active',
+    RESIZING_CLASS: 'is-resizing',
+    SCROLLED_IN_SECTION_CLASS: 'is-scrolled-in-section'
+  };
+
+
+  /**
+  * Make iframes lazy load
+  */
+
+  new window.LazyLoad({
+    threshold: 500,
+    elements_selector: 'iframe',
+    callback_load: function ($el) {
+      var $component = $el.parentNode.parentNode;
+      $component.classList.remove('is-loading');
+
+      var $codeCheckbox = $component.querySelector('.js-code-toggle');
+
+      if ($codeCheckbox.getAttribute('data-checked') === 'true') {
+        $codeCheckbox.checked = true;
+        onToggleCode({ target: $codeCheckbox });
+      }
+    },
+    callback_error: function ($el) {
+      $el.parentNode.parentNode.classList.remove('has-error');
+    }
+  });
+
+  
+  /**
+  * Make iframe auto resize
+  */
+
+  window.iFrameResize({ checkOrigin: false });
+
+
+  /**
+  * Make component preview resizable
+  */
+
+  window.interact('.js-component-preview').resizable({
+    edges: {
+      left: false,
+      right: '.js-component-preview-handle',
+      bottom: false,
+      top: false
+    },
+    onmove: function (e) {
+      e.target.style.width = e.rect.width + 'px';
+      e.target.classList.add(constants.RESIZING_CLASS);
+      e.target.querySelector('iframe').contentWindow.parentIFrame.size();
+    },
+    onend: function (e) {
+      e.target.classList.remove(constants.RESIZING_CLASS);
+    }
+  });
+
+
+  /**
+  * Highlight all code snippets
+  */
+
+  window.Prism.highlightAll();
+
+
+  /**
+  * Scroll to anchor with offset
+  */
+
+  function scrollWithOffset(href) {
+    var $el = document.querySelector(href);
+    if ($el) {
+      var top = $el.getBoundingClientRect().top;
+      var $header = document.querySelector('.header');
+      if ($header) {
+        top -= $header.getBoundingClientRect().height;
+      }
+      window.scrollBy(0, top - 20);
+      onScroll();
+    }
+  }
+
+
+  /**
+  * Capture toggle code clicks
+  * and place html code inside a pre tag
+  * and finally beautify and highlight code
+  */
+
+  function onToggleCode(e) {
+    var $component = e.target.parentNode;
+    var $pre = $component.querySelector('pre code');
+    var $source = $component.querySelector('iframe');
+    var html = $source.contentWindow.document.body.querySelector('.dm-raw-source').innerHTML;
+    $pre.innerHTML = window.Prism.highlight(window.html_beautify(html), window.Prism.languages.markup);
+  }
+
+  window.delegate.bind(document.body, '.js-code-toggle', 'change', onToggleCode);
+
+
+  /**
+  * Section
+  */
+
+  var $sections = document.querySelectorAll('.content h2');
+  var $currentSection = null;
+
+
+  /**
+  * This changes the breadcrumb title
+  * to the currently visible section
+  */
+
+  function setBreadcrumb(e) {
+    var $breadcrumb = document.querySelector('.js-breadcrumb');
+
+    if (e.section === null) {
+      document.body.classList.remove(constants.SCROLLED_IN_SECTION_CLASS);
+      $breadcrumb.innerText = '';
+      return;
+    }
+
+    document.body.classList.add(constants.SCROLLED_IN_SECTION_CLASS);
+    var $section = document.getElementById(e.section);
+    if ($section) {
+      $breadcrumb.innerText = $section.innerText;
+    }
+  }
+
+
+  /**
+  * Highlight the currently active section
+  * in the sidebar navigation
+  */
+
+  function highLightSidebarItem(e) {
+    var $navLinks = document.querySelectorAll('.js-sidebar__item');
+    var i = 0;
+    var l = $navLinks.length;
+    var $item;
+
+    for (; i < l; i++) {
+      $item = $navLinks[i];
+      if ($item.getAttribute('data-rel') === e.section) {
+        $item.classList.add(constants.ACTIVE_CLASS);
+      } else {
+        $item.classList.remove(constants.ACTIVE_CLASS);
+      }
+    }
+  }
+
+
+  /**
+  * In view check
+  */
+
+  function isAnyPartOfElementInViewport($el) {
+    var  rect = $el.getBoundingClientRect();
+    var  windowHeight = (window.innerHeight || document.documentElement.clientHeight);
+    var  windowWidth = (window.innerWidth || document.documentElement.clientWidth);
+    var  vertInView = (rect.top <= windowHeight) && ((rect.top + rect.height) >= 0);
+    var  horInView = (rect.left <= windowWidth) && ((rect.left + rect.width) >= 0);
+    return (vertInView && horInView);
+  }
+
+
+  /**
+  * on scroll, check which section is in view
+  */
+
+  function onScroll() {
+    var $prevSection = $currentSection;
+
+    var i = 0;
+    var l = $sections.length;
+    var rect;
+    var h = window.innerHeight;
+
+    for (; i < l; i++) {
+      if (isAnyPartOfElementInViewport($sections[i])) {
+        $currentSection = $sections[i];
+      }
+    }
+
+    // scrolled above first section
+    if ($sections[0]) {
+      if (document.body.scrollTop < $sections[0].getBoundingClientRect().top) {
+        $currentSection = null;
+      }
+    }
+
+    // entered new section   
+    if ($prevSection !== $currentSection) {
+      if ($currentSection) {
+        highLightSidebarItem({ section: $currentSection.id });
+        setBreadcrumb({ section: $currentSection.id });
+        return;
+      }
+
+      highLightSidebarItem({ section: null });
+      setBreadcrumb({ section: null });
+    }
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+
+  /**
+  * Internal link click handler
+  */
+
+  function onLinkClick(e) {
+    var href = e.delegateTarget.getAttribute('href');
+
+    // check if it's an anchor link
+    if (href && document.querySelector(href)) {
+
+      // stop scroll
+      e.preventDefault();
+
+      // scroll to element
+      scrollWithOffset(href)
+
+      // replace history item
+      history.replaceState(null, null, href);
+
+      // close offcanvas just in case
+      document.getElementById('hamburger').checked = false;
+    }
+  }
+
+  window.delegate.bind(document.body, 'a', 'click', onLinkClick);
+
+
+  /**
+  * Initial scroll to anchor when location.hash is set
+  */
+
+  if (location.hash) {
+    setTimeout(function () {
+      scrollWithOffset(location.hash)
+    }, 0);
+  }
+};
+
+
+/**
+* Wait for all deferred external libraries to be loaded
+* then call setup
+*/
+
+function pollDependenciesReady() {          
+  if (window.LazyLoad && window.Prism && window.iFrameResize && window.interact && window.html_beautify) {
+    return setupDesignManual();
+  }
+  setTimeout(pollDependenciesReady, 10);
+} 
+
+pollDependenciesReady();
+</script></div></body></html>
