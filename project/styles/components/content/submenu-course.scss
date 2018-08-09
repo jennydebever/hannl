@@ -12,13 +12,33 @@
 
         h3.collapsible__title {
 
-          button.collapsible__title__button.js-collapsible__button {
+          button.collapsible__title__button {
             @include h2;
             @include underscore;
+            display: none;
             color: $white;
 
             &:hover {
               text-decoration: none;
+            }
+
+            &.top {
+
+              .icon {
+                transform: rotate(90deg);
+                transition: fill .15s, transform .15s;
+              }
+            }
+
+            &.bottom {
+              .icon {
+                transform: rotate(-90deg);
+                transition: fill .15s, transform .15s;
+              }
+            }
+
+            &.show {
+              display: block;
             }
 
             .icon {
@@ -82,8 +102,16 @@
       li.collapsibles__item.js-collapsible {
         .collapsible {
           h3.collapsible__title {
-            button.collapsible__title__button.js-collapsible__button {
+            button.collapsible__title__button {
+              display: none;
+
               &:hover {
+              }
+              &.show {
+                display: block;
+              }
+              &.js-collapsible__button {
+
               }
               .icon {
               }
@@ -99,11 +127,13 @@
                 & > li {
                   display: inline-block;
                   vertical-align: text-top;
-                  border: 1px solid $white;
+                  // border: 1px solid $white;
                   padding-right: 32px;
+                  width: 30%;
 
                   & ~ li {
                     margin-top: 0;
+                    border-left: 1px solid $grey5;
                   }
                 }
               }

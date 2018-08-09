@@ -47,7 +47,7 @@ mixin submenu-collapsibles(title, items)
       li.collapsibles__item(class='js-collapsible')
         .collapsible
           h3.collapsible__title
-            button.collapsible__title__button(type='button', aria-expanded='true', class='js-collapsible__button', aria-controls=slugify(title))
+            button.collapsible__title__button.top.show(type='button', aria-expanded='true', class='js-collapsible__button', aria-controls=slugify(title))
               | #{title}
               +icon#chevron
 
@@ -60,6 +60,6 @@ mixin submenu-collapsibles(title, items)
                       +icon#arrow
                     | !{item.submenu}
           h3.collapsible__title
-            button.collapsible__title__button(type='button', aria-expanded='true', class='js-collapsible__button', aria-controls=slugify(title))
+            button.collapsible__title__button.bottom(type='button', aria-expanded='true', class='js-collapsible__button', aria-controls=slugify(title))
               | #{title}
               +icon#chevron
