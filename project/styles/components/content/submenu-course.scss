@@ -54,6 +54,9 @@
 
             & > ul {
               & > li {
+                &:hover {
+                  background-color: $grey5;
+                }
                 & ~ li {
                   margin-top: 104px;
                 }
@@ -61,16 +64,36 @@
             }
 
             ul {
+              height: 100%;
 
               li {
+                margin-bottom: 16px;
+                height: 100%;
+                font-size: 14px;
+
                 &::before {
                   content: none;
                 }
 
                 .submenu__title {
                   @include h4;
+                  position: relative;
                   text-transform: none;
                   margin-bottom: 32px;
+                  padding-bottom: 8px;
+                  width: 100%;
+                  background-color: transparent;
+
+                  &:after {
+                    content: '';
+                    width: 24px;
+                    height: 1px;
+                    background: $grey5;
+                    position: absolute;
+                    bottom: -1px;
+                    right: 0px;
+
+                  }
 
                   .icon {
                     display: inline-block;
