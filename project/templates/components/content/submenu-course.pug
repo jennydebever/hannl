@@ -29,12 +29,12 @@ mixin menu-items(items)
       include ./submenu-course
 
       - items = [];
-      - items.push({title: 'Ontdekken', submenu: '<ul><li>Elektro in het kort</li><li>Studenten aan het woord</li><li>Projecten en nieuws</li><li>De locatie</li></ul>'})
-      - items.push({title: 'Jouw toekomst', submenu: '<ul><li>Beroepen en bedrijven</li><li>Professionals over het vak</li><li>Doorstuderen</li></ul>'})
-      - items.push({title: 'De studieopbouw', submenu: '<ul><li>Jaar 1<br/>Je propedeuse jaar</li><li>Jaar 2<br/>Je verdiepende jaar</li><li>Jaar 3<br/>Stage en minor</li><li>Jaar 4<br/>Afstuderen</li><li>Doorstuderen</li></ul>'})
-      - items.push({title: 'Maak kennis', submenu: '<ul><li>Kom de HAN ontdekken</li><li>Studeren in Arnhem</li><li>Doorstuderen</li></ul>'})
-      - items.push({title: 'Praktische info', submenu: '<ul><li>De toelatingseisen</li><li>Aanmeldprocedure</li><li>Studeren met een beperking</li><li>Opleidingskosten</li></ul>'})
-      +submenu-collapsibles('Elektrotechniek', items)
+      - items.push({title: 'Ontdekken', submenu: '<ul><li><a href="#">Elektro in het kort</a></li><li><a href="#">Studenten aan het woord</a></li><li><a href="#">Projecten en nieuws</a></li><li><a href="#">De locatie</a></li></ul>'})
+      - items.push({title: 'Jouw toekomst', submenu: '<ul><li><a href="#">Beroepen en bedrijven</a></li><li><a href="#">Professionals over het vak</a></li><li><a href="#">Doorstuderen</a></li></ul>'})
+      - items.push({title: 'De studieopbouw', submenu: '<ul><li><a href="#">Jaar 1</a><br/>Je propedeuse jaar</li><li><a href="#">Jaar 2</a><br/>Je verdiepende jaar</li><li><a href="#">Jaar 3</a><br/>Stage en minor</li><li><a href="#">Jaar 4</a><br/>Afstuderen</li><li>Doorstuderen</li></ul>'})
+      - items.push({title: 'Maak kennis', submenu: '<ul><li><a href="#">Kom de HAN ontdekken</a></li><li><a href="#">Studeren in Arnhem</a></li><li><a href="#">Doorstuderen</a></li></ul>'})
+      - items.push({title: 'Praktische info', submenu: '<ul><li><a href="#">De toelatingseisen</a></li><li><a href="#">Aanmeldprocedure</a></li><li><a href="#">Studeren met een beperking</a></li><li><a href="#">Opleidingskosten</a></li></ul>'})
+      +submenu-collapsibles('Elektrotechniek is een heule leuke studie hoor toevallig', items)
 
 mixin submenu-collapsibles(title, items)
   include ../atoms/richtext
@@ -53,6 +53,7 @@ mixin submenu-collapsibles(title, items)
 
           .collapsible__content(id=slugify(title), class='js-collapsible__content')
             +richtext
+              h3.title__lg-screen #{title}
               ul
                 each item in items
                   li
