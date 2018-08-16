@@ -34,6 +34,7 @@
             }
 
             &.bottom {
+
               .icon {
                 transform: rotate(-90deg);
 
@@ -68,6 +69,7 @@
 
 
           .richtext {
+
             .title__lg-screen {
               display: none;
             }
@@ -81,12 +83,14 @@
                 &:hover {
                   background-color: $grey5;
                 }
+
                 & ~ li {
                 }
               }
             }
 
             ul {
+
               li {
                 margin-bottom: 16px;
                 font-size: 14px;
@@ -124,6 +128,7 @@
                 }
 
                 ul {
+
                   li {
                     text-decoration: underline;
                     text-decoration-color: $grey4;
@@ -143,17 +148,23 @@
   }
 }
 
-  @include breakpoint($bp-m) {
+@include breakpoint($bp-m) {
   .section--submenu-course {
+
     ol.collapsibles.js-collapsibles {
+
       li.collapsibles__item.js-collapsible {
+
         .collapsible {
+
           h3.collapsible__title {
+
             button.collapsible__title__button {
               display: none;
 
               &:hover {
               }
+
               &.show {
                 display: block;
               }
@@ -180,7 +191,7 @@
                   display: inline-block;
                   vertical-align: text-top;
                   padding-right: 32px;
-                  width: 32%;
+                  // width: 32%;
 
                   & ~ li {
                     margin-top: 0;
@@ -193,10 +204,13 @@
                 li {
 
                   .submenu__title {
+
                     .icon {
                     }
                   }
+
                   ul {
+
                     li {
                     }
                   }
@@ -218,25 +232,33 @@
       background-color: $white;
 
       ol.collapsibles.js-collapsibles {
+
         li.collapsibles__item.js-collapsible {
-          border: none;
+          border: 0;
 
           .collapsible {
+
             h3.collapsible__title {
+
               button.collapsible__title__button {
                 display: none;
+
                 &:hover {
                 }
+
                 &.show {
                 }
+
                 &.js-collapsible__button {
                 }
+
                 .icon {
                 }
               }
             }
+
             .collapsible__content {
-              display: block!important;
+              display: block !important;
               background-color: $white;
 
               .richtext {
@@ -266,22 +288,26 @@
                     font-weight: 500;
                     width: initial;
                     padding: 24px;
+                    padding-bottom: 0;
 
                     &:hover {
                       background-color: $white;
                       font-weight: 900;
 
                       & .submenu__title {
-                        border-bottom: 4px solid $hanred;
+                        border-bottom: 4px solid $grey2;
                       }
 
                       ul {
                         display: block;
                         position: absolute;
                         left: 24px;
-                        top: 62px;
+                        top: 54px;
                         overflow: visible;
                         color: $black;
+                        // margin-top: 8px;
+                        z-index: 20;
+                        background-color: $white;
 
                         li {
                           margin: 0;
@@ -310,6 +336,7 @@
 
                     .submenu__title {
                       margin-bottom: 0;
+                      padding-bottom: 8px;
                       font-size: 15px;
 
                       &::after {
@@ -319,24 +346,34 @@
                         background-color: transparent;
                       }
 
+                      &.active {
+                        border-bottom: 4px solid $hanred;
+                      }
+
                       .icon {
                         display: none;
                       }
                     }
+
                     ul {
                       display: none;
                     }
                   }
                 }
+
                 ul {
                   margin-top: 0;
 
                   li {
+
                     .submenu__title {
+
                       .icon {
                       }
                     }
+
                     ul {
+
                       li {
                       }
                     }
