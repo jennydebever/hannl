@@ -255,6 +255,8 @@ used for USP -› obsolete?
 
 Klikbare etalage om projecten, faciliteiten en etc. visueel te presenteren. Deze versie van de slider heeft mogelijkheden voor het plaasten van een onderschrift, link, video en foto. Het component kan op elke pagina verschijnen.
 
+![slider-regular](https://trello-attachments.s3.amazonaws.com/5aa687df45545365963f69ce/5b4c88a70a5d3f118b774dd7/5c4a73829b6ef1830a80922c1b64320d/Regular_Slider.jpg)
+
 #### Notes voor dev:
 
 - Op dekstop is het element maximaal container breed (1160px). Als de container kleiner is dan de maximale grootte, deze snappen aan de randen.
@@ -273,7 +275,6 @@ Klikbare etalage om projecten, faciliteiten en etc. visueel te presenteren. Deze
 - Titel lengte: minimaal 70, maximaal 150 karakters
 - Link lengte: minimaal 15, maximaal 40 karakters
 - Minimaal aantal slides van 3, maximaal 8
-  ![slider-regular](https://trello-attachments.s3.amazonaws.com/5aa687df45545365963f69ce/5b4c88a70a5d3f118b774dd7/5c4a73829b6ef1830a80922c1b64320d/Regular_Slider.jpg)
 
 ## Tables
 
