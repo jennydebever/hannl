@@ -1,12 +1,17 @@
 # Components
-## Naamgeving
-Voor de namen van de componenten zoeken we naar metaforen en persoonlijkheid en willen we dat het het doel van het component communiceert. Zo is het component makkelijker te onthouden. 
-Naast de naam van een component werken we ook met een schaal om  onderscheid te kunnen maken tussen componenten die veel dezelfde  eigenschappen in zich dragen zoals call to actions.
-We werken met twee verschillende schalen om de visuele eigenschappen van de componenten uit te kunnen drukken: een Visual Loudness Scale en een Visual Wideness Scale. 
 
-### Visual Loudness Scale 
-Drukt uit hoeveel visueel lawaai een component maakt. 
+## Naamgeving
+
+Voor de namen van de componenten zoeken we naar metaforen en persoonlijkheid en willen we dat het het doel van het component communiceert. Zo is het component makkelijker te onthouden.
+Naast de naam van een component werken we ook met een schaal om onderscheid te kunnen maken tussen componenten die veel dezelfde eigenschappen in zich dragen zoals call to actions.
+We werken met twee verschillende schalen om de visuele eigenschappen van de componenten uit te kunnen drukken: een Visual Loudness Scale en een Visual Wideness Scale.
+
+### Visual Loudness Scale
+
+Drukt uit hoeveel visueel lawaai een component maakt.
+
 #### De schaal
+
 - Whisper
 - Murmur
 - Ask
@@ -16,8 +21,11 @@ Drukt uit hoeveel visueel lawaai een component maakt.
 - Roar
 
 ### Visual Wideness Scale
+
 Drukt uit hoeveel visuele ruimte een component inneemt.
+
 #### De schaal
+
 - Skeleton
 - Skinny
 - Regular
@@ -27,13 +35,16 @@ Drukt uit hoeveel visuele ruimte een component inneemt.
 ---
 
 ## Accordion
+
 ### Contents
+
 !{accordion-regular}
 ![accordion-regular](https://user-images.githubusercontent.com/9093958/42027419-f40031ce-7ac9-11e8-97bb-bb9bbe6f1977.jpg)
 
-
 ## Bio and testimonial
+
 ### Contents
+
 !{bio-skinny}
 ![bio-skinny](https://user-images.githubusercontent.com/9093958/42761401-b4f80216-890d-11e8-9a62-bfd3129caa05.jpg)
 
@@ -46,9 +57,10 @@ Drukt uit hoeveel visuele ruimte een component inneemt.
 !{testimonial-regular}
 ![testimonial-regular](https://user-images.githubusercontent.com/9093958/43150607-9d98bcba-8f6a-11e8-9023-c847f474c928.jpg)
 
-
 ## Call for Action
+
 ### Contents
+
 !{ask-for-action}
 ![ask-for-action](https://user-images.githubusercontent.com/9093958/42752668-e9224b06-88ee-11e8-9720-31a55d494fde.jpg)
 ![ask-for-action-hover](https://user-images.githubusercontent.com/9093958/42752667-e905bdd8-88ee-11e8-9a39-4e78ea0bdc1c.jpg)
@@ -62,33 +74,36 @@ Drukt uit hoeveel visuele ruimte een component inneemt.
 !{scream-for-action}
 ![scream-for-action](https://user-images.githubusercontent.com/9093958/42751734-fc688a20-88eb-11e8-9e69-6cd15dba4118.jpg)
 
-
 ## Cards
+
 ### Contents
-!{card-skeleton} 
+
+!{card-skeleton}
 used for USP -› obsolete?
 ![card-skeleton](https://user-images.githubusercontent.com/9093958/42753121-2946cfc6-88f0-11e8-8dcb-38086b14b8b7.jpg)
 
-!{card-skinny} 
+!{card-skinny}
 used for USP -› obsolete?
 ![card-skinny](https://user-images.githubusercontent.com/9093958/42753122-2964ab5e-88f0-11e8-9c8a-41fb36d4739d.jpg)
 
-!{card-regular} 
+!{card-regular}
 -› obsolete?
 ![card-regular](https://user-images.githubusercontent.com/9093958/42753119-292fa2ec-88f0-11e8-8827-630aec24ba41.jpg)
 
 !{card-news-event-regular}
 ![card-news-event-regular](https://user-images.githubusercontent.com/9093958/43150715-e586f76c-8f6a-11e8-88ee-3a077e1cdf61.jpg)
 
-
 ## Carousel
+
 ### Contents
+
 !{carousel-whale}
 ![carousel-whale](https://user-images.githubusercontent.com/9093958/42751828-53dd4386-88ec-11e8-950a-65375aa3674b.jpg)
 
-
 ## Contact
+
 ### Contents
+
 !{contact-card-skinny-1}
 ![contact-card-skinny-1](https://user-images.githubusercontent.com/9093958/42753422-32715bec-88f1-11e8-907e-632b8acc414d.jpg)
 
@@ -98,9 +113,10 @@ used for USP -› obsolete?
 !{contact-whale}
 ![contact-whale](https://user-images.githubusercontent.com/9093958/42753424-32aa4286-88f1-11e8-943e-e1fcae73b9bd.jpg)
 
-
 ## Facts
+
 ### Contents
+
 !{fact-accreditaties}
 ![fact-accreditaties](https://user-images.githubusercontent.com/9093958/42762987-1217c11c-8912-11e8-9885-27dce237e36a.jpg)
 
@@ -125,15 +141,17 @@ used for USP -› obsolete?
 !{fact-up-fat}
 ![fact-up-fat](https://user-images.githubusercontent.com/9093958/42753800-5140afb8-88f2-11e8-917a-9d3591149bfb.jpg)
 
-
 ## Filters
+
 ### Contents
+
 !{filters-skinnny}
 ![filters-skinnny](https://user-images.githubusercontent.com/9093958/43398219-b0e55ab6-9407-11e8-91c0-349495fa264d.jpg)
 
-
 ## Heroes
+
 ### Contents
+
 !{course-hero-skinny}
 ![course-hero-skinny](https://user-images.githubusercontent.com/9093958/42756831-13649b08-88fe-11e8-89a0-b0afd2727fbf.jpg)
 
@@ -143,10 +161,12 @@ used for USP -› obsolete?
 !{course-hero-whale}
 ![course-hero-whale](https://user-images.githubusercontent.com/9093958/42756706-96dee462-88fd-11e8-9f1e-458e7a116042.jpg)
 
-
 ## Images
+
 ### Image row
+
 #### Contents
+
 !{imagerow-triple-landscape}
 ![imagerow-triple-landscape](https://user-images.githubusercontent.com/9093958/43398040-2824934a-9407-11e8-8a1a-afc9919e0e3a.jpg)
 
@@ -154,14 +174,18 @@ used for USP -› obsolete?
 ![imagerow-triple-portrait](https://user-images.githubusercontent.com/9093958/42764296-8ab1b38c-8915-11e8-921d-e8319722012c.jpg)
 
 ### Image grid
+
 #### Contents
+
 !{imagegrid-gremlins}
 ![imagegrid-gremlins](https://user-images.githubusercontent.com/9093958/43399160-6bfc350c-940a-11e8-8d2f-4ab68c9916ff.jpg)
 
-
 ## Lists
+
 ### Text-List
+
 #### Contents
+
 !{text-list-double-column}
 ![text-list-double-column](https://user-images.githubusercontent.com/9093958/42025827-dd73528c-7ac5-11e8-9482-9e0ec0915960.jpg)
 
@@ -169,7 +193,9 @@ used for USP -› obsolete?
 ![text-list-triple-column](https://user-images.githubusercontent.com/9093958/42760297-4ced35fe-890a-11e8-9b41-d7629b57cefa.jpg)
 
 ### Link-List
+
 #### Contents
+
 !{link-list-double-column}
 ![link-list-double-column](https://user-images.githubusercontent.com/9093958/43392065-cf19e30e-93f2-11e8-959b-5967fd9583d2.jpg)
 
@@ -177,7 +203,9 @@ used for USP -› obsolete?
 ![link-list-triple-column](https://user-images.githubusercontent.com/9093958/43392066-cf32345e-93f2-11e8-8c39-3fef44b9642e.jpg)
 
 ### Image-List
+
 #### Contents
+
 !{image-list-single-column}
 ![image-list-single-column](https://user-images.githubusercontent.com/9093958/42761476-faaf5d54-890d-11e8-8e0b-64d119cdcb49.jpg)
 
@@ -187,9 +215,10 @@ used for USP -› obsolete?
 !{image-list-triple-column}
 ![image-list-triple-column](https://user-images.githubusercontent.com/9093958/43391802-f1907188-93f1-11e8-8b7c-a997b71d29fb.jpg)
 
-
 ## Maps
+
 ### Contents
+
 !{worldmap}
 
 !{map-and-address}
@@ -200,9 +229,10 @@ used for USP -› obsolete?
 
 !{route-road}
 
-
 ## Navigation
+
 ### Contents
+
 !{nav-course}
 ![nav-course-xl](https://user-images.githubusercontent.com/9093958/42762796-85e44bca-8911-11e8-9aa1-55b9e17032bb.jpg)
 
@@ -215,15 +245,17 @@ used for USP -› obsolete?
 !{nav-switch}
 ![nav-switch](https://user-images.githubusercontent.com/9093958/42762843-ab2c63cc-8911-11e8-8fe7-d9c56801b568.jpg)
 
-
 ## Sliders
-### Contents
-!{slider-regular}
-![slider-regular](https://user-images.githubusercontent.com/9093958/42764378-c68d51ea-8915-11e8-9a96-a22ca1458ea3.jpg)
 
+### Contents
+
+!{slider-regular}
+![slider-regular](https://trello-attachments.s3.amazonaws.com/5aa687df45545365963f69ce/5b4c88a70a5d3f118b774dd7/5c4a73829b6ef1830a80922c1b64320d/Regular_Slider.jpg)
 
 ## Tables
+
 ### Contents
+
 !{table-regular}
 ![table-regular](https://user-images.githubusercontent.com/9093958/42764622-5c541592-8916-11e8-9c66-42df8854f1e3.jpg)
 
@@ -238,15 +270,17 @@ with tooltip
 !{table-interactive}
 ![table-interactive](https://user-images.githubusercontent.com/9093958/42764621-5c3b5714-8916-11e8-9bb4-923913edbe35.jpg)
 
-
 ## Tabs
+
 ### Contents
+
 !{tabs-regular}
 ![tabs-regular](https://user-images.githubusercontent.com/9093958/42764991-47da4f5e-8917-11e8-910d-25dccbbc45ab.jpg)
 
-
 ## Takeover
+
 ### Contents
+
 !{take-over-hero-1}
 ![take-over-hero](https://user-images.githubusercontent.com/9093958/42764892-0b03213c-8917-11e8-897d-3167b60ba331.jpg)
 
@@ -256,18 +290,20 @@ with tooltip
 !{take-over-regular}
 ![take-over-regular](https://user-images.githubusercontent.com/9093958/42764894-0b202c1e-8917-11e8-94ab-7705c7c184a9.png)
 
-
 ## Text
+
 ### Contents
+
 !{text-double-column}
 ![text-double-column](https://user-images.githubusercontent.com/9093958/42026419-555f5740-7ac7-11e8-9a6e-31f8fecb7495.jpg)
 
 !{text-lead}
 ![text-lead](https://user-images.githubusercontent.com/9093958/42763092-5aff0f0c-8912-11e8-9395-fb7f7c524a64.jpg)
 
-
 ## Text and Media
+
 ### Contents
+
 !{card-text-and-media-regular (USP)}
 ![card-text-and-media-regular](https://user-images.githubusercontent.com/9093958/42763161-87983c00-8912-11e8-83be-dd6315ca658e.jpg)
 
@@ -290,14 +326,17 @@ with tooltip
 !{text-and-media-highlight}
 ![text-and-media-highlight](https://user-images.githubusercontent.com/9093958/42765146-a20127aa-8917-11e8-80c4-090906eca060.jpg)
 
-
 ##Tooltip
+
 ### Contents
+
 !{tooltip-regular}
 ![tooltip-regular](https://user-images.githubusercontent.com/9093958/43395195-889e1d7c-93fd-11e8-86fc-e8cfbfc82903.jpg)
 
 ## Quote
+
 ### Contents
+
 !{quote-skinny}
 ![quote-skinny](https://user-images.githubusercontent.com/9093958/42767769-26f4bc28-891e-11e8-8336-a0bf801bef4b.jpg)
 
@@ -307,7 +346,9 @@ with tooltip
 ---
 
 ## Specials
+
 ### Contents
+
 !{modulator}
 ![modulator](https://user-images.githubusercontent.com/9093958/42767903-6e92a1da-891e-11e8-806a-78512d028987.jpg)
 
