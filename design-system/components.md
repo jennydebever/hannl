@@ -69,10 +69,10 @@ Drukt uit hoeveel visuele ruimte een component inneemt.
 ![insist-for-action](https://user-images.githubusercontent.com/9093958/43399673-f93f8670-940b-11e8-80b6-207827f1a8b0.jpg)
 
 !{shout-for-action}
-![shout-for-action](https://user-images.githubusercontent.com/9093958/42751769-14c36c0c-88ec-11e8-9f9b-841afbac2ebf.jpg)
+![shout-for-action](https://user-images.githubusercontent.com/9093958/44346347-09b97980-a496-11e8-8791-9e5efca09111.png)
 
 !{scream-for-action}
-![scream-for-action](https://user-images.githubusercontent.com/9093958/42751734-fc688a20-88eb-11e8-9e69-6cd15dba4118.jpg)
+![scream-for-action](https://user-images.githubusercontent.com/9093958/44346043-45a00f00-a495-11e8-97c3-63f5ab969f34.png)
 
 ## Cards
 
@@ -107,11 +107,11 @@ used for USP -› obsolete?
 !{contact-card-skinny-1}
 ![contact-card-skinny-1](https://user-images.githubusercontent.com/9093958/42753422-32715bec-88f1-11e8-907e-632b8acc414d.jpg)
 
-!{contact-card-regular-2}
+!{contact-card-skinny-2}
 ![contact-card-skinny-2](https://user-images.githubusercontent.com/9093958/42753423-328d4b7c-88f1-11e8-895f-6e381a2f5302.jpg)
 
 !{contact-whale}
-![contact-whale](https://user-images.githubusercontent.com/9093958/42753424-32aa4286-88f1-11e8-943e-e1fcae73b9bd.jpg)
+![contact-whale](https://user-images.githubusercontent.com/9093958/44345252-17b9cb00-a493-11e8-8439-e100c0f16d5e.png)
 
 ## Facts
 
@@ -153,7 +153,24 @@ used for USP -› obsolete?
 ### Contents
 
 !{course-hero-skinny}
-![course-hero-skinny](https://user-images.githubusercontent.com/9093958/42756831-13649b08-88fe-11e8-89a0-b0afd2727fbf.jpg)
+
+#### Concept:
+
+Hero voor detail pagina's binnen de opleiding. Deze wordt altijd geplaatst onder het menu / submenu. Direct onder de titel van de pagina staat een korte leadtekst als introductie voor de pagina.
+![course-hero-skinny](https://trello-attachments.s3.amazonaws.com/5aa687df45545365963f69ce/5b4c89ebc0b4905c41af9bd2/ff103a18a6c769a71c35e6cb129183db/Course_Hero_Skinny.jpg)
+
+#### Notes voor dev:
+
+- Hoogte van de hero op LG/XL en MD vast op 540px, op SM/XL is de hoogte 420px.
+- Scrollen een parallax effect, zie voorbeeld in het protoype. Belangrijk is de easing die de flow moet hebben, deze lijkt op die van de _Slider - Regular_: @easing: cubic-bezier(.05, 0, .002, 1);
+- Titel H1 heet een Han_underscore
+- [Link naar huidige versie van het ontwerpdocument:](https://share.goabstract.com/2dd650d4-794e-4ee5-be8e-84ad449a4e12)
+- [Link naar prototype desktop:](https://app.atomic.io/d/p8E7xo77fVMu)
+
+#### Notes voor content:
+
+- Titel H1 heet een Han_underscore
+- Leadtekst lengte: mimimaal 150 karakters, maximaal 500 karakters.
 
 !{course-hero-regular}
 ![course-hero-regular](https://user-images.githubusercontent.com/9093958/42756829-134770a0-88fe-11e8-82c2-54eee1aaaafa.jpg)
@@ -222,7 +239,25 @@ used for USP -› obsolete?
 !{worldmap}
 
 !{map-and-address}
-![map-and-address](https://user-images.githubusercontent.com/9093958/42761576-33851a06-890e-11e8-9b3e-e41632fda5de.jpg)
+
+#### Concept:
+
+Component wat de adresgegevens, telefoonnummer en locatie laten zien van opleiding. Hierin is de mogelijkheid om je reistijd te berekenen vanaf eigen locatie naar de school. In sommige gevallen wordt een opleiding in meerdere steden gegeven, dan is het mogelijk om binnen dit component beide locatie gegevens te bekijken. Het component wordt getoond bij opleidingspagina's.
+![map-and-address](https://trello-attachments.s3.amazonaws.com/5aa687df45545365963f69ce/5b72bf7a73a1795faed56e7c/x/d508c13446000484c8a2b925dcd88de2/C._Map_and_Address__5BLG_XL_5D.jpg)
+
+#### Notes voor dev:
+
+- De card heeft een licht parallax effect op de afbeelding om het gevoel van ruimte te geven. Zie prototype als voorbeeld.
+- Als de opleiding in twee verschillende steden gegeven wordt komt de switcher erboven om te kunnen switchen tussen beide steden.
+- Button 'bereken je reistijd' gaat naar een _takeover_. Dit component, _route_, wordt nog ontworpen.
+- Het adres, postcode en plaatsnaam zijn underlined. Deze moeten gelinkt worden aan een _lightbox_ of _takeover_ met een google maps iframe. Deze zal samen met het _route_ component ontworpen worden. Voor de 'time-being', linken naar de maps op maps.google.com
+- Het telefoonnummer moet een tel: actie hebben om direct te kunnen bellen.
+- [Link naar huidige versie van het ontwerpdocument:](https://share.goabstract.com/2dd650d4-794e-4ee5-be8e-84ad449a4e12)
+- [Link naar prototype desktop:](https://app.atomic.io/d/3RZa2NGypOAF)
+
+#### Notes voor content:
+
+- In de foto moet het focuspunt rechts liggen zodat dit niet in conflict raakt met de card.
 
 !{route-ov}
 ![route-ov](https://user-images.githubusercontent.com/9093958/42761615-59c8179a-890e-11e8-813c-3e1171498b73.jpg)
@@ -253,15 +288,15 @@ used for USP -› obsolete?
 
 #### Concept:
 
-Klikbare etalage om projecten, faciliteiten en etc. visueel te presenteren. Deze versie van de slider heeft mogelijkheden voor het plaasten van een onderschrift, link, video en foto. Het component kan op elke pagina verschijnen.
+Klikbare etalage om projecten, faciliteiten, etc. visueel te presenteren. Deze versie van de slider heeft mogelijkheden voor het plaasten van een onderschrift, link, video en foto. Het component kan op elke pagina geplaatst worden.
 
 ![slider-regular](https://trello-attachments.s3.amazonaws.com/5aa687df45545365963f69ce/5b4c88a70a5d3f118b774dd7/5c4a73829b6ef1830a80922c1b64320d/Regular_Slider.jpg)
 
 #### Notes voor dev:
 
-- Op dekstop is het element maximaal container breed (1160px). Als de container kleiner is dan de maximale grootte, deze snappen aan de randen.
+- Op dekstop is het element maximaal container breed (1160px). Als de container smaller is dan de maximale breedte, dan 'snapt'de slider aan de randen van de container.
 - Transitie voor overgang van de verschillende slides: @speed: 0.8s; @easing: cubic-bezier(.05, 0, .002, 1); // ease-out
-- Op alle breakpoints de mogelijkheid hebben om d.m.v de knoppen en swipen te switchen tussen de verschillende slides.
+- Op alle breakpoints de mogelijkheid hebben om d.m.v de knoppen en swipen te switchen tussen de volgende/vorige slide.
 - Slide met een playbutton, deze met een fade in te laden van @speed 0.3s;
 - Spacing in _.Slider-Block_: LG/XL 40px; MD: 32px ; SM/XS: 24px.
 - Buttons Next Slide / Prev Slide rechts uitgelijnd met margin op LG/XL: -24px; MD: -24px; SM/XS: -20px.
@@ -287,7 +322,7 @@ Klikbare etalage om projecten, faciliteiten en etc. visueel te presenteren. Deze
 ![table-fat](https://user-images.githubusercontent.com/9093958/42764620-5c1dd0c2-8916-11e8-938f-0114bade5500.jpg)
 
 !{table-whale}
-![table-whale](https://user-images.githubusercontent.com/9093958/43392311-97efbccc-93f3-11e8-982c-eade5186a661.jpg)
+![table-whale](https://user-images.githubusercontent.com/9093958/43392311-97efbccc-93f3-11e8-982c-eade5186a661.jpg)ƒlink
 with tooltip
 ![table-whale-tooltip](https://user-images.githubusercontent.com/9093958/43392310-97d884b2-93f3-11e8-8fde-d6817dc5b0ec.jpg)
 
@@ -350,7 +385,7 @@ with tooltip
 !{text-and-media-highlight}
 ![text-and-media-highlight](https://user-images.githubusercontent.com/9093958/42765146-a20127aa-8917-11e8-80c4-090906eca060.jpg)
 
-##Tooltip
+## Tooltip
 
 ### Contents
 

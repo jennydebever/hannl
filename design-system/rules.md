@@ -10,7 +10,7 @@ Standaarden voor shadows, animaties, gebruik van underscore.
 
 Snelle ease in, trage ease out. Alsof een monolytisch blok over ijs glijdt.
 speed: 1.5s;
-easing: cubic-bezier(.05, 0, .005, 1);
+easing: cubic-bezier(.05, 0, .002, 1);
 [Codepen slider voorbeeld](https://codepen.io/manchap/pen/PBePvN)
 
 ---
