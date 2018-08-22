@@ -33,18 +33,6 @@
   },
   {
     "meta": {
-      "name": "Richtext",
-      "description": "Wrapper voor CMS WYSIWYG content.",
-      "example":
-        "+richtext\n  h1 Dit is een h1\n  h2 Dit is een h2\n  h3 Dit is een h3\n  h4 Dit is een h4\n  h5 Dit is een h5\n  p dit is paragraph text \n  ul\n    li eerste item\n    li tweede item\n    li derde item\n  ol \n    li eerste item\n    li tweede item\n    li derde item\n  table\n    tr\n      th nr\n      th naam\n      th plaats\n    tr\n      td 1\n      td Piet Jansen\n      td Nijmegen\n    tr  \n      td 2\n      td Piet Jansen\n      td Nijmegen\n    tr\n      td 3\n      td Piet Jansen\n      td Nijmegen\n"
-    },
-    "file": "project/templates/components/atoms/richtext.pug",
-    "source": "mixin richtext\n  .richtext\n    block",
-    "output":
-      "<div class=\"richtext\"><h1>Dit is een h1</h1><h2>Dit is een h2</h2><h3>Dit is een h3</h3><h4>Dit is een h4</h4><h5>Dit is een h5</h5><p>dit is paragraph text </p><ul><li>eerste item</li><li>tweede item</li><li>derde item</li></ul><ol> <li>eerste item</li><li>tweede item</li><li>derde item</li></ol><table><tr><th>nr</th><th>naam</th><th>plaats</th></tr><tr><td>1</td><td>Piet Jansen</td><td>Nijmegen</td></tr><tr> <td>2</td><td>Piet Jansen</td><td>Nijmegen</td></tr><tr><td>3</td><td>Piet Jansen</td><td>Nijmegen</td></tr></table></div>"
-  },
-  {
-    "meta": {
       "name": "Knop (Strong link)",
       "description": "Strong link. Maximaal 30 karakters.",
       "examples": [
@@ -58,6 +46,18 @@
       "mixin strong-link(label, href)\n  include ../../icons/_icon\n\n  a.strong-link(href=href)\n    span.strong-link__label #{label}\n    if href.indexOf('http') > -1\n      +icon#external\n    else\n      +icon#arrow",
     "output":
       "<div class=\"demo-theme-white\"><a class=\"strong-link\" href=\"/\"><span class=\"strong-link__label\">Gebruik het contactformulier</span><svg class=\"icon icon-arrow\" aria-hidden=\"true\" viewBox=\"0 0 48 40\" width=\"48\" height=\"40\"><use xlink:href=\"#arrow\"></use></svg></a><a class=\"strong-link\" href=\"https://www.han.nl\"><span class=\"strong-link__label\">Gebruik het contactformulier</span><svg class=\"icon icon-external\" aria-hidden=\"true\" viewBox=\"0 0 48 44\" width=\"48\" height=\"44\"><use xlink:href=\"#external\"></use></svg></a></div><div class=\"demo-theme-red\"><a class=\"strong-link\" href=\"/\"><span class=\"strong-link__label\">Gebruik het contactformulier</span><svg class=\"icon icon-arrow\" aria-hidden=\"true\" viewBox=\"0 0 48 40\" width=\"48\" height=\"40\"><use xlink:href=\"#arrow\"></use></svg></a><a class=\"strong-link\" href=\"https://www.han.nl\"><span class=\"strong-link__label\">Gebruik het contactformulier</span><svg class=\"icon icon-external\" aria-hidden=\"true\" viewBox=\"0 0 48 44\" width=\"48\" height=\"44\"><use xlink:href=\"#external\"></use></svg></a></div><div class=\"demo-theme-black\"><a class=\"strong-link\" href=\"/\"><span class=\"strong-link__label\">Gebruik het contactformulier</span><svg class=\"icon icon-arrow\" aria-hidden=\"true\" viewBox=\"0 0 48 40\" width=\"48\" height=\"40\"><use xlink:href=\"#arrow\"></use></svg></a><a class=\"strong-link\" href=\"https://www.han.nl\"><span class=\"strong-link__label\">Gebruik het contactformulier</span><svg class=\"icon icon-external\" aria-hidden=\"true\" viewBox=\"0 0 48 44\" width=\"48\" height=\"44\"><use xlink:href=\"#external\"></use></svg></a></div>"
+  },
+  {
+    "meta": {
+      "name": "Richtext",
+      "description": "Wrapper voor CMS WYSIWYG content.",
+      "example":
+        "+richtext\n  h1 Dit is een h1\n  h2 Dit is een h2\n  h3 Dit is een h3\n  h4 Dit is een h4\n  h5 Dit is een h5\n  p dit is paragraph text \n  ul\n    li eerste item\n    li tweede item\n    li derde item\n  ol \n    li eerste item\n    li tweede item\n    li derde item\n  table\n    tr\n      th nr\n      th naam\n      th plaats\n    tr\n      td 1\n      td Piet Jansen\n      td Nijmegen\n    tr  \n      td 2\n      td Piet Jansen\n      td Nijmegen\n    tr\n      td 3\n      td Piet Jansen\n      td Nijmegen\n"
+    },
+    "file": "project/templates/components/atoms/richtext.pug",
+    "source": "mixin richtext\n  .richtext\n    block",
+    "output":
+      "<div class=\"richtext\"><h1>Dit is een h1</h1><h2>Dit is een h2</h2><h3>Dit is een h3</h3><h4>Dit is een h4</h4><h5>Dit is een h5</h5><p>dit is paragraph text </p><ul><li>eerste item</li><li>tweede item</li><li>derde item</li></ul><ol> <li>eerste item</li><li>tweede item</li><li>derde item</li></ol><table><tr><th>nr</th><th>naam</th><th>plaats</th></tr><tr><td>1</td><td>Piet Jansen</td><td>Nijmegen</td></tr><tr> <td>2</td><td>Piet Jansen</td><td>Nijmegen</td></tr><tr><td>3</td><td>Piet Jansen</td><td>Nijmegen</td></tr></table></div>"
   },
   {
     "meta": {
@@ -103,6 +103,18 @@
       "mixin section(eyebrow, title, intro)\n  .section&attributes(attributes)\n    if title || intro\n      .section__header\n        if title\n          h2.section__header__title\n            if eyebrow\n              span.section__header__title__eyebrow #{eyebrow}\n              span.accessibility :&nbsp;\n            span.section__header__title__text #{title}\n    \n        if intro\n          p.section__header__intro !{intro}\n\n    .section__content\n      block",
     "output":
       "<div class=\"section\"><div class=\"section__header\"><h2 class=\"section__header__title\"><span class=\"section__header__title__text\">section title</span></h2></div><div class=\"section__content\">my section content</div></div><hr class=\"demo\"/><div class=\"section\"><div class=\"section__header\"><h2 class=\"section__header__title\"><span class=\"section__header__title__eyebrow\">eyebrow</span><span class=\"accessibility\">:&nbsp;</span><span class=\"section__header__title__text\">section title</span></h2></div><div class=\"section__content\">my section content</div></div><hr class=\"demo\"/><div class=\"section\"><div class=\"section__header\"><h2 class=\"section__header__title\"><span class=\"section__header__title__eyebrow\">eyebrow</span><span class=\"accessibility\">:&nbsp;</span><span class=\"section__header__title__text\">section title</span></h2><p class=\"section__header__intro\">This is intro text</p></div><div class=\"section__content\">my section content</div></div>"
+  },
+  {
+    "meta": {
+      "name": "Button hierarchie opties",
+      "examples": [
+        "include ../atoms/btn-primary\ninclude ../atoms/btn-secondary\ninclude ../atoms/strong-link\nh4 Primary + Secondary + Strong Link\n.demo-theme-white\n  +btn-primary('Bereken je reistijd', 'https://www.han.nl')\n  +btn-secondary('Meld je aan', 'https://www.han.nl')\n  +strong-link('Gebruik het contactformulier', '/')      \nh4 Primary + Secondary\n.demo-theme-white\n  +btn-primary('Bereken je reistijd', 'https://www.han.nl')\n  +btn-secondary('Meld je aan', 'https://www.han.nl')      \nh4 Primary + Strong Link\n.demo-theme-white\n  +btn-primary('Bereken je reistijd', 'https://www.han.nl')\n  +strong-link('Gebruik het contactformulier', '/')  \nh4 Secondary + Strong Link\n.demo-theme-white      \n  +btn-secondary('Meld je aan', 'https://www.han.nl')\n  +strong-link('Gebruik het contactformulier', '/')\n"
+      ]
+    },
+    "file": "project/templates/components/design-system/buttons.pug",
+    "source": "include ../atoms/btn-primary",
+    "output":
+      "<h4>Primary + Secondary + Strong Link</h4><div class=\"demo-theme-white\"><a class=\"btn-primary\" href=\"https://www.han.nl\"><span class=\"btn-primary__label\">Bereken je reistijd</span></a><a class=\"btn-secondary\" href=\"https://www.han.nl\"><span class=\"btn-secondary__label\">Meld je aan</span></a><a class=\"strong-link\" href=\"/\"><span class=\"strong-link__label\">Gebruik het contactformulier</span><svg class=\"icon icon-arrow\" aria-hidden=\"true\" viewBox=\"0 0 48 40\" width=\"48\" height=\"40\"><use xlink:href=\"#arrow\"></use></svg></a></div><h4>Primary + Secondary</h4><div class=\"demo-theme-white\"><a class=\"btn-primary\" href=\"https://www.han.nl\"><span class=\"btn-primary__label\">Bereken je reistijd</span></a><a class=\"btn-secondary\" href=\"https://www.han.nl\"><span class=\"btn-secondary__label\">Meld je aan</span></a></div><h4>Primary + Strong Link</h4><div class=\"demo-theme-white\"><a class=\"btn-primary\" href=\"https://www.han.nl\"><span class=\"btn-primary__label\">Bereken je reistijd</span></a><a class=\"strong-link\" href=\"/\"><span class=\"strong-link__label\">Gebruik het contactformulier</span><svg class=\"icon icon-arrow\" aria-hidden=\"true\" viewBox=\"0 0 48 40\" width=\"48\" height=\"40\"><use xlink:href=\"#arrow\"></use></svg></a></div><h4>Secondary + Strong Link</h4><div class=\"demo-theme-white\">     <a class=\"btn-secondary\" href=\"https://www.han.nl\"><span class=\"btn-secondary__label\">Meld je aan</span></a><a class=\"strong-link\" href=\"/\"><span class=\"strong-link__label\">Gebruik het contactformulier</span><svg class=\"icon icon-arrow\" aria-hidden=\"true\" viewBox=\"0 0 48 40\" width=\"48\" height=\"40\"><use xlink:href=\"#arrow\"></use></svg></a></div>"
   },
   {
     "meta": {

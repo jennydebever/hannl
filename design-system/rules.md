@@ -15,14 +15,11 @@ easing: cubic-bezier(.05, 0, .002, 1);
 
 ---
 
-!{Underscore}
+!{Gebruik van de underscore}
 
 ---
 
 !{Button Hiërarchie}
-Volgorde staat altijd vast. een tertiary mag niet voor een secondary of primary geplaatst worden. Een secondary niet voor een primary
+Volgorde staat altijd vast. Een Strong link mag niet voor een Secondary of Primary geplaatst worden. Een Secondary niet voor een Primary
 
-- Primary, Secondary, Tertiary
-- Primary, Secondary
-- Primary, Tertiary
-- Secondary, Tertiary
+!{Button hierarchie opties}

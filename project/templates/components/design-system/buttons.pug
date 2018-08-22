@@ -1,0 +1,29 @@
+//- @pugdoc
+  name: Button hierarchie opties  
+  examples:
+    - |
+      include ../atoms/btn-primary
+      include ../atoms/btn-secondary
+      include ../atoms/strong-link
+      h4 Primary + Secondary + Strong Link
+      .demo-theme-white
+        +btn-primary('Bereken je reistijd', 'https://www.han.nl')
+        +btn-secondary('Meld je aan', 'https://www.han.nl')
+        +strong-link('Gebruik het contactformulier', '/')      
+      h4 Primary + Secondary
+      .demo-theme-white
+        +btn-primary('Bereken je reistijd', 'https://www.han.nl')
+        +btn-secondary('Meld je aan', 'https://www.han.nl')      
+      h4 Primary + Strong Link
+      .demo-theme-white
+        +btn-primary('Bereken je reistijd', 'https://www.han.nl')
+        +strong-link('Gebruik het contactformulier', '/')  
+      h4 Secondary + Strong Link
+      .demo-theme-white      
+        +btn-secondary('Meld je aan', 'https://www.han.nl')
+        +strong-link('Gebruik het contactformulier', '/')
+
+
+include ../atoms/btn-primary
+include ../atoms/btn-secondary
+include ../atoms/strong-link
