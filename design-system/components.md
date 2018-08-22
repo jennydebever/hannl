@@ -188,6 +188,7 @@ Hero voor detail pagina's binnen de opleiding. Deze wordt altijd geplaatst onder
 ![imagerow-triple-landscape](https://user-images.githubusercontent.com/9093958/43398040-2824934a-9407-11e8-8a1a-afc9919e0e3a.jpg)
 
 !{imagerow-triple-portrait}
+Bedoeld om sfeer neer te zetten. Kan een korte titel bij om context te geven aan de foto. Beeld en titel samen moet genoeg reden geven om er op te klikken.
 ![imagerow-triple-portrait](https://user-images.githubusercontent.com/9093958/42764296-8ab1b38c-8915-11e8-921d-e8319722012c.jpg)
 
 ### Image grid
