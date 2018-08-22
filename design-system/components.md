@@ -1,5 +1,7 @@
 # Components
 
+---
+
 ## Naamgeving
 
 Voor de namen van de componenten zoeken we naar metaforen en persoonlijkheid en willen we dat het het doel van het component communiceert. Zo is het component makkelijker te onthouden.

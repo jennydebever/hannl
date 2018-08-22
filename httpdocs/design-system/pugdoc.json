@@ -1,22 +1,6 @@
 [
   {
     "meta": {
-      "name": "Knop (Secundair)",
-      "description": "Secundaire knop. Maximaal 30 karakters.",
-      "examples": [
-        ".demo-theme-white\n  +btn-secondary('Meld je aan', 'https://www.han.nl')\n  +btn-secondary('Meld je aan', 'https://www.han.nl', 'arrow')\n  +btn-secondary('Meld je aan', 'https://www.han.nl', 'external')\n  +btn-secondary('Meld je aan', 'https://www.han.nl', 'clock-line')\n",
-        ".demo-theme-red\n  +btn-secondary('Meld je aan', 'https://www.han.nl')\n  +btn-secondary('Meld je aan', 'https://www.han.nl', 'arrow')\n  +btn-secondary('Meld je aan', 'https://www.han.nl', 'external')\n  +btn-secondary('Meld je aan', 'https://www.han.nl', 'clock-line')\n",
-        ".demo-theme-black\n  +btn-secondary('Meld je aan', 'https://www.han.nl')\n  +btn-secondary('Meld je aan', 'https://www.han.nl', 'arrow')\n  +btn-secondary('Meld je aan', 'https://www.han.nl', 'external')\n  +btn-secondary('Meld je aan', 'https://www.han.nl', 'clock-line')\n"
-      ]
-    },
-    "file": "project/templates/components/atoms/btn-secondary.pug",
-    "source":
-      "mixin btn-secondary(label, href, icon)\n  include ../../icons/_icon\n\n  a.btn-secondary(href=href)&attributes(attributes)\n\n    - var iconsAfter = ['arrow', 'external']\n    \n    //- icon before\n    if icon && iconsAfter.indexOf(icon) === -1\n      +icon(id=icon)\n\n    span.btn-secondary__label #{label}\n\n    //- icon after\n    if icon && iconsAfter.indexOf(icon) > -1\n      +icon(id=icon)",
-    "output":
-      "<div class=\"demo-theme-white\"><a class=\"btn-secondary\" href=\"https://www.han.nl\"><span class=\"btn-secondary__label\">Meld je aan</span></a><a class=\"btn-secondary\" href=\"https://www.han.nl\"><span class=\"btn-secondary__label\">Meld je aan</span><svg class=\"icon icon-arrow\" aria-hidden=\"true\" viewBox=\"0 0 48 40\" width=\"48\" height=\"40\"><use xlink:href=\"#arrow\"></use></svg></a><a class=\"btn-secondary\" href=\"https://www.han.nl\"><span class=\"btn-secondary__label\">Meld je aan</span><svg class=\"icon icon-external\" aria-hidden=\"true\" viewBox=\"0 0 48 44\" width=\"48\" height=\"44\"><use xlink:href=\"#external\"></use></svg></a><a class=\"btn-secondary\" href=\"https://www.han.nl\"><svg class=\"icon icon-clock-line\" aria-hidden=\"true\" viewBox=\"0 0 48 48\" width=\"48\" height=\"48\"><use xlink:href=\"#clock-line\"></use></svg><span class=\"btn-secondary__label\">Meld je aan</span></a></div><div class=\"demo-theme-red\"><a class=\"btn-secondary\" href=\"https://www.han.nl\"><span class=\"btn-secondary__label\">Meld je aan</span></a><a class=\"btn-secondary\" href=\"https://www.han.nl\"><span class=\"btn-secondary__label\">Meld je aan</span><svg class=\"icon icon-arrow\" aria-hidden=\"true\" viewBox=\"0 0 48 40\" width=\"48\" height=\"40\"><use xlink:href=\"#arrow\"></use></svg></a><a class=\"btn-secondary\" href=\"https://www.han.nl\"><span class=\"btn-secondary__label\">Meld je aan</span><svg class=\"icon icon-external\" aria-hidden=\"true\" viewBox=\"0 0 48 44\" width=\"48\" height=\"44\"><use xlink:href=\"#external\"></use></svg></a><a class=\"btn-secondary\" href=\"https://www.han.nl\"><svg class=\"icon icon-clock-line\" aria-hidden=\"true\" viewBox=\"0 0 48 48\" width=\"48\" height=\"48\"><use xlink:href=\"#clock-line\"></use></svg><span class=\"btn-secondary__label\">Meld je aan</span></a></div><div class=\"demo-theme-black\"><a class=\"btn-secondary\" href=\"https://www.han.nl\"><span class=\"btn-secondary__label\">Meld je aan</span></a><a class=\"btn-secondary\" href=\"https://www.han.nl\"><span class=\"btn-secondary__label\">Meld je aan</span><svg class=\"icon icon-arrow\" aria-hidden=\"true\" viewBox=\"0 0 48 40\" width=\"48\" height=\"40\"><use xlink:href=\"#arrow\"></use></svg></a><a class=\"btn-secondary\" href=\"https://www.han.nl\"><span class=\"btn-secondary__label\">Meld je aan</span><svg class=\"icon icon-external\" aria-hidden=\"true\" viewBox=\"0 0 48 44\" width=\"48\" height=\"44\"><use xlink:href=\"#external\"></use></svg></a><a class=\"btn-secondary\" href=\"https://www.han.nl\"><svg class=\"icon icon-clock-line\" aria-hidden=\"true\" viewBox=\"0 0 48 48\" width=\"48\" height=\"48\"><use xlink:href=\"#clock-line\"></use></svg><span class=\"btn-secondary__label\">Meld je aan</span></a></div>"
-  },
-  {
-    "meta": {
       "name": "Knop (Primair)",
       "description": "Primaire knop. Maximaal 30 karakters.",
       "examples": [
@@ -33,6 +17,34 @@
   },
   {
     "meta": {
+      "name": "Knop (Secundair)",
+      "description": "Secundaire knop. Maximaal 30 karakters.",
+      "examples": [
+        ".demo-theme-white\n  +btn-secondary('Meld je aan', 'https://www.han.nl')\n  +btn-secondary('Meld je aan', 'https://www.han.nl', 'arrow')\n  +btn-secondary('Meld je aan', 'https://www.han.nl', 'external')\n  +btn-secondary('Meld je aan', 'https://www.han.nl', 'clock-line')\n",
+        ".demo-theme-red\n  +btn-secondary('Meld je aan', 'https://www.han.nl')\n  +btn-secondary('Meld je aan', 'https://www.han.nl', 'arrow')\n  +btn-secondary('Meld je aan', 'https://www.han.nl', 'external')\n  +btn-secondary('Meld je aan', 'https://www.han.nl', 'clock-line')\n",
+        ".demo-theme-black\n  +btn-secondary('Meld je aan', 'https://www.han.nl')\n  +btn-secondary('Meld je aan', 'https://www.han.nl', 'arrow')\n  +btn-secondary('Meld je aan', 'https://www.han.nl', 'external')\n  +btn-secondary('Meld je aan', 'https://www.han.nl', 'clock-line')\n"
+      ]
+    },
+    "file": "project/templates/components/atoms/btn-secondary.pug",
+    "source":
+      "mixin btn-secondary(label, href, icon)\n  include ../../icons/_icon\n\n  a.btn-secondary(href=href)&attributes(attributes)\n\n    - var iconsAfter = ['arrow', 'external']\n    \n    //- icon before\n    if icon && iconsAfter.indexOf(icon) === -1\n      +icon(id=icon)\n\n    span.btn-secondary__label #{label}\n\n    //- icon after\n    if icon && iconsAfter.indexOf(icon) > -1\n      +icon(id=icon)",
+    "output":
+      "<div class=\"demo-theme-white\"><a class=\"btn-secondary\" href=\"https://www.han.nl\"><span class=\"btn-secondary__label\">Meld je aan</span></a><a class=\"btn-secondary\" href=\"https://www.han.nl\"><span class=\"btn-secondary__label\">Meld je aan</span><svg class=\"icon icon-arrow\" aria-hidden=\"true\" viewBox=\"0 0 48 40\" width=\"48\" height=\"40\"><use xlink:href=\"#arrow\"></use></svg></a><a class=\"btn-secondary\" href=\"https://www.han.nl\"><span class=\"btn-secondary__label\">Meld je aan</span><svg class=\"icon icon-external\" aria-hidden=\"true\" viewBox=\"0 0 48 44\" width=\"48\" height=\"44\"><use xlink:href=\"#external\"></use></svg></a><a class=\"btn-secondary\" href=\"https://www.han.nl\"><svg class=\"icon icon-clock-line\" aria-hidden=\"true\" viewBox=\"0 0 48 48\" width=\"48\" height=\"48\"><use xlink:href=\"#clock-line\"></use></svg><span class=\"btn-secondary__label\">Meld je aan</span></a></div><div class=\"demo-theme-red\"><a class=\"btn-secondary\" href=\"https://www.han.nl\"><span class=\"btn-secondary__label\">Meld je aan</span></a><a class=\"btn-secondary\" href=\"https://www.han.nl\"><span class=\"btn-secondary__label\">Meld je aan</span><svg class=\"icon icon-arrow\" aria-hidden=\"true\" viewBox=\"0 0 48 40\" width=\"48\" height=\"40\"><use xlink:href=\"#arrow\"></use></svg></a><a class=\"btn-secondary\" href=\"https://www.han.nl\"><span class=\"btn-secondary__label\">Meld je aan</span><svg class=\"icon icon-external\" aria-hidden=\"true\" viewBox=\"0 0 48 44\" width=\"48\" height=\"44\"><use xlink:href=\"#external\"></use></svg></a><a class=\"btn-secondary\" href=\"https://www.han.nl\"><svg class=\"icon icon-clock-line\" aria-hidden=\"true\" viewBox=\"0 0 48 48\" width=\"48\" height=\"48\"><use xlink:href=\"#clock-line\"></use></svg><span class=\"btn-secondary__label\">Meld je aan</span></a></div><div class=\"demo-theme-black\"><a class=\"btn-secondary\" href=\"https://www.han.nl\"><span class=\"btn-secondary__label\">Meld je aan</span></a><a class=\"btn-secondary\" href=\"https://www.han.nl\"><span class=\"btn-secondary__label\">Meld je aan</span><svg class=\"icon icon-arrow\" aria-hidden=\"true\" viewBox=\"0 0 48 40\" width=\"48\" height=\"40\"><use xlink:href=\"#arrow\"></use></svg></a><a class=\"btn-secondary\" href=\"https://www.han.nl\"><span class=\"btn-secondary__label\">Meld je aan</span><svg class=\"icon icon-external\" aria-hidden=\"true\" viewBox=\"0 0 48 44\" width=\"48\" height=\"44\"><use xlink:href=\"#external\"></use></svg></a><a class=\"btn-secondary\" href=\"https://www.han.nl\"><svg class=\"icon icon-clock-line\" aria-hidden=\"true\" viewBox=\"0 0 48 48\" width=\"48\" height=\"48\"><use xlink:href=\"#clock-line\"></use></svg><span class=\"btn-secondary__label\">Meld je aan</span></a></div>"
+  },
+  {
+    "meta": {
+      "name": "Richtext",
+      "description": "Wrapper voor CMS WYSIWYG content.",
+      "example":
+        "+richtext\n  h1 Dit is een h1\n  h2 Dit is een h2\n  h3 Dit is een h3\n  h4 Dit is een h4\n  h5 Dit is een h5\n  p dit is paragraph text \n  ul\n    li eerste item\n    li tweede item\n    li derde item\n  ol \n    li eerste item\n    li tweede item\n    li derde item\n  table\n    tr\n      th nr\n      th naam\n      th plaats\n    tr\n      td 1\n      td Piet Jansen\n      td Nijmegen\n    tr  \n      td 2\n      td Piet Jansen\n      td Nijmegen\n    tr\n      td 3\n      td Piet Jansen\n      td Nijmegen\n"
+    },
+    "file": "project/templates/components/atoms/richtext.pug",
+    "source": "mixin richtext\n  .richtext\n    block",
+    "output":
+      "<div class=\"richtext\"><h1>Dit is een h1</h1><h2>Dit is een h2</h2><h3>Dit is een h3</h3><h4>Dit is een h4</h4><h5>Dit is een h5</h5><p>dit is paragraph text </p><ul><li>eerste item</li><li>tweede item</li><li>derde item</li></ul><ol> <li>eerste item</li><li>tweede item</li><li>derde item</li></ol><table><tr><th>nr</th><th>naam</th><th>plaats</th></tr><tr><td>1</td><td>Piet Jansen</td><td>Nijmegen</td></tr><tr> <td>2</td><td>Piet Jansen</td><td>Nijmegen</td></tr><tr><td>3</td><td>Piet Jansen</td><td>Nijmegen</td></tr></table></div>"
+  },
+  {
+    "meta": {
       "name": "Knop (Strong link)",
       "description": "Strong link. Maximaal 30 karakters.",
       "examples": [
@@ -46,18 +58,6 @@
       "mixin strong-link(label, href)\n  include ../../icons/_icon\n\n  a.strong-link(href=href)\n    span.strong-link__label #{label}\n    if href.indexOf('http') > -1\n      +icon#external\n    else\n      +icon#arrow",
     "output":
       "<div class=\"demo-theme-white\"><a class=\"strong-link\" href=\"/\"><span class=\"strong-link__label\">Gebruik het contactformulier</span><svg class=\"icon icon-arrow\" aria-hidden=\"true\" viewBox=\"0 0 48 40\" width=\"48\" height=\"40\"><use xlink:href=\"#arrow\"></use></svg></a><a class=\"strong-link\" href=\"https://www.han.nl\"><span class=\"strong-link__label\">Gebruik het contactformulier</span><svg class=\"icon icon-external\" aria-hidden=\"true\" viewBox=\"0 0 48 44\" width=\"48\" height=\"44\"><use xlink:href=\"#external\"></use></svg></a></div><div class=\"demo-theme-red\"><a class=\"strong-link\" href=\"/\"><span class=\"strong-link__label\">Gebruik het contactformulier</span><svg class=\"icon icon-arrow\" aria-hidden=\"true\" viewBox=\"0 0 48 40\" width=\"48\" height=\"40\"><use xlink:href=\"#arrow\"></use></svg></a><a class=\"strong-link\" href=\"https://www.han.nl\"><span class=\"strong-link__label\">Gebruik het contactformulier</span><svg class=\"icon icon-external\" aria-hidden=\"true\" viewBox=\"0 0 48 44\" width=\"48\" height=\"44\"><use xlink:href=\"#external\"></use></svg></a></div><div class=\"demo-theme-black\"><a class=\"strong-link\" href=\"/\"><span class=\"strong-link__label\">Gebruik het contactformulier</span><svg class=\"icon icon-arrow\" aria-hidden=\"true\" viewBox=\"0 0 48 40\" width=\"48\" height=\"40\"><use xlink:href=\"#arrow\"></use></svg></a><a class=\"strong-link\" href=\"https://www.han.nl\"><span class=\"strong-link__label\">Gebruik het contactformulier</span><svg class=\"icon icon-external\" aria-hidden=\"true\" viewBox=\"0 0 48 44\" width=\"48\" height=\"44\"><use xlink:href=\"#external\"></use></svg></a></div>"
-  },
-  {
-    "meta": {
-      "name": "Richtext",
-      "description": "Wrapper voor CMS WYSIWYG content.",
-      "example":
-        "+richtext\n  h1 Dit is een h1\n  h2 Dit is een h2\n  h3 Dit is een h3\n  h4 Dit is een h4\n  h5 Dit is een h5\n  p dit is paragraph text \n  ul\n    li eerste item\n    li tweede item\n    li derde item\n  ol \n    li eerste item\n    li tweede item\n    li derde item\n  table\n    tr\n      th nr\n      th naam\n      th plaats\n    tr\n      td 1\n      td Piet Jansen\n      td Nijmegen\n    tr  \n      td 2\n      td Piet Jansen\n      td Nijmegen\n    tr\n      td 3\n      td Piet Jansen\n      td Nijmegen\n"
-    },
-    "file": "project/templates/components/atoms/richtext.pug",
-    "source": "mixin richtext\n  .richtext\n    block",
-    "output":
-      "<div class=\"richtext\"><h1>Dit is een h1</h1><h2>Dit is een h2</h2><h3>Dit is een h3</h3><h4>Dit is een h4</h4><h5>Dit is een h5</h5><p>dit is paragraph text </p><ul><li>eerste item</li><li>tweede item</li><li>derde item</li></ul><ol> <li>eerste item</li><li>tweede item</li><li>derde item</li></ol><table><tr><th>nr</th><th>naam</th><th>plaats</th></tr><tr><td>1</td><td>Piet Jansen</td><td>Nijmegen</td></tr><tr> <td>2</td><td>Piet Jansen</td><td>Nijmegen</td></tr><tr><td>3</td><td>Piet Jansen</td><td>Nijmegen</td></tr></table></div>"
   },
   {
     "meta": {
