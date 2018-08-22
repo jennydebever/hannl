@@ -352,6 +352,9 @@ with tooltip
 !{take-over-regular}
 ![take-over-regular](https://user-images.githubusercontent.com/9093958/42764894-0b202c1e-8917-11e8-94ab-7705c7c184a9.png)
 
+!{take-over-regular-2}
+![take-over-regular-2](https://user-images.githubusercontent.com/9093958/44462857-2e3c5f80-a616-11e8-9323-56f8d332f050.png)
+
 ## Text
 
 ### Contents
