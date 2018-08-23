@@ -49,14 +49,9 @@ function toggle($btn, $content, speed) {
 }
 
 function toggleButtons() {
-  // console.log('in toggleButtons');
   var $$toggleButtons = document.querySelectorAll(".collapsible__title__button");
-  // console.log('length $$toggleButtons: ' + $$toggleButtons.length);
   for (var i = 0, l = $$toggleButtons.length; i < l; ++i) {
-    // console.log('in for loop');
     var $button = $$toggleButtons[i];
-    // console.log('test');
-    // console.log($button.classList);
     if ($button.classList.contains('show')) {
       $button.classList.remove('show');
     }
@@ -64,7 +59,6 @@ function toggleButtons() {
       $button.classList.add('show');
     }
   }
-  // console.log('exiting toggleButtons');
 }
 
 /**
