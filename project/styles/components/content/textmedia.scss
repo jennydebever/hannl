@@ -121,7 +121,7 @@
     font-size: 13px;
     padding: 19px 38px 19px 19px;
     line-height: 1.5;
-    border-radius: 0 0 2px 2px;
+    border-radius: 0 0 4px 4px;
 
     @include breakpoint($bp-m) {
       position: absolute;
