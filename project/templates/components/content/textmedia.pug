@@ -26,7 +26,7 @@ mixin textmedia-video(video)
 
 
 //- @pugdoc
-  name: Textmedia video
+  name: Textmedia video with button
   capture: 0
 
 mixin textmedia-video-btn(video)
@@ -48,29 +48,29 @@ mixin textmedia(options)
 
   .textmedia
     .textmedia__media
-      if options.image
-        +textmedia-image(options.image)
-        if options.caption
-          .textmedia__caption 
-            span #{options.caption}
-
-      if options.video
-        if options.video.link
+      .textmedia__container
+        if options.image
+          +textmedia-image(options.image)
           if options.caption
-            +textmedia-video(options.video)
             .textmedia__caption 
               span #{options.caption}
-              button(type='button' class='play-pause playing' id='button1' data-target=options.id)
-                span play
-        else
-          if options.caption
-            +textmedia-video(options.video)
-            .textmedia__caption 
-              span #{options.caption}
-              button(type='button' class='play-pause playing' id='button1' data-target=options.id)
-                span play
+        if options.video
+          if options.video.link
+            if options.caption
+              +textmedia-video(options.video)
+              .textmedia__caption 
+                span #{options.caption}
+                button(type='button' class='play-pause playing' id='button1' data-target=options.id)
+                  span play
           else
-            +textmedia-video-btn(options.video)
+            if options.caption
+              +textmedia-video(options.video)
+              .textmedia__caption 
+                span #{options.caption}
+                button(type='button' class='play-pause playing' id='button1' data-target=options.id)
+                  span play
+            else
+              +textmedia-video-btn(options.video)
             
     
     .textmedia__text

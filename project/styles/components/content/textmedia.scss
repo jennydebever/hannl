@@ -37,6 +37,10 @@
     @include grid-item(6);
   }
 
+  .textmedia__container {
+    position: relative;
+  }
+
   .play-pause {
     position: absolute;
     right: 10px;
@@ -79,7 +83,7 @@
     }
 
     @include breakpoint($bp-m) {
-      top: 310px;
+      top: 300px;
       width: 40px;
       height: 40px;
 
@@ -109,8 +113,8 @@
 
   .textmedia__caption {
     position: absolute;
+    width: 100%;
     bottom: 0;
-    left: 0;
     right: 0;
     background: rgba(12,1,28, 0.65);
     color: $white;
@@ -119,7 +123,16 @@
     line-height: 1.5;
     border-radius: 0 0 2px 2px;
 
+    @include breakpoint($bp-m) {
+      position: absolute;
+      top: 293px;
+      right: 0;
+    }
+
     @include breakpoint($bp-l) {
+      top: inherit;
+      bottom: 0;
+      width: 90%;
       font-size: 14px;
       padding: 24px 64px 24px 24px;
     }
@@ -129,7 +142,7 @@
       bottom: inherit;
       margin-top: -16px;
 
-      @include breakpoint($bp-m) {
+      @include breakpoint($bp-l) {
         margin-top: -20px;
       }
     }
@@ -241,10 +254,10 @@
       margin-left: auto;
     }
 
-    .textmedia__media .textmedia__caption {
-      left: 55px;
-      right: 0;
-    }
+    // .textmedia__media .textmedia__caption {
+    //   left: 55px;
+    //   right: 0;
+    // }
   }
 
   @include breakpoint($bp-xl) {
@@ -253,10 +266,10 @@
       margin-left: auto;
     }
 
-    .textmedia__media .textmedia__caption {
-      left: 74px;
-      right: 20px;
-      margin-left: 2px;
-    }
+    // .textmedia__media .textmedia__caption {
+    //   left: 74px;
+    //   right: 20px;
+    //   margin-left: 2px;
+    // }
   }
 }
