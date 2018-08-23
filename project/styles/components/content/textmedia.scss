@@ -117,6 +117,7 @@
     font-size: 13px;
     padding: 19px 38px 19px 19px;
     line-height: 1.5;
+    border-radius: 0 0 2px 2px;
 
     @include breakpoint($bp-l) {
       font-size: 14px;
@@ -241,7 +242,7 @@
     }
 
     .textmedia__media .textmedia__caption {
-      left: 49px;
+      left: 55px;
       right: 0;
     }
   }
@@ -255,6 +256,7 @@
     .textmedia__media .textmedia__caption {
       left: 74px;
       right: 20px;
+      margin-left: 2px;
     }
   }
 }
