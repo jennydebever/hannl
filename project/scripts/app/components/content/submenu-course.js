@@ -67,14 +67,14 @@ function toggleButtons() {
  */
 
 function onButtonClick(e) {
-  var $btn = e.delegateTarget;
-  var rel = $btn.getAttribute("aria-controls");
-  if (rel) {
-    toggle($btn, document.getElementById(rel));
-  }
-  var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+  // var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
   if (width < 1024) {
-    toggleButtons();
+    var $btn = e.delegateTarget;
+    var rel = $btn.getAttribute("aria-controls");
+    if (rel) {
+      toggle($btn, document.getElementById(rel));
+    }
+      toggleButtons();
   }
 }
 
@@ -97,4 +97,7 @@ function toggleOnLoad() {
   }
 }
 
-toggleOnLoad();
+var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+if (width < 1024) {
+  toggleOnLoad();
+}

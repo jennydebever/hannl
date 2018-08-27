@@ -8,16 +8,25 @@ mixin menu-items(items)
   include ../../utils/slugify
 
 
+  each item in items
+    li.section--submenu-course__menu__item
+      .section--submenu-course__menu__item__submenu__title(class=""+item.active) !{item.title}
+        +icon#arrow
+        ul.section--submenu-course__menu__item__submenu__list
+        each listitem in item.submenu
+          li.section--submenu-course__menu__item__submenu__list__item !{listitem.linktitle}
+      | !{item.submenu}
 
-      each item in items
-        li.collapsibles__item(class='js-collapsible')
-          .collapsible
-            h3.collapsible__title
-                | #{item.title}
-                //- +icon#chevron
 
-                +richtext
-                  | !{item.body}
+      //- each item in items
+      //-   li.collapsibles__item(class='js-collapsible')
+      //-     .collapsible
+      //-       h3.collapsible__title
+      //-           | #{item.title}
+      //-           //- +icon#chevron
+
+      //-           +richtext
+      //-             | !{item.body}
 
 
 //- @pugdoc
@@ -43,9 +52,9 @@ mixin submenu-collapsibles(title, items)
   include ../../utils/slugify
   include ./section
 
-  +section(null, null)(class="section--menu")(id='testmenu')
+  +section(null, null)(class="section--menu" id='testmenu')
     p This is a filler for a main menu
-  +section(null, null)(class='section--submenu-course')(id='submenu-course')
+  +section(null, null)(class='section--submenu-course' id='submenu-course')
     ol.collapsibles(class='js-collapsibles')
       li.collapsibles__item(class='js-collapsible')
         .collapsible
@@ -54,9 +63,8 @@ mixin submenu-collapsibles(title, items)
               | #{title}
               +icon#chevron
 
-          .collapsible__content(id=slugify(title), class='js-collapsible__content large-screen-menu')
+          .collapsible__content(id=slugify(title), class='js-collapsible__content')
             +richtext
-              //- h3.title__lg-screen #{title}
               ul.section--submenu-course__menu
                 each item in items
                   li.section--submenu-course__menu__item
