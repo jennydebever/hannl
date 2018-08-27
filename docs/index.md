@@ -1,6 +1,6 @@
-# Documentatie
+# HAN.nl Frontend Docs
 
-Hier komt de documentatie van de frontend 
+---
 
 ## Mapstructuur
 - Documentatie in /docs/
@@ -8,6 +8,8 @@ Hier komt de documentatie van de frontend
 - Design System in /design-system/
 - Dev build in /httpdocs/
 - Development in /project/
+
+---
 
 ## Handige git-commands
 Als je in de verkeerde branch een wijziging hebt gedaan:

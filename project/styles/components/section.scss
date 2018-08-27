@@ -40,6 +40,28 @@
 }
 
 /**
+ * Default section title
+ */
+
+.section__header__title__eyebrow {
+  @include eyebrow;
+  @include margin-bottom-standard;
+  display: block;
+}
+
+.section__header__title__text {
+  @include h2;
+  @include underscore;
+  @include margin-bottom-standard;
+  display: block;
+}
+
+.section__header__intro {
+  @include p;
+  @include margin-bottom-standard;
+}
+
+/**
  * Default section
  */
 
@@ -47,7 +69,6 @@
   @include section-inner;
 }
 
-.section--textmedia {
   
 }
 
@@ -59,4 +80,9 @@
   .textmedia {
     flex-direction: row-reverse;
   }
+/**
+ */
+
+.section--collapsibles {
+  @include section-inner;
 }

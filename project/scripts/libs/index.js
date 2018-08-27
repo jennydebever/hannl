@@ -1,1 +1,1 @@
-require('track-focus');
+require("track-focus");
