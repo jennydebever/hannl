@@ -1,5 +1,4 @@
 .section--submenu-course {
-  @include grid;
   background-color: $black;
   color: $white;
   padding-left: 0;
@@ -29,13 +28,11 @@
 
               .icon {
                 transform: rotate(90deg);
-                // transition: fill .15s, transform .15s;
               }
             }
 
             &.bottom {
-              box-shadow: inset 0px -15px 10px -15px #FFF;
-
+              box-shadow: inset 0 -15px 10px -15px #FFF;
 
               .icon {
                 transform: rotate(-90deg);
@@ -49,7 +46,6 @@
                   bottom: -1px;
                   right: 0;
                 }
-                // transition: fill .15s, transform .15s;
               }
             }
 
@@ -69,16 +65,11 @@
           padding-right: 0;
           padding-bottom: 0;
 
-
           .richtext {
 
-            .title__lg-screen {
-              display: none;
-            }
+            & > .section--submenu-course__menu {
 
-            & > ul {
-
-              & > li {
+              & > .section--submenu-course__menu__item {
                 padding: 56px 32px 48px 32px;
                 margin-bottom: 0 !important;
 
@@ -86,14 +77,14 @@
                   background-color: $grey5;
                 }
 
-                & ~ li {
+                & ~ .section--submenu-course__menu__item__submenu__list__item {
                 }
               }
             }
 
-            ul {
+            .section--submenu-course__menu {
 
-              li {
+              .section--submenu-course__menu__item {
                 margin-bottom: 16px;
                 font-size: 14px;
 
@@ -101,7 +92,7 @@
                   content: none;
                 }
 
-                .submenu__title {
+                .section--submenu-course__menu__item__submenu__title {
                   @include h4;
                   position: relative;
                   text-transform: none;
@@ -129,11 +120,15 @@
                   }
                 }
 
-                ul {
+                .section--submenu-course__menu__item__submenu__list {
 
-                  li {
+                  .section--submenu-course__menu__item__submenu__list__item {
                     text-decoration: underline;
                     text-decoration-color: $grey4;
+
+                    &::before {
+                      content: none;
+                    }
 
                     a {
                       color: $white;
@@ -170,9 +165,11 @@
               &.show {
                 display: block;
               }
+
               &.js-collapsible__button {
 
               }
+
               .icon {
               }
             }
@@ -181,7 +178,7 @@
 
             .richtext {
 
-              & > ul {
+              & > .section--submenu-course__menu {
                 display: -webkit-flex;
                 display: -ms-flexbox;
                 display: flex;
@@ -189,7 +186,7 @@
                 overflow-x: scroll;
                 white-space: nowrap;
 
-                & > li {
+                & > .section--submenu-course__menu__item {
                   display: inline-block;
                   vertical-align: text-top;
                   padding-right: 32px;
@@ -197,26 +194,27 @@
                   flex-shrink: 0;
                   flex-basis: 28%;
 
-                  & ~ li {
+                  & ~ .section--submenu-course__menu__item {
                     margin-top: 0;
                     border-left: 1px solid $grey4;
                   }
                 }
               }
-              ul {
 
-                li {
+              .section--submenu-course__menu {
 
-                  .submenu__title {
+                .section--submenu-course__menu__item {
+
+                  .section--submenu-course__menu__item__submenu__title {
                     white-space: normal;
 
                     .icon {
                     }
                   }
 
-                  ul {
+                  .section--submenu-course__menu__item__submenu__list {
 
-                    li {
+                    .section--submenu-course__menu__item__submenu__list__item {
                     }
                   }
                 }
@@ -232,6 +230,8 @@
 @include breakpoint($bp-l) {
   .section--submenu-course {
     overflow: initial;
+    position: sticky;
+    top: 0px;
 
     .section__content {
       background-color: $white;
@@ -240,20 +240,28 @@
 
         li.collapsibles__item.js-collapsible {
           border: 0;
+          background-color: $white;
 
           .collapsible {
 
             h3.collapsible__title {
+              @include underscore;
               color: $black;
               background-color: $white;
+              display: inline-block;
+              width: 30%;
+              text-align: left;
 
+              &::after {
+                content: none;
+              }
+
+              &.bottom {
+                display: none;
+              }
               button.collapsible__title__button {
-                // display: none;
                 color: $black;
-                background-color: red;
-                width: 40%;
-
-
+                padding: 16px 0;
 
                 &:hover {
                 }
@@ -265,46 +273,28 @@
                 }
 
                 .icon {
+                  display: none;
                 }
               }
             }
 
             .collapsible__content {
-              display: inline-block!important;
+              display: inline-block !important;
               background-color: $white;
-              width: 60%;
+              width: 70%;
+              height: initial;
 
               .richtext {
                 background-color: $white;
+                width: 100%;
 
-                // &.sticky {
-                //   position: fixed;
-                //   top: 0;
-                //   width: 100%;
-                //   background-color: $white;
-                // }
-
-                .title__lg-screen {
-                  @include underscore;
-                  // display: block;
-                  // float: left;
-                  color: $black;
-                  // padding-top: 24px;
-                  max-width: 25.9%;
-                  text-align: left;
-                  border: 1px solid red;
-                }
-
-                & > ul {
+                & > .section--submenu-course__menu {
                   display: block;
                   overflow: initial;
-                  white-space: initial;
                   float: right;
                   margin-left: 0;
-                  max-width: 75%;
-                  border: 1px solid blue;
 
-                  & > li {
+                  & > .section--submenu-course__menu__item {
                     position: relative;
                     background-color: $white;
                     color: $black;
@@ -317,22 +307,21 @@
                       background-color: $white;
                       font-weight: 900;
 
-                      & .submenu__title {
+                      & .section--submenu-course__menu__item__submenu__title {
                         border-bottom: 4px solid $grey2;
                       }
 
-                      ul {
+                      .section--submenu-course__menu__item__submenu__list {
                         display: block;
                         position: absolute;
                         left: 24px;
                         top: 54px;
                         overflow: visible;
                         color: $black;
-                        // margin-top: 8px;
                         z-index: 20;
                         background-color: $white;
 
-                        li {
+                        .section--submenu-course__menu__item__submenu__list__item {
                           margin: 0;
                           padding: 24px;
                           text-decoration: none;
@@ -353,11 +342,11 @@
                       }
                     }
 
-                    & ~ li {
+                    & ~ .section--submenu-course__menu__item__submenu__list__item {
                       border-left: 0;
                     }
 
-                    .submenu__title {
+                    .section--submenu-course__menu__item__submenu__title {
                       margin-bottom: 0;
                       padding-bottom: 8px;
                       font-size: 15px;
@@ -378,16 +367,18 @@
                       }
                     }
 
-                    ul {
+                    .section--submenu-course__menu__item__submenu__list {
                       display: none;
+                      margin-top: 0;
                     }
                   }
                 }
 
-                ul {
+                .section--submenu-course__menu {
                   margin-top: 0;
 
-                  li {
+                  .section--submenu-course__menu__item {
+                    border: 0;
 
                     .submenu__title {
 
@@ -395,9 +386,9 @@
                       }
                     }
 
-                    ul {
+                    .section--submenu-course__menu__item__submenu__list {
 
-                      li {
+                      .section--submenu-course__menu__item__submenu__list__item {
                       }
                     }
                   }

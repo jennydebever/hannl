@@ -72,7 +72,10 @@ function onButtonClick(e) {
   if (rel) {
     toggle($btn, document.getElementById(rel));
   }
-  toggleButtons();
+  var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+  if (width < 1024) {
+    toggleButtons();
+  }
 }
 
 delegate.bind(document.body, ".js-collapsible__button", "click", onButtonClick);
