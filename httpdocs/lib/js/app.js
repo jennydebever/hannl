@@ -301,13 +301,13 @@
                     f = l.paddingBottom,
                     m = l.borderTop,
                     y = l.borderBottom,
-                    v = i + "ms",
-                    g = [
-                      "height " + v + " " + j,
-                      "padding " + v + " " + j,
-                      "border-width " + v + " " + j
+                    g = i + "ms",
+                    h = [
+                      "height " + g + " " + j,
+                      "padding " + g + " " + j,
+                      "border-width " + g + " " + j
                     ].join(),
-                    h = t ? a.height : "0px",
+                    v = t ? a.height : "0px",
                     b = t ? a.paddingTop : "0px",
                     w = t ? a.paddingBottom : "0px",
                     x = t ? a.borderTopWidth : "0px",
@@ -321,10 +321,10 @@
                     A = f + "px",
                     B = m + "px",
                     C = y + "px";
-                  if (h === T && b === E && w === A && x === B && _ === C)
+                  if (v === T && b === E && w === A && x === B && _ === C)
                     return r(), void e();
                   requestAnimationFrame(function() {
-                    (L.style.height = h),
+                    (L.style.height = v),
                       (L.style.paddingTop = b),
                       (L.style.paddingBottom = w),
                       (L.style.borderTopWidth = x),
@@ -332,8 +332,8 @@
                       (L.style.display = o),
                       (L.style.overflow = "hidden"),
                       (L.style.visibility = "visible"),
-                      (L.style.transition = g),
-                      (L.style.webkitTransition = g),
+                      (L.style.transition = h),
+                      (L.style.webkitTransition = h),
                       requestAnimationFrame(function() {
                         (L.style.height = T),
                           (L.style.paddingTop = E),
@@ -389,15 +389,15 @@
                         "padding " + m + " " + j,
                         "border-width " + m + " " + j
                       ].join(),
-                      v = a ? f + c + u + "px" : f - l - p + "px",
-                      g = l + "px",
-                      h = p + "px",
+                      g = a ? f + c + u + "px" : f - l - p + "px",
+                      h = l + "px",
+                      v = p + "px",
                       b = c + "px",
                       w = u + "px";
                     requestAnimationFrame(function() {
-                      (_.style.height = v),
-                        (_.style.paddingTop = g),
-                        (_.style.paddingBottom = h),
+                      (_.style.height = g),
+                        (_.style.paddingTop = h),
+                        (_.style.paddingBottom = v),
                         (_.style.borderTopWidth = b),
                         (_.style.borderBottomWidth = w),
                         (_.style.display = n),
@@ -546,14 +546,14 @@
           i = document.getElementsByClassName("play-pause");
         for (o = 0; o < i.length; o++)
           i[o].addEventListener("click", function() {
-            (video = document.getElementById(this.dataset.target)),
-              1 == video.paused
-                ? (video.play(),
-                  this.classList.remove("paused"),
-                  this.classList.add("playing"))
-                : (video.pause(),
-                  this.classList.add("paused"),
-                  this.classList.remove("playing"));
+            var e = document.getElementById(this.dataset.target);
+            1 == e.paused
+              ? (e.play(),
+                this.classList.remove("paused"),
+                this.classList.add("playing"))
+              : (e.pause(),
+                this.classList.add("paused"),
+                this.classList.remove("playing"));
           });
       },
       {}
