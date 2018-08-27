@@ -17,6 +17,7 @@
   font-family: $bold;
   font-size: 28px;
   text-transform: uppercase;
+  @include margin-bottom-standard;
 
   @include breakpoint($bp-m) {
     font-size: 38px;
@@ -114,6 +115,7 @@
   font-size: 15px;
   color: $hanred;
   text-transform: uppercase;
+  color: $hanred;
 
   @include breakpoint($bp-m) {
     font-size: 17px;
@@ -131,7 +133,6 @@
 
   @include breakpoint($bp-m) {
     font-size: 22px;
-    line-height: 1.5;
   }
 
   @include breakpoint($bp-l) {

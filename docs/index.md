@@ -3,6 +3,7 @@
 ---
 
 ## Mapstructuur
+
 - Documentatie in /docs/
 - Build process in /gulp/
 - Design System in /design-system/
@@ -12,6 +13,7 @@
 ---
 
 ## Handige git-commands
+
 Als je in de verkeerde branch een wijziging hebt gedaan:
 
 - git stash (wijziging to clipboard, verwijderen in huidige branch)
