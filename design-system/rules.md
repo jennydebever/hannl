@@ -22,6 +22,13 @@ Volgorde staat altijd vast. Een Strong link mag niet voor een Secondary of Prima
 ---
 
 !{Schaduw}
+
+### Concept
+
+De schaduw geeft het effect aan een object dat het zweeft. Het geeft een lichtheid mee aan Witte objecten en foto's. Grote zwarte objecten zijn monolitisch en gegrond. Deze krijgen geen schaduw mee.
+
+### Technisch
+
 Box shadow op een element met een negative spread
 
 #### Normaal
