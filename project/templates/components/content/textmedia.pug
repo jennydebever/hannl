@@ -1,0 +1,198 @@
+//- @pugdoc
+  name: Textmedia picture
+  capture: 0
+
+mixin textmedia-image(image)
+  picture.textmedia__media__picture
+    - var sizes = []
+    - sizes.push({ minWidth: 1200, width: 560, ratio: 1 });
+    - sizes.push({ minWidth: 1024, width: 430, ratio: 1 });
+    - sizes.push({ minWidth: 768, width: 310, ratio: 1 });
+    - sizes.push({ minWidth: 500, width: 310, ratio: 1 });
+    - sizes.push({ minWidth: 1, width: 500, ratio: 1 });
+    +srcset(image, sizes)
+
+    img(src='', alt='')
+
+
+//- @pugdoc
+  name: Textmedia video
+  capture: 0
+
+mixin textmedia-video(video)
+  .textmedia__media__video
+    video(loop, muted, autoplay, playsinline, defaultmuted, poster=IMGIX_URL + video.fallback + '?w=600&h=600&q=55&fit=crop&dpr=1&auto=format' id=options.id)
+      source(src=video.source, type='video/mp4')
+
+
+//- @pugdoc
+  name: Textmedia video with button
+  capture: 0
+
+mixin textmedia-video-btn(video)
+  .textmedia__media__video
+    video(loop, muted, autoplay, playsinline, defaultmuted, poster=IMGIX_URL + video.fallback + '?w=600&h=600&q=55&fit=crop&dpr=1&auto=format' id=options.id)
+      source(src=video.source, type='video/mp4')
+    button(type='button' class='play-pause playing' id='button1' data-target=options.id)
+      span play
+
+//- @pugdoc
+  name: Text and Media
+  description: Tekst component met video / afbeelding
+  capture: 0
+
+mixin textmedia(options)
+  include ../../utils/srcset
+  include ../atoms/btn-primary
+  include ../atoms/btn-secondary
+
+  .textmedia
+    .textmedia__media
+      .textmedia__container
+        if options.image
+          +textmedia-image(options.image)
+          if options.caption
+            .textmedia__caption 
+              span #{options.caption}
+        if options.video
+          if options.video.link
+            if options.caption
+              +textmedia-video(options.video)
+              .textmedia__caption 
+                span #{options.caption}
+                button(type='button' class='play-pause playing' id='button1' data-target=options.id)
+                  span play
+          else
+            if options.caption
+              +textmedia-video(options.video)
+              .textmedia__caption 
+                span #{options.caption}
+                button(type='button' class='play-pause playing' id='button1' data-target=options.id)
+                  span play
+            else
+              +textmedia-video-btn(options.video)
+            
+    
+    .textmedia__text
+      if options.eyebrow
+        .textmedia__header
+          h2.textmedia__header__title
+            span.textmedia__header__eyebrow #{options.eyebrow}
+      
+      if options.title
+        h2.textmedia__text__title #{options.title}
+
+      if block
+        .textmedia__text__body
+          .richtext
+            block
+
+      if options.buttons
+        .textmedia__text__buttons
+          each button in options.buttons
+            .textmedia__text__buttons__button
+              if button.type === 'primary'
+                +btn-primary(button.label, button.href, "arrow")
+
+              else if button.type === 'secondary'
+                +btn-secondary(button.label, button.href, "arrow")
+
+
+//- @pugdoc
+  name: text-media
+  description: Section Text en Media
+  examples: 
+    - |
+      include ./textmedia
+
+      style.
+        body > div {
+          padding: 0 !important;
+        }
+
+      - var options = {};
+      - options.image = 'koraal.jpg';
+      - options.eyebrow = 'vaardigheden';
+      - options.title = 'Hoe en wat ga je allemaal leren?';
+      - options.buttons = [];
+      - options.buttons.push({ href: '/', label: 'Meld je aan', type: 'primary' });
+      - options.buttons.push({ href: '/', label: 'Meld je aan 2', type: 'secondary' });
+    
+      +section-textmedia(ALIGNMENT_LEFT, options)
+        p We vertellen je niet hoe het moet, maar helpen je om zelf tot de beste oplossing te komen. Afhankelijk van je specialisatie leer je:
+        ul
+          li Hoe regeltechniek en elektrotechnisch ontwerken werkt.
+          li Alles over aandrijvingen en vermogenselektronica.
+      
+      
+      - var options = {};
+      - options.image = 'vrouw-techniek.jpg';
+      - options.caption = 'Een korte beschrijving van deze image';
+      - options.eyebrow = 'BAANKANSEN';
+      - options.title = 'Wat kun je allemaal worden met elektrotechniek?';
+      - options.buttons = [];
+      - options.buttons.push({ href: '/', label: 'Meld je aan', type: 'primary' });
+      - options.buttons.push({ href: '/', label: 'Meld je aan 2', type: 'secondary' });
+    
+    - |
+      hr.demo
+
+      +section-textmedia(ALIGNMENT_RIGHT, options)
+        p Een systeem- of service-engineer die windturbines verbetert. Een soft-of hardware-ontwikkelaar die alledaagse apparaten slimmer maakt. Of een commercieel engineer die weet hoe je techniek aan de man brengt.
+      
+      - var options = {};
+      - options.id = 'video1'
+      - options.video = {};
+      - options.video.fallback = 'koraal.jpg';
+      - options.video.source = '../../lib/images/imgix/tt-assen.mp4';
+      - options.caption = 'Een korte beschrijving van deze video';
+      - options.eyebrow = 'techniek';
+      - options.title = 'Hoe en wat ga je allemaal leren?';
+      - options.buttons = [];
+      - options.buttons.push({ href: '/', label: 'Meld je aan', type: 'primary' });
+    
+    - |
+      hr.demo
+    
+      +section-textmedia(ALIGNMENT_RIGHT, options)
+        p dit is richtext
+        ul
+          li dsfljsdhflsjhdfl
+          li dsfljsdhflsjhdfl
+          li dsfljsdhflsjhdfl
+
+    - |
+      hr.demo
+      
+      - var options = {};
+      - options.id = 'video2'
+      - options.video = {};
+      - options.video.fallback = 'koraal.jpg';
+      - options.video.source = '../../lib/images/imgix/tt-assen.mp4';
+      - options.eyebrow = 'techniek';
+      - options.title = 'Hoe en wat ga je allemaal leren?';
+      - options.buttons = [];
+      - options.buttons.push({ href: '/', label: 'Meld je aan', type: 'primary' });
+      
+      +section-textmedia(ALIGNMENT_LEFT, options)
+        p dit is richtext
+        ul
+          li dsfljsdhflsjhdfl
+          li dsfljsdhflsjhdfl
+          li dsfljsdhflsjhdfl
+
+mixin section-textmedia(alignment, options)
+  - var cls = [];
+  - cls.push('section--textmedia');
+
+  if alignment === ALIGNMENT_RIGHT
+    - cls.push('section--textmedia-right');
+
+  if alignment === ALIGNMENT_LEFT
+    - cls.push('section--textmedia-left');
+
+  .section(class=cls)
+    .section-wrapper
+      .section__content
+        +textmedia(options)
+          block

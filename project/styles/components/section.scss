@@ -40,12 +40,8 @@
 }
 
 /**
- * Default section
+ * Default section title
  */
-
-.section--text {
-  @include section-inner;
-}
 
 .section__header__title__eyebrow {
   @include eyebrow;
@@ -58,4 +54,36 @@
   @include underscore;
   @include margin-bottom-small;
   display: block;
+}
+
+.section__header__intro {
+  @include p;
+  @include margin-bottom-standard;
+}
+
+/**
+ * Default section
+ */
+
+.section--richtext {
+  @include section-inner;
+}
+
+  
+
+
+.section--textmedia-left {
+  
+}
+
+.section--textmedia-right {
+  .textmedia {
+    flex-direction: row-reverse;
+  }
+}
+/**
+ */
+
+.section--collapsibles {
+  @include section-inner;
 }

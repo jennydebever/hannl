@@ -1,0 +1,31 @@
+//- @pugdoc
+  name: Sectie
+  examples:
+    - |
+      +section(null, 'section title')
+        | my section content
+    - |
+      hr.demo
+      +section('eyebrow', 'section title')
+        | my section content
+    - |
+      hr.demo
+      +section('eyebrow', 'section title', 'This is intro text')
+        | my section content
+
+mixin section(eyebrow, title, intro)
+  .section&attributes(attributes)
+    if title || intro
+      .section__header
+        if title
+          h2.section__header__title
+            if eyebrow
+              span.section__header__title__eyebrow #{eyebrow}
+              span.accessibility :&nbsp;
+            span.section__header__title__text #{title}
+    
+        if intro
+          p.section__header__intro !{intro}
+
+    .section__content
+      block
