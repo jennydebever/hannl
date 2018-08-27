@@ -69,8 +69,18 @@
   @include section-inner;
 }
 
+  
+}
+
+.section--textmedia-left {
+  
+}
+
+.section--textmedia-right {
+  .textmedia {
+    flex-direction: row-reverse;
+  }
 /**
- * Collapsibles
  */
 
 .section--collapsibles {

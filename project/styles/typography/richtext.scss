@@ -1,0 +1,62 @@
+/**
+ * Richtext WYSIWYG elements styling
+ */
+
+// .richtext {
+//   h1,
+//   h2,
+//   h3,
+//   h4,
+//   h5,
+//   h6 {
+//     color: red;
+//   }
+// }
+
+.richtext {
+  @include base;
+
+  h1 {
+    @include h1;
+    text-transform: uppercase;
+  }
+
+  h2 {
+    @include h2;
+    text-transform: uppercase;
+  }
+
+  h3 {
+    @include h3;
+    text-transform: uppercase;
+  }
+
+  h4 {
+    @include h4;
+    text-transform: uppercase;
+  }
+
+  h5 {
+    @include h5;
+    text-transform: uppercase;
+  }
+
+  ul {
+    margin-top: 13px;
+
+    li {
+      margin-bottom: 11px;
+
+      &::before {
+        content: "• ";
+        color: #e50056;
+        margin-right: 7px;
+        display: block;
+        float: left;
+        height: 28px;
+        font-size: 0.9em;
+        margin-top: 1px;
+      }
+    }
+  }
+}

@@ -36,7 +36,7 @@
     font-size: 29px;
   }
 
-  @include breakpoint($bp-l) {
+  @include breakpoint($bp-xl) {
     font-size: 34px;
   }
 }
@@ -112,7 +112,7 @@
 @mixin eyebrow {
   font-family: $bold-condensed;
   font-size: 15px;
-  color: $grey3;
+  color: $hanred;
   text-transform: uppercase;
 
   @include breakpoint($bp-m) {
