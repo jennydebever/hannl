@@ -52,7 +52,7 @@
 .section__header__title__text {
   @include h2;
   @include underscore;
-  @include margin-bottom-standard;
+  @include margin-bottom-small;
   display: block;
 }
 
@@ -70,7 +70,7 @@
 }
 
   
-}
+
 
 .section--textmedia-left {
   
@@ -80,6 +80,7 @@
   .textmedia {
     flex-direction: row-reverse;
   }
+}
 /**
  */
 

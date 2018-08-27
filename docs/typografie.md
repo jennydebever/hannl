@@ -2,6 +2,7 @@
 
 In /styles/libs/fonts.scss staan alle fonts. Niet gebruikte fonts zijn uitgecommentarieerd.
 In /styles/typography/fonts.scss zijn de mixins van de fonts gedefinieerd
+
 - bigtitle
 - h1 t/m h5
 - title1 t/m title4
@@ -25,7 +26,7 @@ h2.demo-typo__title {
   @include breakpoint($bp-m) {
     &:after {
       color: $hanred;
-      content: '_';
+      content: "_";
     }
   }
 }
