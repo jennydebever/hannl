@@ -5,7 +5,7 @@
 var x = document.getElementsByClassName("play-pause");
 var i;
 for (i = 0; i < x.length; i++) {
-  x[i].addEventListener("click", function () {
+  x[i].addEventListener("click", function() {
     var video = document.getElementById(this.dataset.target);
 
     if (video.paused == true) {

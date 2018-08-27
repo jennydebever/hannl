@@ -9,13 +9,12 @@
   position: relative;
 }
 
-
 /**
  * Text section
  */
 @mixin section-inner-item {
   @include grid-item(8);
-  max-width: #{($container-width + 40px)/ 100 * (100 / 12 * 8)};
+  max-width: #{($container-width + 40px) / 100 * (100 / 12 * 8)};
   flex-basis: auto;
 }
 
@@ -29,7 +28,6 @@
     @include section-inner-item;
   }
 }
-
 
 /**
  * Content
@@ -73,7 +71,6 @@
 
 
 .section--textmedia-left {
-  
 }
 
 .section--textmedia-right {
