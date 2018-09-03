@@ -104,8 +104,11 @@ Drukt uit hoeveel visuele ruimte een component inneemt.
 !{contact-card-skinny-2}
 ![contact-card-skinny-2](https://user-images.githubusercontent.com/9093958/42753423-328d4b7c-88f1-11e8-895f-6e381a2f5302.jpg)
 
-!{contact-whale}
-![contact-whale](https://user-images.githubusercontent.com/9093958/44345252-17b9cb00-a493-11e8-8439-e100c0f16d5e.png)
+!{contact-whale-black}
+![contact-whale-black](https://user-images.githubusercontent.com/9093958/44345252-17b9cb00-a493-11e8-8439-e100c0f16d5e.png)
+
+!{contact-whale-white}
+![contact-whale-white](https://user-images.githubusercontent.com/9093958/44986601-9bd87c00-af84-11e8-86cd-c0fbc49f622d.png)
 
 ## Facts
 
