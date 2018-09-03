@@ -80,16 +80,8 @@ Drukt uit hoeveel visuele ruimte een component inneemt.
 
 ### Contents
 
-!{card-skeleton}
-used for USP -› obsolete?
-![card-skeleton](https://user-images.githubusercontent.com/9093958/42753121-2946cfc6-88f0-11e8-8dcb-38086b14b8b7.jpg)
-
-!{card-skinny}
-used for USP -› obsolete?
-![card-skinny](https://user-images.githubusercontent.com/9093958/42753122-2964ab5e-88f0-11e8-9c8a-41fb36d4739d.jpg)
-
 !{card-regular}
--› obsolete?
+-› obsolete or USP?
 ![card-regular](https://user-images.githubusercontent.com/9093958/42753119-292fa2ec-88f0-11e8-8827-630aec24ba41.jpg)
 
 !{card-news-event-regular}
