@@ -3,6 +3,7 @@
  */
 
 @mixin richtext {
+  @include base;
 
   h1 {
     @include h1;
@@ -35,9 +36,18 @@
   ul,
   ol {
     margin-top: 13px;
+    margin-left: 16px;
 
     li {
       margin-bottom: 11px;
+    }
+
+    @include breakpoint($bp-m) {
+      font-size: 17px;
+    }
+  
+    @include breakpoint($bp-l) {
+      font-size: 18px;
     }
   }
 
@@ -45,7 +55,9 @@
     &::before {
       content: '• ';
       color: $hanred;
-      margin-right: 7px;
+      display: inline-block;
+      width: 1em;
+      margin-left: -1em
     }
   }
 
