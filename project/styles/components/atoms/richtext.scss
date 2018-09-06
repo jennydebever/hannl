@@ -36,16 +36,17 @@
   ul,
   ol {
     margin-top: 13px;
-    margin-left: 16px;
+    margin-left: 21px;
 
     li {
       margin-bottom: 11px;
+      text-align: left;
     }
 
     @include breakpoint($bp-m) {
       font-size: 17px;
     }
-  
+
     @include breakpoint($bp-l) {
       font-size: 18px;
     }
@@ -56,25 +57,33 @@
       content: '• ';
       color: $hanred;
       display: inline-block;
-      width: 1em;
-      margin-left: -1em
+      width: 21px;
+      margin-left: -21px;
     }
   }
 
-  ol {
-    margin-left: 18px;
-  }
-
   table {
-    border: solid 2px $hanred;
+    width: 100%;
+    border-bottom: solid 1px $grey2;
 
     th {
       font-weight: bold;
+      vertical-align: top;
     }
 
     th,
     td {
-      padding: 5px 15px;
+      padding: 17px 4px;
+      border-top: solid 1px $grey2;
+      text-align: left;
+
+      /**
+      * Only large devices have a higher amount of padding 
+      */
+
+      @include breakpoint($bp-l) {
+        padding: 20px 8px;
+      }
     }
   }
 }
