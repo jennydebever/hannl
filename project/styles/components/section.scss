@@ -13,9 +13,11 @@
  * Text section
  */
 @mixin section-inner-item {
-  @include grid-item(8);
-  max-width: #{($container-width + 40px) / 100 * (100 / 12 * 8)};
-  flex-basis: auto;
+  @include breakpoint($bp-l) {
+    @include grid-item(8);
+    max-width: #{($container-width + 40px) / 100 * (100 / 12 * 8)};
+    flex-basis: auto;
+  }
 }
 
 @mixin section-inner {
@@ -64,14 +66,12 @@
  */
 
 .section--richtext {
-  @include section-inner;
+  // @include section-inner;
+  @include section-inner-item;
 }
 
-  
-
-
-.section--textmedia-left {
-}
+// .section--textmedia-left {
+// }
 
 .section--textmedia-right {
   .textmedia {
