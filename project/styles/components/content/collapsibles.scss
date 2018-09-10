@@ -5,8 +5,8 @@
 }
 
 .collapsibles__item {
-  border-top: 1px solid $grey3;
-  border-bottom: 1px solid $grey3;
+  border-top: 1px solid $grey2;
+  border-bottom: 1px solid $grey2;
   margin-bottom: -1px;
   background-color: $white;
 }
@@ -37,38 +37,44 @@
   padding: 16px 30px 16px 8px;
 
   @include breakpoint($bp-m) {
-    padding: 24px 50px 24px 16px;
+    padding: 27px 50px 27px 16px;
   }
 
   &:hover {
     text-decoration: underline;
     color: $hanred;
+  }
 
-    .icon-chevron {
-      fill: $hanred;
-    }
+  .is-open & {
+    text-decoration: underline;
+    color: $hanred;
   }
 
   .icon-chevron {
     position: absolute;
     right: 13px;
-    top: 24px;
-    fill: $black;
-    transition: fill .15s, transform .15s;
+    top: 25px;
+    fill: $hanred;
+    transition: transform .15s;
     transform: rotate(90deg);
     transform-origin: 50% 50%;
     width: 6px;
     height: auto;
 
     @include breakpoint($bp-m) {
-      top: 32px;
+      top: 37px;
       right: 21px;
-      width: 10px;
+      width: 7px;
+    }
+
+    @include breakpoint($bp-l) {
+      top: 39px;
+      right: 21px;
+      width: 8px;
     }
 
     .is-open & {
       transform: rotate(-90deg);
-      fill: $hanred;
     }
   }
 }
@@ -77,7 +83,7 @@
   padding: 0 8px 16px 8px;
 
   @include breakpoint($bp-m) {
-    padding: 0 16px 24px 16px;
+    padding: 0 56px 24px 16px;
   }
 
   &:focus {
