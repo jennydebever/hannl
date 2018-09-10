@@ -2,60 +2,87 @@
  * Richtext WYSIWYG elements styling
  */
 
-// .richtext {
-//   h1,
-//   h2,
-//   h3,
-//   h4,
-//   h5,
-//   h6 {
-//     color: red;
-//   }
-// }
-
-.richtext {
+@mixin richtext {
   @include base;
 
   h1 {
     @include h1;
-    text-transform: uppercase;
   }
 
   h2 {
     @include h2;
-    text-transform: uppercase;
   }
 
   h3 {
     @include h3;
-    text-transform: uppercase;
   }
 
   h4 {
     @include h4;
-    text-transform: uppercase;
   }
 
   h5 {
     @include h5;
-    text-transform: uppercase;
   }
 
-  ul {
+  p {
+    @include p;
+  }
+
+  a {
+    @include link;
+  }
+
+  ul,
+  ol {
     margin-top: 13px;
+    margin-left: 21px;
 
     li {
       margin-bottom: 11px;
+      text-align: left;
+    }
 
-      &::before {
-        content: "• ";
-        color: #e50056;
-        margin-right: 7px;
-        display: block;
-        float: left;
-        height: 28px;
-        font-size: 0.9em;
-        margin-top: 1px;
+    @include breakpoint($bp-m) {
+      font-size: 17px;
+    }
+
+    @include breakpoint($bp-l) {
+      font-size: 18px;
+    }
+  }
+
+  ul li {
+    &::before {
+      content: '• ';
+      color: $hanred;
+      display: inline-block;
+      width: 21px;
+      margin-left: -21px;
+    }
+  }
+
+  table {
+    width: 100%;
+    border-bottom: solid 1px $grey2;
+
+    th {
+      font-weight: bold;
+      vertical-align: top;
+    }
+
+    th,
+    td {
+      padding: 17px 4px;
+      border-top: solid 1px $grey2;
+      text-align: left;
+
+      /**
+      * Only large devices have a higher amount of padding 
+      */
+
+      @include breakpoint($bp-l) {
+        padding: 20px 8px;
       }
     }
   }
