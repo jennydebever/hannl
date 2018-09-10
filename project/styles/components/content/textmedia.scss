@@ -1,9 +1,11 @@
 .textmedia {
   @include grid;
+  display: block;
   // align-items: center;
   margin: 32px 0;
 
   @include breakpoint($bp-l) {
+    display: flex;
     align-items: center;
   }
 }
@@ -19,17 +21,13 @@
   margin-bottom: 32px;
   overflow: hidden;
   border-radius: 4px;
-
-  @include breakpoint($bp-m) {
-    margin-left: 5%;
-    margin-right: 5%;
-    height: 350px;
-  }
+  max-width: 500px;
 
   @include breakpoint($bp-l) {
     @include grid-item-spaceless(6);
     height: inherit;
     margin: 0;
+    max-width: inherit;
     // flex-basis: auto;
   }
 
@@ -161,6 +159,7 @@
 
     @include breakpoint($bp-l) {
       width: 90%;
+      max-width: 100%;
     }
   }
 }
@@ -188,10 +187,11 @@
 
 .textmedia__text {
   @include grid-item-spaceless(12);
+  max-width: 700x;
 
   @include breakpoint($bp-m) {
-    @include grid-item-spaceless(10);
-    flex-grow: unset;
+    // @include grid-item-spaceless(10);
+    // flex-grow: unset;
   }
 
   @include breakpoint($bp-l) {

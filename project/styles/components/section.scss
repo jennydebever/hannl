@@ -69,9 +69,6 @@
   @include section-inner;
 }
 
-  
-}
-
 .section--textmedia-left {
   
 }
@@ -80,6 +77,7 @@
   .textmedia {
     flex-direction: row-reverse;
   }
+}
 /**
  */
 
