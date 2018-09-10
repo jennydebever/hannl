@@ -66,12 +66,13 @@
  */
 
 .section--richtext {
-  // @include section-inner;
   @include section-inner-item;
 }
 
-// .section--textmedia-left {
-// }
+/** 
+.section--textmedia-left {
+ }
+*/ 
 
 .section--textmedia-right {
   .textmedia {

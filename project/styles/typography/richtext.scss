@@ -33,10 +33,17 @@
     @include link;
   }
 
+  strong {
+    font-weight: bold;
+  }
+
+  ol {
+    margin-left: 16px;
+  }
+
   ul,
   ol {
     margin-top: 13px;
-    margin-left: 21px;
 
     li {
       margin-bottom: 11px;
@@ -53,12 +60,18 @@
   }
 
   ul li {
+    position: relative;
+    padding-left: 16px;
+
     &::before {
-      content: '• ';
-      color: $hanred;
-      display: inline-block;
-      width: 21px;
-      margin-left: -21px;
+      content: '';
+      background-color: $hanred;
+      position: absolute;
+      left: 0;
+      top: 11px;
+      width: 5px;
+      height: 5px;
+      border-radius: 100%;
     }
   }
 
