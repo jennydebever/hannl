@@ -57,7 +57,7 @@
 }
 
 @mixin h4 {
-  font-family: $bold;
+  font-family: $bold-condensed;
   font-size: 18px;
   text-transform: uppercase;
 
@@ -72,7 +72,7 @@
 }
 
 @mixin h5 {
-  font-family: $bold;
+  font-family: $bold-condensed;
   font-size: 15px;
   text-transform: uppercase;
 
