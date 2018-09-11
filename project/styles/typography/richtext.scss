@@ -34,7 +34,11 @@
   }
 
   strong {
-    font-weight: bold;
+    font-family: $bold;
+  }
+
+  i {
+    font-family: $medium-italic;
   }
 
   ol {
