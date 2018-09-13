@@ -89,4 +89,8 @@
   &:focus {
     outline: 0;
   }
+
+  :first-child {
+    margin-top: -4px; // compensate for line height white space top
+  }
 }
