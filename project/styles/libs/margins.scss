@@ -9,3 +9,8 @@
 @mixin margin-bottom-large {
   margin-bottom: 2em;
 }
+
+@mixin section-padding {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}

@@ -67,6 +67,12 @@
 
 .section--richtext {
   @include section-inner-item;
+  @include section-padding;
+}
+
+.section-richtext__intro {
+  @include lead;
+  @include margin-bottom-standard;
 }
 
 /** 
@@ -84,4 +90,5 @@
 
 .section--collapsibles {
   @include section-inner;
+  @include section-padding;
 }
