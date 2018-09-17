@@ -39,4 +39,5 @@ mixin section-collapsibles(title, items)
   include ./section
 
   +section(null, title)(class='section--collapsibles')
-    +collapsibles(items)
+    .section-wrapper
+      +collapsibles(items)
