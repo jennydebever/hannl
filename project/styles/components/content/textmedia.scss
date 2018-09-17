@@ -1,7 +1,6 @@
 .textmedia {
   @include grid;
   display: block;
-  // align-items: center;
   margin: 32px 0;
 
   @include breakpoint($bp-l) {
@@ -28,7 +27,6 @@
     height: inherit;
     margin: 0;
     max-width: inherit;
-    // flex-basis: auto;
   }
 
   @include breakpoint($bp-xl) {
@@ -105,7 +103,7 @@
     }
 
     &:focus {
-      outline:0;
+      outline: 0;
     }
   }
 
@@ -189,11 +187,6 @@
   @include grid-item-spaceless(12);
   max-width: 700x;
 
-  @include breakpoint($bp-m) {
-    // @include grid-item-spaceless(10);
-    // flex-grow: unset;
-  }
-
   @include breakpoint($bp-l) {
     @include grid-item(6);
     flex-grow: 1;
@@ -244,7 +237,6 @@
       right: 70px;
     }
   }
-  
 }
 
 .section--textmedia-right {
@@ -253,11 +245,6 @@
     .textmedia__media__video video {
       margin-left: auto;
     }
-
-    // .textmedia__media .textmedia__caption {
-    //   left: 55px;
-    //   right: 0;
-    // }
   }
 
   @include breakpoint($bp-xl) {
@@ -265,11 +252,5 @@
     .textmedia__media__video video {
       margin-left: auto;
     }
-
-    // .textmedia__media .textmedia__caption {
-    //   left: 74px;
-    //   right: 20px;
-    //   margin-left: 2px;
-    // }
   }
 }
