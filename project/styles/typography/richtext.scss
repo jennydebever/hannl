@@ -104,3 +104,13 @@
     }
   }
 }
+
+@mixin richtext-simple {
+  a {
+    @include link;
+  }
+
+  p {
+    @include p;
+  }
+}

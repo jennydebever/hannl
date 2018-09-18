@@ -1,0 +1,11 @@
+/**
+ * Intro element styling
+ */
+
+.intro {
+  p {
+    @include richtext-simple;
+    @include lead;
+    @include margin-bottom-standard;
+  }  
+}

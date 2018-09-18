@@ -7,8 +7,7 @@
         p De deeltijdstudenten die zich toeleggen op sustainable energy gaan samen met onze onderzoekers problemen in duurzame energievoorziening te lijf. Dit doen we met en in bedrijven waar we nauw mee samenwerken, vooral uit onze regio. Deze regio heeft de potentie om uit te blinken in de ontwikkeling van duurzame energievoorziening. Onze masterstudenten doen mee in de voorhoede.
     - |
       hr.demo
-      +section-richtext('Beroepen','Wat kun je worden met Elektrotechniek?')
-        .demo-typo__intro De deeltijdstudenten die zich toeleggen op sustainable energy gaan samen met onze onderzoekers problemen in duurzame energievoorziening te lijf. Dit doen we met en in bedrijven waar we nauw mee samenwerken, vooral uit onze regio. Deze regio heeft de potentie om uit te blinken in de ontwikkeling van duurzame energievoorziening. Onze masterstudenten doen mee in de voorhoede.
+      +section-richtext('Beroepen','Wat kun je worden met Elektrotechniek?','De deeltijdstudenten die zich toeleggen op sustainable energy gaan samen met onze onderzoekers problemen in duurzame energievoorziening te lijf. Dit doen we met en in bedrijven waar we nauw mee samenwerken, vooral uit onze regio. Deze regio heeft de potentie om uit te blinken in de ontwikkeling van duurzame energievoorziening. Onze masterstudenten doen mee in de voorhoede.')
         p Door de afgewogen combinatie van theoretische kennis en praktische vaardigheden ben je op een breed terrein deskundig. De vraag naar elektrotechnici is groot. Het diploma wordt hoog gewaardeerd, zowel in het bedrijfsleven als bij de overheid. Bedrijven waar elektrotechnici aan het werk gaan zijn NXP, TenneT, Essent, GTI, middelgrote bedrijven zoals Alewijnse, Medtronics, KEMA en kleine bedrijven zoals Profline, Mechatronics.
     - |
       hr.demo
@@ -67,10 +66,13 @@
         h5 Dit is een titel in h5
         p Door de afgewogen combinatie van <strong>theoretische kennis</strong> en <i>praktische vaardigheden</i> ben je op een breed terrein deskundig. De vraag naar elektrotechnici is groot. Het diploma wordt hoog gewaardeerd, zowel in het bedrijfsleven als bij de overheid. Bedrijven waar elektrotechnici aan het werk gaan zijn NXP, TenneT, Essent, GTI, middelgrote bedrijven zoals Alewijnse, Medtronics, KEMA en kleine bedrijven zoals Profline, Mechatronics.
 
-mixin section-richtext(eyebrow, title)
+mixin section-richtext(eyebrow, title, intro)
   include ./section
   include ../atoms/richtext
+  include ./intro
 
   +section(eyebrow, title)(class='section--richtext')
+    if intro
+      +intro #{intro}
     +richtext
       block
