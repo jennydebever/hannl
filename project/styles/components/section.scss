@@ -67,6 +67,7 @@
 
 .section--richtext {
   @include section-inner-self;
+  @include demo-section-padding;
 }
 
 /**
@@ -90,4 +91,5 @@
 
 .section--collapsibles {
   @include section-inner-self;
+  @include demo-section-padding;
 }

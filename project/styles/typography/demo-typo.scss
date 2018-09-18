@@ -22,6 +22,11 @@
   @include underscore;
 }
 
+@mixin demo-section-padding {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
 .demo-typo__intro {
   @include lead;
   @include margin-bottom-standard;
