@@ -5,7 +5,7 @@
 }
 
 .section-wrapper {
-  @include grid;
+  //@include grid;
   position: relative;
 }
 
@@ -73,6 +73,9 @@
  * Text media
  */
 
+.section--textmedia {
+  @include grid;
+} 
 // .section--textmedia-left {}
 
 .section--textmedia-right {
