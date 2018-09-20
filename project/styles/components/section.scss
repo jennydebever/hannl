@@ -5,7 +5,7 @@
 }
 
 .section-wrapper {
-  @include grid;
+  //@include grid;
   position: relative;
 }
 
@@ -67,12 +67,16 @@
 
 .section--richtext {
   @include section-inner-self;
+  @include demo-section-padding;
 }
 
 /**
  * Text media
  */
 
+.section--textmedia {
+  @include grid;
+} 
 // .section--textmedia-left {}
 
 .section--textmedia-right {
@@ -87,4 +91,5 @@
 
 .section--collapsibles {
   @include section-inner-self;
+  @include demo-section-padding;
 }
