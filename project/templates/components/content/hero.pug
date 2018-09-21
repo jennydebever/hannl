@@ -15,7 +15,7 @@ mixin hero-image(image)
 
 //- @pugdoc
   name: hero
-  description: Hero component voor alle pagina's.
+  description: Hero component voor alle pagina's. 
   examples: 
     - |
       include ./hero
@@ -38,6 +38,6 @@ mixin hero(options)
   .hero 
     +hero-image(options.image)
     .hero__content
-      .hero__content__title
-        h1 #{options.title}
-        .lead #{options.lead}
+      .hero__header
+        h1.hero__header__title #{options.title}
+        .hero__header__lead #{options.lead}

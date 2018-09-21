@@ -1,11 +1,11 @@
 .hero {
-  max-width: 1440px;
+  max-width: $bp-xxl;
   margin: 0 auto;
 
   .hero__content {
     @include grid;
 
-    .hero__content__title {
+    .hero__header {
       @include grid-item-spaceless(11);
       background: white;
       flex-grow: 0;
@@ -23,13 +23,13 @@
       }
     }
 
-    h1 {
+    h1.hero__header__title {
       @include h1;
       @include underscore;
       margin-bottom: 16px;
     }
 
-    .lead {
+    .hero__header__lead {
       @include lead;
       max-width: 700px;
     }
