@@ -297,6 +297,9 @@ Component wat de adresgegevens, telefoonnummer en locatie laten zien van opleidi
 !{quote-regular}
 ![quote-regular](https://user-images.githubusercontent.com/9093958/42764853-f280a58a-8916-11e8-9624-80c8b37a8adb.jpg)
 
+!{quote-fat}
+![quote-fat](https://user-images.githubusercontent.com/9093958/45954861-81874080-c00e-11e8-8220-b4c0d37aa7d7.png)
+
 ## Sliders
 
 ### Contents
