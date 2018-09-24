@@ -114,6 +114,7 @@ gulp.task("build-docs", cb => {
         { label: "Index", href: "/docs/index.html" },
         { label: "Iconen", href: "/docs/iconen.html" },
         { label: "Typografie", href: "/docs/typografie.html" },
+        { label: "Kleuren", href: "/docs/kleuren.html" },
         { label: "Design system ↗", href: "/design-system/index.html" }
       ],
       renderPages: true,
