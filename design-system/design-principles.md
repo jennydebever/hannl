@@ -43,3 +43,13 @@ Interactie en maatverhouding zijn passend voor elk apparaat. Snelheid (performan
 ## Specific Design Principles
 
 De andere soort van principes zijn specifiek voor het project dat je maakt. Ze helpen bij het maken van een consistent design. Voorbeelden hiervan zijn het Carbon Design System van IBM en Material Design van Google. De principles zijn van enorme waarde bij grote projecten waar veel mensen aan werken. Ze zorgen ervoor dat wat je maakt blijft aansluiten bij de andere producten.
+
+### Layered weight
+
+De HAN is een monolitisch, sterk, zwaar en geladen merk. De kleuren, vormen, overlappingen en het schaduwwerk reflecteren deze waarden. Elementen als text en afbeeldingen worden als (monolitische) blokken over elkaar heen gelegd. Gelaagdheid van onder naar boven:
+
+1.  Zwart - CTA aandacht
+2.  Wit - Content
+3.  Grijs  - Content en contrast
+     4. Afbeelding
+     5. Card met schaduw

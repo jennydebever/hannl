@@ -80,8 +80,11 @@ Drukt uit hoeveel visuele ruimte een component inneemt.
 
 ### Contents
 
+!{card-skinny}
+Gebruikt voor USP's bij een opleiding.
+![card-skinny](https://user-images.githubusercontent.com/9093958/45949194-6232e800-bffb-11e8-813c-94765ea6b4a0.jpg)
+
 !{card-regular}
--› obsolete or USP?
 ![card-regular](https://user-images.githubusercontent.com/9093958/42753119-292fa2ec-88f0-11e8-8827-630aec24ba41.jpg)
 
 !{card-news-event-regular}
@@ -108,6 +111,12 @@ Drukt uit hoeveel visuele ruimte een component inneemt.
 ![contact-whale-black](https://user-images.githubusercontent.com/9093958/44345252-17b9cb00-a493-11e8-8439-e100c0f16d5e.png)
 
 !{contact-whale-white}
+Speciaal bedoeld voor de coursepagina en wordt voor de “Scream for action” geplaatst. Het is bedoeld om in contact te komen met een persoon/HVC voor meer informatie.
+
+#### Conditionals:
+
+Titel niet langer dan 1 regel.  Tip: hou het zo kort mogelijk.
+Beschrijving niet langer dan 2 regels.  Tip: hou het zo kort mogelijk.
 ![contact-whale-white](https://user-images.githubusercontent.com/9093958/44986601-9bd87c00-af84-11e8-86cd-c0fbc49f622d.png)
 
 ## Facts
@@ -170,7 +179,7 @@ Hero voor detail pagina's binnen de opleiding. Deze wordt altijd geplaatst onder
 - Leadtekst lengte: mimimaal 150 karakters, maximaal 500 karakters.
 
 !{course-hero-regular}
-![course-hero-regular](https://user-images.githubusercontent.com/9093958/42756829-134770a0-88fe-11e8-82c2-54eee1aaaafa.jpg)
+![course-hero-regular](https://user-images.githubusercontent.com/9093958/45950679-213dd200-c001-11e8-90b1-1bca37bd2c99.png)
 
 !{course-hero-whale}
 ![course-hero-whale](https://user-images.githubusercontent.com/9093958/42756706-96dee462-88fd-11e8-9f1e-458e7a116042.jpg)
@@ -278,6 +287,16 @@ Component wat de adresgegevens, telefoonnummer en locatie laten zien van opleidi
 !{nav-switch}
 ![nav-switch](https://user-images.githubusercontent.com/9093958/42762843-ab2c63cc-8911-11e8-8fe7-d9c56801b568.jpg)
 
+## Quote
+
+### Contents
+
+!{quote-skinny}
+![quote-skinny](https://user-images.githubusercontent.com/9093958/42767769-26f4bc28-891e-11e8-8336-a0bf801bef4b.jpg)
+
+!{quote-regular}
+![quote-regular](https://user-images.githubusercontent.com/9093958/42764853-f280a58a-8916-11e8-9624-80c8b37a8adb.jpg)
+
 ## Sliders
 
 ### Contents
@@ -320,8 +339,8 @@ Klikbare etalage om projecten, faciliteiten, etc. visueel te presenteren. Deze v
 ![table-fat](https://user-images.githubusercontent.com/9093958/42764620-5c1dd0c2-8916-11e8-938f-0114bade5500.jpg)
 
 !{table-whale}
-![table-whale](https://user-images.githubusercontent.com/9093958/43392311-97efbccc-93f3-11e8-982c-eade5186a661.jpg)ƒlink
-with tooltip
+![table-whale](https://user-images.githubusercontent.com/9093958/43392311-97efbccc-93f3-11e8-982c-eade5186a661.jpg)
+link with tooltip
 ![table-whale-tooltip](https://user-images.githubusercontent.com/9093958/43392310-97d884b2-93f3-11e8-8fde-d6817dc5b0ec.jpg)
 
 !{table-interactive}
@@ -355,7 +374,7 @@ with tooltip
 ### Contents
 
 !{text-double-column}
-![text-double-column](https://user-images.githubusercontent.com/9093958/42026419-555f5740-7ac7-11e8-9a6e-31f8fecb7495.jpg)
+![text-double-column](https://user-images.githubusercontent.com/9093958/45950551-8f35c980-c000-11e8-9df7-331c970ce522.png)
 
 !{text-lead}
 ![text-lead](https://user-images.githubusercontent.com/9093958/42763092-5aff0f0c-8912-11e8-9395-fb7f7c524a64.jpg)
@@ -374,17 +393,27 @@ with tooltip
 !{text-and-media-regular}
 ![text-and-media-regular](https://user-images.githubusercontent.com/9093958/42027770-c3db9758-7aca-11e8-8019-09d45b10cef5.jpg)
 
-{text-and-media-fat-center}
+!{text-and-media-fat-center}
 ![text-and-media-fat-center](https://user-images.githubusercontent.com/9093958/42765528-8e0267ae-8918-11e8-83e2-100b29a7354e.jpg)
-{text-and-media-fat-left}
+!{text-and-media-fat-left}
 ![text-and-media-fat-left](https://user-images.githubusercontent.com/9093958/42765529-8e1c2d1a-8918-11e8-9871-eac4549d8d00.jpg)
-{text-and-media-fat-right}
+!{text-and-media-fat-right}
 ![text-and-media-fat-right](https://user-images.githubusercontent.com/9093958/42765530-8e3a9f7a-8918-11e8-81dc-49386f0ea8dd.jpg)
 
 !{text-and-media-whale}
 
 !{text-and-media-highlight}
-![text-and-media-highlight](https://user-images.githubusercontent.com/9093958/42765146-a20127aa-8917-11e8-80c4-090906eca060.jpg)
+Wanneer content meer aandacht verdient kan je dit in het TAM Highlight element plaatsen. Het geeft de bezoeker snel meer informatie over een gerelateerd onderwerp, licht een onderwerp binnen het verhaal extra uit en/of lijdt hem/haar naar de betreffende pagina met meer informatie over dit onderwerp. Zo kan je bij een opleiding kort wat vertellen over de verschillende honourprogramma’s en naar de desbetreffende website of aanmeldpagina leiden.
+
+#### Conditionals:
+
+- Eyebrow max 1 a 2 woorden.  Tip: hou het zo kort mogelijk, beschrijf in 1 a 2 woorden.
+- Titel niet langer dan 1 regel.  Tip: hou het zo kort mogelijk (max. 60 karakters).
+- Media element kan alleen een afbeelding bevatten.
+- Beschrijving niet langer dan 600 karakters incl. lijst.  Content card wordt langer en de grijze achtergrond scaled tot een max-height mee (bespreken met development)
+- Kan een primary, secondary CTA button en/of strong bevatten. Nooit meer dan buttons/links.
+- Buttons kunnen naar external pages refereren. Arrows worden dan external icons.
+  ![text-and-media-highlight](https://user-images.githubusercontent.com/9093958/45946112-28a8af80-bff0-11e8-9ed4-8e838ebe9e2e.jpg)
 
 ## Tooltip
 
@@ -393,15 +422,10 @@ with tooltip
 !{tooltip-regular}
 ![tooltip-regular](https://user-images.githubusercontent.com/9093958/43395195-889e1d7c-93fd-11e8-86fc-e8cfbfc82903.jpg)
 
-## Quote
+## Video
 
-### Contents
-
-!{quote-skinny}
-![quote-skinny](https://user-images.githubusercontent.com/9093958/42767769-26f4bc28-891e-11e8-8336-a0bf801bef4b.jpg)
-
-!{quote-regular}
-![quote-regular](https://user-images.githubusercontent.com/9093958/42764853-f280a58a-8916-11e8-9624-80c8b37a8adb.jpg)
+!{video-regular}
+![video-regular](https://user-images.githubusercontent.com/9093958/45949978-133a8200-bffe-11e8-967f-590fc143ad92.png)
 
 ---
 
@@ -423,3 +447,6 @@ with tooltip
 
 !{timeline}
 De timeline van Studie-Inhoud
+
+!{vaardigheden en beroepen}
+![vaardigheden en beroepen](https://user-images.githubusercontent.com/9093958/45949573-9eb31380-bffc-11e8-9599-90308598db59.png)
