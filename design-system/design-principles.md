@@ -10,12 +10,12 @@ Digitale producten van de HAN zijn…
 
 ### Menselijk
 
-**De gebruiker staat centraal als professional en als mens. **
+**De gebruiker staat centraal als professional en als mens.**
 Communiceer emotie (passie, enthousiasme, samenwerking) in beeld en vorm en gebruik begrijpelijke taal ter ondersteuning van de geboden informatie.
 
 ### Ruimtelijk
 
-**Stimuleer de gebruiker in zijn behoefte om zich te ontwikkelen en te ontdekken. **
+**Stimuleer de gebruiker in zijn behoefte om zich te ontwikkelen en te ontdekken.**
 Geef een gevoel van ruimte met een balans tussen ondersteuning en vrijheid. Prikkel de gebruiker om te onderzoeken en nieuwe dingen te ontdekken.
 
 ### Activerend
@@ -25,17 +25,17 @@ Benadruk acties met taal, vormgeving en animatie en nodig uit tot (inter)actief 
 
 ### Betrouwbaar
 
-**Zorg dat inhoud actueel is en klopt. Geef onderdelen een duidelijke hiërarchie en betekenis. **
+**Zorg dat inhoud actueel is en klopt. Geef onderdelen een duidelijke hiërarchie en betekenis.**
 Prominent kleur- en beeldgebruik, uitgesproken typografie en witruimte maken inhoud en bediening herkenbaar en begrijpelijk.
 
 ### Consistent
 
-**Onderdelen hebben een uniforme stijl en uitstraling. **
+**Onderdelen hebben een uniforme stijl en uitstraling.**
 Gelijke functies hebben gelijke vorm. Patronen worden hergebruikt voor de herkenbaarheid en betrouwbaarheid.
 
 ### Toegankelijk
 
-**Weergave is optimaal op elk scherm. **
+**Weergave is optimaal op elk scherm.**
 Interactie en maatverhouding zijn passend voor elk apparaat. Snelheid (performance) stimuleert een gevoel van efficiëntie en gebruiksgemak Toegankelijk voor iedereen en overal.
 
 ---
@@ -46,10 +46,19 @@ De andere soort van principes zijn specifiek voor het project dat je maakt. Ze h
 
 ### Layered weight
 
-De HAN is een monolitisch, sterk, zwaar en geladen merk. De kleuren, vormen, overlappingen en het schaduwwerk reflecteren deze waarden. Elementen als text en afbeeldingen worden als (monolitische) blokken over elkaar heen gelegd. Gelaagdheid van onder naar boven:
+De HAN is een monolitisch en geladen merk. Het overlappen van de vlakken reflecteert dit monolitische. Zwart ligt als een blok op het witte canvas en drukt het naar beneden. Een card element komt daardoor naar boven zweven.  
+Gelaagdheid van onder naar boven:
 
-1.  Zwart - CTA aandacht
-2.  Wit - Content
-3.  Grijs  - Content en contrast
-     4. Afbeelding
-     5. Card met schaduw
+1.  Wit - canvas
+2.  Grijs
+3.  Zwart
+     4. Card
+
+#### Afbeelding
+
+Kan bovenop witte, grijze en zwarte vlakken liggen.
+Witte en zwarte vlakken kunnen bovenop een afbeelding liggen, grijze niet.
+
+### Ruimte
+
+Een explorer heeft bij het ontdekken van nieuwe gronden ruimte nodig. In vertrouwde omgevingen willen ze juist meer focus.
