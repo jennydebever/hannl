@@ -1,4 +1,4 @@
-const gulp = require("gulp");
+const gulp = require("gulp-v4");
 const gutil = require("gulp-util");
 
 require("require-dir")("./tasks");

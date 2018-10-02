@@ -1,6 +1,6 @@
 const fs = require("fs");
 const pug = require("pug");
-const gulp = require("gulp");
+const gulp = require("gulp-v4");
 const pugdoc = require("pug-doc");
 const discodip = require("discodip");
 const locals = require("./data/template-locals");

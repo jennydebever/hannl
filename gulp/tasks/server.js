@@ -1,4 +1,4 @@
-const gulp = require("gulp");
+const gulp = require("gulp-v4");
 const bs = require("browser-sync").create("dev");
 
 const paths = require("../paths");

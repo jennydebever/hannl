@@ -1,5 +1,5 @@
 const pug = require("pug");
-const gulp = require("gulp");
+const gulp = require("gulp-v4");
 const paths = require("../paths");
 const pugDoc = require("pug-doc");
 const DesignManual = require("design-manual");

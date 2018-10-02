@@ -1,4 +1,4 @@
-const gulp = require("gulp");
+const gulp = require("gulp-v4");
 const sass = require("gulp-sass");
 const sassLint = require("gulp-sass-lint");
 const prefix = require("gulp-autoprefixer");

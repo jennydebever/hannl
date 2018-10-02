@@ -1,4 +1,4 @@
-const gulp = require("gulp");
+const gulp = require("gulp-v4");
 const pug = require("gulp-pug");
 const gutil = require("gulp-util");
 const plumber = require("gulp-plumber");

@@ -1,4 +1,4 @@
-const gulp = require("gulp");
+const gulp = require("gulp-v4");
 const paths = require("./paths");
 
 require("emitty").setup(paths.SRC.templates, "pug");

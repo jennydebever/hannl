@@ -1,4 +1,4 @@
-const gulp = require("gulp");
+const gulp = require("gulp-v4");
 const del = require("del");
 const paths = require("./paths");
 
