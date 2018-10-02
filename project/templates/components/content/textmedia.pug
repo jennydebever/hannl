@@ -101,84 +101,90 @@ mixin textmedia(options)
 //- @pugdoc
   name: Sectie (Tekst en Media)
   examples: 
-    - |
-      include ./textmedia
+    - 
+      name: Sectie (Tekst en Media, foto links)
+      example: |
+        include ./textmedia
 
-      style.
-        body > div {
-          padding: 0 !important;
-        }
+        style.
+          body > div {
+            padding: 0 !important;
+          }
 
-      - var options = {};
-      - options.image = 'koraal.jpg';
-      - options.eyebrow = 'vaardigheden';
-      - options.title = 'Hoe en wat ga je allemaal leren?';
-      - options.buttons = [];
-      - options.buttons.push({ href: '/', label: 'Meld je aan', type: 'primary' });
-      - options.buttons.push({ href: '/', label: 'Meld je aan 2', type: 'secondary' });
-    
-      +section-textmedia(ALIGNMENT_LEFT, options)
-        p We vertellen je niet hoe het moet, maar helpen je om zelf tot de beste oplossing te komen. Afhankelijk van je specialisatie leer je:
-        ul
-          li Hoe regeltechniek en elektrotechnisch ontwerken werkt.
-          li Alles over aandrijvingen en vermogenselektronica.
+        - var options = {};
+        - options.image = 'koraal.jpg';
+        - options.eyebrow = 'vaardigheden';
+        - options.title = 'Hoe en wat ga je allemaal leren?';
+        - options.buttons = [];
+        - options.buttons.push({ href: '/', label: 'Meld je aan', type: 'primary' });
+        - options.buttons.push({ href: '/', label: 'Meld je aan 2', type: 'secondary' });
       
-      
-      - var options = {};
-      - options.image = 'vrouw-techniek.jpg';
-      - options.caption = 'Een korte beschrijving van deze image';
-      - options.eyebrow = 'BAANKANSEN';
-      - options.title = 'Wat kun je allemaal worden met elektrotechniek?';
-      - options.buttons = [];
-      - options.buttons.push({ href: '/', label: 'Meld je aan', type: 'primary' });
-      - options.buttons.push({ href: '/', label: 'Meld je aan 2', type: 'secondary' });
-    
-    - |
-      hr.demo
+        +section-textmedia(ALIGNMENT_LEFT, options)
+          p We vertellen je niet hoe het moet, maar helpen je om zelf tot de beste oplossing te komen. Afhankelijk van je specialisatie leer je:
+          ul
+            li Hoe regeltechniek en elektrotechnisch ontwerken werkt.
+            li Alles over aandrijvingen en vermogenselektronica.
+        
+    -
+      name: Sectie (Tekst en Media, foto rechts)
+      example: |
+        include ./textmedia
+        - var options = {};
+        - options.image = 'vrouw-techniek.jpg';
+        - options.caption = 'Een korte beschrijving van deze image';
+        - options.eyebrow = 'BAANKANSEN';
+        - options.title = 'Wat kun je allemaal worden met elektrotechniek?';
+        - options.buttons = [];
+        - options.buttons.push({ href: '/', label: 'Meld je aan', type: 'primary' });
+        - options.buttons.push({ href: '/', label: 'Meld je aan 2', type: 'secondary' });
 
-      +section-textmedia(ALIGNMENT_RIGHT, options)
-        p Een systeem- of service-engineer die windturbines verbetert. Een soft-of hardware-ontwikkelaar die alledaagse apparaten slimmer maakt. Of een commercieel engineer die weet hoe je techniek aan de man brengt.
-      
-      - var options = {};
-      - options.id = 'video1'
-      - options.video = {};
-      - options.video.fallback = 'koraal.jpg';
-      - options.video.source = '../../lib/images/imgix/tt-assen.mp4';
-      - options.caption = 'Een korte beschrijving van deze video';
-      - options.eyebrow = 'techniek';
-      - options.title = 'Hoe en wat ga je allemaal leren?';
-      - options.buttons = [];
-      - options.buttons.push({ href: '/', label: 'Meld je aan', type: 'primary' });
+        +section-textmedia(ALIGNMENT_RIGHT, options)
+          p Een systeem- of service-engineer die windturbines verbetert. Een soft-of hardware-ontwikkelaar die alledaagse apparaten slimmer maakt. Of een commercieel engineer die weet hoe je techniek aan de man brengt.
     
-    - |
-      hr.demo
-    
-      +section-textmedia(ALIGNMENT_RIGHT, options)
-        p dit is richtext
-        ul
-          li dsfljsdhflsjhdfl
-          li dsfljsdhflsjhdfl
-          li dsfljsdhflsjhdfl
+    -
+      name: Sectie (Tekst en Media, video rechts)
+      example: |
+        include ./textmedia
 
-    - |
-      hr.demo
+        - var options = {};
+        - options.id = 'video1'
+        - options.video = {};
+        - options.video.fallback = 'koraal.jpg';
+        - options.video.source = '../../lib/images/imgix/tt-assen.mp4';
+        - options.caption = 'Een korte beschrijving van deze video';
+        - options.eyebrow = 'techniek';
+        - options.title = 'Hoe en wat ga je allemaal leren?';
+        - options.buttons = [];
+        - options.buttons.push({ href: '/', label: 'Meld je aan', type: 'primary' });
       
-      - var options = {};
-      - options.id = 'video2'
-      - options.video = {};
-      - options.video.fallback = 'koraal.jpg';
-      - options.video.source = '../../lib/images/imgix/tt-assen.mp4';
-      - options.eyebrow = 'techniek';
-      - options.title = 'Hoe en wat ga je allemaal leren?';
-      - options.buttons = [];
-      - options.buttons.push({ href: '/', label: 'Meld je aan', type: 'primary' });
-      
-      +section-textmedia(ALIGNMENT_LEFT, options)
-        p dit is richtext
-        ul
-          li dsfljsdhflsjhdfl
-          li dsfljsdhflsjhdfl
-          li dsfljsdhflsjhdfl
+        +section-textmedia(ALIGNMENT_RIGHT, options)
+          p dit is richtext
+          ul
+            li dsfljsdhflsjhdfl
+            li dsfljsdhflsjhdfl
+            li dsfljsdhflsjhdfl
+
+    -
+      name: Sectie (Tekst en Media, video links)
+      example: |
+        include ./textmedia
+
+        - var options = {};
+        - options.id = 'video2'
+        - options.video = {};
+        - options.video.fallback = 'koraal.jpg';
+        - options.video.source = '../../lib/images/imgix/tt-assen.mp4';
+        - options.eyebrow = 'techniek';
+        - options.title = 'Hoe en wat ga je allemaal leren?';
+        - options.buttons = [];
+        - options.buttons.push({ href: '/', label: 'Meld je aan', type: 'primary' });
+        
+        +section-textmedia(ALIGNMENT_LEFT, options)
+          p dit is richtext
+          ul
+            li dsfljsdhflsjhdfl
+            li dsfljsdhflsjhdfl
+            li dsfljsdhflsjhdfl
 
 mixin section-textmedia(alignment, options)
   - var cls = [];

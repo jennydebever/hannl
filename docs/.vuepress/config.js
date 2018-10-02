@@ -58,7 +58,42 @@ module.exports = {
           ["components/atoms/strong-link", "Knop (Strong link)"],
           ["components/content/collapsibles", "Uitklappers"],
           ["components/content/richtext", "Richtext"],
-          ["components/content/textmedia", "Tekst en Media"]
+          ["components/content/textmedia", "Tekst en Media"],
+          ["components/todo/accordeon", "Accordeon"],
+          ["components/todo/bio", "Bio"],
+          ["components/todo/cards", "Cards"],
+          ["components/todo/carousel", "Carousel"],
+          ["components/todo/contact", "Contact"],
+          ["components/todo/course-hero", "Course-hero"],
+          ["components/todo/cta", "Cta"],
+          ["components/todo/facts", "Facts"],
+          ["components/todo/filters", "Filters"],
+          ["components/todo/image-list", "Image-list"],
+          ["components/todo/images", "Images"],
+          ["components/todo/link-list", "Link-list"],
+          ["components/todo/maps", "Maps"],
+          ["components/todo/navigation", "Navigation"],
+          ["components/todo/quote", "Quote"],
+          ["components/todo/route", "Route"],
+          ["components/todo/sliders", "Sliders"],
+          ["components/todo/specials", "Specials"],
+          ["components/todo/tables", "Tables"],
+          ["components/todo/tabs", "Tabs"],
+          ["components/todo/takeover", "Takeover"],
+          ["components/todo/testimonial", "Testimonial"],
+          ["components/todo/text-list", "Text-list"],
+          ["components/todo/text", "Text"],
+          ["components/todo/tooltip", "Tooltip"],
+          ["components/todo/video", "Video"]
+        ]
+      },
+      {
+        title: "Design",
+        collapsible: true,
+        children: [
+          ["design/", "Design"],
+          ["design/rules", "Rules"],
+          ["design/principles", "Principles"]
         ]
       },
       {
