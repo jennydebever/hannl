@@ -8,7 +8,7 @@
     "start-docs": "vuepress dev docs",
     "styles": "gulp styles",
     "templates": "gulp templates",
-    "build": "gulp build && vuepress build docs",
+    "build": "gulp build",
     "server": "gulp server"
   },
   "author": "",
