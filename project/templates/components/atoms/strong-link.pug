@@ -2,18 +2,24 @@
   name: Knop (Strong link)
   description: Strong link. Maximaal 30 karakters.
   examples:
-    - |
-      .demo-theme-white
-        +strong-link('Gebruik het contactformulier', '/')
-        +strong-link('Gebruik het contactformulier', 'https://www.han.nl')
-    - |
-      .demo-theme-red
-        +strong-link('Gebruik het contactformulier', '/')
-        +strong-link('Gebruik het contactformulier', 'https://www.han.nl')
-    - |
-      .demo-theme-black
-        +strong-link('Gebruik het contactformulier', '/')
-        +strong-link('Gebruik het contactformulier', 'https://www.han.nl')
+    - 
+      name: Knop (Strong link, op wit)
+      example: |
+        .demo-theme-white
+          +strong-link('Gebruik het contactformulier', '/')
+          +strong-link('Gebruik het contactformulier', 'https://www.han.nl')
+    - 
+      name: Knop (Strong link, op rood)
+      example: |
+        .demo-theme-red
+          +strong-link('Gebruik het contactformulier', '/')
+          +strong-link('Gebruik het contactformulier', 'https://www.han.nl')
+    - 
+      name: Knop (Strong link, op zwart)
+      example: |
+        .demo-theme-black
+          +strong-link('Gebruik het contactformulier', '/')
+          +strong-link('Gebruik het contactformulier', 'https://www.han.nl')
 
 mixin strong-link(label, href)
   include ../../icons/_icon

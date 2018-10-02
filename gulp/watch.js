@@ -10,7 +10,7 @@ gulp.task("watch", () => {
   gulp
     .watch(
       paths.SRC.templates + "**/*.pug",
-      gulp.series("browser:notify", "templates", "design-manual")
+      gulp.series("browser:notify", "templates", "components")
     )
     .on("all", (event, filepath) => {
       global.emittyChangedFile = filepath;
@@ -31,6 +31,4 @@ gulp.task("watch", () => {
     paths.SRC.scripts + "head/**/*.js",
     gulp.series("browser:notify", "scripts:head")
   );
-  gulp.watch("design-system/**/*.md", gulp.series("design-manual"));
-  gulp.watch("docs/**/*.md", gulp.series("docs"));
 });

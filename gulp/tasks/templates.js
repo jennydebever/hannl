@@ -25,8 +25,11 @@ gulp.task("templates:lint", () => {
 gulp.task("templates:compile", () => {
   return new Promise((resolve, reject) => {
     gulp
-      .src([paths.SRC.templates + "pages/**/*.pug"])
-      // .pipe(gulpif((global.isWatching), emitty.filter(global.emittyChangedFile)))
+      .src([
+        paths.SRC.templates + "pages/**/*.pug",
+        "!" + paths.SRC.templates + "pages/**/_*.pug"
+      ])
+      .pipe(gulpif(global.isWatching, emitty.filter(global.emittyChangedFile)))
       .pipe(debug({ title: "Compiler:" }))
       .pipe(changed(paths.DEST.templates, { extension: "*" }))
       .pipe(plumber())

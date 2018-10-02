@@ -2,24 +2,30 @@
   name: Knop (Primair)
   description: Primaire knop. Maximaal 30 karakters.
   examples:
-    - |
-      .demo-theme-white
-        +btn-primary('Bereken je reistijd', 'https://www.han.nl')
-        +btn-primary('Bereken je reistijd', 'https://www.han.nl', 'arrow')
-        +btn-primary('Bereken je reistijd', 'https://www.han.nl', 'external')
-        +btn-primary('Bereken je reistijd', 'https://www.han.nl', 'clock-line')
-    - |
-      .demo-theme-red
-        +btn-primary('Bereken je reistijd', 'https://www.han.nl')
-        +btn-primary('Bereken je reistijd', 'https://www.han.nl', 'arrow')
-        +btn-primary('Bereken je reistijd', 'https://www.han.nl', 'external')
-        +btn-primary('Bereken je reistijd', 'https://www.han.nl', 'clock-line')
-    - |
-      .demo-theme-black
-        +btn-primary('Bereken je reistijd', 'https://www.han.nl')
-        +btn-primary('Bereken je reistijd', 'https://www.han.nl', 'arrow')
-        +btn-primary('Bereken je reistijd', 'https://www.han.nl', 'external')
-        +btn-primary('Bereken je reistijd', 'https://www.han.nl', 'clock-line')
+    - 
+      name: Knop (Primair, op wit)
+      example: |
+        .demo-theme-white
+          +btn-primary('Bereken je reistijd', 'https://www.han.nl')
+          +btn-primary('Bereken je reistijd', 'https://www.han.nl', 'arrow')
+          +btn-primary('Bereken je reistijd', 'https://www.han.nl', 'external')
+          +btn-primary('Bereken je reistijd', 'https://www.han.nl', 'clock-line')
+    - 
+      name: Knop (Primair, op rood)
+      example: |
+        .demo-theme-red
+          +btn-primary('Bereken je reistijd', 'https://www.han.nl')
+          +btn-primary('Bereken je reistijd', 'https://www.han.nl', 'arrow')
+          +btn-primary('Bereken je reistijd', 'https://www.han.nl', 'external')
+          +btn-primary('Bereken je reistijd', 'https://www.han.nl', 'clock-line')
+    -
+      name: Knop (Primair, op zwart)
+      example: |
+        .demo-theme-black
+          +btn-primary('Bereken je reistijd', 'https://www.han.nl')
+          +btn-primary('Bereken je reistijd', 'https://www.han.nl', 'arrow')
+          +btn-primary('Bereken je reistijd', 'https://www.han.nl', 'external')
+          +btn-primary('Bereken je reistijd', 'https://www.han.nl', 'clock-line')
 
 mixin btn-primary(label, href, icon)
   include ../../icons/_icon
