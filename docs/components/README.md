@@ -7,10 +7,10 @@ We werken met twee verschillende schalen om de visuele eigenschappen van de comp
 
 ---
 
-### Visual Loudness Scale
+## Visual Loudness Scale
 Drukt uit hoeveel visueel lawaai een component maakt.
 
-#### De schaal
+### De schaal
 - Whisper
 - Murmur
 - Ask
@@ -21,10 +21,10 @@ Drukt uit hoeveel visueel lawaai een component maakt.
 
 ---
 
-### Visual Wideness Scale
+## Visual Wideness Scale
 Drukt uit hoeveel visuele ruimte een component inneemt.
 
-#### De schaal
+### De schaal
 - Skeleton
 - Skinny
 - Regular

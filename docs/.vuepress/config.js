@@ -1,5 +1,5 @@
 module.exports = {
-  title: "HAN.nl Design System ",
+  title: "📖 HAN.nl Design System ",
   description: "Design System and documentation for the new han.nl website",
   head: [
     [
