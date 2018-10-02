@@ -1,5 +1,5 @@
 <template>
-  <div class="discodip">
+  <div class="discodip" v-bind:class="{ tight: tight }">
     <p v-if="description" v-html="description"></p>
     <slot></slot>
 
@@ -52,7 +52,8 @@
 export default {
   props: {
     name: String,
-    styles: String
+    styles: String,
+    tight: Boolean
   },
   data() {
     return {
@@ -202,6 +203,10 @@ export default {
   --darkgrey: #111;
   margin-top: 20px;
   margin-bottom: 150px;
+}
+
+.discodip.tight {
+  margin-bottom: 50px;
 }
 
 /**

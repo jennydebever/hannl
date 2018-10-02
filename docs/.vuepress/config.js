@@ -1,5 +1,5 @@
 module.exports = {
-  title: "📖 HAN.nl Design System ",
+  title: "📖  HAN.nl Design System ",
   description: "Design System and documentation for the new han.nl website",
   head: [
     [
@@ -53,13 +53,14 @@ module.exports = {
         collapsible: true,
         children: [
           ["components/", "Components"],
-          ["components/atoms/btn-primary", "Knop (Primair)"],
-          ["components/atoms/btn-secondary", "Knop (Secundair)"],
-          ["components/atoms/strong-link", "Knop (Strong link)"],
+          ["components/atoms/buttons", "Knoppen"],
           ["components/content/collapsibles", "Uitklappers"],
           ["components/content/richtext", "Richtext"],
-          ["components/content/textmedia", "Tekst en Media"],
-          ["components/todo/accordeon", "Accordeon"],
+          ["components/content/textmedia-regular", "Tekst en Media Regular"],
+          ["components/todo/textmedia-skinny", "Tekst en Media Skinny"],
+          ["components/todo/textmedia-fat", "Tekst en Media Fat"],
+          ["components/todo/textmedia-whale", "Tekst en Media Whale"],
+          ["components/todo/textmedia-highlight", "Tekst en Media Highlight"],
           ["components/todo/bio", "Bio"],
           ["components/todo/cards", "Cards"],
           ["components/todo/carousel", "Carousel"],

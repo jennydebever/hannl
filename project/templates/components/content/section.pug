@@ -1,17 +1,21 @@
 //- @pugdoc
   name: Sectie
   examples:
-    - |
-      +section(null, 'section title')
-        | my section content
-    - |
-      hr.demo
-      +section('eyebrow', 'section title')
-        | my section content
-    - |
-      hr.demo
-      +section('eyebrow', 'section title', 'This is intro text')
-        | my section content
+    - 
+      name: Sectie (titel)
+      example: |
+        +section(null, 'section title')
+          | my section content
+    - 
+      name: Sectie (eyebrow en titel)
+      example: |
+        +section('eyebrow', 'section title')
+          | my section content
+    -
+      name: Sectie (eyebrow, titel en introtekst)
+      example: |
+        +section('eyebrow', 'section title', 'This is intro text')
+          | my section content
 
 mixin section(eyebrow, title, intro)
   .section&attributes(attributes)

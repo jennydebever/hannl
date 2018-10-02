@@ -10,4 +10,4 @@
 ![shout-for-action](https://user-images.githubusercontent.com/9093958/44346347-09b97980-a496-11e8-8791-9e5efca09111.png)
 
 <Todo name="scream-for-action" />
-![scream-for-action](https://user-images.githubusercontent.com/9093958/44346043-45a00f00-a495-11e8-97c3-63f5ab969f34.png
+![scream-for-action](https://user-images.githubusercontent.com/9093958/44346043-45a00f00-a495-11e8-97c3-63f5ab969f34.png)

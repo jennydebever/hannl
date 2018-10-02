@@ -9,9 +9,9 @@
 ![contact-whale-black](https://user-images.githubusercontent.com/9093958/44345252-17b9cb00-a493-11e8-8439-e100c0f16d5e.png)
 
 <Todo name="contact-whale-white" />
+![contact-whale-white](https://user-images.githubusercontent.com/9093958/44986601-9bd87c00-af84-11e8-86cd-c0fbc49f622d.png)
 Speciaal bedoeld voor de coursepagina en wordt voor de “Scream for action” geplaatst. Het is bedoeld om in contact te komen met een persoon/HVC voor meer informatie.
 
 ## Conditionals:
 Titel niet langer dan 1 regel. Tip: hou het zo kort mogelijk.
 Beschrijving niet langer dan 2 regels. Tip: hou het zo kort mogelijk.
-![contact-whale-white](https://user-images.githubusercontent.com/9093958/44986601-9bd87c00-af84-11e8-86cd-c0fbc49f622d.png)

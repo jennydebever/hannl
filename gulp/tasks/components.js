@@ -40,11 +40,6 @@ gulp.task("discodip", gulpDone => {
     html, body {
       background-color: white;
     }
-    body > div > hr.demo {
-      margin: 40px 0;
-      border: 0;
-      border-top: 1px solid #f0f4f4;
-    }
     </style>
     `,
     bodyHtml: `

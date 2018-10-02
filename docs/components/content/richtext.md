@@ -1,12 +1,14 @@
 # Richtext
-## Sectie (Richtext, eenvoudig)
+[[toc]]
+
+## Eenvoudig
 <Discodip name="Sectie (Richtext, eenvoudig)" />
 
-## Sectie (Richtext, intro)
+## Intro
 <Discodip name="Sectie (Richtext, intro)" />
 
-## Sectie (Richtext, tabel)
+## Tabel
 <Discodip name="Sectie (Richtext, tabel)" />
 
-## Sectie (Richtext, volledig)
+## Volledig
 <Discodip name="Sectie (Richtext, volledig)" />
