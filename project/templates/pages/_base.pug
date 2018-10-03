@@ -22,8 +22,24 @@ html(lang='nl')
 
   body
 
+    include ../icons/_symbols
+
+    block skiplinks
+      .skiplinks
+        a(href='#content') Direct naar de inhoud
+        a(href='javascript:void(null)', class='js-menu-show') Direct naar de hoofdnavigatie
+        a(href='javascript:void(null)', class='js-sitesearch-show') Direct naar de zoekfunctie
+
+    block nav
+      .nav-spacer(class='js-nav-spacer')
+      .nav(class='js-nav')
+        | topbar
+        | subnab
+
     .main(role='main', id='content')
       block main
+
+    block takeover
 
     block scripts
       script(src=JS_URL + 'libs.js', defer)

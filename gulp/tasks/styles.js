@@ -27,11 +27,7 @@ gulp.task("styles:lint", () => {
 
 gulp.task("styles:compile", () => {
   return gulp
-    .src([
-      paths.SRC.styles + "theme.scss",
-      paths.SRC.styles + "design-manual.scss",
-      paths.SRC.styles + "print.scss"
-    ])
+    .src([paths.SRC.styles + "theme.scss", paths.SRC.styles + "print.scss"])
     .pipe(changed(paths.DEST.styles, { extension: "*" }))
     .pipe(sass({ style: "expanded" }).on("error", sass.logError))
     .pipe(

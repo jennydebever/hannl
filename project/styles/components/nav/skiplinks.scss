@@ -1,0 +1,23 @@
+/**
+ * Skiplinks
+ */
+
+.skiplinks {
+  a {
+    @include accessibility;
+
+    &:focus {
+      height: auto;
+      position: fixed;
+      left: 0;
+      top: 0;
+      z-index: 2000;
+      opacity: 1;
+      display: inline-block;
+      padding: 1em;
+      font-size: 1em;
+      background: $hanred;
+      color: $white;
+    }
+  }
+}

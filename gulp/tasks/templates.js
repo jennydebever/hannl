@@ -59,7 +59,3 @@ gulp.task(
   "templates",
   gulp.series("templates:lint", "templates:compile", "browser:reload")
 );
-
-// gulp.task('templates:compile', () => {
-//  return new Promise((resolve, reject) => {
-//    emitty.scan(global.emittyChangedFile).then(() =>

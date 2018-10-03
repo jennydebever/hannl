@@ -17,6 +17,9 @@
 @import './typography/demo-typo';
 @import './typography/richtext.scss';
 
+// nav
+@import './components/nav/skiplinks';
+
 // atoms
 @import './components/atoms/richtext';
 @import './components/atoms/btn-primary';
