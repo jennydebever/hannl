@@ -1,4 +1,4 @@
-﻿# hannl
+﻿# 📖 han.nl Design System
 
 https://han-devteam.netlify.com/
 
@@ -37,13 +37,15 @@ Type `npm run build` voor een eenmalige dev-build naar `docs/.vuepress/public`.
 ## Netlify
 We gebruiken Netlify voor hosting van die statische project. Voor branches in git maakt Netlify automatisch een  branch url aan.
 
-https://han-devteam.netlify.com/
-https://my-git-branch--han-devteam.netlify.com/
+* https://han-devteam.netlify.com/
+* https://my-git-branch--han-devteam.netlify.com/
 
 ---
 
 ## Afbeeldingen imgix
-Voor afbeeldingen wordt de service imgix gebruikt. Plaats een afbeelding op origineel (grootst) formaat in `.vuepress/lib/images/imgix`. Daarna zal deze via de url benaderbaar en te manipuleren zijn: https://hannl-eightmedia.imgix.net/koraal.jpg?w=100&h=100
+Voor afbeeldingen wordt de service imgix gebruikt. Plaats een afbeelding op origineel (grootst) formaat in `.vuepress/lib/images/imgix`. Daarna zal deze via de url benaderbaar en te manipuleren zijn: 
+
+https://hannl-eightmedia.imgix.net/koraal.jpg?w=100&h=100
 
 Afbeeldingen die door imgix moeten worden opgepikt, moeten in de master branch worden geplaatst.
 
