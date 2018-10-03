@@ -1,3 +1,6 @@
+include ../components/nav/topbar
+include ../components/nav/footer
+
 block vars
   - let pageTitle = [];
 
@@ -33,11 +36,14 @@ html(lang='nl')
     block nav
       .nav-spacer(class='js-nav-spacer')
       .nav(class='js-nav')
-        | topbar
-        | subnab
+        +topbar
+        block subnav
 
     .main(role='main', id='content')
       block main
+
+    block footer
+      +footer
 
     block takeover
 

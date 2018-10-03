@@ -19,6 +19,8 @@
 
 // nav
 @import './components/nav/skiplinks';
+@import './components/nav/coursenav';
+@import './components/nav/topbar';
 
 // atoms
 @import './components/atoms/richtext';
@@ -32,6 +34,9 @@
 @import './components/content/textmedia';
 @import './components/content/collapsibles';
 @import './components/content/intro';
+
+// least important loading order
+@import './components/nav/footer';
 
 // demo
 @import './demo/theme';

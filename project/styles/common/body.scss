@@ -10,6 +10,18 @@ body {
 body {
   overflow-x: hidden;
   color: $black;
+  background-color: $grey1;
+}
+
+/**
+ * Main container
+ */
+
+.main {
+  background-color: $white;
+  margin: 0 auto;
+  max-width: 1200px;
+  min-height: calc(100vh - 39px - 39px - 39px); // TODO:: remove this, fix footer to bottom
 }
 
 /**

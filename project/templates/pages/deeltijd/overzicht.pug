@@ -1,8 +1,12 @@
 extends ../_base
 include ../../utils/todo
+include ../../components/nav/coursenav
 
 block append vars
   - pageTitle.push('Deeltijd')
+
+block subnav
+  +coursenav
 
 block main
   | deeltijd
