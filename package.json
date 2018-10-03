@@ -9,7 +9,8 @@
     "styles": "gulp styles",
     "templates": "gulp templates",
     "build": "gulp build",
-    "server": "gulp server"
+    "server": "gulp server",
+    "docs:build": "vuepress build docs"
   },
   "author": "",
   "license": "ISC",
