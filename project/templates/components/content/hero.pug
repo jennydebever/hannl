@@ -1,0 +1,43 @@
+//- @pugdoc
+  name: Hero image
+  capture: 0
+mixin hero-image(image)
+  picture.hero__image
+    - var sizes = []
+    - sizes.push({ minWidth: 1024, width: 1440, height: 540, ratio: 2.7 });
+    - sizes.push({ minWidth: 768, width: 1024, ratio: 1.25 });
+    - sizes.push({ minWidth: 500, width: 768, ratio: 1 });
+    - sizes.push({ minWidth: 1, width: 500, ratio: 0.85 });
+    +srcset(image, sizes)
+
+    img(src='', alt='')
+
+
+//- @pugdoc
+  name: hero
+  description: Hero component voor alle pagina's. 
+  examples: 
+    - |
+      include ./hero
+
+      style.
+        body > div {
+          padding: 0 !important;
+        }
+
+      - var options = {};
+      - options.image = 'koraal.jpg';
+      - options.title = 'Studie inhoud';
+      - options.lead = 'De deelopleiding Elektrotechniek stel je samen met modules. Zo word je precies de specialist die je wilt zijn.';
+    
+      +hero(options)
+
+mixin hero(options)
+  include ../../utils/srcset
+
+  .hero 
+    +hero-image(options.image)
+    .hero__content
+      .hero__header
+        h1.hero__header__title #{options.title}
+        .hero__header__lead #{options.lead}
