@@ -23,7 +23,7 @@
       }
     }
 
-    h1.hero__header__title {
+    .hero__header__title {
       @include h1;
       @include underscore;
       margin-bottom: 16px;
