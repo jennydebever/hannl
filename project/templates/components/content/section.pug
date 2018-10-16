@@ -19,11 +19,7 @@ mixin section(eyebrow, title, intro)
       if title || intro
         .section__header
           if title
-            h2.section__header__title
-              if eyebrow
-                span.section__header__title__eyebrow #{eyebrow}
-                span.accessibility :&nbsp;
-              span.section__header__title__text #{title}
+            +eyebrow-title(eyebrow, title)
       
           if intro
             p.section__header__intro !{intro}
