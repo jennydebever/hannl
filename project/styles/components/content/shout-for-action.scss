@@ -1,0 +1,142 @@
+.shout_wrapper {
+  @include grid-item-spaceless(12);
+  background: black;
+  @include breakpoint($bp-l) {
+      display: flex;
+      justify-content: center;
+  }
+}
+
+.shout_picture {
+  @include grid-item-spaceless(12);
+  @include breakpoint($bp-l) {
+      @include grid-item(6);
+  }
+  @include breakpoint($bp-l) {
+      display: flex;
+      justify-content: flex-end;
+      padding-left: 33px;
+      padding-right: 33px;
+  }
+}
+
+.shout__for__action__picture {
+  @include breakpoint($bp-l) {
+      flex: 0 1 auto;
+  }
+}
+
+img {
+  width: 100%;
+  @include breakpoint($bp-l) {
+      width: auto;
+      top: 80px;
+      position: relative;
+  }
+}
+
+.shout_text_wrapper {
+  @include grid-item(12);
+  @include breakpoint($bp-l) {
+      @include grid-item(6);
+      margin-top: 80px;
+      padding-left: 33px;
+      padding-right: 33px;
+  }
+}
+
+.section__header {
+  @include breakpoint($bp-l) {
+      max-width: 450px;
+  }
+}
+
+.section__content {
+  @include breakpoint($bp-l) {
+      max-width: 503px;
+  }
+  p {
+      margin-bottom: 28px;
+      line-height: 27px;
+  }
+}
+
+.section {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+h2 {
+  margin-top: 29px;
+  color: $white;
+}
+
+.section__content {
+  color: $white;
+}
+
+.shout__for__action__text__buttons {
+  @include grid-item-spaceless(12);
+  padding-bottom: 32px;
+  @include breakpoint($bp-l) {
+      max-width: 503px;
+  }
+}
+
+.shout__for__action__buttons__button {
+  @include grid-item-spaceless(12);
+  margin-bottom: 8px;
+  @include breakpoint($bp-m) {
+      // @include grid-item(6);
+      display: inline;
+      padding-left: 8px;
+      padding-right: 8px;
+  }
+}
+
+.shout__for__action__buttons__button:first-child {
+  padding-left: 0;
+}
+
+.btn-primary {
+  @include breakpoint($bp-l) {
+      margin-bottom: 20px;
+      padding-left: 20px;
+      padding-right: 20px;
+  }
+}
+
+.btn-secondary {
+  @include btn-secondary-on-black;
+  background-color: #000000;
+  @include breakpoint($bp-l) {
+      margin-bottom: 20px;
+      padding-left: 20px;
+      padding-right: 20px;
+  }
+}
+
+.shout.right {
+  .shout_picture {
+      @include breakpoint($bp-l) {
+          order: 2;
+          justify-content: flex-start;
+      }
+  }
+  .section {
+      @include breakpoint($bp-l) {
+          display: flex;
+          justify-content: flex-end;
+      }
+  }
+  .shout__for__action__text__buttons {
+      @include breakpoint($bp-l) {
+          display: flex;
+      }
+  }
+  .shout__for__action__buttons__button {
+      @include breakpoint($bp-l) {
+          padding: 0;
+      }
+  }
+}

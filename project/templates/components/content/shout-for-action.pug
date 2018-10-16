@@ -1,0 +1,63 @@
+//- @pugdoc
+  name: shout for action picture
+  capture: 0
+mixin shout-for-action-image(image)
+  picture.shout__for__action__picture
+    - var sizes = []
+    - sizes.push({ minWidth: 1200, width: 560, ratio: 1 });
+    - sizes.push({ minWidth: 1024, width: 430, ratio: 1 });
+    - sizes.push({ minWidth: 768, width: 310, ratio: 2 });
+    - sizes.push({ minWidth: 500, width: 310, ratio: 2 });
+    - sizes.push({ minWidth: 1, width: 500, ratio: 2 });
+    +srcset(image, sizes)
+
+    img(src='', alt='')
+
+//- @pugdoc
+  name: shout-for-action
+  description: Sectie en sta content
+  examples:
+    - |
+      include ./shout-for-action
+      style.
+        body > div {
+          padding: 0 !important;
+        }
+      - var options = {};
+      - options.image = 'koraal.jpg';
+      - options.buttons = [];
+      - options.buttons.push({ href: '/', label: 'Plan een afspraak in', type: 'primary' });
+      - options.buttons.push({ href: '/', label: 'Bekijk de praktisch info', type: 'secondary' });
+      +section-sta("ALIGNMENT_RIGHT", "", "Al de nodige ervaring in huis?","")
+        p Met aantoonbare kennis en kunde kom je aanmerking voor vrijstellingen. Zo kun je je opleiding verkorten.
+   
+mixin section-sta(alignment, eyebrow, title, intro)
+  include ./section
+  include ./intro
+  include ../atoms/richtext
+  include ../../utils/srcset
+  include ../atoms/btn-primary
+  include ../atoms/btn-secondary
+
+  - var cls = [];
+  if alignment === 'ALIGNMENT_RIGHT'
+    - cls.push('right');
+    
+  .shout(class=cls)
+    .shout_wrapper
+      .shout_picture
+        +shout-for-action-image(options.image)
+      .shout_text_wrapper
+        +section(eyebrow, title)
+          if intro
+            +intro #{intro}
+          block
+          if options.buttons
+            .shout__for__action__text__buttons
+              each button in options.buttons
+                .shout__for__action__buttons__button
+                  if button.type === 'primary'
+                    +btn-primary(button.label, button.href, "arrow")
+
+                  else if button.type === 'secondary'
+                    +btn-secondary(button.label, button.href, "")
