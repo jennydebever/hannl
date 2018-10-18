@@ -10,7 +10,7 @@ Node.js (getest met `8.11.2`) installeren, `npm install` draaien (kan even duren
 * devserver op localhost:8000
 * pug › html
 * sass › css
-* js modules › js bundle
+* js modules › js bundles
 
 ### Vuepress dev
 Om het design system lokaal te bouwen moet je in een ander terminal-tab `npm run start-docs` draaien. 
