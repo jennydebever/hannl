@@ -1,6 +1,6 @@
 module.exports = {
-  title: "🌿 HAN.nl Design System ",
-  description: "Design System and documentation for the new han.nl website",
+  title: "🐠 HAN.nl Design System ",
+  description: "Design-systeem en documentatie voor de nieuwe han.nl website",
   head: [
     [
       "script",
