@@ -14,10 +14,10 @@ easing: cubic-bezier(.05, 0, .002, 1);
 
 ---
 
-!{Button Hiërarchie}
+## Buttons
 Volgorde staat altijd vast. Een Strong link mag niet voor een Secondary of Primary geplaatst worden. Een Secondary niet voor een Primary
 
-!{Button hierarchie opties}
+[Button hierarchie opties ](/components/atoms/buttons.html#button-hierarchie-opties)
 
 ---
 

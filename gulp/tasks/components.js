@@ -1,5 +1,4 @@
 const fs = require("fs");
-const pug = require("pug");
 const gulp = require("gulp-v4");
 const pugdoc = require("pug-doc");
 const discodip = require("discodip");
@@ -33,7 +32,6 @@ gulp.task("discodip", gulpDone => {
       serveFolder: "docs/.vuepress/public"
     },
     headHtml: `
-    ${pug.compileFile(paths.SRC.templates + "icons/_symbols.pug")()}
     <link rel='shortcut icon' href='http://han.nl/favicon.ico' />
     <link rel='stylesheet' href='/lib/css/theme.css' />
     <style>
@@ -43,6 +41,13 @@ gulp.task("discodip", gulpDone => {
     </style>
     `,
     bodyHtml: `
+    <script async>
+      fetch('/_symbols.html').then(function(res) {
+        return res.text();
+      }).then(function(html) {
+        document.body.insertAdjacentHTML('afterbegin', html);
+      });
+    </script>
     <script src='/lib/js/libs.js' defer></script>
     <script src='/lib/js/app.js' defer></script>
     `,

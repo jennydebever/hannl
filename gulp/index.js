@@ -9,6 +9,7 @@ gulp.task(
   gulp.series(
     "clean",
     gulp.parallel(
+      "components",
       "templates",
       "styles",
       "scripts:app",

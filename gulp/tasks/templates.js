@@ -1,5 +1,5 @@
-const gulp = require("gulp-v4");
 const pug = require("gulp-pug");
+const gulp = require("gulp-v4");
 const gutil = require("gulp-util");
 const plumber = require("gulp-plumber");
 const pugLint = require("gulp-pug-lint");
@@ -27,6 +27,7 @@ gulp.task("templates:compile", () => {
     gulp
       .src([
         paths.SRC.templates + "pages/**/*.pug",
+        paths.SRC.templates + "icons/_symbols.pug",
         "!" + paths.SRC.templates + "pages/**/_*.pug"
       ])
       // .pipe(gulpif(global.isWatching, emitty.filter(global.emittyChangedFile)))
@@ -53,7 +54,6 @@ gulp.task("templates:compile", () => {
       });
   });
 });
-//});
 
 gulp.task(
   "templates",
