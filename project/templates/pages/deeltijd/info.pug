@@ -1,0 +1,13 @@
+extends ../_base
+include ../../utils/todo
+include ../../components/nav/coursenav
+
+block append vars
+  - pageTitle.push('Deeltijd info');
+  - pagePath = '/deeltijd/info';
+
+block subnav
+  +coursenav('Pabo Deeltijd', [{ href: '/deeltijd/overzicht.html', label: 'Overzicht' }, { href: '/deeltijd/studie.html', label: 'Dit is je studie' }, { href: '/deeltijd/info.html', label: 'Praktische info' }])
+
+block main
+  | deeltijd praktische info

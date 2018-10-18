@@ -3,10 +3,11 @@ include ../../utils/todo
 include ../../components/nav/coursenav
 
 block append vars
-  - pageTitle.push('Deeltijd')
+  - pageTitle.push('Deeltijd');
+  - pagePath = '/deeltijd/overzicht';
 
 block subnav
-  +coursenav
+  +coursenav(null, [{ href: '/deeltijd/overzicht.html', label: 'Overzicht' }, { href: '/deeltijd/studie.html', label: 'Dit is je studie' }, { href: '/deeltijd/info.html', label: 'Praktische info' }])
 
 block main
   | deeltijd

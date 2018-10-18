@@ -3,6 +3,7 @@ include ../components/nav/footer
 
 block vars
   - let pageTitle = [];
+  - let pagePath = '/';
 
 doctype html
 html(lang='nl')
@@ -16,12 +17,17 @@ html(lang='nl')
     meta(name='author', content='Eight Media')
     meta(name='format-detection', content='telephone=no')
 
-    //- preload js
-    link(rel='preload', href=JS_URL + 'app.js', as='script')
-    link(rel='preload', href=JS_URL + 'libs.js', as='script')
+    //- preload fonts
+    link(rel='preload', href=FONTS_URL + '627fbb5a-3bae-4cd9-b617-2f923e29d55e.woff2', as="font", type="font/woff2", crossorigin="anonymous")
+    link(rel='preload', href=FONTS_URL + 'aad99a1f-7917-4dd6-bbb5-b07cedbff64f.woff2', as="font", type="font/woff2", crossorigin="anonymous")
+    link(rel='preload', href=FONTS_URL + '14c73713-e4df-4dba-933b-057feeac8dd1.woff2', as="font", type="font/woff2", crossorigin="anonymous")
 
     link(rel='stylesheet', href=CSS_URL + 'theme.css')
     link(rel='stylesheet', href=CSS_URL + 'print.css', media='print')
+    
+    //- preload js
+    link(rel='preload', href=JS_URL + 'app.js', as='script')
+    link(rel='preload', href=JS_URL + 'libs.js', as='script')
 
   body
 

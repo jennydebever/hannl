@@ -1,6 +1,6 @@
 // Folders
-$fonts-url: '/* @echo FONTS_URL */';
-$images-url: '/* @echo IMAGES_URL */';
+$fonts-url: "/* @echo FONTS_URL */";
+$images-url: "/* @echo IMAGES_URL */";
 
 // Colors
 $hanred: #e50056;
@@ -28,14 +28,16 @@ $grey2: #e3e3e3;
 $grey3: #919191;
 $grey4: #757575;
 $grey5: #454545;
-$black: #454545;
+$grey6: #262626;
+$black: #000;
 
 // Fonts
-$medium: 'AvenirNextLTW01-Medium', 'Avenir next', 'Avenir', sans-serif;;
-$medium-italic: 'AvenirNextLTW01-MediumI_721278', 'Avenir next', 'Avenir', sans-serif;;
-$demi: 'Avenir Next LT W01 Demi', 'Avenir next', 'Avenir', sans-serif;;
-$bold: 'Avenir Next LT W01 Bold', 'Avenir next', 'Avenir', sans-serif;;
-$bold-condensed: 'AvenirNextLTW01-BoldCn', 'Avenir next', 'Avenir', sans-serif;;
+$medium: "AvenirNextLTW01-Medium", "Avenir next", "Avenir", sans-serif;
+$medium-italic: "AvenirNextLTW01-MediumI_721278", "Avenir next", "Avenir",
+  sans-serif;
+$demi: "Avenir Next LT W01 Demi", "Avenir next", "Avenir", sans-serif;
+$bold: "Avenir Next LT W01 Bold", "Avenir next", "Avenir", sans-serif;
+$bold-condensed: "AvenirNextLTW01-BoldCn", "Avenir next", "Avenir", sans-serif;
 
 $primary-color: #454545;
 $primary-color-light: #d3e8fc;

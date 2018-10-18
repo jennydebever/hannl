@@ -1,5 +1,53 @@
 .coursenav {
-  padding: 10px;
-  background-color: $grey4;
-  color: $white;
+  background-color: $grey1;
+}
+
+.coursenav-wrapper {
+  display: flex;
+  max-width: 1160px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/**
+ * Title
+ */
+
+.coursenav__title {
+  @include focusable($black);
+  @include title3;
+  @include underscore;
+  align-self: center;
+  text-decoration: none;
+  color: $black;
+  text-transform: uppercase;
+}
+
+/**
+ * Links
+ */
+
+.coursenav__links {
+  display: flex;
+  align-self: center;
+  margin-left: auto;
+}
+
+.coursenav__links__item {
+}
+
+.coursenav__links__item__link {
+  @include focusable($hanred, 1px, -1px);
+  display: block;
+  padding: 27px 24px;
+  border-bottom: 5px solid transparent;
+  color: $black;
+  text-decoration: none;
+  font-size: 15px;
+
+  .is-active & {
+    border-bottom-color: $hanred;
+    background-color: $white;
+    font-family: $demi;
+  }
 }

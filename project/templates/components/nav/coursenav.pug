@@ -1,7 +1,16 @@
 //- @pugdoc
   name: Coursenav
   example: |
-    +coursenav
+    +coursenav('Pabo Deeltijd', [{ href: '/deeltijd/overzicht.html', label: 'Overzicht' }, { href: '/deeltijd/studie.html', label: 'Dit is je studie' }, { href: '/deeltijd/praktisch.html', label: 'Praktische info' }])
 
-mixin coursenav
-  .coursenav coursenav
+mixin coursenav(title, links)
+  .coursenav
+    .coursenav-wrapper
+      if title
+        a.coursenav__title(href=links[0].href) #{title}
+
+      ul.coursenav__links
+        each item in links
+          - const cls = (item.href.replace('.html', '') === pagePath) ? 'is-active' : null;
+          li.coursenav__links__item(class=cls)
+            a.coursenav__links__item__link(href=item.href) #{item.label}

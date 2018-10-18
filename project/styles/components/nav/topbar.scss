@@ -1,5 +1,84 @@
 .topbar {
-  padding: 10px;
   background-color: $black;
+}
+
+.topbar-wrapper {
+  display: flex;
+  height: 87px;
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/**
+ * Logo
+ */
+
+.topbar__logo {
+  @include focusable($white, 1px, 10px);
+  align-self: center;
+  margin-left: 30px;
+
+  svg {
+    display: block;
+  }
+}
+
+/**
+ * Links
+ */
+
+.topbar__links {
+  display: flex;
+  align-self: center;
+  margin-left: auto;
+}
+
+.topbar__links__item {
+  font-family: $demi;
+}
+
+.topbar__links__item__link {
+  @include focusable($white, 1px, -1px);
+  display: block;
   color: $white;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 24px;
+}
+
+/**
+ * Search
+ */
+
+.topbar__search {
+  @include focusable($white, 1px, -4px);
+  width: 87px;
+  height: 100%;
+  background-color: $grey6;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+
+  .icon-search {
+    fill: $white;
+  }
+}
+
+/**
+ * Hamburger
+ */
+
+.topbar__hamburger {
+  @include focusable($white, 1px, -4px);
+  width: 87px;
+  height: 100%;
+  background-color: $hanred;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+
+  .icon-hamburger {
+    fill: $white;
+  }
 }
