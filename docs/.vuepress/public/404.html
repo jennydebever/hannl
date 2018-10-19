@@ -35,13 +35,15 @@
             <li class="topbar__links__item"><a class="topbar__links__item__link" href="/">Opleidingen</a></li>
             <li class="topbar__links__item"><a class="topbar__links__item__link" href="/">Studiekeuze</a></li>
           </ul>
-          <button class="topbar__search" type="button" aria-label="Zoekfunctie" aria-expanded="false" aria-controls="sitesearch"><svg class="icon icon-search" aria-hidden="true" viewBox="0 0 24 24" width="24" height="24"><use xlink:href="#search"></use></svg>
+          <button class="topbar__search js-sitesearch-show" type="button" aria-label="Zoekfunctie" aria-expanded="false" aria-controls="sitesearch"><svg class="icon icon-search" aria-hidden="true" viewBox="0 0 24 24" width="24" height="24"><use xlink:href="#search"></use></svg>
           </button>
-          <button class="topbar__hamburger" type="button" aria-label="Hoofdnavigatie" aria-expanded="false" aria-controls="menu"><svg class="icon icon-hamburger" aria-hidden="true" viewBox="0 0 24 24" width="24" height="24"><use xlink:href="#hamburger"></use></svg>
+          <button class="topbar__hamburger js-menu-show" type="button" aria-label="Hoofdnavigatie" aria-expanded="false" aria-controls="menu"><svg class="icon icon-hamburger" aria-hidden="true" viewBox="0 0 24 24" width="24" height="24"><use xlink:href="#hamburger"></use></svg>
           </button>
         </div>
       </div>
     </div>
+    <div class="sitesearch js-sitesearch" hidden="hidden" id="sitesearch" role="dialog" aria-modal="aria-modal" aria-label="Zoeken">site search</div>
+    <nav class="menu js-menu" hidden="hidden" id="menu" role="dialog" aria-modal="aria-modal" aria-label="Hoofdnavigatie">Menu</nav>
     <div class="main" role="main" id="content">404
     </div>
     <footer class="footer">footer</footer>

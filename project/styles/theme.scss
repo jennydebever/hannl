@@ -1,42 +1,44 @@
-@import './vars';
-@import './libs/fonts';
+@import "./vars";
+@import "./libs/fonts";
 
 // libs
-@import './libs/normalize';
-@import './libs/reset';
-@import './libs/breakpoint';
-@import './libs/margins';
+@import "./libs/normalize";
+@import "./libs/reset";
+@import "./libs/breakpoint";
+@import "./libs/margins";
 
 // common
-@import './common/body';
-@import './common/layout';
-@import './common/accessibility';
+@import "./common/body";
+@import "./common/layout";
+@import "./common/accessibility";
 
 // typography
-@import './typography/text';
-@import './typography/demo-typo';
-@import './typography/richtext.scss';
+@import "./typography/text";
+@import "./typography/demo-typo";
+@import "./typography/richtext.scss";
 
 // nav
-@import './components/nav/skiplinks';
-@import './components/nav/coursenav';
-@import './components/nav/topbar';
+@import "./components/nav/coursenav";
+@import "./components/nav/topbar";
 
 // atoms
-@import './components/atoms/richtext';
-@import './components/atoms/btn-primary';
-@import './components/atoms/btn-secondary';
-@import './components/atoms/strong-link';
+@import "./components/atoms/richtext";
+@import "./components/atoms/btn-primary";
+@import "./components/atoms/btn-secondary";
+@import "./components/atoms/strong-link";
 
 // components
-@import './components/section';
-@import './components/hero/hero';
-@import './components/content/textmedia';
-@import './components/content/collapsibles';
-@import './components/content/intro';
+@import "./components/section";
+@import "./components/hero/hero";
+@import "./components/content/textmedia";
+@import "./components/content/collapsibles";
+@import "./components/content/intro";
 
 // least important loading order
-@import './components/nav/footer';
+@import "./components/nav/sitesearch";
+@import "./components/nav/menu";
+@import "./components/nav/skiplinks";
+@import "./components/nav/footer";
 
 // demo
-@import './demo/theme';
+@import "./demo/theme";

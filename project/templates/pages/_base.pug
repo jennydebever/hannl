@@ -1,5 +1,7 @@
 include ../components/nav/topbar
 include ../components/nav/footer
+include ../components/nav/sitesearch
+include ../components/nav/menu
 
 block vars
   - let pageTitle = [];
@@ -44,9 +46,14 @@ html(lang='nl')
       .nav(class='js-nav')
         +topbar
         block subnav
+      
+      +sitesearch
+      +menu
+    
 
     .main(role='main', id='content')
       block main
+
 
     block footer
       +footer
