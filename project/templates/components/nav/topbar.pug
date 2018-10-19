@@ -16,7 +16,7 @@ mixin topbar
           li.topbar__links__item
             a.topbar__links__item__link(href=item.href) #{item.label}
       
-      button.topbar__search(type="button", aria-label='Zoekfunctie', aria-expanded='false', aria-controls='sitesearch', class='js-sitesearch-show')
+      button.topbar__search(type="button", aria-label='Zoekfunctie openen', aria-expanded='false', aria-controls='sitesearch', class='js-modal-open')
         +icon#search
-      button.topbar__hamburger(type="button" aria-label='Hoofdnavigatie', aria-expanded='false', aria-controls='menu', class='js-menu-show')
+      button.topbar__hamburger(type="button" aria-label='Hoofdnavigatie openen', aria-expanded='false', aria-controls='menu', class='js-modal-open')
         +icon#hamburger

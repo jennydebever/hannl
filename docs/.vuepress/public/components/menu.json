@@ -1,1 +1,1 @@
-{"name":"Menu","slug":"menu","height":15,"source":"<nav class=\"menu js-menu\" hidden=\"hidden\" id=\"menu\" role=\"dialog\" aria-modal=\"aria-modal\" aria-label=\"Hoofdnavigatie\">Menu</nav>"}
+{"name":"Menu","slug":"menu","height":15,"source":"<nav class=\"menu js-menu\" hidden=\"hidden\" id=\"menu\" role=\"dialog\" aria-modal=\"aria-modal\" aria-label=\"Hoofdnavigatie\">Menu<button class=\"menu__close js-modal-close\" type=\"button\" aria-label=\"Hoofdnavigatie sluiten\" aria-expanded=\"false\" aria-controls=\"menu\">Sluiten</button></nav>"}

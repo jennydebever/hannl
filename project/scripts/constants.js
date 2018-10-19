@@ -7,8 +7,7 @@ var keyMirror = require("keymirror");
 var classes = {
   OPEN_CLASS: "is-open",
   CLOSED_CLASS: "is-closed",
-  MENU_OPEN_CLASS: "menu-is-open",
-  SITESEARCH_OPEN_CLASS: "sitesearch-is-open"
+  MODAL_OPEN_CLASS: "modal-is-open"
 };
 
 /**
