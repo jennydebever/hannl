@@ -45,7 +45,8 @@ $grid-item-spacing-l: 20px;
   justify-content: center;
   flex-wrap: wrap;
   max-width: #{$container-width + 40px};
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 @function grid-calc($columns) {
@@ -125,7 +126,7 @@ $grid-item-spacing-l: 20px;
 
   .demo-grid__item {
     span {
-      background-color: rgba(blue, 0.25);
+      background-color: rgba($hanred, 0.25);
     }
   }
 }

@@ -1,14 +1,14 @@
 .coursenav {
+  @include page-spacing;
+  @include grid;
   background-color: $grey1;
   position: relative;
   z-index: 98;
 }
 
 .coursenav-wrapper {
+  @include grid-item(12);
   display: flex;
-  max-width: 1160px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 /**
@@ -45,6 +45,13 @@
       &::after {
         display: block;
       }
+    }
+  }
+
+  &:last-of-type {
+    .coursenav__links__item__subnav {
+      left: auto;
+      right: 0;
     }
   }
 }
@@ -156,7 +163,7 @@
 
   .has-coursenav-dropdown-open & {
     display: block;
-    animation: animate-coursenav-overlay-in 0.4s $ease forwards;
+    animation: animate-coursenav-overlay-in 2.5s $ease forwards;
     transform: scale(1, 1, 1);
   }
 }
