@@ -7,7 +7,61 @@ block append vars
   - pagePath = '/deeltijd/studie';
 
 block subnav
-  +coursenav('Pabo Deeltijd', [{ href: '/deeltijd/overzicht.html', label: 'Overzicht' }, { href: '/deeltijd/studie.html', label: 'Dit is je studie' }, { href: '/deeltijd/info.html', label: 'Praktische info' }])
+  - 
+    var items = [
+    {
+      href: "/deeltijd/overzicht.html",
+      label: "Overzicht",
+      subitems: [
+        {
+          href: "#id1",
+          label: "Kop 1"
+        },
+        {
+          href: "#id2",
+          label: "Kop 2"
+        },
+        {
+          href: "#id3",
+          label: "Kop 3"
+        }
+      ]
+    },
+    {
+      href: "/deeltijd/studie.html",
+      label: "Dit is je studie",
+      subitems: [
+        {
+          href: "#id1",
+          label: "Kop 1"
+        },
+        {
+          href: "#id2",
+          label: "Kop 2"
+        },
+        {
+          href: "#id3",
+          label: "Kop 3"
+        },
+        {
+          href: "#id4",
+          label: "Kop 4"
+        }
+      ]
+    },
+    {
+      href: "/deeltijd/praktisch.html",
+      label: "Praktische info",
+      subitems: [
+        {
+          href: "#id1",
+          label: "Kop 1"
+        }
+      ]
+    }
+    ];
+
+  +coursenav('Pabo Deeltijd', items)
 
 block main
   | deeltijd dit is je studie

@@ -6,12 +6,14 @@ var keyMirror = require("keymirror");
 
 var classes = {
   OPEN_CLASS: "is-open",
+  FOCUS_CLASS: "has-focus",
   CLOSED_CLASS: "is-closed",
   MODAL_OPEN_CLASS: "modal-is-open",
   SCROLLING_UP_CLASS: "is-scrolling-up",
   SCROLLED_TOP_CLASS: "is-scrolled-to-top",
   SCROLLED_BOTTOM_CLASS: "is-scrolled-to-bottom",
-  SCROLLED_FREE_CLASS: "is-scrolled-free"
+  SCROLLED_FREE_CLASS: "is-scrolled-free",
+  COURSENAV_DROPDOWN_OPEN_CLASS: "has-coursenav-dropdown-open"
 };
 
 /**

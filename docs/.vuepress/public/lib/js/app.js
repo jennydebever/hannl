@@ -4,7 +4,7 @@
       if (!s[t]) {
         var n = "function" == typeof require && require;
         if (!e && n) return n(t, !0);
-        if (l) return l(t, !0);
+        if (u) return u(t, !0);
         var o = new Error("Cannot find module '" + t + "'");
         throw ((o.code = "MODULE_NOT_FOUND"), o);
       }
@@ -24,7 +24,7 @@
     }
     return a[t].exports;
   }
-  for (var l = "function" == typeof require && require, e = 0; e < c.length; e++) d(c[e]);
+  for (var u = "function" == typeof require && require, e = 0; e < c.length; e++) d(c[e]);
   return d;
 })(
   {
@@ -147,10 +147,10 @@
         } catch (e) {
           r = !1;
         }
-        function l(e) {
+        function u(e) {
           return void 0 === e._maxListeners ? o.defaultMaxListeners : e._maxListeners;
         }
-        function u(e, t, n, o) {
+        function l(e, t, n, o) {
           var r, i, s;
           if ("function" != typeof n) throw new TypeError('"listener" argument must be a function');
           if (
@@ -161,7 +161,7 @@
           ) {
             if (
               ("function" == typeof s ? (s = i[t] = o ? [n, s] : [s, n]) : o ? s.unshift(n) : s.push(n),
-              !s.warned && (r = l(e)) && 0 < r && s.length > r)
+              !s.warned && (r = u(e)) && 0 < r && s.length > r)
             ) {
               s.warned = !0;
               var a = new Error(
@@ -233,7 +233,7 @@
             return (this._maxListeners = e), this;
           }),
           (o.prototype.getMaxListeners = function() {
-            return l(this);
+            return u(this);
           }),
           (o.prototype.emit = function(e) {
             var t,
@@ -287,10 +287,10 @@
             return !0;
           }),
           (o.prototype.on = o.prototype.addListener = function(e, t) {
-            return u(this, e, t, !1);
+            return l(this, e, t, !1);
           }),
           (o.prototype.prependListener = function(e, t) {
-            return u(this, e, t, !0);
+            return l(this, e, t, !0);
           }),
           (o.prototype.once = function(e, t) {
             if ("function" != typeof t) throw new TypeError('"listener" argument must be a function');
@@ -460,7 +460,7 @@
                 (L = s),
                 h(),
                 E(function() {
-                  y(u());
+                  y(l());
                 }),
                 o.addEventListener("focusin", p, !0),
                 o.addEventListener("mousedown", f, !0),
@@ -482,7 +482,7 @@
                 s
               );
           }
-          function l(e) {
+          function u(e) {
             var t = r[e],
               n = t;
             if (!t) return null;
@@ -491,15 +491,15 @@
             if ("function" == typeof t && !(n = t())) throw new Error("`" + e + "` did not return a node");
             return n;
           }
-          function u() {
+          function l() {
             var e;
             if (
               !(e =
-                null !== l("initialFocus")
-                  ? l("initialFocus")
+                null !== u("initialFocus")
+                  ? u("initialFocus")
                   : n.contains(o.activeElement)
                     ? o.activeElement
-                    : i.firstTabbableNode || l("fallbackFocus"))
+                    : i.firstTabbableNode || u("fallbackFocus"))
             )
               throw new Error("You can't have a focus-trap without at least one focusable element");
             return e;
@@ -511,7 +511,7 @@
           function p(e) {
             n.contains(e.target) ||
               e.target instanceof Document ||
-              (e.stopImmediatePropagation(), y(i.mostRecentlyFocusedNode || u()));
+              (e.stopImmediatePropagation(), y(i.mostRecentlyFocusedNode || l()));
           }
           function v(e) {
             if (!1 !== r.escapeDeactivates && ("Escape" === (t = e).key || "Esc" === t.key || 27 === t.keyCode))
@@ -530,7 +530,7 @@
           }
           function h() {
             var e = b(n);
-            (i.firstTabbableNode = e[0] || u()), (i.lastTabbableNode = e[e.length - 1] || u());
+            (i.firstTabbableNode = e[0] || l()), (i.lastTabbableNode = e[e.length - 1] || l());
           }
           function y(e) {
             var t;
@@ -539,7 +539,7 @@
                 ? (e.focus(),
                   (i.mostRecentlyFocusedNode = e),
                   (t = e).tagName && "input" === t.tagName.toLowerCase() && "function" == typeof t.select && e.select())
-                : y(u()));
+                : y(l()));
           }
         };
       },
@@ -581,7 +581,7 @@
         "use strict";
         var c = Object.getOwnPropertySymbols,
           d = Object.prototype.hasOwnProperty,
-          l = Object.prototype.propertyIsEnumerable;
+          u = Object.prototype.propertyIsEnumerable;
         t.exports = (function() {
           try {
             if (!Object.assign) return !1;
@@ -624,7 +624,7 @@
                 for (var s in (n = Object(arguments[i]))) d.call(n, s) && (r[s] = n[s]);
                 if (c) {
                   o = c(n);
-                  for (var a = 0; a < o.length; a++) l.call(n, o[a]) && (r[o[a]] = n[o[a]]);
+                  for (var a = 0; a < o.length; a++) u.call(n, o[a]) && (r[o[a]] = n[o[a]]);
                 }
               }
               return r;
@@ -682,8 +682,8 @@
                   );
                 }
               },
-              D = "cubic-bezier( 0.19, 1, 0.22, 1 )";
-            function j(e) {
+              j = "cubic-bezier( 0.19, 1, 0.22, 1 )";
+            function D(e) {
               return 0 !== e.offsetHeight;
             }
             function B(e) {
@@ -707,7 +707,7 @@
                   (N.onComplete && console.warn("options.onComplete will be deprecated. use 'then' instead"),
                   -1 === P.findIndex(x))
                 ) {
-                  var t = j(x),
+                  var t = D(x),
                     n = "number" == typeof N.endHeight,
                     o = N.display || "block",
                     r = N.duration || 400,
@@ -737,42 +737,42 @@
                         { height: d, paddingTop: i, paddingBottom: s, borderTop: a, borderBottom: c }
                       );
                     })(x, o),
-                    l = /border-box/.test(c.getPropertyValue("box-sizing")),
-                    u = d.height,
+                    u = /border-box/.test(c.getPropertyValue("box-sizing")),
+                    l = d.height,
                     f = d.paddingTop,
                     p = d.paddingBottom,
                     v = d.borderTop,
                     m = d.borderBottom,
                     h = r + "ms",
-                    y = ["height " + h + " " + D, "padding " + h + " " + D, "border-width " + h + " " + D].join(),
+                    y = ["height " + h + " " + j, "padding " + h + " " + j, "border-width " + h + " " + j].join(),
                     b = t ? c.height : "0px",
                     g = t ? c.paddingTop : "0px",
                     L = t ? c.paddingBottom : "0px",
                     E = t ? c.borderTopWidth : "0px",
-                    w = t ? c.borderBottomWidth : "0px",
-                    _ = n ? N.endHeight + "px" : l ? u + v + m + "px" : u - f - p + "px",
-                    S = f + "px",
+                    _ = t ? c.borderBottomWidth : "0px",
+                    S = n ? N.endHeight + "px" : u ? l + v + m + "px" : l - f - p + "px",
+                    w = f + "px",
                     O = p + "px",
-                    A = v + "px",
-                    C = m + "px";
-                  if (b === _ && g === S && L === O && E === A && w === C) return i(), void e();
+                    C = v + "px",
+                    A = m + "px";
+                  if (b === S && g === w && L === O && E === C && _ === A) return i(), void e();
                   requestAnimationFrame(function() {
                     (x.style.height = b),
                       (x.style.paddingTop = g),
                       (x.style.paddingBottom = L),
                       (x.style.borderTopWidth = E),
-                      (x.style.borderBottomWidth = w),
+                      (x.style.borderBottomWidth = _),
                       (x.style.display = o),
                       (x.style.overflow = "hidden"),
                       (x.style.visibility = "visible"),
                       (x.style.transition = y),
                       (x.style.webkitTransition = y),
                       requestAnimationFrame(function() {
-                        (x.style.height = _),
-                          (x.style.paddingTop = S),
+                        (x.style.height = S),
+                          (x.style.paddingTop = w),
                           (x.style.paddingBottom = O),
-                          (x.style.borderTopWidth = A),
-                          (x.style.borderBottomWidth = C);
+                          (x.style.borderTopWidth = C),
+                          (x.style.borderBottomWidth = A);
                       });
                   });
                   var T = setTimeout(function() {
@@ -787,56 +787,56 @@
                 }
               });
             }),
-              (e.slideUp = function(w) {
-                var _ = 1 < arguments.length && void 0 !== arguments[1] ? arguments[1] : {};
+              (e.slideUp = function(_) {
+                var S = 1 < arguments.length && void 0 !== arguments[1] ? arguments[1] : {};
                 return new t(function(e) {
                   if (
-                    (_.onComplete && console.warn("options.onComplete will be deprecated. use 'then' instead"),
-                    -1 === P.findIndex(w))
+                    (S.onComplete && console.warn("options.onComplete will be deprecated. use 'then' instead"),
+                    -1 === P.findIndex(_))
                   ) {
-                    var t = j(w),
-                      n = _.display || "block",
-                      o = _.duration || 400,
-                      r = _.onComplete || function() {},
-                      i = _.onCancelled || function() {};
+                    var t = D(_),
+                      n = S.display || "block",
+                      o = S.duration || 400,
+                      r = S.onComplete || function() {},
+                      i = S.onCancelled || function() {};
                     if (!t) return r(), void e();
-                    var s = w.getAttribute("style") || "",
-                      a = window.getComputedStyle(w),
+                    var s = _.getAttribute("style") || "",
+                      a = window.getComputedStyle(_),
                       c = /border-box/.test(a.getPropertyValue("box-sizing")),
                       d = k(a.getPropertyValue("padding-top")),
-                      l = k(a.getPropertyValue("padding-bottom")),
-                      u = k(a.getPropertyValue("border-top-width")),
+                      u = k(a.getPropertyValue("padding-bottom")),
+                      l = k(a.getPropertyValue("border-top-width")),
                       f = k(a.getPropertyValue("border-bottom-width")),
-                      p = w.scrollHeight,
+                      p = _.scrollHeight,
                       v = o + "ms",
-                      m = ["height " + v + " " + D, "padding " + v + " " + D, "border-width " + v + " " + D].join(),
-                      h = c ? p + u + f + "px" : p - d - l + "px",
+                      m = ["height " + v + " " + j, "padding " + v + " " + j, "border-width " + v + " " + j].join(),
+                      h = c ? p + l + f + "px" : p - d - u + "px",
                       y = d + "px",
-                      b = l + "px",
-                      g = u + "px",
+                      b = u + "px",
+                      g = l + "px",
                       L = f + "px";
                     requestAnimationFrame(function() {
-                      (w.style.height = h),
-                        (w.style.paddingTop = y),
-                        (w.style.paddingBottom = b),
-                        (w.style.borderTopWidth = g),
-                        (w.style.borderBottomWidth = L),
-                        (w.style.display = n),
-                        (w.style.overflow = "hidden"),
-                        (w.style.transition = m),
-                        (w.style.webkitTransition = m),
+                      (_.style.height = h),
+                        (_.style.paddingTop = y),
+                        (_.style.paddingBottom = b),
+                        (_.style.borderTopWidth = g),
+                        (_.style.borderBottomWidth = L),
+                        (_.style.display = n),
+                        (_.style.overflow = "hidden"),
+                        (_.style.transition = m),
+                        (_.style.webkitTransition = m),
                         requestAnimationFrame(function() {
-                          (w.style.height = 0),
-                            (w.style.paddingTop = 0),
-                            (w.style.paddingBottom = 0),
-                            (w.style.borderTopWidth = 0),
-                            (w.style.borderBottomWidth = 0);
+                          (_.style.height = 0),
+                            (_.style.paddingTop = 0),
+                            (_.style.paddingBottom = 0),
+                            (_.style.borderTopWidth = 0),
+                            (_.style.borderBottomWidth = 0);
                         });
                     });
                     var E = setTimeout(function() {
-                      B(w), (w.style.display = "none"), P.remove(w), r(), e();
+                      B(_), (_.style.display = "none"), P.remove(_), r(), e();
                     }, o);
-                    P.add(w, s, E, i);
+                    P.add(_, s, E, i);
                   }
                 });
               }),
@@ -858,7 +858,7 @@
                     P.remove(e);
                 }
               }),
-              (e.isVisible = j),
+              (e.isVisible = D),
               Object.defineProperty(e, "__esModule", { value: !0 });
           }),
           "object" == typeof n && void 0 !== t
@@ -883,7 +883,7 @@
             '[contenteditable]:not([contenteditable="false"])'
           ],
           d = o.join(","),
-          l =
+          u =
             "undefined" == typeof Element
               ? function() {}
               : Element.prototype.matches ||
@@ -899,11 +899,11 @@
             a = new v(e.ownerDocument || e),
             c = e.querySelectorAll(d);
           for (
-            t.includeContainer && l.call(e, d) && (c = Array.prototype.slice.apply(c)).unshift(e), n = 0;
+            t.includeContainer && u.call(e, d) && (c = Array.prototype.slice.apply(c)).unshift(e), n = 0;
             n < c.length;
             n++
           )
-            u((o = c[n]), a) && (0 === (r = f(o)) ? i.push(o) : s.push({ documentOrder: n, tabIndex: r, node: o }));
+            l((o = c[n]), a) && (0 === (r = f(o)) ? i.push(o) : s.push({ documentOrder: n, tabIndex: r, node: o }));
           return s
             .sort(p)
             .map(function(e) {
@@ -911,7 +911,7 @@
             })
             .concat(i);
         }
-        function u(e, t) {
+        function l(e, t) {
           return !(
             !i(e, t) ||
             (a((o = n = e)) &&
@@ -936,11 +936,11 @@
         }
         (r.isTabbable = function(e, t) {
           if (!e) throw new Error("No node provided");
-          return !1 !== l.call(e, d) && u(e, t);
+          return !1 !== u.call(e, d) && l(e, t);
         }),
           (r.isFocusable = function(e, t) {
             if (!e) throw new Error("No node provided");
-            return !1 !== l.call(e, s) && i(e, t);
+            return !1 !== u.call(e, s) && i(e, t);
           });
         var s = o.concat("iframe").join(",");
         function f(e) {
@@ -1026,7 +1026,7 @@
             }
           })();
       },
-      { "../../../constants": 24, "delegate-events": 4, "find-parent": 6, "slide-anim": 11 }
+      { "../../../constants": 25, "delegate-events": 4, "find-parent": 6, "slide-anim": 11 }
     ],
     15: [
       function(e, t, n) {
@@ -1096,9 +1096,46 @@
             t && r(t);
           });
       },
-      { "../../constants": 24, "../ui/focus-trap": 20, "delegate-events": 4 }
+      { "../../constants": 25, "../ui/focus-trap": 21, "delegate-events": 4 }
     ],
     16: [
+      function(e, t, n) {
+        var o,
+          r = e("delegate-events"),
+          i = e("find-parent"),
+          s = e("../../../constants");
+        function a(e) {
+          e !== o &&
+            (c(null),
+            (o = e).classList.add(s.FOCUS_CLASS),
+            document.body.classList.add(s.COURSENAV_DROPDOWN_OPEN_CLASS));
+        }
+        function c(e) {
+          e !== o &&
+            o &&
+            (o.classList.remove(s.FOCUS_CLASS),
+            document.body.classList.remove(s.COURSENAV_DROPDOWN_OPEN_CLASS),
+            (o = null));
+        }
+        r.bind(document.body, ".js-subnav__item", "mouseover", function(e) {
+          a(i.byClassName(e.delegateTarget, "js-subnav__item"));
+        }),
+          r.bind(document.body, ".js-subnav__item", "mouseout", function(e) {
+            c(i.byClassName(e.relatedTarget, "js-subnav__item"));
+          }),
+          r.bind(document.body, ".js-subnav__item a", "focusin", function(e) {
+            a(i.byClassName(e.delegateTarget, "js-subnav__item"));
+          }),
+          r.bind(document.body, ".js-subnav__item a", "focusout", function(e) {
+            c(i.byClassName(e.relatedTarget, "js-subnav__item"));
+          }),
+          r.bind(document.body, ".js-coursenav-dropdown-close", "focus", function() {
+            c();
+          });
+      },
+      { "../../../constants": 25, "delegate-events": 4, "find-parent": 6 }
+    ],
+    17: [
       function(e, t, n) {
         var o = e("../../dispatcher"),
           r = e("../../../constants"),
@@ -1118,9 +1155,9 @@
         }
         o.on(r.EVENT_RESIZE, d), setTimeout(d, 0);
       },
-      { "../../../constants": 24, "../../dispatcher": 17 }
+      { "../../../constants": 25, "../../dispatcher": 18 }
     ],
-    17: [
+    18: [
       function(e, t, n) {
         var o = e("events").EventEmitter,
           r = e("object-assign")({}, o.prototype, {
@@ -1139,11 +1176,12 @@
       },
       { events: 5, "object-assign": 10 }
     ],
-    18: [
+    19: [
       function(e, t, n) {
         (window.HAN = {}),
           e("./ui/breakpoint"),
           e("./components/nav/fixed"),
+          e("./components/nav/coursenav"),
           e("./ui/scroll-direction"),
           e("./utils/grid"),
           e("./utils/video"),
@@ -1154,14 +1192,15 @@
       {
         "./components/content/collapsibles": 14,
         "./components/modal": 15,
-        "./components/nav/fixed": 16,
-        "./ui/breakpoint": 19,
-        "./ui/scroll-direction": 21,
-        "./utils/grid": 22,
-        "./utils/video": 23
+        "./components/nav/coursenav": 16,
+        "./components/nav/fixed": 17,
+        "./ui/breakpoint": 20,
+        "./ui/scroll-direction": 22,
+        "./utils/grid": 23,
+        "./utils/video": 24
       }
     ],
-    19: [
+    20: [
       function(e, t, n) {
         var o = e("../../constants"),
           r = e("../dispatcher"),
@@ -1184,9 +1223,9 @@
         }
         d(), window.addEventListener("resize", i(a, 50)), a(), (t.exports.get = c);
       },
-      { "../../constants": 24, "../dispatcher": 17, debounce: 3 }
+      { "../../constants": 25, "../dispatcher": 18, debounce: 3 }
     ],
-    20: [
+    21: [
       function(e, t, n) {
         var o,
           r = e("focus-trap"),
@@ -1202,7 +1241,7 @@
       },
       { "focus-trap": 7, "object-assign": 10 }
     ],
-    21: [
+    22: [
       function(e, t, n) {
         var r = e("../../constants"),
           i = document.querySelector(".js-topbar");
@@ -1240,9 +1279,9 @@
         }
         o(), window.addEventListener("scroll", o, { passive: !0 });
       },
-      { "../../constants": 24 }
+      { "../../constants": 25 }
     ],
-    22: [
+    23: [
       function(e, t, n) {
         var o = 0;
         function r() {
@@ -1266,7 +1305,7 @@
       },
       {}
     ],
-    23: [
+    24: [
       function(e, t, n) {
         var o,
           r = document.getElementsByClassName("play-pause");
@@ -1280,19 +1319,21 @@
       },
       {}
     ],
-    24: [
+    25: [
       function(e, t, n) {
         var o = e("keymirror")({ EVENT_BREAKPOINT_CHANGE: null, EVENT_RESIZE: null }),
           r = Object.assign(
             {},
             {
               OPEN_CLASS: "is-open",
+              FOCUS_CLASS: "has-focus",
               CLOSED_CLASS: "is-closed",
               MODAL_OPEN_CLASS: "modal-is-open",
               SCROLLING_UP_CLASS: "is-scrolling-up",
               SCROLLED_TOP_CLASS: "is-scrolled-to-top",
               SCROLLED_BOTTOM_CLASS: "is-scrolled-to-bottom",
-              SCROLLED_FREE_CLASS: "is-scrolled-free"
+              SCROLLED_FREE_CLASS: "is-scrolled-free",
+              COURSENAV_DROPDOWN_OPEN_CLASS: "has-coursenav-dropdown-open"
             },
             o,
             {
@@ -1315,5 +1356,5 @@
     ]
   },
   {},
-  [18]
+  [19]
 );

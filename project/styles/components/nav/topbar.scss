@@ -1,5 +1,7 @@
 .topbar {
   background-color: $black;
+  position: relative;
+  z-index: 99;
 }
 
 .topbar-wrapper {

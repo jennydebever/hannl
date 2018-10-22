@@ -44,12 +44,30 @@
       <div class="coursenav js-subnav">
         <div class="coursenav-wrapper"><a class="coursenav__title" href="/deeltijd/overzicht.html">Pabo Deeltijd</a>
           <ul class="coursenav__links">
-            <li class="coursenav__links__item"><a class="coursenav__links__item__link" href="/deeltijd/overzicht.html">Overzicht</a></li>
-            <li class="coursenav__links__item"><a class="coursenav__links__item__link" href="/deeltijd/studie.html">Dit is je studie</a></li>
-            <li class="coursenav__links__item is-active"><a class="coursenav__links__item__link" href="/deeltijd/info.html">Praktische info</a></li>
+            <li class="coursenav__links__item js-subnav__item"><a class="coursenav__links__item__link" href="/deeltijd/overzicht.html">Overzicht</a>
+              <ul class="coursenav__links__item__subnav coursenav-dropdown">
+                <li class="coursenav-dropdown__item"><a class="coursenav-dropdown__item__link" href="#id1">Kop 1</a></li>
+                <li class="coursenav-dropdown__item"><a class="coursenav-dropdown__item__link" href="#id2">Kop 2</a></li>
+                <li class="coursenav-dropdown__item"><a class="coursenav-dropdown__item__link" href="#id3">Kop 3</a></li>
+              </ul>
+            </li>
+            <li class="coursenav__links__item js-subnav__item"><a class="coursenav__links__item__link" href="/deeltijd/studie.html">Dit is je studie</a>
+              <ul class="coursenav__links__item__subnav coursenav-dropdown">
+                <li class="coursenav-dropdown__item"><a class="coursenav-dropdown__item__link" href="#id1">Kop 1</a></li>
+                <li class="coursenav-dropdown__item"><a class="coursenav-dropdown__item__link" href="#id2">Kop 2</a></li>
+                <li class="coursenav-dropdown__item"><a class="coursenav-dropdown__item__link" href="#id3">Kop 3</a></li>
+                <li class="coursenav-dropdown__item"><a class="coursenav-dropdown__item__link" href="#id4">Kop 4</a></li>
+              </ul>
+            </li>
+            <li class="coursenav__links__item js-subnav__item"><a class="coursenav__links__item__link" href="/deeltijd/praktisch.html">Praktische info</a>
+              <ul class="coursenav__links__item__subnav coursenav-dropdown">
+                <li class="coursenav-dropdown__item"><a class="coursenav-dropdown__item__link" href="#id1">Kop 1</a></li>
+              </ul>
+            </li>
           </ul>
         </div>
       </div>
+      <div class="coursenav-overlay"></div>
     </div>
     <div class="sitesearch js-sitesearch" hidden="hidden" id="sitesearch" role="dialog" aria-modal="aria-modal" aria-label="Zoeken">site search
       <button class="sitesearch__close js-modal-close" type="button" aria-label="Zoekfunctie sluiten" aria-expanded="false" aria-controls="sitesearch">Sluiten</button>
