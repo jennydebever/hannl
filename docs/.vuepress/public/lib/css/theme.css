@@ -97,7 +97,7 @@ template {
 a {
   background-color: transparent;
 }
-:focus,
+[data-whatinput="touch"] :focus,
 a:active,
 a:hover {
   outline: 0;
@@ -736,7 +736,7 @@ body {
   -webkit-align-self: center;
   -ms-flex-item-align: center;
 }
-.coursenav__title:not(.focus--mouse):focus {
+[data-whatinput="keyboard"] .coursenav__title:focus {
   outline: 1px solid rgba(0, 0, 0, 0.75);
   outline-offset: 3px;
 }
@@ -772,7 +772,7 @@ body {
   text-decoration: none;
   font-size: 15px;
 }
-.coursenav__links__item__link:not(.focus--mouse):focus {
+[data-whatinput="keyboard"] .coursenav__links__item__link:focus {
   outline: 1px solid rgba(229, 0, 86, 0.75);
   outline-offset: -1px;
 }
@@ -794,7 +794,7 @@ body {
   align-self: center;
   margin-left: 30px;
 }
-.topbar__logo:not(.focus--mouse):focus {
+[data-whatinput="keyboard"] .topbar__logo:focus {
   outline: 1px solid hsla(0, 0%, 100%, 0.75);
   outline-offset: 10px;
 }
@@ -823,7 +823,7 @@ body {
   font-size: 16px;
   padding: 24px;
 }
-.topbar__links__item__link:not(.focus--mouse):focus {
+[data-whatinput="keyboard"] .topbar__links__item__link:focus {
   outline: 1px solid hsla(0, 0%, 100%, 0.75);
   outline-offset: -1px;
 }
@@ -838,7 +838,7 @@ body {
   -ms-flex-pack: center;
   justify-content: center;
 }
-.topbar__search:not(.focus--mouse):focus {
+[data-whatinput="keyboard"] .topbar__search:focus {
   outline: 1px solid hsla(0, 0%, 100%, 0.75);
   outline-offset: -4px;
 }
@@ -865,7 +865,7 @@ body {
   content: "";
   left: 0;
 }
-.topbar__hamburger:not(.focus--mouse):focus {
+[data-whatinput="keyboard"] .topbar__hamburger:focus {
   outline: 1px solid hsla(0, 0%, 100%, 0.75);
   outline-offset: -4px;
 }
@@ -1194,7 +1194,7 @@ body {
   color: #fff;
   transition: background-color 0.1s, border-color 0.1s, color 0.1s;
 }
-.btn-primary:not(.focus--mouse):focus {
+[data-whatinput="keyboard"] .btn-primary:focus {
   outline: 1px solid rgba(0, 0, 0, 0.75);
   outline-offset: 3px;
 }
@@ -1246,7 +1246,7 @@ body {
   background-color: #fff;
   color: #000;
 }
-.btn-secondary:not(.focus--mouse):focus {
+[data-whatinput="keyboard"] .btn-secondary:focus {
   outline: 1px solid rgba(0, 0, 0, 0.75);
   outline-offset: 3px;
 }
@@ -1310,7 +1310,7 @@ body {
   font-family: AvenirNextLTW01-BoldCn, Avenir next, Avenir, sans-serif;
   text-transform: uppercase;
 }
-.strong-link:not(.focus--mouse):focus {
+[data-whatinput="keyboard"] .strong-link:focus {
   outline: 1px solid rgba(0, 0, 0, 0.75);
   outline-offset: 3px;
 }
@@ -1926,7 +1926,7 @@ body {
   margin-bottom: 1em;
   line-height: 1.6;
 }
-.collapsible__title__button:not(.focus--mouse):focus {
+[data-whatinput="keyboard"] .collapsible__title__button:focus {
   outline: 1px solid rgba(229, 0, 86, 0.75);
   outline-offset: 3px;
 }
@@ -2108,7 +2108,7 @@ body {
   border-color: #fff;
   color: #000;
 }
-.demo-theme-red .btn-primary:not(.focus--mouse):focus {
+[data-whatinput="keyboard"] .demo-theme-red .btn-primary:focus {
   outline: 1px solid hsla(0, 0%, 100%, 0.75);
   outline-offset: 3px;
 }
@@ -2124,7 +2124,7 @@ body {
   border-color: #fff;
   color: #fff;
 }
-.demo-theme-red .btn-secondary:not(.focus--mouse):focus {
+[data-whatinput="keyboard"] .demo-theme-red .btn-secondary:focus {
   outline: 1px solid hsla(0, 0%, 100%, 0.75);
   outline-offset: 3px;
 }
@@ -2138,7 +2138,7 @@ body {
   outline: 0;
   color: #fff;
 }
-.demo-theme-red .strong-link:not(.focus--mouse):focus {
+[data-whatinput="keyboard"] .demo-theme-red .strong-link:focus {
   outline: 1px solid hsla(0, 0%, 100%, 0.75);
   outline-offset: 3px;
 }
@@ -2156,7 +2156,7 @@ body {
   border-color: #fff;
   color: #000;
 }
-.demo-theme-black .btn-primary:not(.focus--mouse):focus {
+[data-whatinput="keyboard"] .demo-theme-black .btn-primary:focus {
   outline: 1px solid hsla(0, 0%, 100%, 0.75);
   outline-offset: 3px;
 }
@@ -2171,7 +2171,7 @@ body {
   border-color: #fff;
   color: #fff;
 }
-.demo-theme-black .btn-secondary:not(.focus--mouse):focus {
+[data-whatinput="keyboard"] .demo-theme-black .btn-secondary:focus {
   outline: 1px solid hsla(0, 0%, 100%, 0.75);
   outline-offset: 3px;
 }
@@ -2185,7 +2185,7 @@ body {
   outline: 0;
   color: #47cbae;
 }
-.demo-theme-black .strong-link:not(.focus--mouse):focus {
+[data-whatinput="keyboard"] .demo-theme-black .strong-link:focus {
   outline: 1px solid hsla(0, 0%, 100%, 0.75);
   outline-offset: 3px;
 }

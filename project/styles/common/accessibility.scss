@@ -42,7 +42,7 @@
 @mixin focusable($color: $black, $width: 1px, $offset: 3px) {
   outline: 0;
 
-  &:not(.focus--mouse) {
+  [data-whatinput="keyboard"] & {
     &:focus {
       @include focus-outline($color, $width, $offset);
     }

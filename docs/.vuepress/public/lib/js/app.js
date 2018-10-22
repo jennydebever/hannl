@@ -1035,33 +1035,32 @@
           a = e("../../constants"),
           c = null;
         function r(e) {
-          if (e) {
-            var i = document.getElementById(e);
-            if (!i) return;
+          if (!e || e === c) {
+            var i = document.getElementById(c);
+            i.addEventListener(
+              "animationend",
+              function e() {
+                document.removeEventListener("keydown", d),
+                  i.removeEventListener("animationend", e),
+                  i.classList.remove(a.CLOSED_CLASS),
+                  i.classList.remove(a.OPEN_CLASS),
+                  i.setAttribute("hidden", !0),
+                  document.body.classList.remove(a.MODAL_OPEN_CLASS),
+                  document.body.classList.remove(a.MODAL_OPEN_CLASS + "--" + c),
+                  s.disable();
+                for (
+                  var t = document.querySelectorAll(".js-modal-show[rel='" + c + "']"), n = 0, o = t.length;
+                  n < o;
+                  ++n
+                )
+                  t[n].setAttribute("aria-expanded", !0);
+                var r = document.querySelectorAll(".js-modal-hide[rel='" + c + "']");
+                for (n = 0, o = r.length; n < o; ++n) r[n].setAttribute("aria-expanded", !1);
+              },
+              !1
+            ),
+              i.classList.add(a.CLOSED_CLASS);
           }
-          i.addEventListener(
-            "animationend",
-            function e() {
-              document.removeEventListener("keydown", d),
-                i.removeEventListener("animationend", e),
-                i.classList.remove(a.CLOSED_CLASS),
-                i.classList.remove(a.OPEN_CLASS),
-                i.setAttribute("hidden", !0),
-                document.body.classList.remove(a.MODAL_OPEN_CLASS),
-                document.body.classList.remove(a.MODAL_OPEN_CLASS + "--" + c),
-                s.disable();
-              for (
-                var t = document.querySelectorAll(".js-modal-show[rel='" + c + "']"), n = 0, o = t.length;
-                n < o;
-                ++n
-              )
-                t[n].setAttribute("aria-expanded", !0);
-              var r = document.querySelectorAll(".js-modal-hide[rel='" + c + "']");
-              for (n = 0, o = r.length; n < o; ++n) r[n].setAttribute("aria-expanded", !1);
-            },
-            !1
-          ),
-            i.classList.add(a.CLOSED_CLASS);
         }
         function d(e) {
           e.which === a.KEY_ESCAPE && r();
@@ -1070,23 +1069,25 @@
           var t = e.delegateTarget.getAttribute("aria-controls");
           t &&
             (function(e) {
-              c = e;
-              var t = document.getElementById(e);
-              if (t) {
-                for (
-                  var n = document.querySelectorAll(".js-modal-show[rel='" + c + "']"), o = 0, r = n.length;
-                  o < r;
-                  ++o
-                )
-                  n[o].setAttribute("aria-expanded", !0);
-                var i = document.querySelectorAll(".js-modal-hide[rel='" + c + "']");
-                for (o = 0, r = i.length; o < r; ++o) i[o].setAttribute("aria-expanded", !1);
-                document.body.classList.add(a.MODAL_OPEN_CLASS),
-                  document.body.classList.add(a.MODAL_OPEN_CLASS + "--" + c),
-                  t.classList.add(a.OPEN_CLASS),
-                  t.removeAttribute("hidden"),
-                  s.enable(t),
-                  document.addEventListener("keydown", d, !1);
+              if (e) {
+                c = e;
+                var t = document.getElementById(e);
+                if (t) {
+                  for (
+                    var n = document.querySelectorAll(".js-modal-show[rel='" + c + "']"), o = 0, r = n.length;
+                    o < r;
+                    ++o
+                  )
+                    n[o].setAttribute("aria-expanded", !0);
+                  var i = document.querySelectorAll(".js-modal-hide[rel='" + c + "']");
+                  for (o = 0, r = i.length; o < r; ++o) i[o].setAttribute("aria-expanded", !1);
+                  document.body.classList.add(a.MODAL_OPEN_CLASS),
+                    document.body.classList.add(a.MODAL_OPEN_CLASS + "--" + c),
+                    t.classList.add(a.OPEN_CLASS),
+                    t.removeAttribute("hidden"),
+                    s.enable(t),
+                    document.addEventListener("keydown", d, !1);
+                }
               }
             })(t);
         }),

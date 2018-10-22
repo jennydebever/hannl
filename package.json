@@ -63,6 +63,7 @@
     "focus-trap": "^3.0.0",
     "keymirror": "^0.1.1",
     "slide-anim": "^1.2.0",
-    "track-focus": "^1.0.0"
+    "track-focus": "^1.0.0",
+    "what-input": "^5.1.2"
   }
 }

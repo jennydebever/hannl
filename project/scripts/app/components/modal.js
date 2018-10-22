@@ -20,6 +20,8 @@ var constants = require("../../constants");
 var currentModal = null;
 
 function open(rel) {
+  if (!rel) return;
+
   currentModal = rel;
   var $currentModal = document.getElementById(rel);
   if (!$currentModal) {
@@ -74,12 +76,11 @@ delegate.bind(document.body, ".js-modal-open", "click", onOpenButtonClick);
  */
 
 function close(rel) {
-  if (rel) {
-    var $currentModal = document.getElementById(rel);
-    if (!$currentModal) {
-      return;
-    }
+  if (rel && rel !== currentModal) {
+    return;
   }
+
+  var $currentModal = document.getElementById(currentModal);
 
   function closeAnimationEnd() {
     // stop listening for keydown
