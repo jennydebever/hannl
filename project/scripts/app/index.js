@@ -1,5 +1,8 @@
 window.HAN = {};
+require("./ui/breakpoint");
 
+require("./components/nav/fixed");
+require("./ui/scroll-direction");
 require("./utils/grid");
 require("./utils/video");
 require("./components/content/collapsibles");

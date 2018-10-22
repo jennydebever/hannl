@@ -1,0 +1,44 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 100;
+  background-color: $white;
+  transition: transform 0.5s $ease;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+
+  .is-scrolled-free & {
+    transform: translateY(-48px);
+
+    @include breakpoint($bp-m) {
+      transform: translateY(-88px);
+    }
+  }
+
+  .is-scrolled-to-top & {
+    transform: translateY(0);
+  }
+
+  .is-scrolled-to-bottom & {
+    transform: translateY(0);
+  }
+
+  .is-scrolling-up & {
+    transform: translateY(0);
+  }
+}
+
+/**
+ * Nav spacer, real time spacing is done by javascript
+ */
+
+.nav-spacer {
+  height: 48px;
+
+  @include breakpoint($bp-m) {
+    height: 87px;
+  }
+}

@@ -58,6 +58,7 @@
     "vuepress": "^0.14.4"
   },
   "dependencies": {
+    "debounce": "^1.2.0",
     "find-parent": "^2.0.2",
     "focus-trap": "^3.0.0",
     "keymirror": "^0.1.1",

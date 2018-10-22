@@ -1,4 +1,8 @@
 @charset "UTF-8"; /*! han.nl v0.1.0 */
+.section,
+svg:not(:root) {
+  overflow: hidden;
+}
 h1,
 small,
 sub,
@@ -9,10 +13,6 @@ button,
 img,
 legend {
   border: 0;
-}
-.topbar__hamburger .icon-hamburger,
-.topbar__search .icon-search {
-  fill: #fff;
 }
 @font-face {
   font-family: AvenirNextLTW01-Medium;
@@ -135,9 +135,6 @@ sub {
 img {
   max-width: 100%;
   image-rendering: -webkit-optimize-contrast;
-}
-svg:not(:root) {
-  overflow: hidden;
 }
 hr {
   box-sizing: content-box;
@@ -685,6 +682,34 @@ body {
   line-height: 1.7;
   margin-bottom: 2em;
 }
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 100;
+  background-color: #fff;
+  transition: transform 0.5s cubic-bezier(0.05, 0, 0.002, 1);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.is-scrolled-free .nav {
+  transform: translateY(-48px);
+}
+@media (min-width: 768px) {
+  .is-scrolled-free .nav {
+    transform: translateY(-88px);
+  }
+}
+.is-scrolled-to-bottom .nav,
+.is-scrolled-to-top .nav,
+.is-scrolling-up .nav {
+  transform: translateY(0);
+}
+.nav-spacer {
+  height: 48px;
+}
 .coursenav {
   background-color: #f8f8f8;
 }
@@ -716,6 +741,9 @@ body {
   outline-offset: 3px;
 }
 @media (min-width: 768px) {
+  .nav-spacer {
+    height: 87px;
+  }
   .coursenav__title {
     font-size: 22px;
   }
@@ -814,6 +842,9 @@ body {
   outline: 1px solid hsla(0, 0%, 100%, 0.75);
   outline-offset: -4px;
 }
+.topbar__search .icon-search {
+  fill: #fff;
+}
 .topbar__hamburger {
   outline: 0;
   width: 87px;
@@ -837,6 +868,9 @@ body {
 .topbar__hamburger:not(.focus--mouse):focus {
   outline: 1px solid hsla(0, 0%, 100%, 0.75);
   outline-offset: -4px;
+}
+.topbar__hamburger .icon-hamburger {
+  fill: #fff;
 }
 .richtext {
   font-family: AvenirNextLTW01-Medium, Avenir next, Avenir, sans-serif;
@@ -1356,7 +1390,6 @@ body {
   padding-right: 8px;
   margin-left: auto;
   margin-right: auto;
-  overflow: hidden;
 }
 @media (min-width: 768px) {
   .strong-link__label {
