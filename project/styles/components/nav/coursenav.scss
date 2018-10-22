@@ -1,12 +1,15 @@
 .coursenav {
   @include page-spacing;
-  @include grid;
   background-color: $grey1;
   position: relative;
   z-index: 98;
 }
 
 .coursenav-wrapper {
+  @include grid;
+}
+
+.coursenav-body-wrapper {
   @include grid-item(12);
   display: flex;
 }

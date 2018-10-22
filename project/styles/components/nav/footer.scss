@@ -1,5 +1,14 @@
 .footer {
+  @include page-spacing;
   padding: 10px;
   background-color: $black;
   color: $white;
+}
+
+.footer-wrapper {
+  @include grid;
+}
+
+.footer-body-wrapper {
+  @include grid-item(12);
 }

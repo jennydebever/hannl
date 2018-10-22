@@ -1,15 +1,18 @@
 .topbar {
   @include page-spacing;
-  @include grid;
   background-color: $black;
   position: relative;
   z-index: 99;
 }
 
 .topbar-wrapper {
+  @include grid;
+  height: 87px;
+}
+
+.topbar-body-wrapper {
   @include grid-item(12);
   display: flex;
-  height: 87px;
 }
 
 /**

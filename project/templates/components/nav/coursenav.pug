@@ -21,20 +21,21 @@
 mixin coursenav(title, links)
   .coursenav(class='js-subnav')
     .coursenav-wrapper
-      if title
-        a.coursenav__title(href=links[0].href) #{title}
+      .coursenav-body-wrapper
+        if title
+          a.coursenav__title(href=links[0].href) #{title}
 
-      ul.coursenav__links
-        each item in links
-          - const cls = [(item.href.replace('.html', '') === pagePath) ? 'is-active' : null, 'js-subnav__item']
-          li.coursenav__links__item(class=cls)
-            a.coursenav__links__item__link(href=item.href) #{item.label}
+        ul.coursenav__links
+          each item in links
+            - const cls = [(item.href.replace('.html', '') === pagePath) ? 'is-active' : null, 'js-subnav__item']
+            li.coursenav__links__item(class=cls)
+              a.coursenav__links__item__link(href=item.href) #{item.label}
 
-            if item.subitems
-              ul.coursenav__links__item__subnav(class="coursenav-dropdown")
-                each subitem in item.subitems
-                  li.coursenav-dropdown__item
-                    a.coursenav-dropdown__item__link(href=subitem.href) #{subitem.label}
+              if item.subitems
+                ul.coursenav__links__item__subnav(class="coursenav-dropdown")
+                  each subitem in item.subitems
+                    li.coursenav-dropdown__item
+                      a.coursenav-dropdown__item__link(href=subitem.href) #{subitem.label}
 
   .coursenav-overlay
 
