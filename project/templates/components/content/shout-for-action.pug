@@ -19,19 +19,24 @@ mixin shout-for-action-image(image)
   examples:
     - |
       include ./shout-for-action
+
       style.
         body > div {
           padding: 0 !important;
         }
+      
       - var options = {};
       - options.image = 'koraal.jpg';
+      - options.eyebrow = 'vrijstellingen';
+      - options.title = 'Al de nodige ervaring in huis?';
+      - options.intro = 'Met aantoonbare kennis en kunde kom je in aanmerking voor vrijstellingen. Zo kun je je opleiding verkorten.';
       - options.buttons = [];
-      - options.buttons.push({ href: '/', label: 'Plan een afspraak in', type: 'primary' });
+      - options.buttons.push({ href: '/', label: 'Plan een afspraken in', type: 'primary' });
       - options.buttons.push({ href: '/', label: 'Bekijk de praktisch info', type: 'secondary' });
-      +section-sta("ALIGNMENT_RIGHT", "", "Al de nodige ervaring in huis?","")
-        p Met aantoonbare kennis en kunde kom je aanmerking voor vrijstellingen. Zo kun je je opleiding verkorten.
+      
+      +section-shout(ALIGNMENT_RIGHT, options)
    
-mixin section-sta(alignment, eyebrow, title, intro)
+mixin section-shout(alignment, options)
   include ./section
   include ./intro
   include ../atoms/richtext
@@ -40,24 +45,59 @@ mixin section-sta(alignment, eyebrow, title, intro)
   include ../atoms/btn-secondary
 
   - var cls = [];
-  if alignment === 'ALIGNMENT_RIGHT'
-    - cls.push('right');
-    
-  .shout(class=cls)
-    .shout_wrapper
-      .shout_picture
-        +shout-for-action-image(options.image)
-      .shout_text_wrapper
-        +section(eyebrow, title)
-          if intro
-            +intro #{intro}
-          block
-          if options.buttons
-            .shout__for__action__text__buttons
-              each button in options.buttons
-                .shout__for__action__buttons__button
-                  if button.type === 'primary'
-                    +btn-primary(button.label, button.href, "arrow")
+  - cls.push('section--shout')
 
-                  else if button.type === 'secondary'
-                    +btn-secondary(button.label, button.href, "")
+  if alignment === ALIGNMENT_RIGHT
+    - cls.push('section--shout-right');
+
+  if alignment === ALIGNMENT_LEFT
+    -cls.push('section--shout-left');
+    
+  .section(class=cls)
+    .section-wrapper
+      .section__content
+        .shout
+          .shout-wrapper
+            .shout__picture
+              +shout-for-action-image(options.image)
+            .shout__text
+              if options.title || options.intro
+                .section__header
+                  if options.title
+                    h2.section__header__title
+                      if options.eyebrow
+                        span.section__header__title__eyebrow #{options.eyebrow}
+                        span.accessibility :&nbsp;
+                      span.section__header__title__text #{options.title}
+              
+                  if options.intro
+                    p.section__header__intro !{options.intro}
+                  if options.buttons
+                    .shout__for__action__text__buttons
+                      each button in options.buttons
+                        .shout__for__action__buttons__button
+                          if button.type === 'primary'
+                            +btn-primary(button.label, button.href, "arrow")
+
+                          else if button.type === 'secondary'
+                            +btn-secondary(button.label, button.href, "")
+
+
+  //- .shout(class=cls)
+  //-   .shout_wrapper
+  //-     .shout_picture
+  //-       +shout-for-action-image(options.image)
+  //-     .shout_text_wrapper
+  //-       +section(eyebrow, title)
+  //-         if intro
+  //-           +intro #{intro}
+  //-         block
+  //-         if options.buttons
+  //-           .shout__for__action__text__buttons
+  //-             each button in options.buttons
+  //-               .shout__for__action__buttons__button
+  //-                 if button.type === 'primary'
+  //-                   +btn-primary(button.label, button.href, "arrow")
+
+  //-                 else if button.type === 'secondary'
+  //-                   +btn-secondary(button.label, button.href, "")
