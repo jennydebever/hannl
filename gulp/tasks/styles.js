@@ -15,10 +15,7 @@ const paths = require("../paths");
 
 gulp.task("styles:lint", () => {
   return gulp
-    .src([
-      paths.SRC.styles + "**/*.scss",
-      "!" + paths.SRC.styles + "libs/*.scss"
-    ])
+    .src([paths.SRC.styles + "**/*.scss", "!" + paths.SRC.styles + "libs/*.scss"])
     .pipe(sassLint())
     .pipe(sassLint.format());
 });

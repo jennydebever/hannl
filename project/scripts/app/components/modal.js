@@ -27,16 +27,12 @@ function open(rel) {
   }
 
   // toggle buttons aria-expanded attribute
-  var $$showButtons = document.querySelectorAll(
-    ".js-modal-show[rel='" + currentModal + "']"
-  );
+  var $$showButtons = document.querySelectorAll(".js-modal-show[rel='" + currentModal + "']");
   for (var i = 0, l = $$showButtons.length; i < l; ++i) {
     $$showButtons[i].setAttribute("aria-expanded", true);
   }
 
-  var $$closeButtons = document.querySelectorAll(
-    ".js-modal-hide[rel='" + currentModal + "']"
-  );
+  var $$closeButtons = document.querySelectorAll(".js-modal-hide[rel='" + currentModal + "']");
   for (i = 0, l = $$closeButtons.length; i < l; ++i) {
     $$closeButtons[i].setAttribute("aria-expanded", false);
   }
@@ -103,24 +99,18 @@ function close(rel) {
 
     // remove class from body
     document.body.classList.remove(constants.MODAL_OPEN_CLASS);
-    document.body.classList.remove(
-      constants.MODAL_OPEN_CLASS + "--" + currentModal
-    );
+    document.body.classList.remove(constants.MODAL_OPEN_CLASS + "--" + currentModal);
 
     // enable focus outside of modal
     focusTrap.disable();
 
     // toggle buttons aria-expanded attribute
-    var $$showButtons = document.querySelectorAll(
-      ".js-modal-show[rel='" + currentModal + "']"
-    );
+    var $$showButtons = document.querySelectorAll(".js-modal-show[rel='" + currentModal + "']");
     for (var i = 0, l = $$showButtons.length; i < l; ++i) {
       $$showButtons[i].setAttribute("aria-expanded", true);
     }
 
-    var $$closeButtons = document.querySelectorAll(
-      ".js-modal-hide[rel='" + currentModal + "']"
-    );
+    var $$closeButtons = document.querySelectorAll(".js-modal-hide[rel='" + currentModal + "']");
     for (i = 0, l = $$closeButtons.length; i < l; ++i) {
       $$closeButtons[i].setAttribute("aria-expanded", false);
     }

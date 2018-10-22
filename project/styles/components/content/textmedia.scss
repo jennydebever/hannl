@@ -8,7 +8,6 @@
   }
 }
 
-
 /**
  * Media
  */
@@ -51,7 +50,7 @@
 
     width: 32px;
     height: 32px;
-    background: rgba(0,0,0,0.65);
+    background: rgba(0, 0, 0, 0.65);
     border-radius: 4px;
 
     & span {
@@ -107,7 +106,7 @@
     }
 
     &:focus {
-      outline:0;
+      outline: 0;
     }
   }
 
@@ -116,7 +115,7 @@
     width: 100%;
     bottom: 0;
     right: 0;
-    background: rgba(12,1,28, 0.65);
+    background: rgba(12, 1, 28, 0.65);
     color: $white;
     font-size: 13px;
     padding: 19px 38px 19px 19px;
@@ -169,18 +168,17 @@
   display: block;
   width: 100%;
   position: relative;
-  
+
   video {
     width: 100%;
     display: block;
     border-radius: 4px;
-    
+
     @include breakpoint($bp-l) {
       width: 90%;
     }
   }
 }
-
 
 /**
  * Text
@@ -215,7 +213,7 @@
 
 .textmedia__text__body {
   @include base;
-  
+
   align-items: center;
 }
 
@@ -224,6 +222,7 @@
   flex-direction: row;
   margin-top: 40px;
 }
+
 .textmedia__text__buttons__button {
   margin-right: 16px;
 }
@@ -244,7 +243,6 @@
       right: 70px;
     }
   }
-  
 }
 
 .section--textmedia-right {

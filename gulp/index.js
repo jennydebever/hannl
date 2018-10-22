@@ -8,14 +8,7 @@ gulp.task(
   "build",
   gulp.series(
     "clean",
-    gulp.parallel(
-      "components",
-      "templates",
-      "styles",
-      "scripts:app",
-      "scripts:head",
-      "scripts:libs"
-    )
+    gulp.parallel("components", "templates", "styles", "scripts:app", "scripts:head", "scripts:libs")
   )
 );
 gulp.task("default", gulp.parallel("server", "watch"));

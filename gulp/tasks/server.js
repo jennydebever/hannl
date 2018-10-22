@@ -10,11 +10,7 @@ gulp.task("server", () => {
       baseDir: paths.serve,
       directory: true
     },
-    files: [
-      paths.DEST.styles,
-      paths.DEST.scripts,
-      paths.DEST.styleguide + "lib/"
-    ],
+    files: [paths.DEST.styles, paths.DEST.scripts, paths.DEST.styleguide + "lib/"],
     notify: false,
     port: 8000,
     open: false

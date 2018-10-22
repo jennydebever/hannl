@@ -10,7 +10,8 @@
     "templates": "gulp templates",
     "build": "gulp build",
     "server": "gulp server",
-    "docs:build": "vuepress build docs"
+    "docs:build": "vuepress build docs",
+    "precommit": "pretty-quick --staged"
   },
   "author": "",
   "license": "ISC",
@@ -45,6 +46,9 @@
     "gulp-uglify": "^3.0.0",
     "gulp-util": "^3.0.8",
     "gulp-v4": "^4.0.0-alpha.5",
+    "husky": "1.1.2",
+    "prettier": "1.14.3",
+    "pretty-quick": "1.8.0",
     "pug": "^2.0.3",
     "pug-doc": "^2.15.0",
     "pug-lint-config-clock": "^2.0.0",

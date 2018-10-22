@@ -2,7 +2,7 @@
   font-family: $bold-condensed;
   font-size: 28px;
   color: $white;
-  text-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2);
+  text-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 
   @include breakpoint($bp-m) {
     font-size: 45px;
@@ -14,10 +14,10 @@
 }
 
 @mixin h1 {
+  @include margin-bottom-standard;
   font-family: $bold;
   font-size: 28px;
   text-transform: uppercase;
-  @include margin-bottom-standard;
 
   @include breakpoint($bp-m) {
     font-size: 38px;
@@ -60,7 +60,6 @@
   font-family: $bold-condensed;
   font-size: 18px;
   text-transform: uppercase;
-
 
   @include breakpoint($bp-m) {
     font-size: 20px;
@@ -115,7 +114,6 @@
   font-size: 15px;
   color: $hanred;
   text-transform: uppercase;
-  color: $hanred;
 
   @include breakpoint($bp-m) {
     font-size: 17px;
@@ -142,10 +140,10 @@
 
 // Also used for ul/ol
 @mixin p {
+  @include margin-bottom-standard;
   font-family: $medium;
   font-size: 16px;
   line-height: 1.6;
-  @include margin-bottom-standard;
 
   @include breakpoint($bp-m) {
     font-size: 18px;
@@ -167,7 +165,7 @@
   @include breakpoint($bp-m) {
     &::after {
       color: $hanred;
-      content: '_';
+      content: "_";
     }
   }
 }

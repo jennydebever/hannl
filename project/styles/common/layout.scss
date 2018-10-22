@@ -36,7 +36,6 @@ $grid-item-spacing-l: 20px;
   }
 }
 
-
 /**
  * Grid
  */
@@ -52,7 +51,6 @@ $grid-item-spacing-l: 20px;
 @function grid-calc($columns) {
   @return calc(100% / 12 * #{$columns});
 }
-
 
 /**
  * Grid item
@@ -101,7 +99,6 @@ $grid-item-spacing-l: 20px;
   flex-basis: grid-calc($columns);
 }
 
-
 /**
  * DEMO ONLY Grid
  */
@@ -128,7 +125,7 @@ $grid-item-spacing-l: 20px;
 
   .demo-grid__item {
     span {
-      background-color: rgba(blue, .25);
+      background-color: rgba(blue, 0.25);
     }
   }
 }

@@ -55,7 +55,4 @@ gulp.task("templates:compile", () => {
   });
 });
 
-gulp.task(
-  "templates",
-  gulp.series("templates:lint", "templates:compile", "browser:reload")
-);
+gulp.task("templates", gulp.series("templates:lint", "templates:compile", "browser:reload"));
