@@ -3,6 +3,17 @@ var focusTrap = require("../ui/focus-trap");
 var constants = require("../../constants");
 
 /**
+ * This is a script for a generic modal window
+ * there are listeners for button.js-modal-open and button.js-modal-close
+ * it will set classes on body and modal element
+ * and trap focus inside the modal
+ *
+ * <div hidden id="menu" role="dialog" aria-modal="true" aria-label="My modal">
+ *  <button type="button" aria-label="Close modal" aria-expanded="false" aria-controls="menu" class="js-modal-close">close</button>
+ * </div>
+ */
+
+/**
  * Show modal
  */
 
