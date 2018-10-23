@@ -13,7 +13,8 @@ var classes = {
   SCROLLED_TOP_CLASS: "is-scrolled-to-top",
   SCROLLED_BOTTOM_CLASS: "is-scrolled-to-bottom",
   SCROLLED_FREE_CLASS: "is-scrolled-free",
-  COURSENAV_DROPDOWN_OPEN_CLASS: "has-coursenav-dropdown-open"
+  COURSENAV_DROPDOWN_OPEN_CLASS: "has-coursenav-dropdown-open",
+  COURSENAV_MOBILE_OPEN_CLASS: "has-coursenav-mobile-open"
 };
 
 /**

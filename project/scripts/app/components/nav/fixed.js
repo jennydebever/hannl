@@ -3,7 +3,7 @@ var constants = require("../../../constants");
 
 var $nav = document.querySelector(".js-nav");
 var $topbar = document.querySelector(".js-topbar");
-var $subnav = document.querySelector(".js-subnav");
+var $coursenav = document.querySelector(".js-coursenav");
 
 /**
  * Add a spacer to compensate the fixed header height
@@ -22,9 +22,9 @@ function resizeSpacer() {
     h += $topbar.getBoundingClientRect().height;
   }
 
-  // add subnav height
-  if ($subnav) {
-    h += $subnav.getBoundingClientRect().height;
+  // add coursenav height
+  if ($coursenav) {
+    h += $coursenav.getBoundingClientRect().height;
   }
 
   // set spacer height

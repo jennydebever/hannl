@@ -18,16 +18,17 @@ In demo-typo.scss is te zien hoe de mixins ingezet kunnen worden in een componen
 h2.demo-typo__title {
   @include h2;
   @include margin-bottom-small;
-  @include underscore;
+
+  @include breakpoint($bp-m) {
+    @include underscore;
+  }
 }
 
 //in text.scss
 @mixin underscore {
-  @include breakpoint($bp-m) {
-    &:after {
-      color: $hanred;
-      content: "_";
-    }
+  &:after {
+    color: $hanred;
+    content: "_";
   }
 }
 ```

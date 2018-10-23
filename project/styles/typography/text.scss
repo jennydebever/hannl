@@ -162,11 +162,9 @@
 */
 
 @mixin underscore {
-  @include breakpoint($bp-m) {
-    &::after {
-      color: $hanred;
-      content: "_";
-    }
+  &::after {
+    color: $hanred;
+    content: "_";
   }
 }
 

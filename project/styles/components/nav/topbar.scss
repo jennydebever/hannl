@@ -36,6 +36,10 @@
   display: flex;
   align-self: center;
   margin-left: auto;
+
+  @include breakpoint(max $bp-l) {
+    display: none;
+  }
 }
 
 .topbar__links__item {
@@ -67,6 +71,10 @@
   .icon-search {
     fill: $white;
   }
+
+  @include breakpoint(max $bp-l) {
+    display: none;
+  }
 }
 
 /**
@@ -84,5 +92,9 @@
 
   .icon-hamburger {
     fill: $white;
+  }
+
+  @include breakpoint(max $bp-l) {
+    display: none;
   }
 }

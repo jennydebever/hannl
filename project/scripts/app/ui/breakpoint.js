@@ -74,5 +74,8 @@ function checkBreakpointChange() {
       type: constants.EVENT_BREAKPOINT_CHANGE,
       breakpoint: _breakpoint
     });
+
+    // set html class
+    document.documentElement.setAttribute("data-breakpoint", _breakpoint.toLowerCase());
   }
 }

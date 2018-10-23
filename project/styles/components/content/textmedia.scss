@@ -70,7 +70,6 @@
     &.paused span {
       border: 0;
       background: transparent;
-      box-sizing: border-box;
 
       border-color: transparent transparent transparent $white;
       transition: 100ms all ease;

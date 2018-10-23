@@ -9,7 +9,6 @@
   transition: transform 0.35s $ease;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-  z-index: 100;
 
   .is-scrolled-free & {
     transform: translateY(-48px);
@@ -29,6 +28,11 @@
 
   .is-scrolling-up & {
     transform: translateY(0);
+  }
+
+  .has-coursenav-mobile-open & {
+    bottom: 0;
+    height: 100%;
   }
 }
 

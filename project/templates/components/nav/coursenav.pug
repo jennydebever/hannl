@@ -19,8 +19,10 @@
     +coursenav('Pabo Deeltijd', items)
 
 mixin coursenav(title, links)
-  .coursenav(class='js-subnav')
-    .coursenav-wrapper
+  include ../../icons/_icon
+
+  .coursenav(class='js-coursenav')
+    .coursenav-wrapper(id="coursenav")
       .coursenav-body-wrapper
         if title
           a.coursenav__title(href=links[0].href) #{title}
@@ -36,6 +38,12 @@ mixin coursenav(title, links)
                   each subitem in item.subitems
                     li.coursenav-dropdown__item
                       a.coursenav-dropdown__item__link(href=subitem.href) #{subitem.label}
+
+    //- mobile toggle
+    button.coursenav__toggle(class='js-coursenav-mobile-toggle', type='button', aria-expanded='false', aria-controls='coursenav')
+      span.coursenav__toggle__label
+        | #{title}
+      +icon#chevron
 
   .coursenav-overlay
 

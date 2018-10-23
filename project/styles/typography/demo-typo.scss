@@ -19,7 +19,10 @@
 .demo-typo__title {
   @include h2;
   @include margin-bottom-small;
-  @include underscore;
+
+  @include breakpoint($bp-m) {
+    @include underscore;
+  }
 }
 
 @mixin demo-section-padding {

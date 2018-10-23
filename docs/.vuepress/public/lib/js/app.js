@@ -201,7 +201,7 @@
             r = i.call(f, o);
           return (r.listener = n), (o.wrapFn = r);
         }
-        function v(e) {
+        function m(e) {
           var t = this._events;
           if (t) {
             var n = t[e];
@@ -210,7 +210,7 @@
           }
           return 0;
         }
-        function m(e, t) {
+        function v(e, t) {
           for (var n = new Array(t), o = 0; o < t; ++o) n[o] = e[o];
           return n;
         }
@@ -256,32 +256,32 @@
               case 1:
                 !(function(e, t, n) {
                   if (t) e.call(n);
-                  else for (var o = e.length, r = m(e, o), i = 0; i < o; ++i) r[i].call(n);
+                  else for (var o = e.length, r = v(e, o), i = 0; i < o; ++i) r[i].call(n);
                 })(n, d, this);
                 break;
               case 2:
                 !(function(e, t, n, o) {
                   if (t) e.call(n, o);
-                  else for (var r = e.length, i = m(e, r), s = 0; s < r; ++s) i[s].call(n, o);
+                  else for (var r = e.length, i = v(e, r), s = 0; s < r; ++s) i[s].call(n, o);
                 })(n, d, this, arguments[1]);
                 break;
               case 3:
                 !(function(e, t, n, o, r) {
                   if (t) e.call(n, o, r);
-                  else for (var i = e.length, s = m(e, i), a = 0; a < i; ++a) s[a].call(n, o, r);
+                  else for (var i = e.length, s = v(e, i), a = 0; a < i; ++a) s[a].call(n, o, r);
                 })(n, d, this, arguments[1], arguments[2]);
                 break;
               case 4:
                 !(function(e, t, n, o, r, i) {
                   if (t) e.call(n, o, r, i);
-                  else for (var s = e.length, a = m(e, s), c = 0; c < s; ++c) a[c].call(n, o, r, i);
+                  else for (var s = e.length, a = v(e, s), c = 0; c < s; ++c) a[c].call(n, o, r, i);
                 })(n, d, this, arguments[1], arguments[2], arguments[3]);
                 break;
               default:
                 for (r = new Array(o - 1), i = 1; i < o; i++) r[i - 1] = arguments[i];
                 !(function(e, t, n, o) {
                   if (t) e.apply(n, o);
-                  else for (var r = e.length, i = m(e, r), s = 0; s < r; ++s) i[s].apply(n, o);
+                  else for (var r = e.length, i = v(e, r), s = 0; s < r; ++s) i[s].apply(n, o);
                 })(n, d, this, r);
             }
             return !0;
@@ -360,9 +360,9 @@
               : [];
           }),
           (o.listenerCount = function(e, t) {
-            return "function" == typeof e.listenerCount ? e.listenerCount(t) : v.call(e, t);
+            return "function" == typeof e.listenerCount ? e.listenerCount(t) : m.call(e, t);
           }),
-          (o.prototype.listenerCount = v),
+          (o.prototype.listenerCount = m),
           (o.prototype.eventNames = function() {
             return 0 < this._eventsCount ? Reflect.ownKeys(this._events) : [];
           });
@@ -465,8 +465,8 @@
                 o.addEventListener("focusin", p, !0),
                 o.addEventListener("mousedown", f, !0),
                 o.addEventListener("touchstart", f, !0),
-                o.addEventListener("click", m, !0),
-                o.addEventListener("keydown", v, !0),
+                o.addEventListener("click", v, !0),
+                o.addEventListener("keydown", m, !0),
                 s
               );
           }
@@ -476,8 +476,8 @@
                 o.removeEventListener("focusin", p, !0),
                 o.removeEventListener("mousedown", f, !0),
                 o.removeEventListener("touchstart", f, !0),
-                o.removeEventListener("click", m, !0),
-                o.removeEventListener("keydown", v, !0),
+                o.removeEventListener("click", v, !0),
+                o.removeEventListener("keydown", m, !0),
                 (L = null),
                 s
               );
@@ -513,7 +513,7 @@
               e.target instanceof Document ||
               (e.stopImmediatePropagation(), y(i.mostRecentlyFocusedNode || l()));
           }
-          function v(e) {
+          function m(e) {
             if (!1 !== r.escapeDeactivates && ("Escape" === (t = e).key || "Esc" === t.key || 27 === t.keyCode))
               return e.preventDefault(), void a();
             var t;
@@ -525,7 +525,7 @@
                 e.shiftKey || e.target !== i.lastTabbableNode || (e.preventDefault(), y(i.firstTabbableNode));
               })(e);
           }
-          function m(e) {
+          function v(e) {
             r.clickOutsideDeactivates || n.contains(e.target) || (e.preventDefault(), e.stopImmediatePropagation());
           }
           function h() {
@@ -697,7 +697,7 @@
                 (e.style.transition = ""),
                 (e.style.webkitTransition = "");
             }
-            function k(e) {
+            function R(e) {
               return +e.replace(/px/, "");
             }
             (e.slideDown = function(x) {
@@ -719,7 +719,7 @@
                       var n = e.getAttribute("style") || "",
                         o = window.getComputedStyle(e);
                       (e.style.visibility = "hidden"), (e.style.display = t || "block");
-                      var r = k(o.getPropertyValue("width"));
+                      var r = R(o.getPropertyValue("width"));
                       (e.style.position = "absolute"),
                         (e.style.width = r + "px"),
                         (e.style.height = ""),
@@ -727,10 +727,10 @@
                         (e.style.paddingBottom = ""),
                         (e.style.borderTopWidth = ""),
                         (e.style.borderBottomWidth = "");
-                      var i = k(o.getPropertyValue("padding-top")),
-                        s = k(o.getPropertyValue("padding-bottom")),
-                        a = k(o.getPropertyValue("border-top-width")),
-                        c = k(o.getPropertyValue("border-bottom-width")),
+                      var i = R(o.getPropertyValue("padding-top")),
+                        s = R(o.getPropertyValue("padding-bottom")),
+                        a = R(o.getPropertyValue("border-top-width")),
+                        c = R(o.getPropertyValue("border-bottom-width")),
                         d = e.scrollHeight;
                       return (
                         e.setAttribute("style", n),
@@ -741,8 +741,8 @@
                     l = d.height,
                     f = d.paddingTop,
                     p = d.paddingBottom,
-                    v = d.borderTop,
-                    m = d.borderBottom,
+                    m = d.borderTop,
+                    v = d.borderBottom,
                     h = r + "ms",
                     y = ["height " + h + " " + j, "padding " + h + " " + j, "border-width " + h + " " + j].join(),
                     b = t ? c.height : "0px",
@@ -750,11 +750,11 @@
                     L = t ? c.paddingBottom : "0px",
                     E = t ? c.borderTopWidth : "0px",
                     _ = t ? c.borderBottomWidth : "0px",
-                    S = n ? N.endHeight + "px" : u ? l + v + m + "px" : l - f - p + "px",
+                    S = n ? N.endHeight + "px" : u ? l + m + v + "px" : l - f - p + "px",
                     w = f + "px",
                     O = p + "px",
-                    C = v + "px",
-                    A = m + "px";
+                    C = m + "px",
+                    A = v + "px";
                   if (b === S && g === w && L === O && E === C && _ === A) return i(), void e();
                   requestAnimationFrame(function() {
                     (x.style.height = b),
@@ -803,13 +803,13 @@
                     var s = _.getAttribute("style") || "",
                       a = window.getComputedStyle(_),
                       c = /border-box/.test(a.getPropertyValue("box-sizing")),
-                      d = k(a.getPropertyValue("padding-top")),
-                      u = k(a.getPropertyValue("padding-bottom")),
-                      l = k(a.getPropertyValue("border-top-width")),
-                      f = k(a.getPropertyValue("border-bottom-width")),
+                      d = R(a.getPropertyValue("padding-top")),
+                      u = R(a.getPropertyValue("padding-bottom")),
+                      l = R(a.getPropertyValue("border-top-width")),
+                      f = R(a.getPropertyValue("border-bottom-width")),
                       p = _.scrollHeight,
-                      v = o + "ms",
-                      m = ["height " + v + " " + j, "padding " + v + " " + j, "border-width " + v + " " + j].join(),
+                      m = o + "ms",
+                      v = ["height " + m + " " + j, "padding " + m + " " + j, "border-width " + m + " " + j].join(),
                       h = c ? p + l + f + "px" : p - d - u + "px",
                       y = d + "px",
                       b = u + "px",
@@ -823,8 +823,8 @@
                         (_.style.borderBottomWidth = L),
                         (_.style.display = n),
                         (_.style.overflow = "hidden"),
-                        (_.style.transition = m),
-                        (_.style.webkitTransition = m),
+                        (_.style.transition = v),
+                        (_.style.webkitTransition = v),
                         requestAnimationFrame(function() {
                           (_.style.height = 0),
                             (_.style.paddingTop = 0),
@@ -896,7 +896,7 @@
             r,
             i = [],
             s = [],
-            a = new v(e.ownerDocument || e),
+            a = new m(e.ownerDocument || e),
             c = e.querySelectorAll(d);
           for (
             t.includeContainer && u.call(e, d) && (c = Array.prototype.slice.apply(c)).unshift(e), n = 0;
@@ -929,7 +929,7 @@
         }
         function i(e, t) {
           return (
-            (t = t || new v(e.ownerDocument || e)),
+            (t = t || new m(e.ownerDocument || e)),
             !(e.disabled || (a((n = e)) && "hidden" === n.type) || t.isUntouchable(e))
           );
           var n;
@@ -953,10 +953,10 @@
         function a(e) {
           return "INPUT" === e.tagName;
         }
-        function v(e) {
+        function m(e) {
           (this.doc = e), (this.cache = []);
         }
-        (v.prototype.hasDisplayNone = function(t, e) {
+        (m.prototype.hasDisplayNone = function(t, e) {
           if (t === this.doc.documentElement) return !1;
           var n = (function(e, t) {
             for (var n = 0, o = e.length; n < o; n++) if (t(e[n])) return e[n];
@@ -973,7 +973,7 @@
             o
           );
         }),
-          (v.prototype.isUntouchable = function(e) {
+          (m.prototype.isUntouchable = function(e) {
             if (e === this.doc.documentElement) return !1;
             var t = this.doc.defaultView.getComputedStyle(e);
             return !!this.hasDisplayNone(e, t) || "hidden" === t.visibility;
@@ -1131,6 +1131,11 @@
           }),
           r.bind(document.body, ".js-coursenav-dropdown-close", "focus", function() {
             c();
+          }),
+          r.bind(document.body, ".js-coursenav-mobile-toggle", "click", function() {
+            document.body.classList.contains(s.COURSENAV_MOBILE_OPEN_CLASS)
+              ? document.body.classList.remove(s.COURSENAV_MOBILE_OPEN_CLASS)
+              : document.body.classList.add(s.COURSENAV_MOBILE_OPEN_CLASS);
           });
       },
       { "../../../constants": 25, "delegate-events": 4, "find-parent": 6 }
@@ -1141,7 +1146,7 @@
           r = e("../../../constants"),
           i = document.querySelector(".js-nav"),
           s = document.querySelector(".js-topbar"),
-          a = document.querySelector(".js-subnav"),
+          a = document.querySelector(".js-coursenav"),
           c = document.querySelector(".js-nav-spacer");
         function d() {
           !(function() {
@@ -1219,7 +1224,10 @@
         }
         function d() {
           var e = c();
-          e !== s && ((s = e), r.dispatch({ type: o.EVENT_BREAKPOINT_CHANGE, breakpoint: s }));
+          e !== s &&
+            ((s = e),
+            r.dispatch({ type: o.EVENT_BREAKPOINT_CHANGE, breakpoint: s }),
+            document.documentElement.setAttribute("data-breakpoint", s.toLowerCase()));
         }
         d(), window.addEventListener("resize", i(a, 50)), a(), (t.exports.get = c);
       },
@@ -1333,7 +1341,8 @@
               SCROLLED_TOP_CLASS: "is-scrolled-to-top",
               SCROLLED_BOTTOM_CLASS: "is-scrolled-to-bottom",
               SCROLLED_FREE_CLASS: "is-scrolled-free",
-              COURSENAV_DROPDOWN_OPEN_CLASS: "has-coursenav-dropdown-open"
+              COURSENAV_DROPDOWN_OPEN_CLASS: "has-coursenav-dropdown-open",
+              COURSENAV_MOBILE_OPEN_CLASS: "has-coursenav-mobile-open"
             },
             o,
             {

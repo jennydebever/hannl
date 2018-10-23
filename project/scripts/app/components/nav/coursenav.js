@@ -2,16 +2,20 @@ var delegate = require("delegate-events");
 var findParent = require("find-parent");
 var constants = require("../../../constants");
 
-var $current;
+/**
+ * Coursenav dropdown logic for desktop
+ */
+
+var $currentDropdown;
 
 function open($el) {
-  if ($el === $current) {
+  if ($el === $currentDropdown) {
     return;
   }
 
   close(null);
-  $current = $el;
-  $current.classList.add(constants.FOCUS_CLASS);
+  $currentDropdown = $el;
+  $currentDropdown.classList.add(constants.FOCUS_CLASS);
   document.body.classList.add(constants.COURSENAV_DROPDOWN_OPEN_CLASS);
 }
 
@@ -19,15 +23,15 @@ function open($el) {
  * Close
  */
 function close($el) {
-  if ($el === $current) {
+  if ($el === $currentDropdown) {
     return;
   }
 
-  if ($current) {
-    $current.classList.remove(constants.FOCUS_CLASS);
+  if ($currentDropdown) {
+    $currentDropdown.classList.remove(constants.FOCUS_CLASS);
     document.body.classList.remove(constants.COURSENAV_DROPDOWN_OPEN_CLASS);
 
-    $current = null;
+    $currentDropdown = null;
   }
 }
 
@@ -80,3 +84,17 @@ function onOverlayFocus() {
 }
 
 delegate.bind(document.body, ".js-coursenav-dropdown-close", "focus", onOverlayFocus);
+
+/**
+ * Toggle mobile
+ */
+
+function toggleMobile() {
+  if (document.body.classList.contains(constants.COURSENAV_MOBILE_OPEN_CLASS)) {
+    document.body.classList.remove(constants.COURSENAV_MOBILE_OPEN_CLASS);
+  } else {
+    document.body.classList.add(constants.COURSENAV_MOBILE_OPEN_CLASS);
+  }
+}
+
+delegate.bind(document.body, ".js-coursenav-mobile-toggle", "click", toggleMobile);

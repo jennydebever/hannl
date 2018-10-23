@@ -6,6 +6,7 @@
 @import "./libs/reset";
 @import "./libs/breakpoint";
 @import "./libs/margins";
+@import "./libs/scrollbar";
 
 // common
 @import "./common/body";
@@ -20,6 +21,8 @@
 // nav
 @import "./components/nav/nav";
 @import "./components/nav/coursenav";
+@import "./components/nav/coursenav-desktop";
+@import "./components/nav/coursenav-mobile";
 @import "./components/nav/topbar";
 
 // atoms

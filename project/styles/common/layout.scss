@@ -2,10 +2,6 @@ $grid-item-spacing-s: 8px;
 $grid-item-spacing-m: 16px;
 $grid-item-spacing-l: 20px;
 
-* {
-  box-sizing: border-box;
-}
-
 @mixin page-spacing-s {
   padding-left: $grid-item-spacing-s;
   padding-right: $grid-item-spacing-s;
