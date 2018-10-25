@@ -1,9 +1,19 @@
 @include breakpoint($bp-l) {
+  @keyframes animate-coursenav-out-desktop {
+    to {
+      height: auto;
+    }
+  }
+
   .coursenav {
     @include page-spacing;
     position: relative;
     z-index: 98;
     background-color: $grey1;
+
+    &.is-closed {
+      animation: animate-coursenav-out-desktop 0 forwards; // easiest fix for providing an onanimationend event for modal.js
+    }
   }
 
   .coursenav-wrapper {

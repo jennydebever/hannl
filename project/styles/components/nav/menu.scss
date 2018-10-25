@@ -21,7 +21,6 @@
   opacity: 0;
   background: $hanred;
   transform: scale(0, 0, 0);
-  display: block;
 
   &.is-open {
     animation: animate-menu-in 0.4s $ease forwards;

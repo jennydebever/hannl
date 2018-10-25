@@ -23,7 +23,13 @@ var classes = {
 
 var events = keyMirror({
   EVENT_BREAKPOINT_CHANGE: null,
-  EVENT_RESIZE: null
+  EVENT_RESIZE: null,
+  EVENT_MODAL_AFTER_OPEN: null,
+  EVENT_MODAL_BEFORE_OPEN: null,
+  EVENT_MODAL_AFTER_CLOSE: null,
+  EVENT_MODAL_BEFORE_CLOSE: null,
+  REQUEST_MODAL_OPEN: null,
+  REQUEST_MODAL_CLOSE: null
 });
 
 /**

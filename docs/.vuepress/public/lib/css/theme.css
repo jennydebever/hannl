@@ -159,10 +159,6 @@ textarea {
   font: inherit;
   margin: 0;
 }
-.accessibility,
-strong {
-  font-weight: 400;
-}
 button,
 select {
   text-transform: none;
@@ -234,6 +230,9 @@ ul {
 ul {
   list-style-type: none;
 }
+strong {
+  font-weight: 400;
+}
 button {
   overflow: visible;
   padding: 0;
@@ -267,6 +266,7 @@ html {
 .demo-typo__eyebrow,
 .demo-typo__title {
   font-family: AvenirNextLTW01-BoldCn, Avenir next, Avenir, sans-serif;
+  text-transform: uppercase;
 }
 body {
   margin: 0;
@@ -275,7 +275,7 @@ body {
   color: #000;
   background-color: #f8f8f8;
 }
-body.has-coursenav-mobile-open {
+body.modal-is-open--coursenav {
   overflow-y: hidden;
 }
 .main {
@@ -497,6 +497,7 @@ body.has-coursenav-mobile-open {
   top: -100em;
   color: #fff;
   background-color: #000;
+  font-weight: 400;
   height: 0;
 }
 .coursenav-overlay,
@@ -505,6 +506,11 @@ body.has-coursenav-mobile-open {
   top: 0;
   right: 0;
   left: 0;
+}
+.richtext-small table th,
+.richtext table th {
+  font-weight: 700;
+  vertical-align: top;
 }
 .demo-typo {
   -ms-flex-pack: center;
@@ -524,7 +530,6 @@ body.has-coursenav-mobile-open {
   font-size: 28px;
   color: #fff;
   margin-bottom: 0.5em;
-  text-transform: uppercase;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 @media (min-width: 768px) {
@@ -548,7 +553,6 @@ body.has-coursenav-mobile-open {
 .demo-typo__eyebrow {
   font-size: 15px;
   color: #e50056;
-  text-transform: uppercase;
   margin-bottom: 1em;
 }
 @media (min-width: 768px) {
@@ -563,7 +567,6 @@ body.has-coursenav-mobile-open {
 }
 .demo-typo__title {
   font-size: 24px;
-  text-transform: uppercase;
   margin-bottom: 0.5em;
 }
 @media (min-width: 768px) {
@@ -685,7 +688,6 @@ body.has-coursenav-mobile-open {
 .nav {
   width: 100%;
   z-index: 100;
-  background-color: #fff;
   transition: transform 0.35s cubic-bezier(0.05, 0, 0.002, 1);
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
@@ -703,9 +705,10 @@ body.has-coursenav-mobile-open {
 .is-scrolling-up .nav {
   transform: translateY(0);
 }
-.has-coursenav-mobile-open .nav {
+.modal-is-open--coursenav .nav {
   bottom: 0;
   height: 100%;
+  transform: translateY(0);
 }
 .nav-spacer {
   height: 48px;
@@ -725,17 +728,21 @@ body.has-coursenav-mobile-open {
   bottom: 0;
   height: calc(100vh + 250px);
   width: 100vw;
-  display: none;
   opacity: 0;
   z-index: 97;
   transform: scale(0);
 }
-.has-coursenav-dropdown-open .coursenav-overlay {
-  display: block;
+.has-coursenav-dropdown-open .coursenav-overlay,
+.modal-is-open--coursenav .coursenav-overlay {
   animation: a 2.5s cubic-bezier(0.05, 0, 0.002, 1) forwards;
   transform: scale(1);
 }
 @media (min-width: 1024px) {
+  @keyframes b {
+    to {
+      height: auto;
+    }
+  }
   .coursenav {
     padding-left: 8px;
     padding-right: 8px;
@@ -760,6 +767,9 @@ body.has-coursenav-mobile-open {
   }
 }
 @media (min-width: 1024px) {
+  .coursenav.is-closed {
+    animation: b 0 forwards;
+  }
   .coursenav-wrapper {
     display: -ms-flexbox;
     display: flex;
@@ -917,26 +927,58 @@ body.has-coursenav-mobile-open {
   }
 }
 @media (max-width: 1023px) {
+  @keyframes c {
+    to {
+      height: calc(100% - 48px);
+    }
+  }
+  @keyframes d {
+    to {
+      height: 56px;
+    }
+  }
+  @keyframes e {
+    to {
+      height: calc(50% - 87px);
+    }
+  }
+  @keyframes f {
+    to {
+      height: 80px;
+    }
+  }
   .coursenav {
     background-color: #000;
     position: relative;
     z-index: 98;
-    height: calc(100% - 48px);
+    height: 56px;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-direction: column;
     flex-direction: column;
-    transform: translateY(-100%) translateY(56px);
-    transition: transform 0.5s cubic-bezier(0.05, 0, 0.002, 1), height 0.5s cubic-bezier(0.05, 0, 0.002, 1);
   }
-  .has-coursenav-mobile-open .coursenav {
-    transform: translateY(0);
+  .coursenav.is-open {
+    animation: c 0.4s cubic-bezier(0.05, 0, 0.002, 1) forwards;
   }
 }
 @media (max-width: 1023px) and (min-width: 768px) {
-  .coursenav,
-  .has-coursenav-mobile-open .coursenav {
-    height: auto;
+  .coursenav {
+    height: 80px;
+  }
+  .coursenav.is-open {
+    animation: e 0.4s cubic-bezier(0.05, 0, 0.002, 1) forwards;
+  }
+}
+@media (max-width: 1023px) {
+  .coursenav.is-closed {
+    height: calc(100% - 48px);
+    animation: d 0.4s cubic-bezier(0.05, 0, 0.002, 1) forwards;
+  }
+}
+@media (max-width: 1023px) and (min-width: 768px) {
+  .coursenav.is-closed {
+    height: calc(50% - 87px);
+    animation: f 0.4s cubic-bezier(0.05, 0, 0.002, 1) forwards;
   }
 }
 @media (max-width: 1023px) {
@@ -976,14 +1018,29 @@ body.has-coursenav-mobile-open {
     padding: 16px 0;
     width: 100%;
     height: 56px;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
     margin-top: auto;
     border-top: 1px solid #454545;
     position: relative;
   }
   [data-whatinput="keyboard"] .coursenav__toggle:focus {
     outline: 1px solid rgba(229, 0, 86, 0.75);
-    outline-offset: 3px;
+    outline-offset: -1px;
   }
+}
+.richtext-small ol,
+.richtext-small ul,
+.richtext ol,
+.richtext ul {
+  margin-top: 13px;
+}
+@media (max-width: 1023px) and (min-width: 768px) {
+  .coursenav__toggle {
+    height: 80px;
+  }
+}
+@media (max-width: 1023px) {
   .coursenav__toggle .icon-chevron {
     fill: #fff;
     height: auto;
@@ -1011,12 +1068,6 @@ body.has-coursenav-mobile-open {
     color: #e50056;
     content: "_";
   }
-}
-.richtext-small ol,
-.richtext-small ul,
-.richtext ol,
-.richtext ul {
-  margin-top: 13px;
 }
 @media (max-width: 1023px) and (min-width: 768px) {
   .coursenav__toggle__label {
@@ -1313,10 +1364,6 @@ body.has-coursenav-mobile-open {
   width: 100%;
   border-bottom: 1px solid #e3e3e3;
 }
-.richtext table th {
-  font-weight: 700;
-  vertical-align: top;
-}
 .richtext table td,
 .richtext table th {
   padding: 17px 4px;
@@ -1468,10 +1515,6 @@ body.has-coursenav-mobile-open {
 .richtext-small table {
   width: 100%;
   border-bottom: 1px solid #e3e3e3;
-}
-.richtext-small table th {
-  font-weight: 700;
-  vertical-align: top;
 }
 .richtext-small table td,
 .richtext-small table th {
@@ -1867,24 +1910,18 @@ body.has-coursenav-mobile-open {
 }
 .hero-content {
   display: flex;
+}
+.hero-content,
+.textmedia {
   -ms-flex-pack: center;
   justify-content: center;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  max-width: 1200px;
-}
-.footer-wrapper,
-.textmedia {
-  -webkit-box-pack: center;
   max-width: 1200px;
 }
 .textmedia {
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
   margin: 32px 0;
 }
 @media (min-width: 1024px) {
@@ -2303,7 +2340,6 @@ body.has-coursenav-mobile-open {
   left: 0;
   z-index: 101;
   width: 100vw;
-  display: block;
 }
 .is-open .collapsible__title__button .icon-chevron {
   transform: rotate(-90deg);
@@ -2357,20 +2393,20 @@ body.has-coursenav-mobile-open {
   transform: scale(0);
 }
 .sitesearch.is-open {
-  animation: b 0.4s cubic-bezier(0.05, 0, 0.002, 1) forwards;
+  animation: g 0.4s cubic-bezier(0.05, 0, 0.002, 1) forwards;
   transform: scale(1);
 }
 .sitesearch.is-closed {
   transform: scaleX(1);
   opacity: 1;
-  animation: c 0.4s cubic-bezier(0.05, 0, 0.002, 1) forwards;
+  animation: h 0.4s cubic-bezier(0.05, 0, 0.002, 1) forwards;
 }
-@keyframes b {
+@keyframes g {
   to {
     opacity: 1;
   }
 }
-@keyframes c {
+@keyframes h {
   to {
     opacity: 0;
   }
@@ -2381,13 +2417,13 @@ body.has-coursenav-mobile-open {
   transform: scale(0);
 }
 .menu.is-open {
-  animation: b 0.4s cubic-bezier(0.05, 0, 0.002, 1) forwards;
+  animation: g 0.4s cubic-bezier(0.05, 0, 0.002, 1) forwards;
   transform: scale(1);
 }
 .menu.is-closed {
   transform: scaleX(1);
   opacity: 1;
-  animation: c 0.4s cubic-bezier(0.05, 0, 0.002, 1) forwards;
+  animation: h 0.4s cubic-bezier(0.05, 0, 0.002, 1) forwards;
 }
 .skiplinks a {
   position: absolute;
@@ -2434,6 +2470,7 @@ body.has-coursenav-mobile-open {
   justify-content: center;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
+  max-width: 1200px;
 }
 .demo-theme-black .btn-primary,
 .demo-theme-black .btn-secondary,

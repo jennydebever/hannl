@@ -1,100 +1,55 @@
-var delegate = require("delegate-events");
-var findParent = require("find-parent");
+var dispatcher = require("../../dispatcher");
 var constants = require("../../../constants");
+var getBreakpoint = require("../../ui/get-breakpoint");
 
 /**
- * Coursenav dropdown logic for desktop
+ * Listen to breakpoint changes
  */
 
-var $currentDropdown;
+var $coursenav = document.querySelector(".js-coursenav");
+var $coursenavWrapper = document.querySelector(".js-coursenav-wrapper");
 
-function open($el) {
-  if ($el === $currentDropdown) {
-    return;
-  }
+function onBreakpointChange(e) {
+  if (!$coursenav) return;
 
-  close(null);
-  $currentDropdown = $el;
-  $currentDropdown.classList.add(constants.FOCUS_CLASS);
-  document.body.classList.add(constants.COURSENAV_DROPDOWN_OPEN_CLASS);
-}
+  // for desktop
+  if (e.breakpoint === constants.DESKTOP) {
+    // make non modal
+    $coursenavWrapper.setAttribute("aria-modal", "false");
 
-/**
- * Close
- */
-function close($el) {
-  if ($el === $currentDropdown) {
-    return;
-  }
+    // remove open class
+    $coursenav.classList.remove(constants.OPEN_CLASS);
 
-  if ($currentDropdown) {
-    $currentDropdown.classList.remove(constants.FOCUS_CLASS);
-    document.body.classList.remove(constants.COURSENAV_DROPDOWN_OPEN_CLASS);
+    // remove hidden attribute
+    $coursenavWrapper.removeAttribute("hidden");
 
-    $currentDropdown = null;
-  }
-}
-
-/**
- * Open with pointer
- */
-
-function onMouseOver(e) {
-  open(findParent.byClassName(e.delegateTarget, "js-subnav__item"));
-}
-
-delegate.bind(document.body, ".js-subnav__item", "mouseover", onMouseOver);
-
-/**
- * Close with pointer
- */
-
-function onMouseOut(e) {
-  close(findParent.byClassName(e.relatedTarget, "js-subnav__item"));
-}
-
-delegate.bind(document.body, ".js-subnav__item", "mouseout", onMouseOut);
-
-/**
- * Open with keyboard focus
- */
-
-function onFocus(e) {
-  open(findParent.byClassName(e.delegateTarget, "js-subnav__item"));
-}
-
-delegate.bind(document.body, ".js-subnav__item a", "focusin", onFocus);
-
-/**
- * Close with keyboard
- */
-
-function onFocusOut(e) {
-  close(findParent.byClassName(e.relatedTarget, "js-subnav__item"));
-}
-
-delegate.bind(document.body, ".js-subnav__item a", "focusout", onFocusOut);
-
-/**
- * Close by moving focus to black overlay
- */
-
-function onOverlayFocus() {
-  close();
-}
-
-delegate.bind(document.body, ".js-coursenav-dropdown-close", "focus", onOverlayFocus);
-
-/**
- * Toggle mobile
- */
-
-function toggleMobile() {
-  if (document.body.classList.contains(constants.COURSENAV_MOBILE_OPEN_CLASS)) {
-    document.body.classList.remove(constants.COURSENAV_MOBILE_OPEN_CLASS);
+    // for tablet and mobile
   } else {
-    document.body.classList.add(constants.COURSENAV_MOBILE_OPEN_CLASS);
+    // if the coursenav isn't already open (e.g when switching between tablet/mobile)
+    if (!$coursenav.classList.contains(constants.OPEN_CLASS)) {
+      // make it modal
+      $coursenavWrapper.setAttribute("aria-modal", true);
+
+      // set hidden attribute
+      $coursenavWrapper.setAttribute("hidden", "true");
+    }
+  }
+
+  // clean up modal window
+  $coursenav.removeAttribute("hidden");
+
+  if (document.body.classList.contains(constants.MODAL_OPEN_CLASS + "--coursenav")) {
+    dispatcher.dispatch({
+      type: constants.REQUEST_MODAL_CLOSE,
+      cb: function() {
+        $coursenav.removeAttribute("hidden");
+      }
+    });
   }
 }
 
-delegate.bind(document.body, ".js-coursenav-mobile-toggle", "click", toggleMobile);
+onBreakpointChange({
+  breakpoint: getBreakpoint()
+});
+
+dispatcher.on(constants.EVENT_BREAKPOINT_CHANGE, onBreakpointChange);

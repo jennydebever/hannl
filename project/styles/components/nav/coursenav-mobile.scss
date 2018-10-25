@@ -1,23 +1,55 @@
 @include breakpoint(max $bp-l) {
+  @keyframes animate-coursenav-in-mobile {
+    to {
+      height: calc(100% - 48px);
+    }
+  }
+
+  @keyframes animate-coursenav-out-mobile {
+    to {
+      height: 56px;
+    }
+  }
+
+  @keyframes animate-coursenav-in-tablet {
+    to {
+      height: calc(50% - 87px);
+    }
+  }
+
+  @keyframes animate-coursenav-out-tablet {
+    to {
+      height: 80px;
+    }
+  }
+
   .coursenav {
     background-color: $black;
     position: relative;
     z-index: 98;
-    height: calc(100% - 48px);
+    height: 56px;
     display: flex;
     flex-direction: column;
-    transform: translateY(-100%) translateY(56px);
-    transition: transform 0.5s $ease, height 0.5s $ease;
 
     @include breakpoint($bp-m) {
-      height: auto;
+      height: 80px;
     }
 
-    .has-coursenav-mobile-open & {
-      transform: translateY(0);
+    &.is-open {
+      animation: animate-coursenav-in-mobile 0.4s $ease forwards;
 
       @include breakpoint($bp-m) {
-        height: auto;
+        animation: animate-coursenav-in-tablet 0.4s $ease forwards;
+      }
+    }
+
+    &.is-closed {
+      height: calc(100% - 48px);
+      animation: animate-coursenav-out-mobile 0.4s $ease forwards;
+
+      @include breakpoint($bp-m) {
+        height: calc(50% - 87px);
+        animation: animate-coursenav-out-tablet 0.4s $ease forwards;
       }
     }
   }
@@ -84,13 +116,18 @@
    */
 
   .coursenav__toggle {
-    @include focusable($hanred);
+    @include focusable($hanred, 1px, -1px);
     padding: 16px 0;
     width: 100%;
     height: 56px;
+    flex-shrink: 0;
     margin-top: auto;
     border-top: 1px solid $grey5;
     position: relative;
+
+    @include breakpoint($bp-m) {
+      height: 80px;
+    }
 
     .icon-chevron {
       fill: $white;

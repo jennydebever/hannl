@@ -50,7 +50,7 @@ block subnav
       ]
     },
     {
-      href: "/deeltijd/praktisch.html",
+      href: "/deeltijd/info.html",
       label: "Praktische info",
       subitems: [
         {
@@ -64,4 +64,7 @@ block subnav
   +coursenav('Pabo Deeltijd', items)
   
 block main
-  | praktische info hero
+  | praktische info <a href="">hero</a>
+  ul
+    each n,i in new Array(100)
+      li #{i}

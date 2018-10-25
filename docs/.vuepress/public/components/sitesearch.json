@@ -1,1 +1,6 @@
-{"name":"Sitesearch","slug":"sitesearch","height":15,"source":"<div class=\"sitesearch js-sitesearch\" hidden=\"hidden\" id=\"sitesearch\" role=\"dialog\" aria-modal=\"aria-modal\" aria-label=\"Zoeken\">site search<button class=\"sitesearch__close js-modal-close\" type=\"button\" aria-label=\"Zoekfunctie sluiten\" aria-expanded=\"false\" aria-controls=\"sitesearch\">Sluiten</button></div>"}
+{
+  "name": "Sitesearch",
+  "slug": "sitesearch",
+  "height": 15,
+  "source": "<div class=\"sitesearch js-sitesearch\" hidden=\"hidden\" id=\"sitesearch\" role=\"dialog\" aria-modal=\"true\" aria-label=\"Zoeken\">site search<button class=\"sitesearch__close js-modal-close\" type=\"button\" aria-label=\"Zoekfunctie sluiten\" aria-expanded=\"false\" aria-controls=\"sitesearch\">Sluiten</button></div>"
+}

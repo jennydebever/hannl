@@ -13,7 +13,7 @@ body {
   color: $black;
   background-color: $grey1;
 
-  &.has-coursenav-mobile-open {
+  &.modal-is-open--coursenav {
     overflow-y: hidden;
   }
 }

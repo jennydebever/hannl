@@ -33,13 +33,12 @@
   left: 0;
   height: calc(100vh + 250px); // add some for scroll up logic
   width: 100vw;
-  display: none;
   opacity: 0;
   z-index: 97;
   transform: scale(0, 0, 0);
 
+  .modal-is-open--coursenav &,
   .has-coursenav-dropdown-open & {
-    display: block;
     animation: animate-coursenav-overlay-in 2.5s $ease forwards;
     transform: scale(1, 1, 1);
   }

@@ -21,8 +21,8 @@
 mixin coursenav(title, links)
   include ../../icons/_icon
 
-  .coursenav(class='js-coursenav')
-    .coursenav-wrapper(id="coursenav")
+  nav.coursenav(class='js-coursenav', aria-label="Opleidingsnavigatie", role="navigation", id="coursenav")
+    .coursenav-wrapper(class='js-coursenav-wrapper')
       .coursenav-body-wrapper
         if title
           a.coursenav__title(href=links[0].href) #{title}
@@ -40,7 +40,7 @@ mixin coursenav(title, links)
                       a.coursenav-dropdown__item__link(href=subitem.href) #{subitem.label}
 
     //- mobile toggle
-    button.coursenav__toggle(class='js-coursenav-mobile-toggle', type='button', aria-expanded='false', aria-controls='coursenav')
+    button.coursenav__toggle(class="js-coursenav-toggle js-modal-toggle", aria-label="Opleidingsnavigatie", aria-controls="coursenav", type="button", aria-expanded="false")
       span.coursenav__toggle__label
         | #{title}
       +icon#chevron

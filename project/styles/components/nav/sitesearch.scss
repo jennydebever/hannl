@@ -21,7 +21,6 @@
   opacity: 0;
   background: $grey5;
   transform: scale(0, 0, 0);
-  display: block;
 
   &.is-open {
     animation: animate-sitesearch-in 0.4s $ease forwards;

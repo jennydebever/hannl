@@ -5,7 +5,7 @@ var getBreakpoint = require("../../ui/get-breakpoint");
 var $nav = document.querySelector(".js-nav");
 var $topbar = document.querySelector(".js-topbar");
 var $coursenav = document.querySelector(".js-coursenav");
-var $coursenavMobileToggle = document.querySelector(".js-coursenav-mobile-toggle");
+var $coursenavMobileToggle = document.querySelector(".js-coursenav-toggle");
 
 /**
  * Add a spacer to compensate the fixed header height
