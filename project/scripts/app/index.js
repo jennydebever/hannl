@@ -1,5 +1,5 @@
 window.HAN = {};
-require("./ui/breakpoint");
+require("./ui/breakpoint-events");
 
 require("./components/nav/fixed");
 require("./components/nav/coursenav");

@@ -1,6 +1,7 @@
 var constants = require("../../constants");
 var dispatcher = require("../dispatcher");
 var debounce = require("debounce");
+var getBreakpoint = require("./get-breakpoint");
 
 /**
  * Check for breakpoint changes
@@ -32,30 +33,6 @@ function onResize() {
   // check for breakpoint change
   checkBreakpointChange();
 }
-
-/**
- * get current breakpoint
- */
-
-function getBreakpoint() {
-  var view = null;
-
-  for (var key in constants.BREAKPOINTS) {
-    if (window.matchMedia) {
-      if (window.matchMedia("(min-width: " + constants.BREAKPOINTS[key] + "px)").matches) {
-        view = key;
-      }
-    } else {
-      if (document.documentElement.clientWidth >= constants.BREAKPOINTS[key]) {
-        view = key;
-      }
-    }
-  }
-
-  return view;
-}
-
-module.exports.get = getBreakpoint;
 
 /**
  * check breakpoint change

@@ -7,7 +7,11 @@
 
 .topbar-wrapper {
   @include grid;
-  height: 87px;
+  height: 48px;
+
+  @include breakpoint($bp-m) {
+    height: 87px;
+  }
 }
 
 .topbar-body-wrapper {
