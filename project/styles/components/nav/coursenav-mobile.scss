@@ -117,26 +117,50 @@
 
   .coursenav__toggle {
     @include focusable($hanred, 1px, -1px);
-    padding: 16px 0;
     width: 100%;
     height: 56px;
     flex-shrink: 0;
     margin-top: auto;
     border-top: 1px solid $grey5;
     position: relative;
+    padding-left: #{$grid-item-spacing-s * 2};
+    padding-right: #{$grid-item-spacing-s * 2 + 50px};
 
     @include breakpoint($bp-m) {
       height: 80px;
+      padding-left: #{$grid-item-spacing-m * 2};
+      padding-right: #{$grid-item-spacing-m * 2 + 50px};
     }
 
     .icon-chevron {
       fill: $white;
       height: auto;
-      width: 12px;
+      width: 10px;
       transform: translateY(-50%) rotate(90deg);
+      transition: transform 0.15s $ease;
+      transform-origin: 50% 50%;
       position: absolute;
-      right: 10px;
+      right: 20px;
       top: 50%;
+
+      .is-open & {
+        transform: translateY(-50%) rotate(-90deg);
+      }
+
+      .is-closed & {
+        transform: translateY(-50%) rotate(90deg);
+      }
+    }
+
+    &::after {
+      width: 50px;
+      height: 50px;
+      content: "";
+      display: block;
+      border-bottom: 5px solid $hanred;
+      position: absolute;
+      bottom: 0;
+      right: 0;
     }
   }
 

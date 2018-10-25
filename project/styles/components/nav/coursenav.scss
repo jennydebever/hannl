@@ -1,11 +1,21 @@
 @mixin coursenav-title {
   @include focusable($black);
-  @include title3;
   @include underscore;
   align-self: center;
   text-decoration: none;
   color: $black;
   text-transform: uppercase;
+  font-family: $bold-condensed;
+  font-size: 18px;
+  line-height: 1;
+
+  @include breakpoint($bp-m) {
+    font-size: 22px;
+  }
+
+  @include breakpoint($bp-l) {
+    font-size: 21px;
+  }
 }
 
 /**
