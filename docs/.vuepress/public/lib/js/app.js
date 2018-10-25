@@ -1422,17 +1422,8 @@
     ],
     28: [
       function(e, t, n) {
-        var o = e("keymirror")({
-            EVENT_BREAKPOINT_CHANGE: null,
-            EVENT_RESIZE: null,
-            EVENT_MODAL_AFTER_OPEN: null,
-            EVENT_MODAL_BEFORE_OPEN: null,
-            EVENT_MODAL_AFTER_CLOSE: null,
-            EVENT_MODAL_BEFORE_CLOSE: null,
-            REQUEST_MODAL_OPEN: null,
-            REQUEST_MODAL_CLOSE: null
-          }),
-          r = Object.assign(
+        var o = e("keymirror"),
+          r = e("object-assign")(
             {},
             {
               OPEN_CLASS: "is-open",
@@ -1445,7 +1436,16 @@
               SCROLLED_FREE_CLASS: "is-scrolled-free",
               COURSENAV_DROPDOWN_OPEN_CLASS: "has-coursenav-dropdown-open"
             },
-            o,
+            o({
+              EVENT_BREAKPOINT_CHANGE: null,
+              EVENT_RESIZE: null,
+              EVENT_MODAL_AFTER_OPEN: null,
+              EVENT_MODAL_BEFORE_OPEN: null,
+              EVENT_MODAL_AFTER_CLOSE: null,
+              EVENT_MODAL_BEFORE_CLOSE: null,
+              REQUEST_MODAL_OPEN: null,
+              REQUEST_MODAL_CLOSE: null
+            }),
             {
               KEY_ESCAPE: 27,
               KEY_ENTER: 13,
@@ -1462,7 +1462,7 @@
           );
         t.exports = r;
       },
-      { keymirror: 8 }
+      { keymirror: 8, "object-assign": 10 }
     ]
   },
   {},

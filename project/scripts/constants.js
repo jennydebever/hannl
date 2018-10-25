@@ -1,4 +1,5 @@
 var keyMirror = require("keymirror");
+var assign = require("object-assign");
 
 /**
  * Classes
@@ -53,6 +54,6 @@ var misc = {
   DESKTOP: "DESKTOP"
 };
 
-var constants = Object.assign({}, classes, events, misc);
+var constants = assign({}, classes, events, misc);
 
 module.exports = constants;
