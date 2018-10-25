@@ -1,7 +1,6 @@
-var findParent = require("find-parent");
+// var findParent = require("find-parent");
 var constants = require("../../../constants");
 var dispatcher = require("../../dispatcher");
-// var getBreakpoint = require("../../ui/get-breakpoint");
 
 var $coursenav = document.querySelector(".js-coursenav");
 var $coursenavWrapper = document.querySelector(".js-coursenav-wrapper");
@@ -44,9 +43,10 @@ dispatcher.on(constants.EVENT_MODAL_AFTER_CLOSE, onModalClose);
 
 function onBodyClick(e) {
   if (e.breakpoint === constants.DESKTOP) return;
-  if (findParent.byClassName(e.target, ".js-coursenav")) {
-    return;
-  }
+  // neccessary to stay open if internal link is clicked?
+  // if (findParent.byClassName(e.target, "js-coursenav")) {
+  //   return;
+  // }
 
   dispatcher.dispatch({
     type: constants.REQUEST_MODAL_CLOSE

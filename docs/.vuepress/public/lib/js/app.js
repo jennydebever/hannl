@@ -1,10 +1,10 @@
 /*! han.nl v0.1.0 */ !(function i(s, a, c) {
-  function u(t, e) {
+  function d(t, e) {
     if (!a[t]) {
       if (!s[t]) {
         var n = "function" == typeof require && require;
         if (!e && n) return n(t, !0);
-        if (d) return d(t, !0);
+        if (u) return u(t, !0);
         var o = new Error("Cannot find module '" + t + "'");
         throw ((o.code = "MODULE_NOT_FOUND"), o);
       }
@@ -12,7 +12,7 @@
       s[t][0].call(
         r.exports,
         function(e) {
-          return u(s[t][1][e] || e);
+          return d(s[t][1][e] || e);
         },
         r,
         r.exports,
@@ -24,8 +24,8 @@
     }
     return a[t].exports;
   }
-  for (var d = "function" == typeof require && require, e = 0; e < c.length; e++) u(c[e]);
-  return u;
+  for (var u = "function" == typeof require && require, e = 0; e < c.length; e++) d(c[e]);
+  return d;
 })(
   {
     1: [
@@ -61,15 +61,15 @@
       function(e, t, n) {
         function o(t, n, o) {
           var r, i, s, a, c;
-          function u() {
+          function d() {
             var e = Date.now() - a;
-            e < n && 0 <= e ? (r = setTimeout(u, n - e)) : ((r = null), o || ((c = t.apply(s, i)), (s = i = null)));
+            e < n && 0 <= e ? (r = setTimeout(d, n - e)) : ((r = null), o || ((c = t.apply(s, i)), (s = i = null)));
           }
           null == n && (n = 100);
           var e = function() {
             (s = this), (i = arguments), (a = Date.now());
             var e = o && !r;
-            return r || (r = setTimeout(u, n)), e && ((c = t.apply(s, i)), (s = i = null)), c;
+            return r || (r = setTimeout(d, n)), e && ((c = t.apply(s, i)), (s = i = null)), c;
           };
           return (
             (e.clear = function() {
@@ -142,12 +142,12 @@
         var r,
           a = 10;
         try {
-          var u = {};
-          Object.defineProperty && Object.defineProperty(u, "x", { value: 0 }), (r = 0 === u.x);
+          var d = {};
+          Object.defineProperty && Object.defineProperty(d, "x", { value: 0 }), (r = 0 === d.x);
         } catch (e) {
           r = !1;
         }
-        function d(e) {
+        function u(e) {
           return void 0 === e._maxListeners ? o.defaultMaxListeners : e._maxListeners;
         }
         function l(e, t, n, o) {
@@ -161,7 +161,7 @@
           ) {
             if (
               ("function" == typeof s ? (s = i[t] = o ? [n, s] : [s, n]) : o ? s.unshift(n) : s.push(n),
-              !s.warned && (r = d(e)) && 0 < r && s.length > r)
+              !s.warned && (r = u(e)) && 0 < r && s.length > r)
             ) {
               s.warned = !0;
               var a = new Error(
@@ -233,7 +233,7 @@
             return (this._maxListeners = e), this;
           }),
           (o.prototype.getMaxListeners = function() {
-            return d(this);
+            return u(this);
           }),
           (o.prototype.emit = function(e) {
             var t,
@@ -251,38 +251,38 @@
               throw ((c.context = t), c);
             }
             if (!(n = s[e])) return !1;
-            var u = "function" == typeof n;
+            var d = "function" == typeof n;
             switch ((o = arguments.length)) {
               case 1:
                 !(function(e, t, n) {
                   if (t) e.call(n);
                   else for (var o = e.length, r = m(e, o), i = 0; i < o; ++i) r[i].call(n);
-                })(n, u, this);
+                })(n, d, this);
                 break;
               case 2:
                 !(function(e, t, n, o) {
                   if (t) e.call(n, o);
                   else for (var r = e.length, i = m(e, r), s = 0; s < r; ++s) i[s].call(n, o);
-                })(n, u, this, arguments[1]);
+                })(n, d, this, arguments[1]);
                 break;
               case 3:
                 !(function(e, t, n, o, r) {
                   if (t) e.call(n, o, r);
                   else for (var i = e.length, s = m(e, i), a = 0; a < i; ++a) s[a].call(n, o, r);
-                })(n, u, this, arguments[1], arguments[2]);
+                })(n, d, this, arguments[1], arguments[2]);
                 break;
               case 4:
                 !(function(e, t, n, o, r, i) {
                   if (t) e.call(n, o, r, i);
                   else for (var s = e.length, a = m(e, s), c = 0; c < s; ++c) a[c].call(n, o, r, i);
-                })(n, u, this, arguments[1], arguments[2], arguments[3]);
+                })(n, d, this, arguments[1], arguments[2], arguments[3]);
                 break;
               default:
                 for (r = new Array(o - 1), i = 1; i < o; i++) r[i - 1] = arguments[i];
                 !(function(e, t, n, o) {
                   if (t) e.apply(n, o);
                   else for (var r = e.length, i = m(e, r), s = 0; s < r; ++s) i[s].apply(n, o);
-                })(n, u, this, r);
+                })(n, d, this, r);
             }
             return !0;
           }),
@@ -432,7 +432,7 @@
               },
               deactivate: a,
               pause: function() {
-                !i.paused && i.active && ((i.paused = !0), u());
+                !i.paused && i.active && ((i.paused = !0), d());
               },
               unpause: function() {
                 i.paused && i.active && ((i.paused = !1), c());
@@ -441,7 +441,7 @@
           return s;
           function a(e) {
             if (i.active) {
-              u(), (i.active = !1), (i.paused = !1);
+              d(), (i.active = !1), (i.paused = !1);
               var t = e && void 0 !== e.onDeactivate ? e.onDeactivate : r.onDeactivate;
               return (
                 t && t(),
@@ -470,7 +470,7 @@
                 s
               );
           }
-          function u() {
+          function d() {
             if (i.active && g === s)
               return (
                 o.removeEventListener("focusin", f, !0),
@@ -482,7 +482,7 @@
                 s
               );
           }
-          function d(e) {
+          function u(e) {
             var t = r[e],
               n = t;
             if (!t) return null;
@@ -495,11 +495,11 @@
             var e;
             if (
               !(e =
-                null !== d("initialFocus")
-                  ? d("initialFocus")
+                null !== u("initialFocus")
+                  ? u("initialFocus")
                   : n.contains(o.activeElement)
                     ? o.activeElement
-                    : i.firstTabbableNode || d("fallbackFocus"))
+                    : i.firstTabbableNode || u("fallbackFocus"))
             )
               throw new Error("You can't have a focus-trap without at least one focusable element");
             return e;
@@ -580,8 +580,8 @@
       function(e, t, n) {
         "use strict";
         var c = Object.getOwnPropertySymbols,
-          u = Object.prototype.hasOwnProperty,
-          d = Object.prototype.propertyIsEnumerable;
+          d = Object.prototype.hasOwnProperty,
+          u = Object.prototype.propertyIsEnumerable;
         t.exports = (function() {
           try {
             if (!Object.assign) return !1;
@@ -621,10 +621,10 @@
                 i < arguments.length;
                 i++
               ) {
-                for (var s in (n = Object(arguments[i]))) u.call(n, s) && (r[s] = n[s]);
+                for (var s in (n = Object(arguments[i]))) d.call(n, s) && (r[s] = n[s]);
                 if (c) {
                   o = c(n);
-                  for (var a = 0; a < o.length; a++) d.call(n, o[a]) && (r[o[a]] = n[o[a]]);
+                  for (var a = 0; a < o.length; a++) u.call(n, o[a]) && (r[o[a]] = n[o[a]]);
                 }
               }
               return r;
@@ -657,32 +657,32 @@
                         }
                       );
                     },
-              P = {
+              D = {
                 _: [],
                 add: function(e, t, n, o) {
-                  P.remove(e), P._.push({ el: e, defaultStyle: t, timeoutId: n, onCancelled: o });
+                  D.remove(e), D._.push({ el: e, defaultStyle: t, timeoutId: n, onCancelled: o });
                 },
                 remove: function(e) {
-                  var t = P.findIndex(e);
+                  var t = D.findIndex(e);
                   if (-1 !== t) {
-                    var n = P._[t];
-                    clearTimeout(n.timeoutId), n.onCancelled(), P._.splice(t, 1);
+                    var n = D._[t];
+                    clearTimeout(n.timeoutId), n.onCancelled(), D._.splice(t, 1);
                   }
                 },
                 find: function(e) {
-                  return P._[P.findIndex(e)];
+                  return D._[D.findIndex(e)];
                 },
                 findIndex: function(n) {
                   var o = -1;
                   return (
-                    P._.some(function(e, t) {
+                    D._.some(function(e, t) {
                       if (e.el === n) return (o = t), !0;
                     }),
                     o
                   );
                 }
               },
-              D = "cubic-bezier( 0.19, 1, 0.22, 1 )";
+              P = "cubic-bezier( 0.19, 1, 0.22, 1 )";
             function j(e) {
               return 0 !== e.offsetHeight;
             }
@@ -705,7 +705,7 @@
               return new t(function(e) {
                 if (
                   (x.onComplete && console.warn("options.onComplete will be deprecated. use 'then' instead"),
-                  -1 === P.findIndex(N))
+                  -1 === D.findIndex(N))
                 ) {
                   var t = j(N),
                     n = "number" == typeof x.endHeight,
@@ -715,7 +715,7 @@
                     s = x.onCancelled || function() {},
                     a = N.getAttribute("style") || "",
                     c = window.getComputedStyle(N),
-                    u = (function(e, t) {
+                    d = (function(e, t) {
                       var n = e.getAttribute("style") || "",
                         o = window.getComputedStyle(e);
                       (e.style.visibility = "hidden"), (e.style.display = t || "block");
@@ -731,26 +731,26 @@
                         s = R(o.getPropertyValue("padding-bottom")),
                         a = R(o.getPropertyValue("border-top-width")),
                         c = R(o.getPropertyValue("border-bottom-width")),
-                        u = e.scrollHeight;
+                        d = e.scrollHeight;
                       return (
                         e.setAttribute("style", n),
-                        { height: u, paddingTop: i, paddingBottom: s, borderTop: a, borderBottom: c }
+                        { height: d, paddingTop: i, paddingBottom: s, borderTop: a, borderBottom: c }
                       );
                     })(N, o),
-                    d = /border-box/.test(c.getPropertyValue("box-sizing")),
-                    l = u.height,
-                    p = u.paddingTop,
-                    f = u.paddingBottom,
-                    v = u.borderTop,
-                    m = u.borderBottom,
+                    u = /border-box/.test(c.getPropertyValue("box-sizing")),
+                    l = d.height,
+                    p = d.paddingTop,
+                    f = d.paddingBottom,
+                    v = d.borderTop,
+                    m = d.borderBottom,
                     h = r + "ms",
-                    y = ["height " + h + " " + D, "padding " + h + " " + D, "border-width " + h + " " + D].join(),
+                    y = ["height " + h + " " + P, "padding " + h + " " + P, "border-width " + h + " " + P].join(),
                     b = t ? c.height : "0px",
                     E = t ? c.paddingTop : "0px",
                     g = t ? c.paddingBottom : "0px",
                     L = t ? c.borderTopWidth : "0px",
                     _ = t ? c.borderBottomWidth : "0px",
-                    S = n ? x.endHeight + "px" : d ? l + v + m + "px" : l - p - f + "px",
+                    S = n ? x.endHeight + "px" : u ? l + v + m + "px" : l - p - f + "px",
                     O = p + "px",
                     A = f + "px",
                     w = v + "px",
@@ -779,11 +779,11 @@
                     k(N),
                       (N.style.display = o),
                       n && ((N.style.height = x.endHeight + "px"), (N.style.overflow = "hidden")),
-                      P.remove(N),
+                      D.remove(N),
                       i(),
                       e();
                   }, r);
-                  P.add(N, a, T, s);
+                  D.add(N, a, T, s);
                 }
               });
             }),
@@ -792,7 +792,7 @@
                 return new t(function(e) {
                   if (
                     (S.onComplete && console.warn("options.onComplete will be deprecated. use 'then' instead"),
-                    -1 === P.findIndex(_))
+                    -1 === D.findIndex(_))
                   ) {
                     var t = j(_),
                       n = S.display || "block",
@@ -803,16 +803,16 @@
                     var s = _.getAttribute("style") || "",
                       a = window.getComputedStyle(_),
                       c = /border-box/.test(a.getPropertyValue("box-sizing")),
-                      u = R(a.getPropertyValue("padding-top")),
-                      d = R(a.getPropertyValue("padding-bottom")),
+                      d = R(a.getPropertyValue("padding-top")),
+                      u = R(a.getPropertyValue("padding-bottom")),
                       l = R(a.getPropertyValue("border-top-width")),
                       p = R(a.getPropertyValue("border-bottom-width")),
                       f = _.scrollHeight,
                       v = o + "ms",
-                      m = ["height " + v + " " + D, "padding " + v + " " + D, "border-width " + v + " " + D].join(),
-                      h = c ? f + l + p + "px" : f - u - d + "px",
-                      y = u + "px",
-                      b = d + "px",
+                      m = ["height " + v + " " + P, "padding " + v + " " + P, "border-width " + v + " " + P].join(),
+                      h = c ? f + l + p + "px" : f - d - u + "px",
+                      y = d + "px",
+                      b = u + "px",
                       E = l + "px",
                       g = p + "px";
                     requestAnimationFrame(function() {
@@ -834,14 +834,14 @@
                         });
                     });
                     var L = setTimeout(function() {
-                      k(_), (_.style.display = "none"), P.remove(_), r(), e();
+                      k(_), (_.style.display = "none"), D.remove(_), r(), e();
                     }, o);
-                    P.add(_, s, L, i);
+                    D.add(_, s, L, i);
                   }
                 });
               }),
               (e.slideStop = function(e) {
-                if (P.find(e)) {
+                if (D.find(e)) {
                   var t = window.getComputedStyle(e),
                     n = t.height,
                     o = t.paddingTop,
@@ -855,7 +855,7 @@
                     (e.style.borderTopWidth = i),
                     (e.style.borderBottomWidth = s),
                     (e.style.overflow = "hidden"),
-                    P.remove(e);
+                    D.remove(e);
                 }
               }),
               (e.isVisible = j),
@@ -882,8 +882,8 @@
             "video[controls]",
             '[contenteditable]:not([contenteditable="false"])'
           ],
-          u = o.join(","),
-          d =
+          d = o.join(","),
+          u =
             "undefined" == typeof Element
               ? function() {}
               : Element.prototype.matches ||
@@ -897,9 +897,9 @@
             i = [],
             s = [],
             a = new v(e.ownerDocument || e),
-            c = e.querySelectorAll(u);
+            c = e.querySelectorAll(d);
           for (
-            t.includeContainer && d.call(e, u) && (c = Array.prototype.slice.apply(c)).unshift(e), n = 0;
+            t.includeContainer && u.call(e, d) && (c = Array.prototype.slice.apply(c)).unshift(e), n = 0;
             n < c.length;
             n++
           )
@@ -936,11 +936,11 @@
         }
         (r.isTabbable = function(e, t) {
           if (!e) throw new Error("No node provided");
-          return !1 !== d.call(e, u) && l(e, t);
+          return !1 !== u.call(e, d) && l(e, t);
         }),
           (r.isFocusable = function(e, t) {
             if (!e) throw new Error("No node provided");
-            return !1 !== d.call(e, s) && i(e, t);
+            return !1 !== u.call(e, s) && i(e, t);
           });
         var s = o.concat("iframe").join(",");
         function p(e) {
@@ -1032,19 +1032,19 @@
       function(e, t, n) {
         var o = e("delegate-events"),
           c = e("../ui/focus-trap"),
-          u = e("../../constants"),
-          d = e("../dispatcher"),
+          d = e("../../constants"),
+          u = e("../dispatcher"),
           l = null;
         function r(e) {
           if (e) {
             l && i(l), (l = e);
             var s = document.getElementById(e);
             s &&
-              (d.dispatch({ type: u.EVENT_MODAL_BEFORE_OPEN, target: s }),
+              (u.dispatch({ type: d.EVENT_MODAL_BEFORE_OPEN, target: s }),
               s.removeAttribute("hidden"),
-              document.body.classList.add(u.MODAL_OPEN_CLASS),
-              document.body.classList.add(u.MODAL_OPEN_CLASS + "--" + l),
-              s.classList.add(u.OPEN_CLASS),
+              document.body.classList.add(d.MODAL_OPEN_CLASS),
+              document.body.classList.add(d.MODAL_OPEN_CLASS + "--" + l),
+              s.classList.add(d.OPEN_CLASS),
               s.addEventListener(
                 "animationend",
                 function e() {
@@ -1059,7 +1059,7 @@
                   for (n = 0, o = r.length; n < o; ++n) r[n].setAttribute("aria-expanded", !1);
                   var i = document.querySelectorAll(".js-modal-toggle[aria-controls='" + l + "']");
                   for (n = 0, o = i.length; n < o; ++n) i[n].setAttribute("aria-expanded", !0);
-                  c.enable(s), d.dispatch({ type: u.EVENT_MODAL_AFTER_OPEN, target: s });
+                  c.enable(s), u.dispatch({ type: d.EVENT_MODAL_AFTER_OPEN, target: s });
                 },
                 !1
               ));
@@ -1069,17 +1069,17 @@
           if (!e || e === l) {
             var a = document.getElementById(l);
             a &&
-              (d.dispatch({ type: u.EVENT_MODAL_BEFORE_CLOSE, target: a }),
+              (u.dispatch({ type: d.EVENT_MODAL_BEFORE_CLOSE, target: a }),
               a.addEventListener(
                 "animationend",
                 function e() {
                   document.removeEventListener("keydown", p),
                     a.removeEventListener("animationend", e),
-                    a.classList.remove(u.CLOSED_CLASS),
-                    a.classList.remove(u.OPEN_CLASS),
+                    a.classList.remove(d.CLOSED_CLASS),
+                    a.classList.remove(d.OPEN_CLASS),
                     a.setAttribute("hidden", !0),
-                    document.body.classList.remove(u.MODAL_OPEN_CLASS),
-                    document.body.classList.remove(u.MODAL_OPEN_CLASS + "--" + l),
+                    document.body.classList.remove(d.MODAL_OPEN_CLASS),
+                    document.body.classList.remove(d.MODAL_OPEN_CLASS + "--" + l),
                     c.disable();
                   for (
                     var t = document.querySelectorAll(".js-modal-show[aria-controls='" + l + "']"), n = 0, o = t.length;
@@ -1091,15 +1091,15 @@
                   for (n = 0, o = r.length; n < o; ++n) r[n].setAttribute("aria-expanded", !1);
                   var i = document.querySelectorAll(".js-modal-toggle[aria-controls='" + l + "']");
                   for (n = 0, o = i.length; n < o; ++n) i[n].setAttribute("aria-expanded", !1);
-                  d.dispatch({ type: u.EVENT_MODAL_AFTER_CLOSE, target: a }), (l = null), s && s();
+                  u.dispatch({ type: d.EVENT_MODAL_AFTER_CLOSE, target: a }), (l = null), s && s();
                 },
                 !1
               ),
-              a.classList.add(u.CLOSED_CLASS));
+              a.classList.add(d.CLOSED_CLASS));
           }
         }
         function p(e) {
-          e.which === u.KEY_ESCAPE && i(null);
+          e.which === d.KEY_ESCAPE && i(null);
         }
         o.bind(document.body, ".js-modal-open", "click", function(e) {
           var t = e.delegateTarget.getAttribute("aria-controls");
@@ -1114,10 +1114,10 @@
               n = t.getAttribute("aria-controls");
             n && ("true" === t.getAttribute("aria-expanded") ? i(n) : r(n));
           }),
-          d.on(u.REQUEST_MODAL_OPEN, function(e) {
+          u.on(d.REQUEST_MODAL_OPEN, function(e) {
             r(e.id);
           }),
-          d.on(u.REQUEST_MODAL_CLOSE, function(e) {
+          u.on(d.REQUEST_MODAL_CLOSE, function(e) {
             i(null, e.cb);
           });
       },
@@ -1133,66 +1133,64 @@
         function c(e) {
           a() === s.DESKTOP &&
             e !== o &&
-            (u(null),
+            (d(null),
             (o = e).classList.add(s.FOCUS_CLASS),
             document.body.classList.add(s.COURSENAV_DROPDOWN_OPEN_CLASS),
-            document.addEventListener("keydown", d));
+            document.addEventListener("keydown", u));
         }
-        function u(e) {
+        function d(e) {
           a() === s.DESKTOP &&
             e !== o &&
             (o &&
               (o.classList.remove(s.FOCUS_CLASS),
               document.body.classList.remove(s.COURSENAV_DROPDOWN_OPEN_CLASS),
               (o = null)),
-            document.removeEventListener("keydown", d, !1));
+            document.removeEventListener("keydown", u, !1));
         }
-        function d(e) {
+        function u(e) {
           if (e.which === s.KEY_ESCAPE) {
             var t = i.byClassName(o, "js-subnav__item");
-            t && t.querySelector("a").focus(), u(null);
+            t && t.querySelector("a").focus(), d(null);
           }
         }
         r.bind(document.body, ".js-subnav__item", "mouseover", function(e) {
           c(i.byClassName(e.delegateTarget, "js-subnav__item"));
         }),
           r.bind(document.body, ".js-subnav__item", "mouseout", function(e) {
-            u(i.byClassName(e.relatedTarget, "js-subnav__item"));
+            d(i.byClassName(e.relatedTarget, "js-subnav__item"));
           }),
           r.bind(document.body, ".js-subnav__item a", "focusin", function(e) {
             c(i.byClassName(e.delegateTarget, "js-subnav__item"));
           }),
           r.bind(document.body, ".js-subnav__item a", "focusout", function(e) {
-            u(i.byClassName(e.relatedTarget, "js-subnav__item"));
+            d(i.byClassName(e.relatedTarget, "js-subnav__item"));
           });
       },
       { "../../../constants": 28, "../../ui/get-breakpoint": 24, "delegate-events": 4, "find-parent": 6 }
     ],
     17: [
       function(e, t, n) {
-        var o = e("find-parent"),
-          r = e("../../../constants"),
-          i = e("../../dispatcher"),
-          s = document.querySelector(".js-coursenav"),
-          a = document.querySelector(".js-coursenav-wrapper");
-        function c(e) {
-          e.breakpoint !== r.DESKTOP &&
-            (o.byClassName(e.target, ".js-coursenav") || i.dispatch({ type: r.REQUEST_MODAL_CLOSE }));
+        var o = e("../../../constants"),
+          r = e("../../dispatcher"),
+          i = document.querySelector(".js-coursenav"),
+          s = document.querySelector(".js-coursenav-wrapper");
+        function a(e) {
+          e.breakpoint !== o.DESKTOP && r.dispatch({ type: o.REQUEST_MODAL_CLOSE });
         }
-        i.on(r.EVENT_MODAL_BEFORE_OPEN, function(e) {
-          s &&
-            e.breakpoint !== r.DESKTOP &&
-            e.target === s &&
-            (a.removeAttribute("hidden"), document.body.addEventListener("click", c, !1));
+        r.on(o.EVENT_MODAL_BEFORE_OPEN, function(e) {
+          i &&
+            e.breakpoint !== o.DESKTOP &&
+            e.target === i &&
+            (s.removeAttribute("hidden"), document.body.addEventListener("click", a, !1));
         }),
-          i.on(r.EVENT_MODAL_AFTER_CLOSE, function(e) {
-            s &&
-              e.breakpoint !== r.DESKTOP &&
-              e.target === s &&
-              (a.setAttribute("hidden", !0), document.body.removeEventListener("click", c));
+          r.on(o.EVENT_MODAL_AFTER_CLOSE, function(e) {
+            i &&
+              e.breakpoint !== o.DESKTOP &&
+              e.target === i &&
+              (s.setAttribute("hidden", !0), document.body.removeEventListener("click", a));
           });
       },
-      { "../../../constants": 28, "../../dispatcher": 20, "find-parent": 6 }
+      { "../../../constants": 28, "../../dispatcher": 20 }
     ],
     18: [
       function(e, t, n) {
@@ -1228,18 +1226,18 @@
           s = document.querySelector(".js-nav"),
           a = document.querySelector(".js-topbar"),
           c = document.querySelector(".js-coursenav"),
-          u = document.querySelector(".js-coursenav-toggle"),
-          d = document.querySelector(".js-nav-spacer");
+          d = document.querySelector(".js-coursenav-toggle"),
+          u = document.querySelector(".js-nav-spacer");
         function l() {
           !(function() {
-            if (s && d) {
+            if (s && u) {
               var e = 0;
               a && (e += a.getBoundingClientRect().height),
                 c &&
                   (i() === r.DESKTOP
                     ? (e += c.getBoundingClientRect().height)
-                    : (e += u.getBoundingClientRect().height)),
-                (d.style.height = e + "px");
+                    : (e += d.getBoundingClientRect().height)),
+                (u.style.height = e + "px");
             }
           })();
         }
@@ -1302,16 +1300,16 @@
           s = e("./get-breakpoint"),
           a = null;
         function c() {
-          r.dispatch({ type: o.EVENT_RESIZE }), u();
+          r.dispatch({ type: o.EVENT_RESIZE }), d();
         }
-        function u() {
+        function d() {
           var e = s();
           e !== a &&
             ((a = e),
             r.dispatch({ type: o.EVENT_BREAKPOINT_CHANGE, breakpoint: a }),
             document.documentElement.setAttribute("data-breakpoint", a.toLowerCase()));
         }
-        u(), window.addEventListener("resize", i(c, 50)), c();
+        d(), window.addEventListener("resize", i(c, 50)), c();
       },
       { "../../constants": 28, "../dispatcher": 20, "./get-breakpoint": 24, debounce: 3 }
     ],
@@ -1348,9 +1346,8 @@
     25: [
       function(e, t, n) {
         var r = e("../../constants"),
-          i = document.querySelector(".js-topbar");
-        document.querySelector(".main").style.height = "200vh";
-        var s = document.documentElement.scrollTop;
+          i = document.querySelector(".js-topbar"),
+          s = document.documentElement.scrollTop;
         function o() {
           var e = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0,
             t = !1;
@@ -1446,8 +1443,7 @@
               SCROLLED_TOP_CLASS: "is-scrolled-to-top",
               SCROLLED_BOTTOM_CLASS: "is-scrolled-to-bottom",
               SCROLLED_FREE_CLASS: "is-scrolled-free",
-              COURSENAV_DROPDOWN_OPEN_CLASS: "has-coursenav-dropdown-open",
-              COURSENAV_MOBILE_OPEN_CLASS: "has-coursenav-mobile-open"
+              COURSENAV_DROPDOWN_OPEN_CLASS: "has-coursenav-dropdown-open"
             },
             o,
             {

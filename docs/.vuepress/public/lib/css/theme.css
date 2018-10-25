@@ -943,7 +943,7 @@ body.modal-is-open--coursenav {
   }
   @keyframes e {
     to {
-      height: calc(50% - 87px);
+      height: calc(100% - 56px);
     }
   }
   @keyframes f {
@@ -968,9 +968,11 @@ body.modal-is-open--coursenav {
 @media (max-width: 1023px) and (min-width: 768px) {
   .coursenav {
     height: 80px;
+    background-color: transparent;
   }
   .coursenav.is-open {
-    animation: e 0.4s cubic-bezier(0.05, 0, 0.002, 1) forwards;
+    max-height: calc(100% - 80px);
+    animation: e 1s cubic-bezier(0.05, 0, 0.002, 1) forwards;
   }
 }
 @media (max-width: 1023px) {
@@ -981,15 +983,11 @@ body.modal-is-open--coursenav {
 }
 @media (max-width: 1023px) and (min-width: 768px) {
   .coursenav.is-closed {
-    height: calc(50% - 87px);
+    height: calc(100% - 87px);
     animation: f 0.4s cubic-bezier(0.05, 0, 0.002, 1) forwards;
   }
 }
 @media (max-width: 1023px) {
-  .coursenav-dropdown__item__link,
-  .coursenav__links__item__link {
-    color: #fff;
-  }
   .coursenav-wrapper {
     overflow-y: auto;
   }
@@ -1003,22 +1001,89 @@ body.modal-is-open--coursenav {
   .coursenav-wrapper::-webkit-scrollbar-track-piece {
     background-color: #454545;
   }
+  .coursenav-body-wrapper {
+    height: 100%;
+  }
   .coursenav__title {
     display: none;
   }
+  .coursenav__links {
+    text-align: right;
+  }
+}
+@media (max-width: 1023px) and (min-width: 768px) {
+  .coursenav-wrapper {
+    border-top: 1px solid #757575;
+    background-color: #000;
+  }
+  .coursenav__links {
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    height: 100%;
+  }
+}
+@media (max-width: 1023px) {
   .coursenav__links__item {
     position: relative;
     border-bottom: 1px solid #757575;
+    padding: 30px;
     display: block;
-    padding: 30px 0;
   }
+  .coursenav__links__item.is-active {
+    background-color: hsla(0, 0%, 100%, 0.09);
+  }
+}
+@media (max-width: 1023px) and (min-width: 768px) {
+  .coursenav__links__item {
+    -ms-flex-preferred-size: 250px;
+    flex-basis: 250px;
+    border-bottom: 0;
+  }
+  .coursenav__links__item:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border-right: 1px solid #757575;
+    pointer-events: none;
+  }
+}
+@media (max-width: 1023px) {
+  .coursenav__links__item__link,
   .is-active .coursenav__links__item__link {
-    border-bottom-color: #e50056;
-    background-color: #fff;
     font-family: Avenir Next LT W01 Demi, Avenir next, Avenir, sans-serif;
+  }
+  .coursenav__links__item__link {
+    color: #fff;
+    font-size: 18px;
+    text-decoration: none;
+    padding: 10px 0;
+    position: relative;
+  }
+  .is-active .coursenav__links__item__link:after {
+    position: absolute;
+    width: 100%;
+    border: 2px solid #e50056;
+    content: "";
+    right: 0;
+    display: block;
+  }
+  .coursenav-dropdown__item__link {
+    color: #fff;
+    font-size: 14px;
+    font-family: AvenirNextLTW01-Medium, Avenir next, Avenir, sans-serif;
+    padding: 10px 0;
+    display: block;
   }
   .coursenav__toggle {
     outline: 0;
+    background-color: #000;
     width: 100%;
     height: 56px;
     -ms-flex-negative: 0;
@@ -1039,6 +1104,7 @@ body.modal-is-open--coursenav {
     height: 80px;
     padding-left: 32px;
     padding-right: 82px;
+    margin-top: 0;
   }
 }
 @media (max-width: 1023px) {

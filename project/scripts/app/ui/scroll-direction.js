@@ -2,8 +2,6 @@ var constants = require("../../constants");
 
 var $topbar = document.querySelector(".js-topbar");
 
-document.querySelector(".main").style.height = "200vh";
-
 /**
  * Check scroll and set body classes
  * - scrolling up

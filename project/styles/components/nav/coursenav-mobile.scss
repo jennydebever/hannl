@@ -13,7 +13,7 @@
 
   @keyframes animate-coursenav-in-tablet {
     to {
-      height: calc(50% - 87px);
+      height: calc(100% - 56px);
     }
   }
 
@@ -33,13 +33,15 @@
 
     @include breakpoint($bp-m) {
       height: 80px;
+      background-color: transparent;
     }
 
     &.is-open {
       animation: animate-coursenav-in-mobile 0.4s $ease forwards;
 
       @include breakpoint($bp-m) {
-        animation: animate-coursenav-in-tablet 0.4s $ease forwards;
+        max-height: calc(100% - 80px);
+        animation: animate-coursenav-in-tablet 1s $ease forwards;
       }
     }
 
@@ -48,7 +50,7 @@
       animation: animate-coursenav-out-mobile 0.4s $ease forwards;
 
       @include breakpoint($bp-m) {
-        height: calc(50% - 87px);
+        height: calc(100% - 87px);
         animation: animate-coursenav-out-tablet 0.4s $ease forwards;
       }
     }
@@ -57,9 +59,15 @@
   .coursenav-wrapper {
     @include pretty-scrollbar($hanred);
     overflow-y: auto;
+
+    @include breakpoint($bp-m) {
+      border-top: 1px solid $grey4;
+      background-color: $black;
+    }
   }
 
   .coursenav-body-wrapper {
+    height: 100%;
   }
 
   /**
@@ -75,22 +83,64 @@
   */
 
   .coursenav__links {
+    text-align: right;
+
+    @include breakpoint($bp-m) {
+      display: flex;
+      width: 100%;
+      height: 100%;
+    }
   }
 
   .coursenav__links__item {
     position: relative;
     border-bottom: 1px solid $grey4;
+    padding: 30px;
     display: block;
-    padding: 30px 0;
+
+    &.is-active {
+      background-color: rgba($white, 0.09);
+    }
+
+    @include breakpoint($bp-m) {
+      flex-basis: 250px;
+      border-bottom: 0;
+
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        border-right: 1px solid $grey4;
+        pointer-events: none;
+      }
+    }
   }
 
   .coursenav__links__item__link {
     color: $white;
+    font-size: 18px;
+    font-family: $demi;
+    text-decoration: none;
+    padding: 10px 0;
+    position: relative;
 
     .is-active & {
-      border-bottom-color: $hanred;
-      background-color: $white;
       font-family: $demi;
+
+      &::after {
+        position: absolute;
+        width: 100%;
+        border: 2px solid $hanred;
+        content: "";
+        right: 0;
+        display: block;
+      }
     }
   }
 
@@ -109,6 +159,10 @@
 
   .coursenav-dropdown__item__link {
     color: $white;
+    font-size: 14px;
+    font-family: $medium;
+    padding: 10px 0;
+    display: block;
   }
 
   /**
@@ -117,6 +171,7 @@
 
   .coursenav__toggle {
     @include focusable($hanred, 1px, -1px);
+    background-color: $black;
     width: 100%;
     height: 56px;
     flex-shrink: 0;
@@ -130,6 +185,7 @@
       height: 80px;
       padding-left: #{$grid-item-spacing-m * 2};
       padding-right: #{$grid-item-spacing-m * 2 + 50px};
+      margin-top: 0;
     }
 
     .icon-chevron {
