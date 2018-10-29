@@ -1,266 +1,1207 @@
-/*! han.nl v0.1.0 */ !(function r(u, a, s) {
-  function d(t, e) {
-    if (!a[t]) {
-      if (!u[t]) {
-        var n = "function" == typeof require && require;
-        if (!e && n) return n(t, !0);
-        if (c) return c(t, !0);
-        var i = new Error("Cannot find module '" + t + "'");
-        throw ((i.code = "MODULE_NOT_FOUND"), i);
+/*! han.nl v0.1.0 */ (function() {
+  function r(e, n, t) {
+    function o(i, f) {
+      if (!n[i]) {
+        if (!e[i]) {
+          var c = "function" == typeof require && require;
+          if (!f && c) return c(i, !0);
+          if (u) return u(i, !0);
+          var a = new Error("Cannot find module '" + i + "'");
+          throw ((a.code = "MODULE_NOT_FOUND"), a);
+        }
+        var p = (n[i] = { exports: {} });
+        e[i][0].call(
+          p.exports,
+          function(r) {
+            var n = e[i][1][r];
+            return o(n || r);
+          },
+          p,
+          p.exports,
+          r,
+          e,
+          n,
+          t
+        );
       }
-      var o = (a[t] = { exports: {} });
-      u[t][0].call(
-        o.exports,
-        function(e) {
-          return d(u[t][1][e] || e);
-        },
-        o,
-        o.exports,
-        r,
-        u,
-        a,
-        s
-      );
+      return n[i].exports;
     }
-    return a[t].exports;
+    for (var u = "function" == typeof require && require, i = 0; i < t.length; i++) o(t[i]);
+    return o;
   }
-  for (var c = "function" == typeof require && require, e = 0; e < s.length; e++) d(s[e]);
-  return d;
-})(
+  return r;
+})()(
   {
     1: [
-      function(e, t, n) {
-        var i, o;
-        (i = this),
-          (o = function() {
-            return (function(n) {
-              var i = {};
-              function o(e) {
-                if (i[e]) return i[e].exports;
-                var t = (i[e] = { exports: {}, id: e, loaded: !1 });
-                return n[e].call(t.exports, t, t.exports, o), (t.loaded = !0), t.exports;
-              }
-              return (o.m = n), (o.c = i), (o.p = ""), o(0);
-            })([
-              function(e, t) {
-                "use strict";
-                e.exports = (function() {
-                  if ("undefined" == typeof document || "undefined" == typeof window)
-                    return {
-                      ask: function() {
-                        return "initial";
-                      },
-                      element: function() {
-                        return null;
-                      },
-                      ignoreKeys: function() {},
-                      specificKeys: function() {},
-                      registerOnChange: function() {},
-                      unRegisterOnChange: function() {}
-                    };
-                  var t = document.documentElement,
-                    n = null,
-                    a = "initial",
-                    s = a;
-                  try {
-                    window.sessionStorage.getItem("what-input") && (a = window.sessionStorage.getItem("what-input")),
-                      window.sessionStorage.getItem("what-intent") &&
-                        (s = window.sessionStorage.getItem("what-intent"));
-                  } catch (e) {}
-                  var i = null,
-                    d = ["input", "select", "textarea"],
-                    o = [],
-                    c = [16, 17, 18, 91, 93],
-                    w = [],
-                    f = {
-                      keydown: "keyboard",
-                      keyup: "keyboard",
-                      mousedown: "mouse",
-                      mousemove: "mouse",
-                      MSPointerDown: "pointer",
-                      MSPointerMove: "pointer",
-                      pointerdown: "pointer",
-                      pointermove: "pointer",
-                      touchstart: "touch"
-                    },
-                    p = !1,
-                    r = !1,
-                    u = { x: null, y: null },
-                    l = { 2: "touch", 3: "touch", 4: "mouse" },
-                    m = !1;
-                  try {
-                    var e = Object.defineProperty({}, "passive", {
-                      get: function() {
-                        m = !0;
-                      }
-                    });
-                    window.addEventListener("test", null, e);
-                  } catch (e) {}
-                  var v = function() {
-                      var e = !!m && { passive: !0 };
-                      window.PointerEvent
-                        ? (window.addEventListener("pointerdown", h), window.addEventListener("pointermove", y))
-                        : window.MSPointerEvent
-                          ? (window.addEventListener("MSPointerDown", h), window.addEventListener("MSPointerMove", y))
-                          : (window.addEventListener("mousedown", h),
-                            window.addEventListener("mousemove", y),
-                            "ontouchstart" in window &&
-                              (window.addEventListener("touchstart", L, e), window.addEventListener("touchend", h))),
-                        window.addEventListener(b(), y, e),
-                        window.addEventListener("keydown", L),
-                        window.addEventListener("keyup", L),
-                        window.addEventListener("focusin", E),
-                        window.addEventListener("focusout", x);
-                    },
-                    h = function(e) {
-                      if (!p) {
-                        var t = e.which,
-                          n = f[e.type];
-                        "pointer" === n && (n = O(e));
-                        var i = !w.length && -1 === c.indexOf(t),
-                          o = w.length && -1 !== w.indexOf(t),
-                          r = ("keyboard" === n && t && (i || o)) || "mouse" === n || "touch" === n;
-                        if (a !== n && r) {
-                          a = n;
-                          try {
-                            window.sessionStorage.setItem("what-input", a);
-                          } catch (e) {}
-                          g("input");
-                        }
-                        if (s !== n && r) {
-                          var u = document.activeElement;
-                          if (u && u.nodeName && -1 === d.indexOf(u.nodeName.toLowerCase())) {
-                            s = n;
-                            try {
-                              window.sessionStorage.setItem("what-intent", s);
-                            } catch (e) {}
-                            g("intent");
-                          }
-                        }
-                      }
-                    },
-                    g = function(e) {
-                      t.setAttribute("data-what" + e, "input" === e ? a : s), S(e);
-                    },
-                    y = function(e) {
-                      if ((I(e), !p && !r)) {
-                        var t = f[e.type];
-                        if (("pointer" === t && (t = O(e)), s !== t)) {
-                          s = t;
-                          try {
-                            window.sessionStorage.setItem("what-intent", s);
-                          } catch (e) {}
-                          g("intent");
-                        }
-                      }
-                    },
-                    E = function(e) {
-                      e.target.nodeName
-                        ? ((n = e.target.nodeName.toLowerCase()),
-                          t.setAttribute("data-whatelement", n),
-                          e.target.classList &&
-                            e.target.classList.length &&
-                            t.setAttribute("data-whatclasses", e.target.classList.toString().replace(" ", ",")))
-                        : x();
-                    },
-                    x = function() {
-                      (n = null), t.removeAttribute("data-whatelement"), t.removeAttribute("data-whatclasses");
-                    },
-                    L = function(e) {
-                      h(e),
-                        window.clearTimeout(i),
-                        (p = !0),
-                        (i = window.setTimeout(function() {
-                          p = !1;
-                        }, 100));
-                    },
-                    O = function(e) {
-                      return "number" == typeof e.pointerType
-                        ? l[e.pointerType]
-                        : "pen" === e.pointerType
-                          ? "touch"
-                          : e.pointerType;
-                    },
-                    b = function() {
-                      return "onwheel" in document.createElement("div")
-                        ? "wheel"
-                        : void 0 !== document.onmousewheel
-                          ? "mousewheel"
-                          : "DOMMouseScroll";
-                    },
-                    S = function(e) {
-                      for (var t = 0, n = o.length; t < n; t++)
-                        o[t].type === e && o[t].fn.call(void 0, "input" === e ? a : s);
-                    },
-                    I = function(e) {
-                      u.x !== e.screenX || u.y !== e.screenY
-                        ? ((r = !1), (u.x = e.screenX), (u.y = e.screenY))
-                        : (r = !0);
-                    };
-                  return (
-                    "addEventListener" in window &&
-                      Array.prototype.indexOf &&
-                      ((f[b()] = "mouse"), v(), g("input"), g("intent")),
-                    {
-                      ask: function(e) {
-                        return "intent" === e ? s : a;
-                      },
-                      element: function() {
-                        return n;
-                      },
-                      ignoreKeys: function(e) {
-                        c = e;
-                      },
-                      specificKeys: function(e) {
-                        w = e;
-                      },
-                      registerOnChange: function(e, t) {
-                        o.push({ fn: e, type: t || "input" });
-                      },
-                      unRegisterOnChange: function(e) {
-                        var t = (function(e) {
-                          for (var t = 0, n = o.length; t < n; t++) if (o[t].fn === e) return t;
-                        })(e);
-                        (t || 0 === t) && o.splice(t, 1);
+      function(require, module, exports) {
+        /*
+ * classList.js: Cross-browser full element.classList implementation.
+ * 1.1.20170427
+ *
+ * By Eli Grey, http://eligrey.com
+ * License: Dedicated to the public domain.
+ *   See https://github.com/eligrey/classList.js/blob/master/LICENSE.md
+ */
+
+        /*global self, document, DOMException */
+
+        /*! @source http://purl.eligrey.com/github/classList.js/blob/master/classList.js */
+
+        if ("document" in window.self) {
+          // Full polyfill for browsers with no classList support
+          // Including IE < Edge missing SVGElement.classList
+          if (
+            !("classList" in document.createElement("_")) ||
+            (document.createElementNS && !("classList" in document.createElementNS("http://www.w3.org/2000/svg", "g")))
+          ) {
+            (function(view) {
+              "use strict";
+
+              if (!("Element" in view)) return;
+
+              var classListProp = "classList",
+                protoProp = "prototype",
+                elemCtrProto = view.Element[protoProp],
+                objCtr = Object,
+                strTrim =
+                  String[protoProp].trim ||
+                  function() {
+                    return this.replace(/^\s+|\s+$/g, "");
+                  },
+                arrIndexOf =
+                  Array[protoProp].indexOf ||
+                  function(item) {
+                    var i = 0,
+                      len = this.length;
+                    for (; i < len; i++) {
+                      if (i in this && this[i] === item) {
+                        return i;
                       }
                     }
-                  );
-                })();
+                    return -1;
+                  },
+                // Vendors: please allow content code to instantiate DOMExceptions
+                DOMEx = function(type, message) {
+                  this.name = type;
+                  this.code = DOMException[type];
+                  this.message = message;
+                },
+                checkTokenAndGetIndex = function(classList, token) {
+                  if (token === "") {
+                    throw new DOMEx("SYNTAX_ERR", "An invalid or illegal string was specified");
+                  }
+                  if (/\s/.test(token)) {
+                    throw new DOMEx("INVALID_CHARACTER_ERR", "String contains an invalid character");
+                  }
+                  return arrIndexOf.call(classList, token);
+                },
+                ClassList = function(elem) {
+                  var trimmedClasses = strTrim.call(elem.getAttribute("class") || ""),
+                    classes = trimmedClasses ? trimmedClasses.split(/\s+/) : [],
+                    i = 0,
+                    len = classes.length;
+                  for (; i < len; i++) {
+                    this.push(classes[i]);
+                  }
+                  this._updateClassName = function() {
+                    elem.setAttribute("class", this.toString());
+                  };
+                },
+                classListProto = (ClassList[protoProp] = []),
+                classListGetter = function() {
+                  return new ClassList(this);
+                };
+              // Most DOMException implementations don't allow calling DOMException's toString()
+              // on non-DOMExceptions. Error's toString() is sufficient here.
+              DOMEx[protoProp] = Error[protoProp];
+              classListProto.item = function(i) {
+                return this[i] || null;
+              };
+              classListProto.contains = function(token) {
+                token += "";
+                return checkTokenAndGetIndex(this, token) !== -1;
+              };
+              classListProto.add = function() {
+                var tokens = arguments,
+                  i = 0,
+                  l = tokens.length,
+                  token,
+                  updated = false;
+                do {
+                  token = tokens[i] + "";
+                  if (checkTokenAndGetIndex(this, token) === -1) {
+                    this.push(token);
+                    updated = true;
+                  }
+                } while (++i < l);
+
+                if (updated) {
+                  this._updateClassName();
+                }
+              };
+              classListProto.remove = function() {
+                var tokens = arguments,
+                  i = 0,
+                  l = tokens.length,
+                  token,
+                  updated = false,
+                  index;
+                do {
+                  token = tokens[i] + "";
+                  index = checkTokenAndGetIndex(this, token);
+                  while (index !== -1) {
+                    this.splice(index, 1);
+                    updated = true;
+                    index = checkTokenAndGetIndex(this, token);
+                  }
+                } while (++i < l);
+
+                if (updated) {
+                  this._updateClassName();
+                }
+              };
+              classListProto.toggle = function(token, force) {
+                token += "";
+
+                var result = this.contains(token),
+                  method = result ? force !== true && "remove" : force !== false && "add";
+
+                if (method) {
+                  this[method](token);
+                }
+
+                if (force === true || force === false) {
+                  return force;
+                } else {
+                  return !result;
+                }
+              };
+              classListProto.toString = function() {
+                return this.join(" ");
+              };
+
+              if (objCtr.defineProperty) {
+                var classListPropDesc = {
+                  get: classListGetter,
+                  enumerable: true,
+                  configurable: true
+                };
+                try {
+                  objCtr.defineProperty(elemCtrProto, classListProp, classListPropDesc);
+                } catch (ex) {
+                  // IE 8 doesn't support enumerable:true
+                  // adding undefined to fight this issue https://github.com/eligrey/classList.js/issues/36
+                  // modernie IE8-MSW7 machine has IE8 8.0.6001.18702 and is affected
+                  if (ex.number === undefined || ex.number === -0x7ff5ec54) {
+                    classListPropDesc.enumerable = false;
+                    objCtr.defineProperty(elemCtrProto, classListProp, classListPropDesc);
+                  }
+                }
+              } else if (objCtr[protoProp].__defineGetter__) {
+                elemCtrProto.__defineGetter__(classListProp, classListGetter);
               }
-            ]);
-          }),
-          "object" == typeof n && "object" == typeof t
-            ? (t.exports = o())
-            : "function" == typeof define && define.amd
-              ? define("whatInput", [], o)
-              : "object" == typeof n
-                ? (n.whatInput = o())
-                : (i.whatInput = o());
+            })(window.self);
+          }
+
+          // There is full or partial native classList support, so just check if we need
+          // to normalize the add/remove and toggle APIs.
+
+          (function() {
+            "use strict";
+
+            var testElement = document.createElement("_");
+
+            testElement.classList.add("c1", "c2");
+
+            // Polyfill for IE 10/11 and Firefox <26, where classList.add and
+            // classList.remove exist but support only one argument at a time.
+            if (!testElement.classList.contains("c2")) {
+              var createMethod = function(method) {
+                var original = DOMTokenList.prototype[method];
+
+                DOMTokenList.prototype[method] = function(token) {
+                  var i,
+                    len = arguments.length;
+
+                  for (i = 0; i < len; i++) {
+                    token = arguments[i];
+                    original.call(this, token);
+                  }
+                };
+              };
+              createMethod("add");
+              createMethod("remove");
+            }
+
+            testElement.classList.toggle("c3", false);
+
+            // Polyfill for IE 10 and Firefox <24, where classList.toggle does not
+            // support the second argument.
+            if (testElement.classList.contains("c3")) {
+              var _toggle = DOMTokenList.prototype.toggle;
+
+              DOMTokenList.prototype.toggle = function(token, force) {
+                if (1 in arguments && !this.contains(token) === !force) {
+                  return force;
+                } else {
+                  return _toggle.call(this, token);
+                }
+              };
+            }
+
+            testElement = null;
+          })();
+        }
       },
       {}
     ],
     2: [
-      function(e, t, n) {
-        var i = window.navigator.userAgent,
-          o = i.indexOf("MSIE "),
-          r = i.indexOf("Trident/"),
-          u = i.indexOf("Edge/");
-        if (0 < o)
-          document.documentElement.className += " old-ie ie ie" + parseInt(i.substring(o + 5, i.indexOf(".", o)), 10);
-        else if (0 < r) {
-          var a = i.indexOf("rv:");
-          document.documentElement.className += " ie ie" + parseInt(i.substring(a + 3, i.indexOf(".", a)), 10);
-        } else 0 < u && (document.documentElement.className += " edge");
+      function(require, module, exports) {
+        /* smoothscroll v0.4.0 - 2018 - Dustan Kasten, Jeremias Menichelli - MIT License */
+        (function() {
+          "use strict";
+
+          // polyfill
+          function polyfill() {
+            // aliases
+            var w = window;
+            var d = document;
+
+            // return if scroll behavior is supported and polyfill is not forced
+            if ("scrollBehavior" in d.documentElement.style && w.__forceSmoothScrollPolyfill__ !== true) {
+              return;
+            }
+
+            // globals
+            var Element = w.HTMLElement || w.Element;
+            var SCROLL_TIME = 468;
+
+            // object gathering original scroll methods
+            var original = {
+              scroll: w.scroll || w.scrollTo,
+              scrollBy: w.scrollBy,
+              elementScroll: Element.prototype.scroll || scrollElement,
+              scrollIntoView: Element.prototype.scrollIntoView
+            };
+
+            // define timing method
+            var now = w.performance && w.performance.now ? w.performance.now.bind(w.performance) : Date.now;
+
+            /**
+             * indicates if a the current browser is made by Microsoft
+             * @method isMicrosoftBrowser
+             * @param {String} userAgent
+             * @returns {Boolean}
+             */
+            function isMicrosoftBrowser(userAgent) {
+              var userAgentPatterns = ["MSIE ", "Trident/", "Edge/"];
+
+              return new RegExp(userAgentPatterns.join("|")).test(userAgent);
+            }
+
+            /*
+     * IE has rounding bug rounding down clientHeight and clientWidth and
+     * rounding up scrollHeight and scrollWidth causing false positives
+     * on hasScrollableSpace
+     */
+            var ROUNDING_TOLERANCE = isMicrosoftBrowser(w.navigator.userAgent) ? 1 : 0;
+
+            /**
+             * changes scroll position inside an element
+             * @method scrollElement
+             * @param {Number} x
+             * @param {Number} y
+             * @returns {undefined}
+             */
+            function scrollElement(x, y) {
+              this.scrollLeft = x;
+              this.scrollTop = y;
+            }
+
+            /**
+             * returns result of applying ease math function to a number
+             * @method ease
+             * @param {Number} k
+             * @returns {Number}
+             */
+            function ease(k) {
+              return 0.5 * (1 - Math.cos(Math.PI * k));
+            }
+
+            /**
+             * indicates if a smooth behavior should be applied
+             * @method shouldBailOut
+             * @param {Number|Object} firstArg
+             * @returns {Boolean}
+             */
+            function shouldBailOut(firstArg) {
+              if (
+                firstArg === null ||
+                typeof firstArg !== "object" ||
+                firstArg.behavior === undefined ||
+                firstArg.behavior === "auto" ||
+                firstArg.behavior === "instant"
+              ) {
+                // first argument is not an object/null
+                // or behavior is auto, instant or undefined
+                return true;
+              }
+
+              if (typeof firstArg === "object" && firstArg.behavior === "smooth") {
+                // first argument is an object and behavior is smooth
+                return false;
+              }
+
+              // throw error when behavior is not supported
+              throw new TypeError(
+                "behavior member of ScrollOptions " +
+                  firstArg.behavior +
+                  " is not a valid value for enumeration ScrollBehavior."
+              );
+            }
+
+            /**
+             * indicates if an element has scrollable space in the provided axis
+             * @method hasScrollableSpace
+             * @param {Node} el
+             * @param {String} axis
+             * @returns {Boolean}
+             */
+            function hasScrollableSpace(el, axis) {
+              if (axis === "Y") {
+                return el.clientHeight + ROUNDING_TOLERANCE < el.scrollHeight;
+              }
+
+              if (axis === "X") {
+                return el.clientWidth + ROUNDING_TOLERANCE < el.scrollWidth;
+              }
+            }
+
+            /**
+             * indicates if an element has a scrollable overflow property in the axis
+             * @method canOverflow
+             * @param {Node} el
+             * @param {String} axis
+             * @returns {Boolean}
+             */
+            function canOverflow(el, axis) {
+              var overflowValue = w.getComputedStyle(el, null)["overflow" + axis];
+
+              return overflowValue === "auto" || overflowValue === "scroll";
+            }
+
+            /**
+             * indicates if an element can be scrolled in either axis
+             * @method isScrollable
+             * @param {Node} el
+             * @param {String} axis
+             * @returns {Boolean}
+             */
+            function isScrollable(el) {
+              var isScrollableY = hasScrollableSpace(el, "Y") && canOverflow(el, "Y");
+              var isScrollableX = hasScrollableSpace(el, "X") && canOverflow(el, "X");
+
+              return isScrollableY || isScrollableX;
+            }
+
+            /**
+             * finds scrollable parent of an element
+             * @method findScrollableParent
+             * @param {Node} el
+             * @returns {Node} el
+             */
+            function findScrollableParent(el) {
+              var isBody;
+
+              do {
+                el = el.parentNode;
+
+                isBody = el === d.body;
+              } while (isBody === false && isScrollable(el) === false);
+
+              isBody = null;
+
+              return el;
+            }
+
+            /**
+             * self invoked function that, given a context, steps through scrolling
+             * @method step
+             * @param {Object} context
+             * @returns {undefined}
+             */
+            function step(context) {
+              var time = now();
+              var value;
+              var currentX;
+              var currentY;
+              var elapsed = (time - context.startTime) / SCROLL_TIME;
+
+              // avoid elapsed times higher than one
+              elapsed = elapsed > 1 ? 1 : elapsed;
+
+              // apply easing to elapsed time
+              value = ease(elapsed);
+
+              currentX = context.startX + (context.x - context.startX) * value;
+              currentY = context.startY + (context.y - context.startY) * value;
+
+              context.method.call(context.scrollable, currentX, currentY);
+
+              // scroll more if we have not reached our destination
+              if (currentX !== context.x || currentY !== context.y) {
+                w.requestAnimationFrame(step.bind(w, context));
+              }
+            }
+
+            /**
+             * scrolls window or element with a smooth behavior
+             * @method smoothScroll
+             * @param {Object|Node} el
+             * @param {Number} x
+             * @param {Number} y
+             * @returns {undefined}
+             */
+            function smoothScroll(el, x, y) {
+              var scrollable;
+              var startX;
+              var startY;
+              var method;
+              var startTime = now();
+
+              // define scroll context
+              if (el === d.body) {
+                scrollable = w;
+                startX = w.scrollX || w.pageXOffset;
+                startY = w.scrollY || w.pageYOffset;
+                method = original.scroll;
+              } else {
+                scrollable = el;
+                startX = el.scrollLeft;
+                startY = el.scrollTop;
+                method = scrollElement;
+              }
+
+              // scroll looping over a frame
+              step({
+                scrollable: scrollable,
+                method: method,
+                startTime: startTime,
+                startX: startX,
+                startY: startY,
+                x: x,
+                y: y
+              });
+            }
+
+            // ORIGINAL METHODS OVERRIDES
+            // w.scroll and w.scrollTo
+            w.scroll = w.scrollTo = function() {
+              // avoid action when no arguments are passed
+              if (arguments[0] === undefined) {
+                return;
+              }
+
+              // avoid smooth behavior if not required
+              if (shouldBailOut(arguments[0]) === true) {
+                original.scroll.call(
+                  w,
+                  arguments[0].left !== undefined
+                    ? arguments[0].left
+                    : typeof arguments[0] !== "object"
+                      ? arguments[0]
+                      : w.scrollX || w.pageXOffset,
+                  // use top prop, second argument if present or fallback to scrollY
+                  arguments[0].top !== undefined
+                    ? arguments[0].top
+                    : arguments[1] !== undefined
+                      ? arguments[1]
+                      : w.scrollY || w.pageYOffset
+                );
+
+                return;
+              }
+
+              // LET THE SMOOTHNESS BEGIN!
+              smoothScroll.call(
+                w,
+                d.body,
+                arguments[0].left !== undefined ? ~~arguments[0].left : w.scrollX || w.pageXOffset,
+                arguments[0].top !== undefined ? ~~arguments[0].top : w.scrollY || w.pageYOffset
+              );
+            };
+
+            // w.scrollBy
+            w.scrollBy = function() {
+              // avoid action when no arguments are passed
+              if (arguments[0] === undefined) {
+                return;
+              }
+
+              // avoid smooth behavior if not required
+              if (shouldBailOut(arguments[0])) {
+                original.scrollBy.call(
+                  w,
+                  arguments[0].left !== undefined
+                    ? arguments[0].left
+                    : typeof arguments[0] !== "object"
+                      ? arguments[0]
+                      : 0,
+                  arguments[0].top !== undefined ? arguments[0].top : arguments[1] !== undefined ? arguments[1] : 0
+                );
+
+                return;
+              }
+
+              // LET THE SMOOTHNESS BEGIN!
+              smoothScroll.call(
+                w,
+                d.body,
+                ~~arguments[0].left + (w.scrollX || w.pageXOffset),
+                ~~arguments[0].top + (w.scrollY || w.pageYOffset)
+              );
+            };
+
+            // Element.prototype.scroll and Element.prototype.scrollTo
+            Element.prototype.scroll = Element.prototype.scrollTo = function() {
+              // avoid action when no arguments are passed
+              if (arguments[0] === undefined) {
+                return;
+              }
+
+              // avoid smooth behavior if not required
+              if (shouldBailOut(arguments[0]) === true) {
+                // if one number is passed, throw error to match Firefox implementation
+                if (typeof arguments[0] === "number" && arguments[1] === undefined) {
+                  throw new SyntaxError("Value could not be converted");
+                }
+
+                original.elementScroll.call(
+                  this,
+                  // use left prop, first number argument or fallback to scrollLeft
+                  arguments[0].left !== undefined
+                    ? ~~arguments[0].left
+                    : typeof arguments[0] !== "object"
+                      ? ~~arguments[0]
+                      : this.scrollLeft,
+                  // use top prop, second argument or fallback to scrollTop
+                  arguments[0].top !== undefined
+                    ? ~~arguments[0].top
+                    : arguments[1] !== undefined
+                      ? ~~arguments[1]
+                      : this.scrollTop
+                );
+
+                return;
+              }
+
+              var left = arguments[0].left;
+              var top = arguments[0].top;
+
+              // LET THE SMOOTHNESS BEGIN!
+              smoothScroll.call(
+                this,
+                this,
+                typeof left === "undefined" ? this.scrollLeft : ~~left,
+                typeof top === "undefined" ? this.scrollTop : ~~top
+              );
+            };
+
+            // Element.prototype.scrollBy
+            Element.prototype.scrollBy = function() {
+              // avoid action when no arguments are passed
+              if (arguments[0] === undefined) {
+                return;
+              }
+
+              // avoid smooth behavior if not required
+              if (shouldBailOut(arguments[0]) === true) {
+                original.elementScroll.call(
+                  this,
+                  arguments[0].left !== undefined
+                    ? ~~arguments[0].left + this.scrollLeft
+                    : ~~arguments[0] + this.scrollLeft,
+                  arguments[0].top !== undefined ? ~~arguments[0].top + this.scrollTop : ~~arguments[1] + this.scrollTop
+                );
+
+                return;
+              }
+
+              this.scroll({
+                left: ~~arguments[0].left + this.scrollLeft,
+                top: ~~arguments[0].top + this.scrollTop,
+                behavior: arguments[0].behavior
+              });
+            };
+
+            // Element.prototype.scrollIntoView
+            Element.prototype.scrollIntoView = function() {
+              // avoid smooth behavior if not required
+              if (shouldBailOut(arguments[0]) === true) {
+                original.scrollIntoView.call(this, arguments[0] === undefined ? true : arguments[0]);
+
+                return;
+              }
+
+              // LET THE SMOOTHNESS BEGIN!
+              var scrollableParent = findScrollableParent(this);
+              var parentRects = scrollableParent.getBoundingClientRect();
+              var clientRects = this.getBoundingClientRect();
+
+              if (scrollableParent !== d.body) {
+                // reveal element inside parent
+                smoothScroll.call(
+                  this,
+                  scrollableParent,
+                  scrollableParent.scrollLeft + clientRects.left - parentRects.left,
+                  scrollableParent.scrollTop + clientRects.top - parentRects.top
+                );
+
+                // reveal parent in viewport unless is fixed
+                if (w.getComputedStyle(scrollableParent).position !== "fixed") {
+                  w.scrollBy({
+                    left: parentRects.left,
+                    top: parentRects.top,
+                    behavior: "smooth"
+                  });
+                }
+              } else {
+                // reveal element in viewport
+                w.scrollBy({
+                  left: clientRects.left,
+                  top: clientRects.top,
+                  behavior: "smooth"
+                });
+              }
+            };
+          }
+
+          if (typeof exports === "object" && typeof module !== "undefined") {
+            // commonjs
+            module.exports = { polyfill: polyfill };
+          } else {
+            // global
+            polyfill();
+          }
+        })();
       },
       {}
     ],
     3: [
-      function(e, t, n) {
-        e("what-input"), e("./detect-ie");
+      function(require, module, exports) {
+        /**
+         * what-input - A global utility for tracking the current input method (mouse, keyboard or touch).
+         * @version v5.1.2
+         * @link https://github.com/ten1seven/what-input
+         * @license MIT
+         */
+        (function webpackUniversalModuleDefinition(root, factory) {
+          if (typeof exports === "object" && typeof module === "object") module.exports = factory();
+          else if (typeof define === "function" && define.amd) define("whatInput", [], factory);
+          else if (typeof exports === "object") exports["whatInput"] = factory();
+          else root["whatInput"] = factory();
+        })(this, function() {
+          return /******/ (function(modules) {
+            // webpackBootstrap
+            /******/ // The module cache
+            /******/ var installedModules = {}; // The require function
+
+            /******/ /******/ function __webpack_require__(moduleId) {
+              /******/ // Check if module is in cache
+              /******/ if (installedModules[moduleId]) /******/ return installedModules[moduleId].exports; // Create a new module (and put it into the cache)
+
+              /******/ /******/ var module = (installedModules[moduleId] = {
+                /******/ exports: {},
+                /******/ id: moduleId,
+                /******/ loaded: false
+                /******/
+              }); // Execute the module function
+
+              /******/ /******/ modules[moduleId].call(module.exports, module, module.exports, __webpack_require__); // Flag the module as loaded
+
+              /******/ /******/ module.loaded = true; // Return the exports of the module
+
+              /******/ /******/ return module.exports;
+              /******/
+            } // expose the modules object (__webpack_modules__)
+
+            /******/ /******/ __webpack_require__.m = modules; // expose the module cache
+
+            /******/ /******/ __webpack_require__.c = installedModules; // __webpack_public_path__
+
+            /******/ /******/ __webpack_require__.p = ""; // Load entry module and return exports
+
+            /******/ /******/ return __webpack_require__(0);
+            /******/
+          })(
+            /************************************************************************/
+            /******/ [
+              /* 0 */
+              /***/ function(module, exports) {
+                "use strict";
+
+                module.exports = (function() {
+                  /*
+	   * bail out if there is no document or window
+	   * (i.e. in a node/non-DOM environment)
+	   *
+	   * Return a stubbed API instead
+	   */
+                  if (typeof document === "undefined" || typeof window === "undefined") {
+                    return {
+                      // always return "initial" because no interaction will ever be detected
+                      ask: function ask() {
+                        return "initial";
+                      },
+
+                      // always return null
+                      element: function element() {
+                        return null;
+                      },
+
+                      // no-op
+                      ignoreKeys: function ignoreKeys() {},
+
+                      // no-op
+                      specificKeys: function specificKeys() {},
+
+                      // no-op
+                      registerOnChange: function registerOnChange() {},
+
+                      // no-op
+                      unRegisterOnChange: function unRegisterOnChange() {}
+                    };
+                  }
+
+                  /*
+	   * variables
+	   */
+
+                  // cache document.documentElement
+                  var docElem = document.documentElement;
+
+                  // currently focused dom element
+                  var currentElement = null;
+
+                  // last used input type
+                  var currentInput = "initial";
+
+                  // last used input intent
+                  var currentIntent = currentInput;
+
+                  // check for sessionStorage support
+                  // then check for session variables and use if available
+                  try {
+                    if (window.sessionStorage.getItem("what-input")) {
+                      currentInput = window.sessionStorage.getItem("what-input");
+                    }
+
+                    if (window.sessionStorage.getItem("what-intent")) {
+                      currentIntent = window.sessionStorage.getItem("what-intent");
+                    }
+                  } catch (e) {}
+
+                  // event buffer timer
+                  var eventTimer = null;
+
+                  // form input types
+                  var formInputs = ["input", "select", "textarea"];
+
+                  // empty array for holding callback functions
+                  var functionList = [];
+
+                  // list of modifier keys commonly used with the mouse and
+                  // can be safely ignored to prevent false keyboard detection
+                  var ignoreMap = [
+                    16, // shift
+                    17, // control
+                    18, // alt
+                    91, // Windows key / left Apple cmd
+                    93 // Windows menu / right Apple cmd
+                  ];
+
+                  var specificMap = [];
+
+                  // mapping of events to input types
+                  var inputMap = {
+                    keydown: "keyboard",
+                    keyup: "keyboard",
+                    mousedown: "mouse",
+                    mousemove: "mouse",
+                    MSPointerDown: "pointer",
+                    MSPointerMove: "pointer",
+                    pointerdown: "pointer",
+                    pointermove: "pointer",
+                    touchstart: "touch"
+
+                    // boolean: true if touch buffer is active
+                  };
+                  var isBuffering = false;
+
+                  // boolean: true if the page is being scrolled
+                  var isScrolling = false;
+
+                  // store current mouse position
+                  var mousePos = {
+                    x: null,
+                    y: null
+
+                    // map of IE 10 pointer events
+                  };
+                  var pointerMap = {
+                    2: "touch",
+                    3: "touch", // treat pen like touch
+                    4: "mouse"
+
+                    // check support for passive event listeners
+                  };
+                  var supportsPassive = false;
+
+                  try {
+                    var opts = Object.defineProperty({}, "passive", {
+                      get: function get() {
+                        supportsPassive = true;
+                      }
+                    });
+
+                    window.addEventListener("test", null, opts);
+                  } catch (e) {}
+
+                  /*
+	   * set up
+	   */
+
+                  var setUp = function setUp() {
+                    // add correct mouse wheel event mapping to `inputMap`
+                    inputMap[detectWheel()] = "mouse";
+
+                    addListeners();
+                    doUpdate("input");
+                    doUpdate("intent");
+                  };
+
+                  /*
+	   * events
+	   */
+
+                  var addListeners = function addListeners() {
+                    // `pointermove`, `MSPointerMove`, `mousemove` and mouse wheel event binding
+                    // can only demonstrate potential, but not actual, interaction
+                    // and are treated separately
+                    var options = supportsPassive ? { passive: true } : false;
+
+                    // pointer events (mouse, pen, touch)
+                    if (window.PointerEvent) {
+                      window.addEventListener("pointerdown", setInput);
+                      window.addEventListener("pointermove", setIntent);
+                    } else if (window.MSPointerEvent) {
+                      window.addEventListener("MSPointerDown", setInput);
+                      window.addEventListener("MSPointerMove", setIntent);
+                    } else {
+                      // mouse events
+                      window.addEventListener("mousedown", setInput);
+                      window.addEventListener("mousemove", setIntent);
+
+                      // touch events
+                      if ("ontouchstart" in window) {
+                        window.addEventListener("touchstart", eventBuffer, options);
+                        window.addEventListener("touchend", setInput);
+                      }
+                    }
+
+                    // mouse wheel
+                    window.addEventListener(detectWheel(), setIntent, options);
+
+                    // keyboard events
+                    window.addEventListener("keydown", eventBuffer);
+                    window.addEventListener("keyup", eventBuffer);
+
+                    // focus events
+                    window.addEventListener("focusin", setElement);
+                    window.addEventListener("focusout", clearElement);
+                  };
+
+                  // checks conditions before updating new input
+                  var setInput = function setInput(event) {
+                    // only execute if the event buffer timer isn't running
+                    if (!isBuffering) {
+                      var eventKey = event.which;
+                      var value = inputMap[event.type];
+
+                      if (value === "pointer") {
+                        value = pointerType(event);
+                      }
+
+                      var ignoreMatch = !specificMap.length && ignoreMap.indexOf(eventKey) === -1;
+
+                      var specificMatch = specificMap.length && specificMap.indexOf(eventKey) !== -1;
+
+                      var shouldUpdate =
+                        (value === "keyboard" && eventKey && (ignoreMatch || specificMatch)) ||
+                        value === "mouse" ||
+                        value === "touch";
+
+                      if (currentInput !== value && shouldUpdate) {
+                        currentInput = value;
+
+                        try {
+                          window.sessionStorage.setItem("what-input", currentInput);
+                        } catch (e) {}
+
+                        doUpdate("input");
+                      }
+
+                      if (currentIntent !== value && shouldUpdate) {
+                        // preserve intent for keyboard typing in form fields
+                        var activeElem = document.activeElement;
+                        var notFormInput =
+                          activeElem &&
+                          activeElem.nodeName &&
+                          formInputs.indexOf(activeElem.nodeName.toLowerCase()) === -1;
+
+                        if (notFormInput) {
+                          currentIntent = value;
+
+                          try {
+                            window.sessionStorage.setItem("what-intent", currentIntent);
+                          } catch (e) {}
+
+                          doUpdate("intent");
+                        }
+                      }
+                    }
+                  };
+
+                  // updates the doc and `inputTypes` array with new input
+                  var doUpdate = function doUpdate(which) {
+                    docElem.setAttribute("data-what" + which, which === "input" ? currentInput : currentIntent);
+
+                    fireFunctions(which);
+                  };
+
+                  // updates input intent for `mousemove` and `pointermove`
+                  var setIntent = function setIntent(event) {
+                    // test to see if `mousemove` happened relative to the screen to detect scrolling versus mousemove
+                    detectScrolling(event);
+
+                    // only execute if the event buffer timer isn't running
+                    // or scrolling isn't happening
+                    if (!isBuffering && !isScrolling) {
+                      var value = inputMap[event.type];
+                      if (value === "pointer") {
+                        value = pointerType(event);
+                      }
+
+                      if (currentIntent !== value) {
+                        currentIntent = value;
+
+                        try {
+                          window.sessionStorage.setItem("what-intent", currentIntent);
+                        } catch (e) {}
+
+                        doUpdate("intent");
+                      }
+                    }
+                  };
+
+                  var setElement = function setElement(event) {
+                    if (!event.target.nodeName) {
+                      // If nodeName is undefined, clear the element
+                      // This can happen if click inside an <svg> element.
+                      clearElement();
+                      return;
+                    }
+
+                    currentElement = event.target.nodeName.toLowerCase();
+                    docElem.setAttribute("data-whatelement", currentElement);
+
+                    if (event.target.classList && event.target.classList.length) {
+                      docElem.setAttribute("data-whatclasses", event.target.classList.toString().replace(" ", ","));
+                    }
+                  };
+
+                  var clearElement = function clearElement() {
+                    currentElement = null;
+
+                    docElem.removeAttribute("data-whatelement");
+                    docElem.removeAttribute("data-whatclasses");
+                  };
+
+                  // buffers events that frequently also fire mouse events
+                  var eventBuffer = function eventBuffer(event) {
+                    // set the current input
+                    setInput(event);
+
+                    // clear the timer if it happens to be running
+                    window.clearTimeout(eventTimer);
+
+                    // set the isBuffering to `true`
+                    isBuffering = true;
+
+                    // run the timer
+                    eventTimer = window.setTimeout(function() {
+                      // if the timer runs out, set isBuffering back to `false`
+                      isBuffering = false;
+                    }, 100);
+                  };
+
+                  /*
+	   * utilities
+	   */
+
+                  var pointerType = function pointerType(event) {
+                    if (typeof event.pointerType === "number") {
+                      return pointerMap[event.pointerType];
+                    } else {
+                      // treat pen like touch
+                      return event.pointerType === "pen" ? "touch" : event.pointerType;
+                    }
+                  };
+
+                  // detect version of mouse wheel event to use
+                  // via https://developer.mozilla.org/en-US/docs/Web/Events/wheel
+                  var detectWheel = function detectWheel() {
+                    var wheelType = void 0;
+
+                    // Modern browsers support "wheel"
+                    if ("onwheel" in document.createElement("div")) {
+                      wheelType = "wheel";
+                    } else {
+                      // Webkit and IE support at least "mousewheel"
+                      // or assume that remaining browsers are older Firefox
+                      wheelType = document.onmousewheel !== undefined ? "mousewheel" : "DOMMouseScroll";
+                    }
+
+                    return wheelType;
+                  };
+
+                  // runs callback functions
+                  var fireFunctions = function fireFunctions(type) {
+                    for (var i = 0, len = functionList.length; i < len; i++) {
+                      if (functionList[i].type === type) {
+                        functionList[i].fn.call(undefined, type === "input" ? currentInput : currentIntent);
+                      }
+                    }
+                  };
+
+                  // finds matching element in an object
+                  var objPos = function objPos(match) {
+                    for (var i = 0, len = functionList.length; i < len; i++) {
+                      if (functionList[i].fn === match) {
+                        return i;
+                      }
+                    }
+                  };
+
+                  var detectScrolling = function detectScrolling(event) {
+                    if (mousePos["x"] !== event.screenX || mousePos["y"] !== event.screenY) {
+                      isScrolling = false;
+
+                      mousePos["x"] = event.screenX;
+                      mousePos["y"] = event.screenY;
+                    } else {
+                      isScrolling = true;
+                    }
+                  };
+
+                  /*
+	   * init
+	   */
+
+                  // don't start script unless browser cuts the mustard
+                  // (also passes if polyfills are used)
+                  if ("addEventListener" in window && Array.prototype.indexOf) {
+                    setUp();
+                  }
+
+                  /*
+	   * api
+	   */
+
+                  return {
+                    // returns string: the current input type
+                    // opt: 'intent'|'input'
+                    // 'input' (default): returns the same value as the `data-whatinput` attribute
+                    // 'intent': includes `data-whatintent` value if it's different than `data-whatinput`
+                    ask: function ask(opt) {
+                      return opt === "intent" ? currentIntent : currentInput;
+                    },
+
+                    // returns string: the currently focused element or null
+                    element: function element() {
+                      return currentElement;
+                    },
+
+                    // overwrites ignored keys with provided array
+                    ignoreKeys: function ignoreKeys(arr) {
+                      ignoreMap = arr;
+                    },
+
+                    // overwrites specific char keys to update on
+                    specificKeys: function specificKeys(arr) {
+                      specificMap = arr;
+                    },
+
+                    // attach functions to input and intent "events"
+                    // funct: function to fire on change
+                    // eventType: 'input'|'intent'
+                    registerOnChange: function registerOnChange(fn, eventType) {
+                      functionList.push({
+                        fn: fn,
+                        type: eventType || "input"
+                      });
+                    },
+
+                    unRegisterOnChange: function unRegisterOnChange(fn) {
+                      var position = objPos(fn);
+
+                      if (position || position === 0) {
+                        functionList.splice(position, 1);
+                      }
+                    }
+                  };
+                })();
+
+                /***/
+              }
+              /******/
+            ]
+          );
+        });
       },
-      { "./detect-ie": 2, "what-input": 1 }
+      {}
+    ],
+    4: [
+      function(require, module, exports) {
+        var ua = window.navigator.userAgent;
+
+        var msie = ua.indexOf("MSIE ");
+        var trident = ua.indexOf("Trident/");
+        var edge = ua.indexOf("Edge/");
+        if (msie > 0) {
+          // IE 10 or older => return version number
+          document.documentElement.className +=
+            " old-ie ie ie" + parseInt(ua.substring(msie + 5, ua.indexOf(".", msie)), 10);
+        } else if (trident > 0) {
+          // IE 11 => return version number
+          var rv = ua.indexOf("rv:");
+          document.documentElement.className += " ie ie" + parseInt(ua.substring(rv + 3, ua.indexOf(".", rv)), 10);
+        } else if (edge > 0) {
+          document.documentElement.className += " edge";
+        }
+      },
+      {}
+    ],
+    5: [
+      function(require, module, exports) {
+        require("classlist-polyfill");
+        require("smoothscroll-polyfill").polyfill();
+        require("what-input");
+        require("./detect-ie");
+      },
+      { "./detect-ie": 4, "classlist-polyfill": 1, "smoothscroll-polyfill": 2, "what-input": 3 }
     ]
   },
   {},
-  [3]
+  [5]
 );

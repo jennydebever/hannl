@@ -31,6 +31,10 @@ a:active,
 a:hover {
   outline: 0;
 }
+.demo-grid-overlay,
+use {
+  pointer-events: none;
+}
 @font-face {
   font-family: AvenirNextLTW01-Medium;
   src: url(/lib/fonts/1a7c9181-cd24-4943-a9d9-d033189524e0.eot?#iefix);
@@ -296,7 +300,6 @@ body.modal-is-open--coursenav {
   z-index: 1000;
   padding-top: 0 !important;
   padding-bottom: 0 !important;
-  pointer-events: none;
   width: 100% !important;
   margin: 0 auto !important;
 }

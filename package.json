@@ -58,11 +58,13 @@
     "vuepress": "^0.14.4"
   },
   "dependencies": {
+    "classlist-polyfill": "^1.2.0",
     "debounce": "^1.2.0",
     "find-parent": "^2.0.2",
     "focus-trap": "^3.0.0",
     "keymirror": "^0.1.1",
     "slide-anim": "^1.2.0",
+    "smoothscroll-polyfill": "^0.4.3",
     "track-focus": "^1.0.0",
     "what-input": "^5.1.2"
   }
