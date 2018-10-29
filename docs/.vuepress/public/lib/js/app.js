@@ -2284,7 +2284,7 @@ object-assign
     ],
     17: [
       function(require, module, exports) {
-        // var findParent = require("find-parent");
+        var findParent = require("find-parent");
         var constants = require("../../../constants");
         var dispatcher = require("../../dispatcher");
 
@@ -2330,12 +2330,16 @@ object-assign
         function onBodyClick(e) {
           if (e.breakpoint === constants.DESKTOP) return;
 
+          if (findParent.byClassName(e.target, "js-coursenav")) {
+            return;
+          }
+
           dispatcher.dispatch({
             type: constants.REQUEST_MODAL_CLOSE
           });
         }
       },
-      { "../../../constants": 28, "../../dispatcher": 20 }
+      { "../../../constants": 28, "../../dispatcher": 20, "find-parent": 6 }
     ],
     18: [
       function(require, module, exports) {

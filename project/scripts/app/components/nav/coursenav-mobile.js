@@ -1,4 +1,4 @@
-// var findParent = require("find-parent");
+var findParent = require("find-parent");
 var constants = require("../../../constants");
 var dispatcher = require("../../dispatcher");
 
@@ -43,6 +43,10 @@ dispatcher.on(constants.EVENT_MODAL_AFTER_CLOSE, onModalClose);
 
 function onBodyClick(e) {
   if (e.breakpoint === constants.DESKTOP) return;
+
+  if (findParent.byClassName(e.target, "js-coursenav")) {
+    return;
+  }
 
   dispatcher.dispatch({
     type: constants.REQUEST_MODAL_CLOSE

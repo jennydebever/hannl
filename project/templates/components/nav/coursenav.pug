@@ -31,7 +31,9 @@ mixin coursenav(title, links)
           each item in links
             - const cls = [(item.href.replace('.html', '') === pagePath) ? 'is-active' : null, 'js-subnav__item']
             li.coursenav__links__item(class=cls)
-              a.coursenav__links__item__link(href=item.href) #{item.label}
+              a.coursenav__links__item__link(href=item.href)
+                | #{item.label}
+                +icon#arrow
 
               if item.subitems
                 ul.coursenav__links__item__subnav(class="coursenav-dropdown")

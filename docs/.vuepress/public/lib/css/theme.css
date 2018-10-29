@@ -35,14 +35,6 @@ a:hover {
 .demo-typo {
   -webkit-box-pack: center;
 }
-.demo-grid-overlay,
-use {
-  pointer-events: none;
-}
-.topbar__hamburger .icon-hamburger,
-.topbar__search .icon-search {
-  fill: #fff;
-}
 @font-face {
   font-family: AvenirNextLTW01-Medium;
   src: url(/lib/fonts/1a7c9181-cd24-4943-a9d9-d033189524e0.eot?#iefix);
@@ -308,6 +300,7 @@ body.modal-is-open--coursenav {
   z-index: 1000;
   padding-top: 0 !important;
   padding-bottom: 0 !important;
+  pointer-events: none;
   width: 100% !important;
   margin: 0 auto !important;
 }
@@ -434,7 +427,6 @@ body.modal-is-open--coursenav {
 .topbar-wrapper {
   max-width: 1200px;
   margin-right: auto;
-  margin-left: auto;
 }
 @media (min-width: 768px) {
   .demo-grid--video .demo-grid__item {
@@ -517,15 +509,18 @@ body.modal-is-open--coursenav {
 .coursenav-overlay,
 .nav {
   position: fixed;
-  top: 0;
   right: 0;
   left: 0;
+}
+use {
+  pointer-events: none;
 }
 .demo-typo {
   -ms-flex-pack: center;
   justify-content: center;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
+  margin-left: auto;
   display: block;
 }
 .demo-typo__bigtitle {
@@ -618,6 +613,7 @@ html:not([data-breakpoint="desktop"]) .coursenav__links__item__link {
   justify-content: center;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
+  margin-left: auto;
 }
 @media (min-width: 500px) {
   .demo-typo__cards__card {
@@ -693,6 +689,7 @@ html:not([data-breakpoint="desktop"]) .coursenav__links__item__link {
   margin-bottom: 2em;
 }
 .nav {
+  top: 0;
   width: 100%;
   z-index: 100;
   transition: transform 0.35s cubic-bezier(0.05, 0, 0.002, 1);
@@ -735,6 +732,7 @@ html:not([data-breakpoint="desktop"]) .coursenav__links__item__link {
 }
 .coursenav-overlay {
   background-color: #000;
+  top: 0;
   bottom: 0;
   height: calc(100vh + 250px);
   width: 100vw;
@@ -887,6 +885,9 @@ html:not([data-breakpoint="desktop"]) .coursenav__links__item__link {
     background-color: #fff;
     font-family: Avenir Next LT W01 Demi, Avenir next, Avenir, sans-serif;
   }
+  .coursenav__links__item__link .icon-arrow {
+    display: none;
+  }
   .coursenav__links__item__subnav {
     transform: scale(0);
     position: absolute;
@@ -1020,54 +1021,103 @@ html:not([data-breakpoint="desktop"]) .coursenav__links {
 }
 html:not([data-breakpoint="desktop"]) .coursenav__links__item {
   position: relative;
-  border-bottom: 1px solid #757575;
+  border-bottom: 1px solid hsla(0, 0%, 100%, 0.15);
   padding: 30px;
   display: block;
 }
 html:not([data-breakpoint="desktop"]) .coursenav__links__item.is-active {
   background-color: hsla(0, 0%, 100%, 0.09);
 }
+html:not([data-breakpoint="desktop"]) .coursenav__links__item.is-active .coursenav__links__item__link .icon-arrow {
+  display: none;
+}
 html:not([data-breakpoint="desktop"]) .coursenav__links__item.is-active .coursenav__links__item__link:after {
   position: absolute;
-  width: 100%;
   border: 2px solid #e50056;
   content: "";
   right: 0;
+  left: 0;
   display: block;
+  bottom: 0;
+}
+@media (max-width: 767px) {
+  html:not([data-breakpoint="desktop"]) .coursenav__links__item.is-active .coursenav__links__item__subnav:before {
+    display: none;
+  }
 }
 @media (min-width: 768px) {
   html:not([data-breakpoint="desktop"]) .coursenav__links__item {
     -ms-flex-preferred-size: 250px;
     flex-basis: 250px;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
     border-bottom: 0;
-  }
-  html:not([data-breakpoint="desktop"]) .coursenav__links__item:after {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    border-right: 1px solid #757575;
-    pointer-events: none;
+    border-right: 1px solid hsla(0, 0%, 100%, 0.15);
   }
 }
 html:not([data-breakpoint="desktop"]) .coursenav__links__item__link {
+  outline: 0;
   color: #fff;
   font-size: 18px;
   text-decoration: none;
   padding: 10px 0;
   position: relative;
 }
+[data-whatinput="keyboard"] html:not([data-breakpoint="desktop"]) .coursenav__links__item__link:focus {
+  outline: 1px solid rgba(229, 0, 86, 0.75);
+  outline-offset: -1px;
+}
+html:not([data-breakpoint="desktop"]) .coursenav__links__item__link:focus {
+  outline: 1px solid rgba(229, 0, 86, 0.75);
+  outline-offset: 3px;
+}
+html:not([data-breakpoint="desktop"]) .coursenav__links__item__link .icon-arrow {
+  fill: #e50056;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+.topbar__hamburger .icon-hamburger,
+.topbar__search .icon-search {
+  fill: #fff;
+}
+.richtext-small table th,
+.richtext table th {
+  font-weight: 700;
+  vertical-align: top;
+}
+html:not([data-breakpoint="desktop"]) .coursenav__links__item__subnav {
+  margin-top: 15px;
+  padding-top: 15px;
+  position: relative;
+}
+html:not([data-breakpoint="desktop"]) .coursenav__links__item__subnav:before {
+  content: "";
+  display: block;
+  height: 1px;
+  width: 20px;
+  background-color: #454545;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
 html:not([data-breakpoint="desktop"]) .coursenav-dropdown__item__link {
+  outline: 0;
   color: #fff;
   font-size: 14px;
   font-family: AvenirNextLTW01-Medium, Avenir next, Avenir, sans-serif;
   padding: 10px 0;
   display: block;
+}
+[data-whatinput="keyboard"] html:not([data-breakpoint="desktop"]) .coursenav-dropdown__item__link:focus {
+  outline: 1px solid rgba(229, 0, 86, 0.75);
+  outline-offset: -1px;
+}
+html:not([data-breakpoint="desktop"]) .coursenav-dropdown__item__link:focus {
+  outline: 1px solid rgba(229, 0, 86, 0.75);
+  outline-offset: 3px;
 }
 .coursenav__toggle {
   outline: 0;
@@ -1185,6 +1235,7 @@ html:not([data-breakpoint="desktop"]) .coursenav-dropdown__item__link {
   justify-content: center;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
+  margin-left: auto;
   height: 48px;
 }
 .topbar-body-wrapper {
@@ -1437,10 +1488,6 @@ html:not([data-breakpoint="desktop"]) .coursenav-dropdown__item__link {
   width: 100%;
   border-bottom: 1px solid #e3e3e3;
 }
-.richtext table th {
-  font-weight: 700;
-  vertical-align: top;
-}
 .richtext table td,
 .richtext table th {
   padding: 17px 4px;
@@ -1592,10 +1639,6 @@ html:not([data-breakpoint="desktop"]) .coursenav-dropdown__item__link {
 .richtext-small table {
   width: 100%;
   border-bottom: 1px solid #e3e3e3;
-}
-.richtext-small table th {
-  font-weight: 700;
-  vertical-align: top;
 }
 .richtext-small table td,
 .richtext-small table th {

@@ -1,4 +1,12 @@
-// use data instead of breakpoint to avoid nested media queries
+/**
+ * use data instead of breakpoint to avoid nested media queries
+ * which causes issues in IE11
+ * 
+ * the use of the data-breakpoint things breaks usage of
+ * the `.selector &`-rule, so you'll have to work around that
+ */
+
+// sass-lint:disable force-pseudo-nesting
 html:not([data-breakpoint="desktop"]) {
   @keyframes animate-coursenav-in-mobile {
     to {
@@ -96,7 +104,7 @@ html:not([data-breakpoint="desktop"]) {
 
   .coursenav__links__item {
     position: relative;
-    border-bottom: 1px solid $grey4;
+    border-bottom: 1px solid rgba($white, 0.15);
     padding: 30px;
     display: block;
 
@@ -106,44 +114,60 @@ html:not([data-breakpoint="desktop"]) {
       .coursenav__links__item__link {
         font-family: $demi;
 
+        .icon-arrow {
+          display: none;
+        }
+
+        // red border below active link
         &::after {
           position: absolute;
-          width: 100%;
           border: 2px solid $hanred;
           content: "";
           right: 0;
+          left: 0;
           display: block;
+          bottom: 0;
+        }
+      }
+
+      .coursenav__links__item__subnav {
+        &::before {
+          @include breakpoint(max $bp-m) {
+            display: none;
+          }
         }
       }
     }
 
     @include breakpoint($bp-m) {
       flex-basis: 250px;
+      flex-shrink: 0;
       border-bottom: 0;
-
-      &::after {
-        content: "";
-        display: block;
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        border-right: 1px solid $grey4;
-        pointer-events: none;
-      }
+      border-right: 1px solid rgba($white, 0.15);
     }
   }
 
   .coursenav__links__item__link {
+    @include focusable($hanred, 1px, -1px);
     color: $white;
     font-size: 18px;
     font-family: $demi;
     text-decoration: none;
     padding: 10px 0;
     position: relative;
+
+    &:focus {
+      @include focus-outline($hanred);
+    }
+
+    .icon-arrow {
+      fill: $hanred;
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
   }
 
   /**
@@ -151,6 +175,21 @@ html:not([data-breakpoint="desktop"]) {
   */
 
   .coursenav__links__item__subnav {
+    margin-top: 15px;
+    padding-top: 15px;
+    position: relative;
+
+    // 20px small divider between arrow and list
+    &::before {
+      content: "";
+      display: block;
+      height: 1px;
+      width: 20px;
+      background-color: $grey5;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
   }
 
   .coursenav-dropdown {
@@ -160,11 +199,16 @@ html:not([data-breakpoint="desktop"]) {
   }
 
   .coursenav-dropdown__item__link {
+    @include focusable($hanred, 1px, -1px);
     color: $white;
     font-size: 14px;
     font-family: $medium;
     padding: 10px 0;
     display: block;
+
+    &:focus {
+      @include focus-outline($hanred);
+    }
   }
 }
 
