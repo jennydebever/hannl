@@ -1,7 +1,7 @@
 @include breakpoint(max $bp-l) {
   @keyframes animate-coursenav-in-mobile {
     to {
-      height: calc(100% - 48px);
+      height: 100%;
     }
   }
 
@@ -13,7 +13,7 @@
 
   @keyframes animate-coursenav-in-tablet {
     to {
-      height: calc(100% - 56px);
+      height: 100%;
     }
   }
 
@@ -46,11 +46,10 @@
     }
 
     &.is-closed {
-      height: calc(100% - 48px);
+      height: 100%;
       animation: animate-coursenav-out-mobile 0.4s $ease forwards;
 
       @include breakpoint($bp-m) {
-        height: calc(100% - 87px);
         animation: animate-coursenav-out-tablet 0.4s $ease forwards;
       }
     }

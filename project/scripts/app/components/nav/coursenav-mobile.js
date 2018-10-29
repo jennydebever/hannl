@@ -43,10 +43,6 @@ dispatcher.on(constants.EVENT_MODAL_AFTER_CLOSE, onModalClose);
 
 function onBodyClick(e) {
   if (e.breakpoint === constants.DESKTOP) return;
-  // neccessary to stay open if internal link is clicked?
-  // if (findParent.byClassName(e.target, "js-coursenav")) {
-  //   return;
-  // }
 
   dispatcher.dispatch({
     type: constants.REQUEST_MODAL_CLOSE

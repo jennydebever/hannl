@@ -710,14 +710,17 @@ body.modal-is-open--coursenav {
   transform: translateY(0);
 }
 .modal-is-open--coursenav .nav {
+  transform: translateY(-48px);
   bottom: 0;
   height: 100%;
-  transform: translateY(0);
 }
 .nav-spacer {
   height: 48px;
 }
 @media (min-width: 768px) {
+  .modal-is-open--coursenav .nav {
+    transform: translateY(-88px);
+  }
   .nav-spacer {
     height: 87px;
   }
@@ -933,20 +936,15 @@ body.modal-is-open--coursenav {
 @media (max-width: 1023px) {
   @keyframes c {
     to {
-      height: calc(100% - 48px);
+      height: 56px;
     }
   }
   @keyframes d {
     to {
-      height: 56px;
+      height: 100%;
     }
   }
   @keyframes e {
-    to {
-      height: calc(100% - 56px);
-    }
-  }
-  @keyframes f {
     to {
       height: 80px;
     }
@@ -962,7 +960,7 @@ body.modal-is-open--coursenav {
     flex-direction: column;
   }
   .coursenav.is-open {
-    animation: c 0.4s cubic-bezier(0.05, 0, 0.002, 1) forwards;
+    animation: d 0.4s cubic-bezier(0.05, 0, 0.002, 1) forwards;
   }
 }
 @media (max-width: 1023px) and (min-width: 768px) {
@@ -972,22 +970,14 @@ body.modal-is-open--coursenav {
   }
   .coursenav.is-open {
     max-height: calc(100% - 80px);
-    animation: e 1s cubic-bezier(0.05, 0, 0.002, 1) forwards;
+    animation: d 1s cubic-bezier(0.05, 0, 0.002, 1) forwards;
   }
 }
 @media (max-width: 1023px) {
   .coursenav.is-closed {
-    height: calc(100% - 48px);
-    animation: d 0.4s cubic-bezier(0.05, 0, 0.002, 1) forwards;
+    height: 100%;
+    animation: c 0.4s cubic-bezier(0.05, 0, 0.002, 1) forwards;
   }
-}
-@media (max-width: 1023px) and (min-width: 768px) {
-  .coursenav.is-closed {
-    height: calc(100% - 87px);
-    animation: f 0.4s cubic-bezier(0.05, 0, 0.002, 1) forwards;
-  }
-}
-@media (max-width: 1023px) {
   .coursenav-wrapper {
     overflow-y: auto;
   }
@@ -1001,6 +991,8 @@ body.modal-is-open--coursenav {
   .coursenav-wrapper::-webkit-scrollbar-track-piece {
     background-color: #454545;
   }
+}
+@media (max-width: 1023px) {
   .coursenav-body-wrapper {
     height: 100%;
   }
@@ -1012,6 +1004,9 @@ body.modal-is-open--coursenav {
   }
 }
 @media (max-width: 1023px) and (min-width: 768px) {
+  .coursenav.is-closed {
+    animation: e 0.4s cubic-bezier(0.05, 0, 0.002, 1) forwards;
+  }
   .coursenav-wrapper {
     border-top: 1px solid #757575;
     background-color: #000;
@@ -2488,20 +2483,20 @@ body.modal-is-open--coursenav {
   transform: scale(0);
 }
 .sitesearch.is-open {
-  animation: g 0.4s cubic-bezier(0.05, 0, 0.002, 1) forwards;
+  animation: f 0.4s cubic-bezier(0.05, 0, 0.002, 1) forwards;
   transform: scale(1);
 }
 .sitesearch.is-closed {
   transform: scaleX(1);
   opacity: 1;
-  animation: h 0.4s cubic-bezier(0.05, 0, 0.002, 1) forwards;
+  animation: g 0.4s cubic-bezier(0.05, 0, 0.002, 1) forwards;
 }
-@keyframes g {
+@keyframes f {
   to {
     opacity: 1;
   }
 }
-@keyframes h {
+@keyframes g {
   to {
     opacity: 0;
   }
@@ -2512,13 +2507,13 @@ body.modal-is-open--coursenav {
   transform: scale(0);
 }
 .menu.is-open {
-  animation: g 0.4s cubic-bezier(0.05, 0, 0.002, 1) forwards;
+  animation: f 0.4s cubic-bezier(0.05, 0, 0.002, 1) forwards;
   transform: scale(1);
 }
 .menu.is-closed {
   transform: scaleX(1);
   opacity: 1;
-  animation: h 0.4s cubic-bezier(0.05, 0, 0.002, 1) forwards;
+  animation: g 0.4s cubic-bezier(0.05, 0, 0.002, 1) forwards;
 }
 .skiplinks a {
   position: absolute;

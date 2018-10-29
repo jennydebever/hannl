@@ -9,12 +9,16 @@
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
 
-  .is-scrolled-free & {
+  @mixin hide-topbar {
     transform: translateY(-48px);
 
     @include breakpoint($bp-m) {
       transform: translateY(-88px);
     }
+  }
+
+  .is-scrolled-free & {
+    @include hide-topbar;
   }
 
   .is-scrolled-to-top & {
@@ -30,9 +34,9 @@
   }
 
   .modal-is-open--coursenav & {
+    @include hide-topbar;
     bottom: 0;
     height: 100%;
-    transform: translateY(0);
   }
 }
 
