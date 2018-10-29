@@ -31,10 +31,6 @@ a:active,
 a:hover {
   outline: 0;
 }
-.demo-grid-overlay,
-use {
-  pointer-events: none;
-}
 @font-face {
   font-family: AvenirNextLTW01-Medium;
   src: url(/lib/fonts/1a7c9181-cd24-4943-a9d9-d033189524e0.eot?#iefix);
@@ -163,6 +159,11 @@ textarea {
   font: inherit;
   margin: 0;
 }
+.accessibility,
+.skiplinks a,
+strong {
+  font-weight: 400;
+}
 button,
 select {
   text-transform: none;
@@ -234,9 +235,6 @@ ul {
 ul {
   list-style-type: none;
 }
-strong {
-  font-weight: 400;
-}
 button {
   overflow: visible;
   padding: 0;
@@ -300,6 +298,7 @@ body.modal-is-open--coursenav {
   z-index: 1000;
   padding-top: 0 !important;
   padding-bottom: 0 !important;
+  pointer-events: none;
   width: 100% !important;
   margin: 0 auto !important;
 }
@@ -364,11 +363,6 @@ body.modal-is-open--coursenav {
   height: 100%;
   background-color: #00f;
   color: #fff;
-}
-.accessibility,
-.coursenav-overlay,
-.topbar {
-  background-color: #000;
 }
 .demo-grid--full .demo-grid__item {
   padding-left: 8px;
@@ -504,20 +498,22 @@ body.modal-is-open--coursenav {
   left: -999em;
   top: -100em;
   color: #fff;
-  font-weight: 400;
+  background-color: #000;
   height: 0;
 }
 .coursenav-overlay,
 .nav {
   position: fixed;
-  top: 0;
-  right: 0;
   left: 0;
+  right: 0;
 }
 .richtext-small table th,
 .richtext table th {
   font-weight: 700;
   vertical-align: top;
+}
+use {
+  pointer-events: none;
 }
 .demo-typo {
   -ms-flex-pack: center;
@@ -527,7 +523,7 @@ body.modal-is-open--coursenav {
   display: block;
 }
 .demo-typo__cards,
-.topbar-wrapper {
+[data-breakpoint="desktop"] .coursenav-wrapper {
   display: -ms-flexbox;
   max-width: 1200px;
   margin-right: auto;
@@ -693,6 +689,7 @@ body.modal-is-open--coursenav {
   margin-bottom: 2em;
 }
 .nav {
+  top: 0;
   width: 100%;
   z-index: 100;
   transition: transform 0.35s cubic-bezier(0.05, 0, 0.002, 1);
@@ -734,6 +731,8 @@ body.modal-is-open--coursenav {
   }
 }
 .coursenav-overlay {
+  background-color: #000;
+  top: 0;
   bottom: 0;
   height: calc(100vh + 250px);
   width: 100vw;
@@ -746,299 +745,306 @@ body.modal-is-open--coursenav {
   animation: a 2.5s cubic-bezier(0.05, 0, 0.002, 1) forwards;
   transform: scale(1);
 }
-@media (min-width: 1024px) {
-  @keyframes b {
-    to {
-      height: auto;
-    }
-  }
-  .coursenav {
-    padding-left: 8px;
-    padding-right: 8px;
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    position: relative;
-    z-index: 98;
-    background-color: #f8f8f8;
+@keyframes b {
+  to {
+    height: auto;
   }
 }
-@media (min-width: 1024px) and (min-width: 768px) {
-  .coursenav {
+[data-breakpoint="desktop"] .coursenav {
+  padding-left: 8px;
+  padding-right: 8px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  z-index: 98;
+  background-color: #f8f8f8;
+}
+@media (min-width: 768px) {
+  [data-breakpoint="desktop"] .coursenav {
     padding-left: 16px;
     padding-right: 16px;
   }
 }
-@media (min-width: 1024px) and (min-width: 1024px) {
-  .coursenav {
+@media (min-width: 1024px) {
+  [data-breakpoint="desktop"] .coursenav {
     padding-left: 20px;
     padding-right: 20px;
   }
 }
-@media (min-width: 1024px) {
-  .coursenav.is-closed {
-    animation: b 0 forwards;
-  }
-  .coursenav-wrapper {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .coursenav-body-wrapper {
-    padding-left: 8px;
-    padding-right: 8px;
-    -ms-flex-positive: 1;
-    flex-grow: 1;
-    -ms-flex-negative: 1;
-    flex-shrink: 1;
-    -ms-flex-preferred-size: auto;
-    flex-basis: auto;
-    width: 100%;
-    display: -ms-flexbox;
-    display: flex;
-  }
-  .coursenav__title {
-    outline: 0;
-    -ms-flex-item-align: center;
-    align-self: center;
-    text-decoration: none;
-    color: #000;
-    text-transform: uppercase;
-    font-family: AvenirNextLTW01-BoldCn, Avenir next, Avenir, sans-serif;
-    font-size: 18px;
-    line-height: 1;
-    display: block;
-  }
-  [data-whatinput="keyboard"] .coursenav__title:focus {
-    outline: 1px solid rgba(0, 0, 0, 0.75);
-    outline-offset: 3px;
-  }
-  .coursenav__title:after {
-    color: #e50056;
-    content: "_";
-  }
+[data-breakpoint="desktop"] .coursenav.is-closed {
+  animation: b 0 forwards;
 }
-@media (min-width: 1024px) and (min-width: 768px) {
-  .coursenav-body-wrapper {
+[data-breakpoint="desktop"] .coursenav-wrapper {
+  display: flex;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+[data-breakpoint="desktop"] .coursenav-body-wrapper {
+  padding-left: 8px;
+  padding-right: 8px;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -ms-flex-negative: 1;
+  flex-shrink: 1;
+  -ms-flex-preferred-size: auto;
+  flex-basis: auto;
+  width: 100%;
+  display: -ms-flexbox;
+  display: flex;
+}
+[data-breakpoint="desktop"] .coursenav__title {
+  outline: 0;
+  -ms-flex-item-align: center;
+  align-self: center;
+  text-decoration: none;
+  color: #000;
+  text-transform: uppercase;
+  font-family: AvenirNextLTW01-BoldCn, Avenir next, Avenir, sans-serif;
+  font-size: 18px;
+  line-height: 1;
+  display: block;
+}
+.is-active [data-breakpoint="desktop"] .coursenav__links__item__link,
+.is-active [data-breakpoint="mobile"] .coursenav__links__item__link,
+.is-active [data-breakpoint="tablet"] .coursenav__links__item__link {
+  font-family: Avenir Next LT W01 Demi, Avenir next, Avenir, sans-serif;
+}
+[data-whatinput="keyboard"] [data-breakpoint="desktop"] .coursenav__title:focus {
+  outline: 1px solid rgba(0, 0, 0, 0.75);
+  outline-offset: 3px;
+}
+[data-breakpoint="desktop"] .coursenav__title:after {
+  color: #e50056;
+  content: "_";
+}
+@media (min-width: 768px) {
+  [data-breakpoint="desktop"] .coursenav-body-wrapper {
     padding-left: 16px;
     padding-right: 16px;
   }
-  .coursenav__title {
+  [data-breakpoint="desktop"] .coursenav__title {
     font-size: 22px;
   }
 }
-@media (min-width: 1024px) and (min-width: 1024px) {
-  .coursenav-body-wrapper {
+@media (min-width: 1024px) {
+  [data-breakpoint="desktop"] .coursenav-body-wrapper {
     padding-left: 20px;
     padding-right: 20px;
   }
-  .coursenav__title {
+  [data-breakpoint="desktop"] .coursenav__title {
     font-size: 21px;
   }
 }
-@media (min-width: 1024px) {
-  .coursenav__links {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-item-align: center;
-    align-self: center;
-    margin-left: auto;
-  }
-  .coursenav__links__item {
-    position: relative;
-  }
-  .coursenav__links__item.has-focus .coursenav__links__item__subnav {
-    transform: scale(1);
-  }
-  .coursenav__links__item.has-focus .coursenav__links__item__subnav:after {
-    display: block;
-  }
-  .coursenav__links__item:last-of-type .coursenav__links__item__subnav {
-    left: auto;
-    right: 0;
-  }
-  .coursenav__links__item__link {
-    outline: 0;
-    display: block;
-    padding: 27px 24px;
-    border-bottom: 5px solid transparent;
-    color: #000;
-    text-decoration: none;
-    font-size: 15px;
-    transition: border-color 0.15s, background-color 0.15s;
-  }
-  [data-whatinput="keyboard"] .coursenav__links__item__link:focus {
-    outline: 1px solid hsla(0, 0%, 57%, 0.75);
-    outline-offset: -1px;
-  }
-  .has-focus .coursenav__links__item__link {
-    background-color: #fff;
-    border-bottom-color: #e3e3e3;
-  }
-  .is-active .coursenav__links__item__link {
-    border-bottom-color: #e50056;
-    background-color: #fff;
-    font-family: Avenir Next LT W01 Demi, Avenir next, Avenir, sans-serif;
-  }
-  .coursenav__links__item__subnav {
-    transform: scale(0);
-    position: absolute;
-    left: 0;
-    width: 235px;
-  }
-  .coursenav__links__item__subnav:after {
-    z-index: 1;
-    content: "";
-    display: none;
-    position: absolute;
-    top: 0;
-    right: -15px;
-    bottom: -15px;
-    left: -15px;
-    background-color: transparent;
-  }
-  .coursenav-dropdown {
-    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.1);
-  }
-  .coursenav-dropdown__item {
-    border-bottom: 1px solid #e3e3e3;
-    z-index: 2;
-    position: relative;
-  }
-  .coursenav-dropdown__item:last-of-type {
-    border-bottom: 0;
-  }
-  .coursenav-dropdown__item__link {
-    outline: 0;
-    font-size: 14px;
-    color: #454545;
-    background-color: #fff;
-    padding: 24px;
-    display: block;
-    transition: background-color 0.15s;
-    text-decoration: none;
-  }
-  [data-whatinput="keyboard"] .coursenav-dropdown__item__link:focus {
-    outline: 1px solid hsla(0, 0%, 57%, 0.75);
-    outline-offset: 0;
-  }
-  .coursenav-dropdown__item__link:hover {
-    background-color: #e3e3e3;
-    text-decoration: underline;
-  }
-  .coursenav__toggle {
-    display: none;
-  }
+[data-breakpoint="desktop"] .coursenav__links {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-item-align: center;
+  align-self: center;
+  margin-left: auto;
 }
-@media (max-width: 1023px) {
-  @keyframes c {
-    to {
-      height: 56px;
-    }
-  }
-  @keyframes d {
-    to {
-      height: 100%;
-    }
-  }
-  @keyframes e {
-    to {
-      height: 80px;
-    }
-  }
-  .coursenav {
-    background-color: #000;
-    position: relative;
-    z-index: 98;
+[data-breakpoint="desktop"] .coursenav__links__item {
+  position: relative;
+}
+[data-breakpoint="desktop"] .coursenav__links__item.has-focus .coursenav__links__item__subnav {
+  transform: scale(1);
+}
+[data-breakpoint="desktop"] .coursenav__links__item.has-focus .coursenav__links__item__subnav:after {
+  display: block;
+}
+[data-breakpoint="desktop"] .coursenav__links__item:last-of-type .coursenav__links__item__subnav {
+  left: auto;
+  right: 0;
+}
+[data-breakpoint="desktop"] .coursenav__links__item__link {
+  outline: 0;
+  display: block;
+  padding: 27px 24px;
+  border-bottom: 5px solid transparent;
+  color: #000;
+  text-decoration: none;
+  font-size: 15px;
+  transition: border-color 0.15s, background-color 0.15s;
+}
+[data-whatinput="keyboard"] [data-breakpoint="desktop"] .coursenav__links__item__link:focus {
+  outline: 1px solid hsla(0, 0%, 57%, 0.75);
+  outline-offset: -1px;
+}
+.has-focus [data-breakpoint="desktop"] .coursenav__links__item__link {
+  background-color: #fff;
+  border-bottom-color: #e3e3e3;
+}
+.is-active [data-breakpoint="desktop"] .coursenav__links__item__link {
+  border-bottom-color: #e50056;
+  background-color: #fff;
+}
+[data-breakpoint="desktop"] .coursenav__links__item__subnav {
+  transform: scale(0);
+  position: absolute;
+  left: 0;
+  width: 235px;
+}
+[data-breakpoint="desktop"] .coursenav__links__item__subnav:after {
+  z-index: 1;
+  content: "";
+  display: none;
+  position: absolute;
+  top: 0;
+  right: -15px;
+  bottom: -15px;
+  left: -15px;
+  background-color: transparent;
+}
+[data-breakpoint="desktop"] .coursenav-dropdown {
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.1);
+}
+[data-breakpoint="desktop"] .coursenav-dropdown__item {
+  border-bottom: 1px solid #e3e3e3;
+  z-index: 2;
+  position: relative;
+}
+[data-breakpoint="desktop"] .coursenav-dropdown__item:last-of-type {
+  border-bottom: 0;
+}
+[data-breakpoint="desktop"] .coursenav-dropdown__item__link {
+  outline: 0;
+  font-size: 14px;
+  color: #454545;
+  background-color: #fff;
+  padding: 24px;
+  display: block;
+  transition: background-color 0.15s;
+  text-decoration: none;
+}
+[data-whatinput="keyboard"] [data-breakpoint="desktop"] .coursenav-dropdown__item__link:focus {
+  outline: 1px solid hsla(0, 0%, 57%, 0.75);
+  outline-offset: 0;
+}
+[data-breakpoint="desktop"] .coursenav-dropdown__item__link:hover {
+  background-color: #e3e3e3;
+  text-decoration: underline;
+}
+[data-breakpoint="desktop"] .coursenav__toggle {
+  display: none;
+}
+@keyframes c {
+  to {
     height: 56px;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-direction: column;
-    flex-direction: column;
-  }
-  .coursenav.is-open {
-    animation: d 0.4s cubic-bezier(0.05, 0, 0.002, 1) forwards;
   }
 }
-@media (max-width: 1023px) and (min-width: 768px) {
-  .coursenav {
+@keyframes d {
+  to {
+    height: 100%;
+  }
+}
+@keyframes e {
+  to {
+    height: 80px;
+  }
+}
+[data-breakpoint="mobile"] .coursenav,
+[data-breakpoint="tablet"] .coursenav {
+  background-color: #000;
+  position: relative;
+  z-index: 98;
+  height: 56px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding-left: 0;
+  padding-right: 0;
+}
+[data-breakpoint="mobile"] .coursenav.is-open,
+[data-breakpoint="tablet"] .coursenav.is-open {
+  animation: d 0.4s cubic-bezier(0.05, 0, 0.002, 1) forwards;
+}
+@media (min-width: 768px) {
+  [data-breakpoint="mobile"] .coursenav,
+  [data-breakpoint="tablet"] .coursenav {
     height: 80px;
     background-color: transparent;
   }
-  .coursenav.is-open {
+  [data-breakpoint="mobile"] .coursenav.is-open,
+  [data-breakpoint="tablet"] .coursenav.is-open {
     max-height: calc(100% - 80px);
     animation: d 1s cubic-bezier(0.05, 0, 0.002, 1) forwards;
   }
 }
-@media (max-width: 1023px) {
-  .coursenav.is-closed {
-    height: 100%;
-    animation: c 0.4s cubic-bezier(0.05, 0, 0.002, 1) forwards;
-  }
-  .coursenav-wrapper {
-    overflow-y: auto;
-  }
-  .coursenav-wrapper::-webkit-scrollbar {
-    width: 5px;
-    height: 5px;
-  }
-  .coursenav-wrapper::-webkit-scrollbar-thumb {
-    background-color: #e50056;
-  }
-  .coursenav-wrapper::-webkit-scrollbar-track-piece {
-    background-color: #454545;
-  }
+[data-breakpoint="mobile"] .coursenav.is-closed,
+[data-breakpoint="tablet"] .coursenav.is-closed {
+  height: 100%;
+  animation: c 0.4s cubic-bezier(0.05, 0, 0.002, 1) forwards;
 }
-@media (max-width: 1023px) {
-  .coursenav-body-wrapper {
-    height: 100%;
-  }
-  .coursenav__title {
-    display: none;
-  }
-  .coursenav__links {
-    text-align: right;
-  }
+[data-breakpoint="mobile"] .coursenav-wrapper,
+[data-breakpoint="tablet"] .coursenav-wrapper {
+  overflow-y: auto;
 }
-@media (max-width: 1023px) and (min-width: 768px) {
-  .coursenav.is-closed {
+[data-breakpoint="mobile"] .coursenav-wrapper::-webkit-scrollbar,
+[data-breakpoint="tablet"] .coursenav-wrapper::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+[data-breakpoint="mobile"] .coursenav-wrapper::-webkit-scrollbar-thumb,
+[data-breakpoint="tablet"] .coursenav-wrapper::-webkit-scrollbar-thumb {
+  background-color: #e50056;
+}
+[data-breakpoint="mobile"] .coursenav-wrapper::-webkit-scrollbar-track-piece,
+[data-breakpoint="tablet"] .coursenav-wrapper::-webkit-scrollbar-track-piece {
+  background-color: #454545;
+}
+[data-breakpoint="mobile"] .coursenav-body-wrapper,
+[data-breakpoint="tablet"] .coursenav-body-wrapper {
+  height: 100%;
+}
+[data-breakpoint="mobile"] .coursenav__title,
+[data-breakpoint="tablet"] .coursenav__title {
+  display: none;
+}
+[data-breakpoint="mobile"] .coursenav__links,
+[data-breakpoint="tablet"] .coursenav__links {
+  text-align: right;
+}
+@media (min-width: 768px) {
+  [data-breakpoint="mobile"] .coursenav.is-closed,
+  [data-breakpoint="tablet"] .coursenav.is-closed {
     animation: e 0.4s cubic-bezier(0.05, 0, 0.002, 1) forwards;
   }
-  .coursenav-wrapper {
+  [data-breakpoint="mobile"] .coursenav-wrapper,
+  [data-breakpoint="tablet"] .coursenav-wrapper {
     border-top: 1px solid #757575;
     background-color: #000;
   }
-  .coursenav__links {
+  [data-breakpoint="mobile"] .coursenav__links,
+  [data-breakpoint="tablet"] .coursenav__links {
     display: -ms-flexbox;
     display: flex;
     width: 100%;
     height: 100%;
   }
 }
-@media (max-width: 1023px) {
-  .coursenav__links__item {
-    position: relative;
-    border-bottom: 1px solid #757575;
-    padding: 30px;
-    display: block;
-  }
-  .coursenav__links__item.is-active {
-    background-color: hsla(0, 0%, 100%, 0.09);
-  }
+[data-breakpoint="mobile"] .coursenav__links__item,
+[data-breakpoint="tablet"] .coursenav__links__item {
+  position: relative;
+  border-bottom: 1px solid #757575;
+  padding: 30px;
+  display: block;
 }
-@media (max-width: 1023px) and (min-width: 768px) {
-  .coursenav__links__item {
+[data-breakpoint="mobile"] .coursenav__links__item.is-active,
+[data-breakpoint="tablet"] .coursenav__links__item.is-active {
+  background-color: hsla(0, 0%, 100%, 0.09);
+}
+@media (min-width: 768px) {
+  [data-breakpoint="mobile"] .coursenav__links__item,
+  [data-breakpoint="tablet"] .coursenav__links__item {
     -ms-flex-preferred-size: 250px;
     flex-basis: 250px;
     border-bottom: 0;
   }
-  .coursenav__links__item:after {
+  [data-breakpoint="mobile"] .coursenav__links__item:after,
+  [data-breakpoint="tablet"] .coursenav__links__item:after {
     content: "";
     display: block;
     position: absolute;
@@ -1052,116 +1058,118 @@ body.modal-is-open--coursenav {
     pointer-events: none;
   }
 }
-@media (max-width: 1023px) {
-  .coursenav__links__item__link,
-  .is-active .coursenav__links__item__link {
-    font-family: Avenir Next LT W01 Demi, Avenir next, Avenir, sans-serif;
-  }
-  .coursenav__links__item__link {
-    color: #fff;
-    font-size: 18px;
-    text-decoration: none;
-    padding: 10px 0;
-    position: relative;
-  }
-  .is-active .coursenav__links__item__link:after {
-    position: absolute;
-    width: 100%;
-    border: 2px solid #e50056;
-    content: "";
-    right: 0;
-    display: block;
-  }
-  .coursenav-dropdown__item__link {
-    color: #fff;
-    font-size: 14px;
-    font-family: AvenirNextLTW01-Medium, Avenir next, Avenir, sans-serif;
-    padding: 10px 0;
-    display: block;
-  }
-  .coursenav__toggle {
-    outline: 0;
-    background-color: #000;
-    width: 100%;
-    height: 56px;
-    -ms-flex-negative: 0;
-    flex-shrink: 0;
-    margin-top: auto;
-    border-top: 1px solid #454545;
-    position: relative;
-    padding-left: 16px;
-    padding-right: 66px;
-  }
-  [data-whatinput="keyboard"] .coursenav__toggle:focus {
-    outline: 1px solid rgba(229, 0, 86, 0.75);
-    outline-offset: -1px;
-  }
+[data-breakpoint="mobile"] .coursenav__links__item__link,
+[data-breakpoint="tablet"] .coursenav__links__item__link {
+  color: #fff;
+  font-size: 18px;
+  font-family: Avenir Next LT W01 Demi, Avenir next, Avenir, sans-serif;
+  text-decoration: none;
+  padding: 10px 0;
+  position: relative;
 }
-@media (max-width: 1023px) and (min-width: 768px) {
-  .coursenav__toggle {
+.is-active [data-breakpoint="mobile"] .coursenav__links__item__link:after,
+.is-active [data-breakpoint="tablet"] .coursenav__links__item__link:after {
+  position: absolute;
+  width: 100%;
+  border: 2px solid #e50056;
+  content: "";
+  right: 0;
+  display: block;
+}
+[data-breakpoint="mobile"] .coursenav-dropdown__item__link,
+[data-breakpoint="tablet"] .coursenav-dropdown__item__link {
+  color: #fff;
+  font-size: 14px;
+  font-family: AvenirNextLTW01-Medium, Avenir next, Avenir, sans-serif;
+  padding: 10px 0;
+  display: block;
+}
+[data-breakpoint="mobile"] .coursenav__toggle,
+[data-breakpoint="tablet"] .coursenav__toggle {
+  outline: 0;
+  background-color: #000;
+  width: 100%;
+  height: 56px;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  margin-top: auto;
+  border-top: 1px solid #454545;
+  position: relative;
+  padding-left: 16px;
+  padding-right: 66px;
+}
+[data-whatinput="keyboard"] [data-breakpoint="mobile"] .coursenav__toggle:focus,
+[data-whatinput="keyboard"] [data-breakpoint="tablet"] .coursenav__toggle:focus {
+  outline: 1px solid rgba(229, 0, 86, 0.75);
+  outline-offset: -1px;
+}
+@media (min-width: 768px) {
+  [data-breakpoint="mobile"] .coursenav__toggle,
+  [data-breakpoint="tablet"] .coursenav__toggle {
     height: 80px;
     padding-left: 32px;
     padding-right: 82px;
     margin-top: 0;
   }
 }
-@media (max-width: 1023px) {
-  .coursenav__toggle .icon-chevron {
-    fill: #fff;
-    height: auto;
-    width: 10px;
-    transform: translateY(-50%) rotate(90deg);
-    transition: transform 0.15s cubic-bezier(0.05, 0, 0.002, 1);
-    transform-origin: 50% 50%;
-    position: absolute;
-    right: 20px;
-    top: 50%;
-  }
-  .is-open .coursenav__toggle .icon-chevron {
-    transform: translateY(-50%) rotate(-90deg);
-  }
-  .is-closed .coursenav__toggle .icon-chevron {
-    transform: translateY(-50%) rotate(90deg);
-  }
-  .coursenav__toggle:after {
-    width: 50px;
-    height: 50px;
-    content: "";
-    display: block;
-    border-bottom: 5px solid #e50056;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-  }
-  .coursenav__toggle__label {
-    outline: 0;
-    -ms-flex-item-align: center;
-    align-self: center;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-family: AvenirNextLTW01-BoldCn, Avenir next, Avenir, sans-serif;
-    font-size: 18px;
-    line-height: 1;
-    color: #fff;
-  }
-  [data-whatinput="keyboard"] .coursenav__toggle__label:focus {
-    outline: 1px solid rgba(0, 0, 0, 0.75);
-    outline-offset: 3px;
-  }
-  .coursenav__toggle__label:after {
-    color: #e50056;
-    content: "_";
-  }
+.richtext-small ol,
+.richtext-small ul,
+.richtext ol,
+.richtext ul {
+  margin-top: 13px;
 }
-@media (max-width: 1023px) and (min-width: 768px) {
-  .coursenav__toggle__label {
-    font-size: 22px;
-  }
+[data-breakpoint="mobile"] .coursenav__toggle .icon-chevron,
+[data-breakpoint="tablet"] .coursenav__toggle .icon-chevron {
+  fill: #fff;
+  height: auto;
+  width: 10px;
+  transform: translateY(-50%) rotate(90deg);
+  transition: transform 0.15s cubic-bezier(0.05, 0, 0.002, 1);
+  transform-origin: 50% 50%;
+  position: absolute;
+  right: 20px;
+  top: 50%;
 }
-@media (max-width: 1023px) and (min-width: 1024px) {
-  .coursenav__toggle__label {
-    font-size: 21px;
-  }
+.is-open [data-breakpoint="mobile"] .coursenav__toggle .icon-chevron,
+.is-open [data-breakpoint="tablet"] .coursenav__toggle .icon-chevron {
+  transform: translateY(-50%) rotate(-90deg);
+}
+.is-closed [data-breakpoint="mobile"] .coursenav__toggle .icon-chevron,
+.is-closed [data-breakpoint="tablet"] .coursenav__toggle .icon-chevron {
+  transform: translateY(-50%) rotate(90deg);
+}
+[data-breakpoint="mobile"] .coursenav__toggle:after,
+[data-breakpoint="tablet"] .coursenav__toggle:after {
+  width: 50px;
+  height: 50px;
+  content: "";
+  display: block;
+  border-bottom: 5px solid #e50056;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+[data-breakpoint="mobile"] .coursenav__toggle__label,
+[data-breakpoint="tablet"] .coursenav__toggle__label {
+  outline: 0;
+  -ms-flex-item-align: center;
+  align-self: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: AvenirNextLTW01-BoldCn, Avenir next, Avenir, sans-serif;
+  font-size: 18px;
+  line-height: 1;
+  color: #fff;
+}
+[data-whatinput="keyboard"] [data-breakpoint="mobile"] .coursenav__toggle__label:focus,
+[data-whatinput="keyboard"] [data-breakpoint="tablet"] .coursenav__toggle__label:focus {
+  outline: 1px solid rgba(0, 0, 0, 0.75);
+  outline-offset: 3px;
+}
+[data-breakpoint="mobile"] .coursenav__toggle__label:after,
+[data-breakpoint="tablet"] .coursenav__toggle__label:after {
+  color: #e50056;
+  content: "_";
 }
 .topbar {
   padding-left: 8px;
@@ -1169,27 +1177,40 @@ body.modal-is-open--coursenav {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
+  background-color: #000;
   position: relative;
   z-index: 99;
 }
 @media (min-width: 768px) {
+  [data-breakpoint="mobile"] .coursenav__toggle__label,
+  [data-breakpoint="tablet"] .coursenav__toggle__label {
+    font-size: 22px;
+  }
   .topbar {
     padding-left: 16px;
     padding-right: 16px;
   }
 }
 @media (min-width: 1024px) {
+  [data-breakpoint="mobile"] .coursenav__toggle__label,
+  [data-breakpoint="tablet"] .coursenav__toggle__label {
+    font-size: 21px;
+  }
   .topbar {
     padding-left: 20px;
     padding-right: 20px;
   }
 }
 .topbar-wrapper {
+  display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: center;
   justify-content: center;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
   height: 48px;
 }
 .topbar-body-wrapper {
@@ -1421,10 +1442,6 @@ body.modal-is-open--coursenav {
 .richtext i {
   font-family: AvenirNextLTW01-MediumI_721278, Avenir next, Avenir, sans-serif;
 }
-.richtext ol,
-.richtext ul {
-  margin-top: 13px;
-}
 .richtext ol li,
 .richtext ul li {
   margin-bottom: 11px;
@@ -1565,10 +1582,6 @@ body.modal-is-open--coursenav {
 }
 .richtext-small i {
   font-family: AvenirNextLTW01-MediumI_721278, Avenir next, Avenir, sans-serif;
-}
-.richtext-small ol,
-.richtext-small ul {
-  margin-top: 13px;
 }
 .richtext-small ol li,
 .richtext-small ul li {
@@ -2523,7 +2536,6 @@ body.modal-is-open--coursenav {
   left: -999em;
   top: -100em;
   background-color: #000;
-  font-weight: 400;
   height: 0;
 }
 .skiplinks a:focus {

@@ -1,9 +1,8 @@
-if (!window.HAN) {
-  window.HAN = {
-    utils: {},
-    ui: {},
-    constants: {}
-  };
-}
+/**
+ * Script loaded in head
+ * must be kept as lightweight as possible
+ */
 
-console.log("head.js");
+// set data attribute on body for current breakpoint
+var getBreakpoint = require("../app/ui/get-breakpoint");
+document.documentElement.setAttribute("data-breakpoint", getBreakpoint().toLowerCase());
