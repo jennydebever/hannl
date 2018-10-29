@@ -1,5 +1,4 @@
-// use data instead of breakpoint to avoid nested media queries
-[data-breakpoint="desktop"] {
+@include breakpoint($bp-l) {
   @keyframes animate-coursenav-out-desktop {
     to {
       height: auto;
