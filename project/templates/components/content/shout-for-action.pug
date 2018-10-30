@@ -6,7 +6,7 @@ mixin shout-for-action-image(image)
     - var sizes = []
     - sizes.push({ minWidth: 1200, width: 560, ratio: 1 });
     - sizes.push({ minWidth: 1024, width: 430, ratio: 1 });
-    - sizes.push({ minWidth: 768, width: 310, ratio: 2 });
+    - sizes.push({ minWidth: 768, width: 310, ratio: 3 });
     - sizes.push({ minWidth: 500, width: 310, ratio: 2 });
     - sizes.push({ minWidth: 1, width: 500, ratio: 2 });
     +srcset(image, sizes)
@@ -19,7 +19,6 @@ mixin shout-for-action-image(image)
   examples:
     - |
       include ./shout-for-action
-
       style.
         body > div {
           padding: 0 !important;
@@ -27,14 +26,28 @@ mixin shout-for-action-image(image)
       
       - var options = {};
       - options.image = 'koraal.jpg';
+      - options.title = 'Al de nodige ervaring in huis?';
+      - options.intro = 'Met aantoonbare kennis en kunde kom je in aanmerking voor vrijstellingen. Zo kun je je opleiding verkorten.';
+      - options.buttons = [];
+      - options.buttons.push({ href: '/', label: 'Plan een afspraak in', type: 'primary' });
+      - options.buttons.push({ href: '/', label: 'Bekijk de praktisch info', type: 'secondary' });
+      
+      +section-shout(ALIGNMENT_RIGHT, options)
+    
+    - |
+      hr.demo
+
+      - var options = {};
+      - options.image = 'koraal.jpg';
       - options.eyebrow = 'vrijstellingen';
       - options.title = 'Al de nodige ervaring in huis?';
       - options.intro = 'Met aantoonbare kennis en kunde kom je in aanmerking voor vrijstellingen. Zo kun je je opleiding verkorten.';
       - options.buttons = [];
-      - options.buttons.push({ href: '/', label: 'Plan een afspraken in', type: 'primary' });
+      - options.buttons.push({ href: '/', label: 'Plan een afspraak in', type: 'primary' });
       - options.buttons.push({ href: '/', label: 'Bekijk de praktisch info', type: 'secondary' });
-      
-      +section-shout(ALIGNMENT_RIGHT, options)
+
+      +section-shout(ALIGNMENT_LEFT, options)
+
    
 mixin section-shout(alignment, options)
   include ./section
@@ -62,16 +75,15 @@ mixin section-shout(alignment, options)
               +shout-for-action-image(options.image)
             .shout__text
               if options.title || options.intro
-                .section__header
                   if options.title
-                    h2.section__header__title
+                    h2.shout__text__title
                       if options.eyebrow
-                        span.section__header__title__eyebrow #{options.eyebrow}
+                        span.shout__text__title__eyebrow #{options.eyebrow}
                         span.accessibility :&nbsp;
-                      span.section__header__title__text #{options.title}
+                      span.shout__text__title__header #{options.title}
               
                   if options.intro
-                    p.section__header__intro !{options.intro}
+                    p.shout__text__intro !{options.intro}
                   if options.buttons
                     .shout__for__action__text__buttons
                       each button in options.buttons

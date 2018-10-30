@@ -1,29 +1,37 @@
 .section--shout {
   @include grid-item-spaceless(12);
   background: black;
+  padding-left: 0px;
+  padding-right: 0px;
+  
   @include breakpoint($bp-l) {
-      display: flex;
-      justify-content: center;
-      overflow: visible;
+    display: flex;
+    justify-content: center;
+    overflow: visible;
+    margin-bottom: 130px;
+    padding-left: 8px;
+    padding-right: 8px;
   }
 }
 
 .shout__picture {
   @include grid-item-spaceless(12);
+  
   @include breakpoint($bp-l) {
-      @include grid-item(6);
+    @include grid-item(6);
   }
 
   @include breakpoint($bp-l) {
-      display: flex;
-      justify-content: flex-end;
-      padding-left: 33px;
-      padding-right: 33px;
+    display: flex;
+    justify-content: flex-end;
+    padding-left: 33px;
+    padding-right: 33px;
   }
 }
 
 .shout__for__action__picture img { 
   width: 100%;
+  
   @include breakpoint($bp-l) {
     width: auto;
     top: 80px;
@@ -34,20 +42,44 @@
 
 .shout__text {
   @include grid-item(12);
+  margin-top: 29px;
+  padding-left: 24px;
+  padding-right: 24px;
+  color: $white;
+
+  @include breakpoint($bp-m){
+    @include grid-item(8);
+    margin: auto;
+    margin-top: 45px;
+  }
+  
   @include breakpoint($bp-l) {
-      @include grid-item(6);
-      margin-top: 80px;
-      padding-left: 33px;
-      padding-right: 33px;
+    @include grid-item(6);
+    order: 2;
+    margin-top: 107px;
+    max-width: 500px;
   }
 
-  .section__header {
-    margin-top: 29px;
-    color: $white;
+  .shout__text__title {
+    margin: 21px 0 17px;
+  }
 
-    @include breakpoint($bp-l) {
-        max-width: 450px;
-    }
+  .shout__text__title__header {
+    @include h1;
+    color: $white;
+    @include underscore; 
+  }
+
+  .shout__text__title__eyebrow {
+    @include eyebrow;
+    color: $white;
+    display: block;
+  }
+
+  .shout__text__intro {
+    @include base;
+    @include margin-bottom-large;
+    color: $white;
   }
   
   .section__content {
@@ -56,9 +88,10 @@
     @include breakpoint($bp-l) {
         max-width: 503px;
     }
+  
     p {
-        margin-bottom: 28px;
-        line-height: 27px;
+      margin-bottom: 28px;
+      line-height: 27px;
     }
   }
 }
@@ -66,6 +99,7 @@
 .shout__for__action__text__buttons {
   @include grid-item-spaceless(12);
   padding-bottom: 32px;
+  
   @include breakpoint($bp-l) {
       max-width: 503px;
   }
@@ -74,6 +108,7 @@
 .shout__for__action__buttons__button {
   @include grid-item-spaceless(12);
   margin-bottom: 8px;
+  
   @include breakpoint($bp-m) {
       // @include grid-item(6);
       display: inline;
@@ -104,6 +139,29 @@
   }
 }
 
+
+.shout-wrapper {
+  @include breakpoint($bp-l) {
+      display: flex;
+      justify-content: flex-end;
+  }
+}
+
+
+.shout__picture {
+  @include breakpoint($bp-l) {
+      order: 1;
+      justify-content: flex-start;
+  }
+}
+
+.shout__for__action__buttons__button {
+    @include breakpoint($bp-l) {
+        padding-right: 2px;
+    }
+}
+
+
 .section--shout-right {
   .shout__picture {
       @include breakpoint($bp-l) {
@@ -117,14 +175,22 @@
           justify-content: flex-end;
       }
   }
+
+  .shout__text {
+    @include breakpoint($bp-l) {
+      order: 1;
+    }
+  }
   .shout__for__action__text__buttons {
       @include breakpoint($bp-l) {
           display: flex;
       }
-  }
+    }
+  
   .shout__for__action__buttons__button {
-      @include breakpoint($bp-l) {
-          padding: 0;
-      }
-  }
+    @include breakpoint($bp-l) {
+        padding: 0;
+    }
+  } 
+    
 }
