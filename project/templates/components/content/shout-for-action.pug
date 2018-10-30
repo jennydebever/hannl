@@ -48,6 +48,17 @@ mixin shout-for-action-image(image)
 
       +section-shout(ALIGNMENT_LEFT, options)
 
+    - |
+      hr.demo
+
+      - var options = {};
+      - options.image = 'koraal.jpg';
+      - options.title = 'Kom sparren met je studieadviseur';
+      - options.intro = 'Je eigen oordeel is het belangrijkst bij zo`n beslissende keuze. Een adviesgesprek met een HAN studieadviseur kan daarbij helpen. Je kunt je verwachtingen toetsen en je krijgt inzicht in je persoonlijke studieprogramma.';
+      - options.buttons = [];
+      - options.buttons.push({ href: '/', label: 'Plan een afspraak in', type: 'primary' });
+
+      +section-shout(ALIGNMENT_LEFT, options)
    
 mixin section-shout(alignment, options)
   include ./section
