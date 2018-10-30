@@ -33,7 +33,7 @@
   width: 100%;
   
   @include breakpoint($bp-l) {
-    //width: 110%;
+    width: auto;
     transform: translateY(80px);
     position: relative;
   }
