@@ -2,7 +2,7 @@
   name: shout for action picture
   capture: 0
 mixin shout-for-action-image(image)
-  picture.shout__for__action__picture
+  picture.shout__picture
     - var sizes = []
     - sizes.push({ minWidth: 1200, width: 503, ratio: 1 });
     - sizes.push({ minWidth: 1024, width: 430, ratio: 1 });
@@ -85,9 +85,9 @@ mixin section-shout(alignment, options)
                   if options.intro
                     p.shout__text__intro !{options.intro}
                   if options.buttons
-                    .shout__for__action__text__buttons
+                    .shout__text__buttons
                       each button in options.buttons
-                        .shout__for__action__buttons__button
+                        .shout__text__buttons__button
                           if button.type === 'primary'
                             +btn-primary(button.label, button.href, "arrow")
 
