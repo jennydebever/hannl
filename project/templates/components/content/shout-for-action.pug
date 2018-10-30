@@ -93,23 +93,3 @@ mixin section-shout(alignment, options)
 
                           else if button.type === 'secondary'
                             +btn-secondary(button.label, button.href, "")
-
-
-  //- .shout(class=cls)
-  //-   .shout_wrapper
-  //-     .shout_picture
-  //-       +shout-for-action-image(options.image)
-  //-     .shout_text_wrapper
-  //-       +section(eyebrow, title)
-  //-         if intro
-  //-           +intro #{intro}
-  //-         block
-  //-         if options.buttons
-  //-           .shout__for__action__text__buttons
-  //-             each button in options.buttons
-  //-               .shout__for__action__buttons__button
-  //-                 if button.type === 'primary'
-  //-                   +btn-primary(button.label, button.href, "arrow")
-
-  //-                 else if button.type === 'secondary'
-  //-                   +btn-secondary(button.label, button.href, "")
