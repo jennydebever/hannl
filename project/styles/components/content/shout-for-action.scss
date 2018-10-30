@@ -1,9 +1,9 @@
 .section--shout {
   @include grid-item-spaceless(12);
   background: black;
-  padding-left: 0px;
-  padding-right: 0px;
-  
+  padding-left: 0;
+  padding-right: 0;
+
   @include breakpoint($bp-l) {
     display: flex;
     justify-content: center;
@@ -14,11 +14,20 @@
   }
 }
 
+.shout-wrapper {
+  @include breakpoint($bp-l) {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
 .shout__picture {
   @include grid-item-spaceless(12);
   
   @include breakpoint($bp-l) {
     @include grid-item(6);
+    order: 1;
+    justify-content: flex-start;
   }
 
   @include breakpoint($bp-l) {
@@ -39,7 +48,6 @@
   }
 }
 
-
 .shout__text {
   @include grid-item(12);
   margin-top: 29px;
@@ -47,7 +55,7 @@
   padding-right: 24px;
   color: $white;
 
-  @include breakpoint($bp-m){
+  @include breakpoint($bp-m) {
     @include grid-item(8);
     margin: auto;
     margin-top: 45px;
@@ -66,8 +74,8 @@
 
   .shout__text__title__header {
     @include h1;
+    @include underscore;
     color: $white;
-    @include underscore; 
   }
 
   .shout__text__title__eyebrow {
@@ -86,7 +94,7 @@
     color: $white;
 
     @include breakpoint($bp-l) {
-        max-width: 503px;
+      max-width: 503px;
     }
   
     p {
@@ -101,7 +109,7 @@
   padding-bottom: 32px;
   
   @include breakpoint($bp-l) {
-      max-width: 503px;
+    max-width: 503px;
   }
 }
 
@@ -110,70 +118,52 @@
   margin-bottom: 8px;
   
   @include breakpoint($bp-m) {
-      // @include grid-item(6);
-      display: inline;
-      padding-left: 8px;
-      padding-right: 8px;
+    display: inline;
+    padding-left: 8px;
+    padding-right: 8px;
   }
-}
 
-.shout__text__buttons__button:first-child {
-  padding-left: 0;
-}
-
-.btn-primary {
   @include breakpoint($bp-l) {
-      margin-bottom: 20px;
-      padding-left: 20px;
-      padding-right: 20px;
+    padding-right: 2px;
   }
-}
 
-.btn-secondary {
-  @include btn-secondary-on-black;
-  background-color: #000000;
-  @include breakpoint($bp-l) {
-      margin-bottom: 20px;
-      padding-left: 20px;
-      padding-right: 20px;
+  &:first-child {
+    padding-left: 0;
   }
-}
 
-
-.shout-wrapper {
-  @include breakpoint($bp-l) {
-      display: flex;
-      justify-content: flex-end;
-  }
-}
-
-
-.shout__picture {
-  @include breakpoint($bp-l) {
-      order: 1;
-      justify-content: flex-start;
-  }
-}
-
-.shout__text__buttons__button {
+  .btn-primary {
     @include breakpoint($bp-l) {
-        padding-right: 2px;
+      margin-bottom: 20px;
+      padding-left: 20px;
+      padding-right: 20px;
     }
+  }
+  
+  .btn-secondary {
+    @include btn-secondary-on-black;
+    background-color: black;
+    
+    @include breakpoint($bp-l) {
+      margin-bottom: 20px;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
 }
-
 
 .section--shout-right {
   .shout__picture {
-      @include breakpoint($bp-l) {
-          order: 2;
-          justify-content: flex-start;
-      }
+    @include breakpoint($bp-l) {
+      order: 2;
+      justify-content: flex-start;
+    }
   }
+
   .shout-wrapper {
-      @include breakpoint($bp-l) {
-          display: flex;
-          justify-content: flex-end;
-      }
+    @include breakpoint($bp-l) {
+      display: flex;
+      justify-content: flex-end;
+    }
   }
 
   .shout__text {
@@ -182,15 +172,14 @@
     }
   }
   .shout__text__buttons {
-      @include breakpoint($bp-l) {
-          display: flex;
-      }
+    @include breakpoint($bp-l) {
+      display: flex;
     }
+  }
   
   .shout__text__buttons__button {
     @include breakpoint($bp-l) {
-        padding: 0;
+      padding: 0;
     }
-  } 
-    
+  }   
 }
