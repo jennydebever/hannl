@@ -35,10 +35,6 @@ a:hover {
 .demo-typo {
   -webkit-box-pack: center;
 }
-.demo-grid-overlay,
-use {
-  pointer-events: none;
-}
 @font-face {
   font-family: AvenirNextLTW01-Medium;
   src: url(/lib/fonts/1a7c9181-cd24-4943-a9d9-d033189524e0.eot?#iefix);
@@ -304,6 +300,7 @@ body.modal-is-open--coursenav {
   z-index: 1000;
   padding-top: 0 !important;
   padding-bottom: 0 !important;
+  pointer-events: none;
   width: 100% !important;
   margin: 0 auto !important;
 }
@@ -512,6 +509,9 @@ body.modal-is-open--coursenav {
   position: fixed;
   right: 0;
   left: 0;
+}
+use {
+  pointer-events: none;
 }
 .demo-typo {
   -ms-flex-pack: center;
@@ -983,7 +983,8 @@ html:not([data-breakpoint="desktop"]) .coursenav.is-closed {
   animation: c 0.4s cubic-bezier(0.05, 0, 0.002, 1) forwards;
 }
 html:not([data-breakpoint="desktop"]) .coursenav-wrapper {
-  overflow-y: auto;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
 }
 html:not([data-breakpoint="desktop"]) .coursenav-wrapper::-webkit-scrollbar {
   width: 5px;
@@ -1060,8 +1061,9 @@ html:not([data-breakpoint="desktop"]) .coursenav__links__item__link {
   text-decoration: none;
   padding: 10px 0;
   position: relative;
+  outline: 0;
 }
-html:not([data-breakpoint="desktop"]) .coursenav__links__item__link:focus {
+[data-whatinput="keyboard"] .coursenav__links__item__link:focus {
   outline: 1px solid hsla(0, 0%, 57%, 0.75);
   outline-offset: 3px;
 }
@@ -1098,13 +1100,14 @@ html:not([data-breakpoint="desktop"]) .coursenav-dropdown__item__link {
   font-size: 14px;
   font-family: AvenirNextLTW01-Medium, Avenir next, Avenir, sans-serif;
   padding: 10px 0;
-  display: block;
+  display: inline-block;
   text-decoration: underline;
+  outline: 0;
 }
 html:not([data-breakpoint="desktop"]) .coursenav-dropdown__item__link:hover {
   text-decoration: none;
 }
-html:not([data-breakpoint="desktop"]) .coursenav-dropdown__item__link:focus {
+[data-whatinput="keyboard"] .coursenav-dropdown__item__link:focus {
   outline: 1px solid hsla(0, 0%, 57%, 0.75);
   outline-offset: 3px;
 }

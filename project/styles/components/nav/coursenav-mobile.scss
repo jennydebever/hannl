@@ -69,7 +69,8 @@ html:not([data-breakpoint="desktop"]) {
 
   .coursenav-wrapper {
     @include pretty-scrollbar($hanred);
-    overflow-y: auto;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
 
     @include breakpoint($bp-m) {
       border-top: 1px solid $grey4;
@@ -156,9 +157,14 @@ html:not([data-breakpoint="desktop"]) {
     text-decoration: none;
     padding: 10px 0;
     position: relative;
+    outline: 0;
 
-    &:focus {
-      @include focus-outline($grey3);
+    @at-root {
+      [data-whatinput="keyboard"] {
+        .coursenav__links__item__link:focus {
+          @include focus-outline($grey3);
+        }
+      }
     }
 
     .icon-arrow {
@@ -204,15 +210,20 @@ html:not([data-breakpoint="desktop"]) {
     font-size: 14px;
     font-family: $medium;
     padding: 10px 0;
-    display: block;
+    display: inline-block;
     text-decoration: underline;
+    outline: 0;
 
     &:hover {
       text-decoration: none;
     }
 
-    &:focus {
-      @include focus-outline($grey3);
+    @at-root {
+      [data-whatinput="keyboard"] {
+        .coursenav-dropdown__item__link:focus {
+          @include focus-outline($grey3);
+        }
+      }
     }
   }
 }
