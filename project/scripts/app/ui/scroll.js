@@ -1,5 +1,6 @@
 var constants = require("../../constants");
 var dispatcher = require("../dispatcher");
+var scrollIntoView = require("scroll-into-view");
 
 var $topbar = document.querySelector(".js-topbar");
 
@@ -10,19 +11,12 @@ var $topbar = document.querySelector(".js-topbar");
  * - scrolled to bottom
  */
 
-var isScrolling;
 var y = document.documentElement.scrollTop;
+var preventScrollBehavior = false;
 
 function onScroll() {
-  window.clearTimeout(isScrolling);
-
-  // Set a timeout to run after scrolling ends
-  isScrolling = setTimeout(function() {
-    document.body.classList.remove(constants.SCROLLING_AUTO_CLASS);
-  }, 250);
-
   // do nothing is scrolling is done by javascript
-  if (document.body.classList.contains(constants.SCROLLING_AUTO_CLASS)) {
+  if (preventScrollBehavior) {
     return;
   }
 
@@ -101,17 +95,70 @@ onScroll();
 window.addEventListener("scroll", onScroll, { passive: true });
 
 /**
- * Temporary scroll freeze request by javascript
- * disables setting new classes to avoid jumping navigation
- * used for when javascript does the scrolling
+ * handle request scroll to element
+ * this behavior is way too complex, due to differences
+ * in mobile/tablet and desktop navigation
  *
  * dispatcher.dispatch({
- *   type: constants.REQUEST_SCROLL_FREEZE
+ *   type: constants.REQUEST_SCROLLTO,
+ *   target: $element
  * });
  */
 
-function onRequestFreeze() {
-  document.body.classList.add(constants.SCROLLING_AUTO_CLASS);
+var $nav = document.querySelector(".js-nav");
+var $navSpacer = document.querySelector(".js-nav-spacer");
+
+function onRequestScrollto(e) {
+  if (!e.target) return;
+
+  y = 0;
+  onScroll();
+  preventScrollBehavior = true;
+
+  // adjust scroll a bit to update current scroll anchor
+  scrollIntoView(
+    e.target,
+    {
+      time: 250,
+      align: {
+        top: 0
+      }
+    },
+    function() {
+      // calculate offset nav
+      var offset = 0;
+      if ($navSpacer && $nav) {
+        offset += $navSpacer.getBoundingClientRect().height;
+        offset += $nav.getBoundingClientRect().top;
+      }
+
+      // set focus
+      e.target.setAttribute("tabindex", "-1");
+      e.target.focus();
+
+      // adjust scroll ofset
+      window.scrollBy({ top: -offset, behavior: "smooth" });
+
+      // re-enable scroll up/down logic
+      setTimeout(function() {
+        preventScrollBehavior = false;
+      }, 200);
+    }
+  );
 }
 
-dispatcher.on(constants.REQUEST_SCROLL_FREEZE, onRequestFreeze);
+dispatcher.on(constants.REQUEST_SCROLLTO, onRequestScrollto);
+
+/**
+ * Initial scroll offset
+ */
+
+if (location.hash) {
+  var $rel = document.getElementById(location.hash.substring(1));
+  if ($rel) {
+    dispatcher.dispatch({
+      type: constants.REQUEST_SCROLLTO,
+      target: $rel
+    });
+  }
+}

@@ -1,4 +1,3 @@
-var delegate = require("delegate-events");
 var dispatcher = require("../../dispatcher");
 var constants = require("../../../constants");
 var getBreakpoint = require("../../ui/get-breakpoint");
@@ -83,32 +82,3 @@ function setActiveNavItem(e) {
 }
 
 dispatcher.on(constants.EVENT_SECTION_INVIEW, setActiveNavItem);
-
-/**
- * Scroll to element by setting focus
- */
-
-function onAnchorLinkClick(e) {
-  var href = e.target.getAttribute("href");
-  if (href.indexOf("#") !== 0) {
-    return;
-  }
-
-  var $rel = document.getElementById(href.substring(1));
-  if ($rel) {
-    e.preventDefault();
-
-    dispatcher.dispatch({
-      type: constants.REQUEST_SCROLL_FREEZE
-    });
-
-    // move focus to section
-    $rel.setAttribute("tabIndex", "-1");
-    $rel.focus();
-
-    // adjust scroll a bit to update current scroll anchor
-    window.scrollBy(0, 1);
-  }
-}
-
-delegate.bind(document.body, ".js-coursenav-dropdown a", "click", onAnchorLinkClick);

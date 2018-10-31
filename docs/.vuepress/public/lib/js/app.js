@@ -1039,7 +1039,7 @@
 
         module.exports = focusTrap;
       },
-      { tabbable: 13, xtend: 14 }
+      { tabbable: 14, xtend: 15 }
     ],
     8: [
       function(require, module, exports) {
@@ -1241,6 +1241,218 @@ object-assign
       {}
     ],
     11: [
+      function(require, module, exports) {
+        var COMPLETE = "complete",
+          CANCELED = "canceled";
+
+        function raf(task) {
+          if ("requestAnimationFrame" in window) {
+            return window.requestAnimationFrame(task);
+          }
+
+          setTimeout(task, 16);
+        }
+
+        function setElementScroll(element, x, y) {
+          if (element.self === element) {
+            element.scrollTo(x, y);
+          } else {
+            element.scrollLeft = x;
+            element.scrollTop = y;
+          }
+        }
+
+        function getTargetScrollLocation(target, parent, align) {
+          var targetPosition = target.getBoundingClientRect(),
+            parentPosition,
+            x,
+            y,
+            differenceX,
+            differenceY,
+            targetWidth,
+            targetHeight,
+            leftAlign = align && align.left != null ? align.left : 0.5,
+            topAlign = align && align.top != null ? align.top : 0.5,
+            leftOffset = align && align.leftOffset != null ? align.leftOffset : 0,
+            topOffset = align && align.topOffset != null ? align.topOffset : 0,
+            leftScalar = leftAlign,
+            topScalar = topAlign;
+
+          if (parent.self === parent) {
+            targetWidth = Math.min(targetPosition.width, parent.innerWidth);
+            targetHeight = Math.min(targetPosition.height, parent.innerHeight);
+            x = targetPosition.left + parent.pageXOffset - parent.innerWidth * leftScalar + targetWidth * leftScalar;
+            y = targetPosition.top + parent.pageYOffset - parent.innerHeight * topScalar + targetHeight * topScalar;
+            x -= leftOffset;
+            y -= topOffset;
+            differenceX = x - parent.pageXOffset;
+            differenceY = y - parent.pageYOffset;
+          } else {
+            targetWidth = targetPosition.width;
+            targetHeight = targetPosition.height;
+            parentPosition = parent.getBoundingClientRect();
+            var offsetLeft = targetPosition.left - (parentPosition.left - parent.scrollLeft);
+            var offsetTop = targetPosition.top - (parentPosition.top - parent.scrollTop);
+            x = offsetLeft + targetWidth * leftScalar - parent.clientWidth * leftScalar;
+            y = offsetTop + targetHeight * topScalar - parent.clientHeight * topScalar;
+            x = Math.max(Math.min(x, parent.scrollWidth - parent.clientWidth), 0);
+            y = Math.max(Math.min(y, parent.scrollHeight - parent.clientHeight), 0);
+            x -= leftOffset;
+            y -= topOffset;
+            differenceX = x - parent.scrollLeft;
+            differenceY = y - parent.scrollTop;
+          }
+
+          return {
+            x: x,
+            y: y,
+            differenceX: differenceX,
+            differenceY: differenceY
+          };
+        }
+
+        function animate(parent) {
+          var scrollSettings = parent._scrollSettings;
+          if (!scrollSettings) {
+            return;
+          }
+
+          var location = getTargetScrollLocation(scrollSettings.target, parent, scrollSettings.align),
+            time = Date.now() - scrollSettings.startTime,
+            timeValue = Math.min((1 / scrollSettings.time) * time, 1);
+
+          if (time > scrollSettings.time && scrollSettings.endIterations > 3) {
+            setElementScroll(parent, location.x, location.y);
+            parent._scrollSettings = null;
+            return scrollSettings.end(COMPLETE);
+          }
+
+          scrollSettings.endIterations++;
+
+          var easeValue = 1 - scrollSettings.ease(timeValue);
+
+          setElementScroll(
+            parent,
+            location.x - location.differenceX * easeValue,
+            location.y - location.differenceY * easeValue
+          );
+
+          // At the end of animation, loop synchronously
+          // to try and hit the taget location.
+          if (time >= scrollSettings.time) {
+            return animate(parent);
+          }
+
+          raf(animate.bind(null, parent));
+        }
+        function transitionScrollTo(target, parent, settings, callback) {
+          var idle = !parent._scrollSettings,
+            lastSettings = parent._scrollSettings,
+            now = Date.now(),
+            endHandler;
+
+          if (lastSettings) {
+            lastSettings.end(CANCELED);
+          }
+
+          function end(endType) {
+            parent._scrollSettings = null;
+            if (parent.parentElement && parent.parentElement._scrollSettings) {
+              parent.parentElement._scrollSettings.end(endType);
+            }
+            callback(endType);
+            parent.removeEventListener("touchstart", endHandler, { passive: true });
+          }
+
+          parent._scrollSettings = {
+            startTime: lastSettings ? lastSettings.startTime : Date.now(),
+            endIterations: 0,
+            target: target,
+            time: settings.time + (lastSettings ? now - lastSettings.startTime : 0),
+            ease: settings.ease,
+            align: settings.align,
+            end: end
+          };
+
+          endHandler = end.bind(null, CANCELED);
+          parent.addEventListener("touchstart", endHandler, { passive: true });
+
+          if (idle) {
+            animate(parent);
+          }
+        }
+
+        function defaultIsScrollable(element) {
+          return (
+            "pageXOffset" in element ||
+            ((element.scrollHeight !== element.clientHeight || element.scrollWidth !== element.clientWidth) &&
+              getComputedStyle(element).overflow !== "hidden")
+          );
+        }
+
+        function defaultValidTarget() {
+          return true;
+        }
+
+        module.exports = function(target, settings, callback) {
+          if (!target) {
+            return;
+          }
+
+          if (typeof settings === "function") {
+            callback = settings;
+            settings = null;
+          }
+
+          if (!settings) {
+            settings = {};
+          }
+
+          settings.time = isNaN(settings.time) ? 1000 : settings.time;
+          settings.ease =
+            settings.ease ||
+            function(v) {
+              return 1 - Math.pow(1 - v, v / 2);
+            };
+
+          var parent = target.parentElement,
+            parents = 0;
+
+          function done(endType) {
+            parents--;
+            if (!parents) {
+              callback && callback(endType);
+            }
+          }
+
+          var validTarget = settings.validTarget || defaultValidTarget;
+          var isScrollable = settings.isScrollable;
+
+          while (parent) {
+            if (
+              validTarget(parent, parents) &&
+              (isScrollable ? isScrollable(parent, defaultIsScrollable) : defaultIsScrollable(parent))
+            ) {
+              parents++;
+              transitionScrollTo(target, parent, settings, done);
+            }
+
+            parent = parent.parentElement;
+
+            if (!parent) {
+              return;
+            }
+
+            if (parent.tagName === "BODY") {
+              parent = parent.ownerDocument;
+              parent = parent.defaultView || parent.ownerWindow;
+            }
+          }
+        };
+      },
+      {}
+    ],
+    12: [
       function(require, module, exports) {
         (function(global, factory) {
           typeof exports === "object" && typeof module !== "undefined"
@@ -2123,7 +2335,7 @@ object-assign
       },
       {}
     ],
-    12: [
+    13: [
       function(require, module, exports) {
         /*!
  * slide-anim
@@ -2477,7 +2689,7 @@ object-assign
       },
       {}
     ],
-    13: [
+    14: [
       function(require, module, exports) {
         var candidateSelectors = [
           "input",
@@ -2683,7 +2895,7 @@ object-assign
       },
       {}
     ],
-    14: [
+    15: [
       function(require, module, exports) {
         module.exports = extend;
 
@@ -2707,7 +2919,38 @@ object-assign
       },
       {}
     ],
-    15: [
+    16: [
+      function(require, module, exports) {
+        var delegate = require("delegate-events");
+        var dispatcher = require("../../dispatcher");
+        var constants = require("../../../constants");
+
+        /**
+         * Scroll to element by setting focus when internal anchor link is clicked
+         */
+
+        function onAnchorLinkClick(e) {
+          var href = e.target.getAttribute("href");
+          if (href.indexOf("#") !== 0) {
+            return;
+          }
+
+          var $rel = document.getElementById(href.substring(1));
+          if ($rel) {
+            e.preventDefault();
+
+            dispatcher.dispatch({
+              type: constants.REQUEST_SCROLLTO,
+              target: $rel
+            });
+          }
+        }
+
+        delegate.bind(document.body, "a", "click", onAnchorLinkClick);
+      },
+      { "../../../constants": 32, "../../dispatcher": 24, "delegate-events": 4 }
+    ],
+    17: [
       function(require, module, exports) {
         var delegate = require("delegate-events");
         var constants = require("../../../constants");
@@ -2793,9 +3036,9 @@ object-assign
 
         toggleOnLoad();
       },
-      { "../../../constants": 30, "delegate-events": 4, "find-parent": 6, "slide-anim": 12 }
+      { "../../../constants": 32, "delegate-events": 4, "find-parent": 6, "slide-anim": 13 }
     ],
-    16: [
+    18: [
       function(require, module, exports) {
         var scrollama = require("scrollama");
         var dispatcher = require("../../dispatcher");
@@ -2840,9 +3083,9 @@ object-assign
 
         dispatcher.on(constants.EVENT_RESIZE, scroller.resize);
       },
-      { "../../../constants": 30, "../../dispatcher": 22, scrollama: 11 }
+      { "../../../constants": 32, "../../dispatcher": 24, scrollama: 12 }
     ],
-    17: [
+    19: [
       function(require, module, exports) {
         var delegate = require("delegate-events");
         var focusTrap = require("../ui/focus-trap");
@@ -3105,9 +3348,9 @@ object-assign
 
         dispatcher.on(constants.REQUEST_MODAL_CLOSE, onRequestClose);
       },
-      { "../../constants": 30, "../dispatcher": 22, "../ui/focus-trap": 25, "delegate-events": 4 }
+      { "../../constants": 32, "../dispatcher": 24, "../ui/focus-trap": 27, "delegate-events": 4 }
     ],
-    18: [
+    20: [
       function(require, module, exports) {
         var delegate = require("delegate-events");
         var findParent = require("find-parent");
@@ -3210,9 +3453,9 @@ object-assign
 
         delegate.bind(document.body, ".js-subnav__item a", "focusout", onFocusOut);
       },
-      { "../../../constants": 30, "../../ui/get-breakpoint": 26, "delegate-events": 4, "find-parent": 6 }
+      { "../../../constants": 32, "../../ui/get-breakpoint": 28, "delegate-events": 4, "find-parent": 6 }
     ],
-    19: [
+    21: [
       function(require, module, exports) {
         var findParent = require("find-parent");
         var constants = require("../../../constants");
@@ -3273,11 +3516,10 @@ object-assign
           });
         }
       },
-      { "../../../constants": 30, "../../dispatcher": 22, "find-parent": 6 }
+      { "../../../constants": 32, "../../dispatcher": 24, "find-parent": 6 }
     ],
-    20: [
+    22: [
       function(require, module, exports) {
-        var delegate = require("delegate-events");
         var dispatcher = require("../../dispatcher");
         var constants = require("../../../constants");
         var getBreakpoint = require("../../ui/get-breakpoint");
@@ -3362,39 +3604,10 @@ object-assign
         }
 
         dispatcher.on(constants.EVENT_SECTION_INVIEW, setActiveNavItem);
-
-        /**
-         * Scroll to element by setting focus
-         */
-
-        function onAnchorLinkClick(e) {
-          var href = e.target.getAttribute("href");
-          if (href.indexOf("#") !== 0) {
-            return;
-          }
-
-          var $rel = document.getElementById(href.substring(1));
-          if ($rel) {
-            e.preventDefault();
-
-            dispatcher.dispatch({
-              type: constants.REQUEST_SCROLL_FREEZE
-            });
-
-            // move focus to section
-            $rel.setAttribute("tabIndex", "-1");
-            $rel.focus();
-
-            // adjust scroll a bit to update current scroll anchor
-            window.scrollBy(0, 1);
-          }
-        }
-
-        delegate.bind(document.body, ".js-coursenav-dropdown a", "click", onAnchorLinkClick);
       },
-      { "../../../constants": 30, "../../dispatcher": 22, "../../ui/get-breakpoint": 26, "delegate-events": 4 }
+      { "../../../constants": 32, "../../dispatcher": 24, "../../ui/get-breakpoint": 28 }
     ],
-    21: [
+    23: [
       function(require, module, exports) {
         var dispatcher = require("../../dispatcher");
         var constants = require("../../../constants");
@@ -3447,9 +3660,9 @@ object-assign
 
         setTimeout(onResize, 0);
       },
-      { "../../../constants": 30, "../../dispatcher": 22, "../../ui/get-breakpoint": 26 }
+      { "../../../constants": 32, "../../dispatcher": 24, "../../ui/get-breakpoint": 28 }
     ],
-    22: [
+    24: [
       function(require, module, exports) {
         var EventEmitter = require("events").EventEmitter;
         var assign = require("object-assign");
@@ -3495,7 +3708,7 @@ object-assign
       },
       { events: 5, "object-assign": 10 }
     ],
-    23: [
+    25: [
       function(require, module, exports) {
         window.HAN = {};
         require("./ui/breakpoint-events");
@@ -3504,29 +3717,31 @@ object-assign
         require("./components/nav/coursenav");
         require("./components/nav/coursenav-desktop");
         require("./components/nav/coursenav-mobile");
-        require("./ui/scroll-direction");
+        require("./ui/scroll");
         require("./utils/grid");
         require("./utils/video");
         require("./components/content/collapsibles");
         require("./components/content/section");
+        require("./components/content/anchor-link");
         require("./components/modal");
         require("./utils/grid");
       },
       {
-        "./components/content/collapsibles": 15,
-        "./components/content/section": 16,
-        "./components/modal": 17,
-        "./components/nav/coursenav": 20,
-        "./components/nav/coursenav-desktop": 18,
-        "./components/nav/coursenav-mobile": 19,
-        "./components/nav/fixed": 21,
-        "./ui/breakpoint-events": 24,
-        "./ui/scroll-direction": 27,
-        "./utils/grid": 28,
-        "./utils/video": 29
+        "./components/content/anchor-link": 16,
+        "./components/content/collapsibles": 17,
+        "./components/content/section": 18,
+        "./components/modal": 19,
+        "./components/nav/coursenav": 22,
+        "./components/nav/coursenav-desktop": 20,
+        "./components/nav/coursenav-mobile": 21,
+        "./components/nav/fixed": 23,
+        "./ui/breakpoint-events": 26,
+        "./ui/scroll": 29,
+        "./utils/grid": 30,
+        "./utils/video": 31
       }
     ],
-    24: [
+    26: [
       function(require, module, exports) {
         var constants = require("../../constants");
         var dispatcher = require("../dispatcher");
@@ -3587,9 +3802,9 @@ object-assign
           }
         }
       },
-      { "../../constants": 30, "../dispatcher": 22, "./get-breakpoint": 26, debounce: 3 }
+      { "../../constants": 32, "../dispatcher": 24, "./get-breakpoint": 28, debounce: 3 }
     ],
-    25: [
+    27: [
       function(require, module, exports) {
         var focusTrap = require("focus-trap");
         var assign = require("object-assign");
@@ -3634,7 +3849,7 @@ object-assign
       },
       { "focus-trap": 7, "object-assign": 10 }
     ],
-    26: [
+    28: [
       function(require, module, exports) {
         var constants = require("../../constants");
 
@@ -3662,12 +3877,13 @@ object-assign
 
         module.exports = getBreakpoint;
       },
-      { "../../constants": 30 }
+      { "../../constants": 32 }
     ],
-    27: [
+    29: [
       function(require, module, exports) {
         var constants = require("../../constants");
         var dispatcher = require("../dispatcher");
+        var scrollIntoView = require("scroll-into-view");
 
         var $topbar = document.querySelector(".js-topbar");
 
@@ -3678,19 +3894,12 @@ object-assign
          * - scrolled to bottom
          */
 
-        var isScrolling;
         var y = document.documentElement.scrollTop;
+        var preventScrollBehavior = false;
 
         function onScroll() {
-          window.clearTimeout(isScrolling);
-
-          // Set a timeout to run after scrolling ends
-          isScrolling = setTimeout(function() {
-            document.body.classList.remove(constants.SCROLLING_AUTO_CLASS);
-          }, 250);
-
           // do nothing is scrolling is done by javascript
-          if (document.body.classList.contains(constants.SCROLLING_AUTO_CLASS)) {
+          if (preventScrollBehavior) {
             return;
           }
 
@@ -3769,24 +3978,77 @@ object-assign
         window.addEventListener("scroll", onScroll, { passive: true });
 
         /**
-         * Temporary scroll freeze request by javascript
-         * disables setting new classes to avoid jumping navigation
-         * used for when javascript does the scrolling
+         * handle request scroll to element
+         * this behavior is way too complex, due to differences
+         * in mobile/tablet and desktop navigation
          *
          * dispatcher.dispatch({
-         *   type: constants.REQUEST_SCROLL_FREEZE
+         *   type: constants.REQUEST_SCROLLTO,
+         *   target: $element
          * });
          */
 
-        function onRequestFreeze() {
-          document.body.classList.add(constants.SCROLLING_AUTO_CLASS);
+        var $nav = document.querySelector(".js-nav");
+        var $navSpacer = document.querySelector(".js-nav-spacer");
+
+        function onRequestScrollto(e) {
+          if (!e.target) return;
+
+          y = 0;
+          onScroll();
+          preventScrollBehavior = true;
+
+          // adjust scroll a bit to update current scroll anchor
+          scrollIntoView(
+            e.target,
+            {
+              time: 250,
+              align: {
+                top: 0
+              }
+            },
+            function() {
+              // calculate offset nav
+              var offset = 0;
+              if ($navSpacer && $nav) {
+                offset += $navSpacer.getBoundingClientRect().height;
+                offset += $nav.getBoundingClientRect().top;
+              }
+
+              // set focus
+              e.target.setAttribute("tabindex", "-1");
+              e.target.focus();
+
+              // adjust scroll ofset
+              window.scrollBy({ top: -offset, behavior: "smooth" });
+
+              // re-enable scroll up/down logic
+              setTimeout(function() {
+                preventScrollBehavior = false;
+              }, 200);
+            }
+          );
         }
 
-        dispatcher.on(constants.REQUEST_SCROLL_FREEZE, onRequestFreeze);
+        dispatcher.on(constants.REQUEST_SCROLLTO, onRequestScrollto);
+
+        /**
+         * Initial scroll offset
+         */
+
+        if (location.hash) {
+          var $rel = document.getElementById(location.hash.substring(1));
+          if ($rel) {
+            dispatcher.dispatch({
+              type: constants.REQUEST_SCROLLTO,
+              target: $rel
+            });
+          }
+        }
       },
-      { "../../constants": 30, "../dispatcher": 22 }
+      { "../../constants": 32, "../dispatcher": 24, "scroll-into-view": 11 }
     ],
-    28: [
+    30: [
       function(require, module, exports) {
         /**
          * Toggle demo grid overlay with control + L
@@ -3820,7 +4082,7 @@ object-assign
       },
       {}
     ],
-    29: [
+    31: [
       function(require, module, exports) {
         /**
          * Video controls
@@ -3846,7 +4108,7 @@ object-assign
       },
       {}
     ],
-    30: [
+    32: [
       function(require, module, exports) {
         var keyMirror = require("keymirror");
         var assign = require("object-assign");
@@ -3865,7 +4127,6 @@ object-assign
           SCROLLED_TOP_CLASS: "is-scrolled-to-top",
           SCROLLED_BOTTOM_CLASS: "is-scrolled-to-bottom",
           SCROLLED_FREE_CLASS: "is-scrolled-free",
-          SCROLLING_AUTO_CLASS: "is-scrolling-auto",
           COURSENAV_DROPDOWN_OPEN_CLASS: "has-coursenav-dropdown-open"
         };
 
@@ -3884,7 +4145,7 @@ object-assign
           EVENT_SECTION_OUTVIEW: null,
           REQUEST_MODAL_OPEN: null,
           REQUEST_MODAL_CLOSE: null,
-          REQUEST_SCROLL_FREEZE: null
+          REQUEST_SCROLLTO: null
         });
 
         /**
@@ -3917,5 +4178,5 @@ object-assign
     ]
   },
   {},
-  [23]
+  [25]
 );
