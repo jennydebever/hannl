@@ -3,6 +3,10 @@
   background-color: $black;
   position: relative;
   z-index: 99;
+
+  @include breakpoint(max $bp-l) {
+    padding-right: 0;
+  }
 }
 
 .topbar-wrapper {
@@ -12,11 +16,19 @@
   @include breakpoint($bp-m) {
     height: 87px;
   }
+
+  @include breakpoint(max $bp-l) {
+    padding-right: 0;
+  }
 }
 
 .topbar-body-wrapper {
   @include grid-item(12);
   display: flex;
+
+  @include breakpoint(max $bp-l) {
+    padding-right: 0;
+  }
 }
 
 /**
@@ -29,6 +41,13 @@
 
   svg {
     display: block;
+    width: 48px;
+    height: 20px;
+
+    @include breakpoint($bp-m) {
+      width: 82px;
+      height: 34px;
+    }
   }
 }
 
@@ -65,19 +84,21 @@
 
 .topbar__search {
   @include focusable($white, 1px, -4px);
-  width: 87px;
+  width: 56px;
   height: 100%;
   background-color: $grey6;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-left: auto;
 
   .icon-search {
     fill: $white;
+    margin: auto;
   }
 
-  @include breakpoint(max $bp-l) {
-    display: none;
+  @include breakpoint($bp-m) {
+    width: 87px;
   }
 }
 
@@ -87,7 +108,7 @@
 
 .topbar__hamburger {
   @include focusable($white, 1px, -4px);
-  width: 87px;
+  width: 56px;
   height: 100%;
   background-color: $hanred;
   display: flex;
@@ -96,9 +117,17 @@
 
   .icon-hamburger {
     fill: $white;
+    width: 20px;
+    height: 16px;
+    margin: auto;
+
+    @include breakpoint($bp-m) {
+      width: auto;
+      height: auto;
+    }
   }
 
-  @include breakpoint(max $bp-l) {
-    display: none;
+  @include breakpoint($bp-m) {
+    width: 87px;
   }
 }

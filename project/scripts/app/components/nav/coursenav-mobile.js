@@ -44,13 +44,17 @@ dispatcher.on(constants.EVENT_MODAL_AFTER_CLOSE, onModalClose);
 function onBodyClick(e) {
   if (e.breakpoint === constants.DESKTOP) return;
 
-  e.preventDefault();
-
   if (findParent.byClassName(e.target, "js-coursenav")) {
     if (e.target.nodeName !== "A") {
       return;
+    } else {
+      if (e.target.getAttribute("href").indexOf("#") !== 0) {
+        return;
+      }
     }
   }
+
+  e.preventDefault();
 
   dispatcher.dispatch({
     type: constants.REQUEST_MODAL_CLOSE

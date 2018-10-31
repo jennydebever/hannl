@@ -2,8 +2,6 @@ var scrollama = require("scrollama");
 var dispatcher = require("../../dispatcher");
 var constants = require("../../../constants");
 
-var scroller = scrollama();
-
 /**
  * Track in/out view state and dispatch events accordingly
  */
@@ -32,11 +30,15 @@ function onExit(e) {
   });
 }
 
-scroller
-  .setup({
-    step: ".section"
-  })
-  .onStepEnter(onEnter)
-  .onStepExit(onExit);
+if (document.querySelectorAll(".section").length) {
+  var scroller = scrollama();
 
-dispatcher.on(constants.EVENT_RESIZE, scroller.resize);
+  scroller
+    .setup({
+      step: ".section"
+    })
+    .onStepEnter(onEnter)
+    .onStepExit(onExit);
+
+  dispatcher.on(constants.EVENT_RESIZE, scroller.resize);
+}

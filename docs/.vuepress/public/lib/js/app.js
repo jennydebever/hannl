@@ -3044,8 +3044,6 @@ object-assign
         var dispatcher = require("../../dispatcher");
         var constants = require("../../../constants");
 
-        var scroller = scrollama();
-
         /**
          * Track in/out view state and dispatch events accordingly
          */
@@ -3074,14 +3072,18 @@ object-assign
           });
         }
 
-        scroller
-          .setup({
-            step: ".section"
-          })
-          .onStepEnter(onEnter)
-          .onStepExit(onExit);
+        if (document.querySelectorAll(".section").length) {
+          var scroller = scrollama();
 
-        dispatcher.on(constants.EVENT_RESIZE, scroller.resize);
+          scroller
+            .setup({
+              step: ".section"
+            })
+            .onStepEnter(onEnter)
+            .onStepExit(onExit);
+
+          dispatcher.on(constants.EVENT_RESIZE, scroller.resize);
+        }
       },
       { "../../../constants": 32, "../../dispatcher": 24, scrollama: 12 }
     ],
@@ -3503,13 +3505,17 @@ object-assign
         function onBodyClick(e) {
           if (e.breakpoint === constants.DESKTOP) return;
 
-          e.preventDefault();
-
           if (findParent.byClassName(e.target, "js-coursenav")) {
             if (e.target.nodeName !== "A") {
               return;
+            } else {
+              if (e.target.getAttribute("href").indexOf("#") !== 0) {
+                return;
+              }
             }
           }
+
+          e.preventDefault();
 
           dispatcher.dispatch({
             type: constants.REQUEST_MODAL_CLOSE
@@ -3581,7 +3587,7 @@ object-assign
          * Add active state to coursenav anchor link
          */
 
-        var $$subnavLinks = $coursenav.querySelectorAll(".js-subnav__item.is-active .js-coursenav-dropdown a");
+        var $$subnavLinks = document.querySelectorAll(".js-subnav__item.is-active .js-coursenav-dropdown a");
 
         function setActiveNavItem(e) {
           var id = e.target.getAttribute("id");

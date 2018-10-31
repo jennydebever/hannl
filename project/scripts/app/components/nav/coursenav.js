@@ -59,7 +59,7 @@ dispatcher.on(constants.EVENT_BREAKPOINT_CHANGE, onBreakpointChange);
  * Add active state to coursenav anchor link
  */
 
-var $$subnavLinks = $coursenav.querySelectorAll(".js-subnav__item.is-active .js-coursenav-dropdown a");
+var $$subnavLinks = document.querySelectorAll(".js-subnav__item.is-active .js-coursenav-dropdown a");
 
 function setActiveNavItem(e) {
   var id = e.target.getAttribute("id");

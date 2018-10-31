@@ -45,6 +45,7 @@
  */
 .nav-spacer {
   height: 48px;
+  max-height: 165px;
 
   @include breakpoint($bp-m) {
     height: 87px;

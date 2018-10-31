@@ -10,6 +10,7 @@
     position: relative;
     z-index: 98;
     background-color: $grey1;
+    border-bottom: 1px solid $grey2;
 
     &.is-closed {
       animation: animate-coursenav-out-desktop 0 forwards; // easiest fix for providing an onanimationend event for modal.js
