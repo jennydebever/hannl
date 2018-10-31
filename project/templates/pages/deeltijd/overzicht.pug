@@ -1,4 +1,4 @@
-extends ../_base
+extends ./_deeltijd
 include ../../utils/todo
 include ../../components/nav/coursenav
 
@@ -7,61 +7,7 @@ block append vars
   - pagePath = '/deeltijd/overzicht';
 
 block subnav
-  - 
-    var items = [
-    {
-      href: "/deeltijd/overzicht.html",
-      label: "Overzicht",
-      subitems: [
-        {
-          href: "#id1",
-          label: "Kop 1"
-        },
-        {
-          href: "#id2",
-          label: "Kop 2"
-        },
-        {
-          href: "#id3",
-          label: "Kop 3"
-        }
-      ]
-    },
-    {
-      href: "/deeltijd/studie.html",
-      label: "Dit is je studie",
-      subitems: [
-        {
-          href: "#id1",
-          label: "Kop 1"
-        },
-        {
-          href: "#id2",
-          label: "Kop 2"
-        },
-        {
-          href: "#id3",
-          label: "Kop 3"
-        },
-        {
-          href: "#id4",
-          label: "Kop 4"
-        }
-      ]
-    },
-    {
-      href: "/deeltijd/info.html",
-      label: "Praktische info",
-      subitems: [
-        {
-          href: "#id1",
-          label: "Kop 1"
-        }
-      ]
-    }
-    ];
-
-  +coursenav('leraar basisonderwijs (pabo) deeltijd', items)
+  +coursenav('leraar basisonderwijs (pabo) deeltijd', coursenavItems)
 
 block main
   | deeltijd hero

@@ -44,8 +44,12 @@ dispatcher.on(constants.EVENT_MODAL_AFTER_CLOSE, onModalClose);
 function onBodyClick(e) {
   if (e.breakpoint === constants.DESKTOP) return;
 
+  e.preventDefault();
+
   if (findParent.byClassName(e.target, "js-coursenav")) {
-    return;
+    if (e.target.nodeName !== "A") {
+      return;
+    }
   }
 
   dispatcher.dispatch({

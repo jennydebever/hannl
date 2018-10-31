@@ -29,17 +29,22 @@ mixin coursenav(title, links)
 
         ul.coursenav__links
           each item in links
-            - const cls = [(item.href.replace('.html', '') === pagePath) ? 'is-active' : null, 'js-subnav__item']
+            - var isActive = (item.href.replace('.html', '') === pagePath);
+            - const cls = [isActive ? 'is-active' : null, 'js-subnav__item']
             li.coursenav__links__item(class=cls)
               a.coursenav__links__item__link(href=item.href)
                 | #{item.label}
                 +icon#arrow
 
               if item.subitems
-                ul.coursenav__links__item__subnav(class="coursenav-dropdown")
+                ul.coursenav__links__item__subnav(class="coursenav-dropdown js-coursenav-dropdown")
                   each subitem in item.subitems
+                    - var href = [item.href, subitem.href].join('');
+                    if isActive
+                      - href = subitem.href;
+                      
                     li.coursenav-dropdown__item
-                      a.coursenav-dropdown__item__link(href=subitem.href) #{subitem.label}
+                      a.coursenav-dropdown__item__link(href=href) #{subitem.label}
 
     //- mobile toggle
     button.coursenav__toggle(class="js-coursenav-toggle js-modal-toggle", aria-label="Opleidingsnavigatie", aria-controls="coursenav", type="button", aria-expanded="false")

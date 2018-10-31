@@ -239,7 +239,7 @@ function onKeyDown(e) {
  */
 
 function onRequestOpen(e) {
-  open(e.id, true);
+  open(e.id);
 }
 
 dispatcher.on(constants.REQUEST_MODAL_OPEN, onRequestOpen);

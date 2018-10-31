@@ -566,11 +566,6 @@ use {
   font-size: 24px;
   margin-bottom: 0.5em;
 }
-.demo-typo__intro,
-html:not([data-breakpoint="desktop"]) .coursenav__links__item.is-active .coursenav__links__item__link,
-html:not([data-breakpoint="desktop"]) .coursenav__links__item__link {
-  font-family: Avenir Next LT W01 Demi, Avenir next, Avenir, sans-serif;
-}
 @media (min-width: 768px) {
   .demo-typo__title {
     font-size: 29px;
@@ -586,6 +581,7 @@ html:not([data-breakpoint="desktop"]) .coursenav__links__item__link {
   }
 }
 .demo-typo__intro {
+  font-family: Avenir Next LT W01 Demi, Avenir next, Avenir, sans-serif;
   font-size: 18px;
   line-height: 1.6;
   margin-bottom: 1em;
@@ -934,9 +930,16 @@ html:not([data-breakpoint="desktop"]) .coursenav__links__item__link {
     background-color: #e3e3e3;
     text-decoration: underline;
   }
+  .coursenav-dropdown__item__link.is-inview {
+    font-family: Avenir Next LT W01 Bold, Avenir next, Avenir, sans-serif;
+  }
   .coursenav__toggle {
     display: none;
   }
+}
+html:not([data-breakpoint="desktop"]) .coursenav__links__item.is-active .coursenav__links__item__link,
+html:not([data-breakpoint="desktop"]) .coursenav__links__item__link {
+  font-family: Avenir Next LT W01 Demi, Avenir next, Avenir, sans-serif;
 }
 @keyframes c {
   to {
@@ -1082,11 +1085,6 @@ html:not([data-breakpoint="desktop"]) .coursenav__links__item__link .icon-arrow 
 .topbar__hamburger .icon-hamburger,
 .topbar__search .icon-search {
   fill: #fff;
-}
-.richtext-small table th,
-.richtext table th {
-  font-weight: 700;
-  vertical-align: top;
 }
 html:not([data-breakpoint="desktop"]) .coursenav__links__item__subnav {
   margin-top: 15px;
@@ -1488,6 +1486,10 @@ html:not([data-breakpoint="desktop"]) .coursenav-dropdown__item__link:focus {
   width: 100%;
   border-bottom: 1px solid #e3e3e3;
 }
+.richtext table th {
+  font-family: Avenir Next LT W01 Bold, Avenir next, Avenir, sans-serif;
+  vertical-align: top;
+}
 .richtext table td,
 .richtext table th {
   padding: 17px 4px;
@@ -1639,6 +1641,10 @@ html:not([data-breakpoint="desktop"]) .coursenav-dropdown__item__link:focus {
 .richtext-small table {
   width: 100%;
   border-bottom: 1px solid #e3e3e3;
+}
+.richtext-small table th {
+  font-family: Avenir Next LT W01 Bold, Avenir next, Avenir, sans-serif;
+  vertical-align: top;
 }
 .richtext-small table td,
 .richtext-small table th {

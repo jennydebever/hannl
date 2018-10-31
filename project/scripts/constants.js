@@ -9,11 +9,13 @@ var classes = {
   OPEN_CLASS: "is-open",
   FOCUS_CLASS: "has-focus",
   CLOSED_CLASS: "is-closed",
+  INVIEW_CLASS: "is-inview",
   MODAL_OPEN_CLASS: "modal-is-open",
   SCROLLING_UP_CLASS: "is-scrolling-up",
   SCROLLED_TOP_CLASS: "is-scrolled-to-top",
   SCROLLED_BOTTOM_CLASS: "is-scrolled-to-bottom",
   SCROLLED_FREE_CLASS: "is-scrolled-free",
+  SCROLLING_AUTO_CLASS: "is-scrolling-auto",
   COURSENAV_DROPDOWN_OPEN_CLASS: "has-coursenav-dropdown-open"
 };
 
@@ -28,8 +30,11 @@ var events = keyMirror({
   EVENT_MODAL_BEFORE_OPEN: null,
   EVENT_MODAL_AFTER_CLOSE: null,
   EVENT_MODAL_BEFORE_CLOSE: null,
+  EVENT_SECTION_INVIEW: null,
+  EVENT_SECTION_OUTVIEW: null,
   REQUEST_MODAL_OPEN: null,
-  REQUEST_MODAL_CLOSE: null
+  REQUEST_MODAL_CLOSE: null,
+  REQUEST_SCROLL_FREEZE: null
 });
 
 /**

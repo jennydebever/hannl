@@ -142,6 +142,10 @@
       background-color: $grey2;
       text-decoration: underline;
     }
+
+    &.is-inview {
+      font-family: $bold;
+    }
   }
 
   /**

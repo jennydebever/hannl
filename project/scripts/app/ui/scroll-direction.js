@@ -1,4 +1,5 @@
 var constants = require("../../constants");
+var dispatcher = require("../dispatcher");
 
 var $topbar = document.querySelector(".js-topbar");
 
@@ -9,9 +10,22 @@ var $topbar = document.querySelector(".js-topbar");
  * - scrolled to bottom
  */
 
+var isScrolling;
 var y = document.documentElement.scrollTop;
 
 function onScroll() {
+  window.clearTimeout(isScrolling);
+
+  // Set a timeout to run after scrolling ends
+  isScrolling = setTimeout(function() {
+    document.body.classList.remove(constants.SCROLLING_AUTO_CLASS);
+  }, 250);
+
+  // do nothing is scrolling is done by javascript
+  if (document.body.classList.contains(constants.SCROLLING_AUTO_CLASS)) {
+    return;
+  }
+
   var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
 
   // scroll direction
@@ -85,3 +99,19 @@ function onScroll() {
 
 onScroll();
 window.addEventListener("scroll", onScroll, { passive: true });
+
+/**
+ * Temporary scroll freeze request by javascript
+ * disables setting new classes to avoid jumping navigation
+ * used for when javascript does the scrolling
+ *
+ * dispatcher.dispatch({
+ *   type: constants.REQUEST_SCROLL_FREEZE
+ * });
+ */
+
+function onRequestFreeze() {
+  document.body.classList.add(constants.SCROLLING_AUTO_CLASS);
+}
+
+dispatcher.on(constants.REQUEST_SCROLL_FREEZE, onRequestFreeze);

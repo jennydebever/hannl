@@ -1,9 +1,11 @@
+var delegate = require("delegate-events");
 var dispatcher = require("../../dispatcher");
 var constants = require("../../../constants");
 var getBreakpoint = require("../../ui/get-breakpoint");
 
 /**
  * Listen to breakpoint changes
+ * and make the coursenav modal or not based on breakpoint
  */
 
 var $coursenav = document.querySelector(".js-coursenav");
@@ -53,3 +55,60 @@ onBreakpointChange({
 });
 
 dispatcher.on(constants.EVENT_BREAKPOINT_CHANGE, onBreakpointChange);
+
+/**
+ * Add active state to coursenav anchor link
+ */
+
+var $$subnavLinks = $coursenav.querySelectorAll(".js-subnav__item.is-active .js-coursenav-dropdown a");
+
+function setActiveNavItem(e) {
+  var id = e.target.getAttribute("id");
+
+  for (var i = 0, l = $$subnavLinks.length; i < l; ++i) {
+    var $subnavLink = $$subnavLinks[i];
+    var href = $subnavLink.getAttribute("href");
+
+    // not an anchor link, move on
+    if (href.indexOf("#") !== 0) continue;
+
+    if (href.substring(1) === id) {
+      $subnavLink.classList.add(constants.INVIEW_CLASS);
+    } else {
+      if ($subnavLink.classList.contains(constants.INVIEW_CLASS)) {
+        $subnavLink.classList.remove(constants.INVIEW_CLASS);
+      }
+    }
+  }
+}
+
+dispatcher.on(constants.EVENT_SECTION_INVIEW, setActiveNavItem);
+
+/**
+ * Scroll to element by setting focus
+ */
+
+function onAnchorLinkClick(e) {
+  var href = e.target.getAttribute("href");
+  if (href.indexOf("#") !== 0) {
+    return;
+  }
+
+  var $rel = document.getElementById(href.substring(1));
+  if ($rel) {
+    e.preventDefault();
+
+    dispatcher.dispatch({
+      type: constants.REQUEST_SCROLL_FREEZE
+    });
+
+    // move focus to section
+    $rel.setAttribute("tabIndex", "-1");
+    $rel.focus();
+
+    // adjust scroll a bit to update current scroll anchor
+    window.scrollBy(0, 1);
+  }
+}
+
+delegate.bind(document.body, ".js-coursenav-dropdown a", "click", onAnchorLinkClick);

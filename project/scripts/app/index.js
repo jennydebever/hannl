@@ -9,5 +9,6 @@ require("./ui/scroll-direction");
 require("./utils/grid");
 require("./utils/video");
 require("./components/content/collapsibles");
+require("./components/content/section");
 require("./components/modal");
 require("./utils/grid");
