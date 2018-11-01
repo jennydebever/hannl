@@ -1,6 +1,5 @@
 var constants = require("../../constants");
 var dispatcher = require("../dispatcher");
-var debounce = require("debounce");
 var getBreakpoint = require("./get-breakpoint");
 
 /**
@@ -15,7 +14,7 @@ var _breakpoint = null;
 checkBreakpointChange();
 
 // debounce resize events
-window.addEventListener("resize", debounce(onResize, 50));
+window.addEventListener("resize", onResize, { passive: true });
 onResize();
 
 /**

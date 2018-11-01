@@ -32,7 +32,7 @@ gulp.task("templates:compile", () => {
       ])
       // .pipe(gulpif(global.isWatching, emitty.filter(global.emittyChangedFile)))
       .pipe(debug({ title: "Compiler:" }))
-      .pipe(changed(paths.DEST.templates, { extension: "*" }))
+      // .pipe(changed(paths.DEST.templates, { extension: "*" }))
       .pipe(plumber())
       .pipe(
         pug({

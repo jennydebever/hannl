@@ -3,6 +3,7 @@ var scrollama = require("scrollama");
 var lerp = require("../../utils/lerp");
 var dispatcher = require("../../dispatcher");
 var constants = require("../../../constants");
+var getBreakpoint = require("../../ui/get-breakpoint");
 
 /**
  * Parallax effect for the hero
@@ -14,54 +15,36 @@ var $overlay = document.querySelector(".js-course-hero__image__picture__overlay"
 var $img = document.querySelector(".js-course-hero__image__picture img");
 
 function onProgress(e) {
-  $picture.style.transform = "scaleY(" + (1 - e.progress) + ")";
-  $img.style.transform = "scaleY(" + (1 + e.progress) + ")";
-  $overlay.style.transform = "scaleY(" + (1 + e.progress) + ")";
+  if (getBreakpoint() !== constants.DESKTOP) {
+    e.progress = 0;
+  }
+
   $overlay.style.opacity = lerp(0, 1, e.progress);
+
+  e.progress *= 0.3;
+
+  $picture.style.transform = "scaleY(" + (1 - e.progress) + ")";
+  $img.style.transform = $overlay.style.transform = "scaleY(" + (1 + e.progress) + ")";
 }
 
 var scroller = scrollama();
 
-function setupParallax(e) {
+function setupParallax() {
   if (!$hero || !$picture || !$img) return;
 
   scroller
     .setup({
       step: ".js-course-hero__image",
-      offset: (1 / document.documentElement.clientHeight) * e.space,
+      offset: 0,
       progress: true,
-      debug: true
+      debug: false
     })
     .onStepProgress(onProgress);
 }
 
-dispatcher.on(constants.EVENT_RESIZE, scroller.resize);
-dispatcher.once(constants.EVENT_NAV_VISIBLE_SPACE_CHANGE, setupParallax);
-
-/**
- * Listen for nav space changes
- */
-
-function onNavSpaceChange(e) {
-  scroller.offsetTrigger((1 / document.documentElement.clientHeight) * e.space);
+function onResize() {
   scroller.resize();
 }
 
-dispatcher.on(constants.EVENT_NAV_VISIBLE_SPACE_CHANGE, onNavSpaceChange);
-
-// /**
-//  * Do parallax only for desktop
-//  */
-
-// function onBreakpointChange(e) {
-//   if (e.breakpoint === constants.DESKTOP) {
-//     scroller.enable();
-//   } else {
-//     scroller.disable();
-//     onProgress({
-//       progress: 0
-//     });
-//   }
-// }
-
-// dispatcher.on(constants.EVENT_BREAKPOINT_CHANGE, onBreakpointChange);
+dispatcher.on(constants.EVENT_RESIZE, onResize);
+setupParallax();
