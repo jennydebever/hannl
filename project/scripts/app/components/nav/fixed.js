@@ -1,3 +1,5 @@
+var debounce = require("debounce");
+
 var dispatcher = require("../../dispatcher");
 var constants = require("../../../constants");
 var getBreakpoint = require("../../ui/get-breakpoint");
@@ -43,8 +45,32 @@ function resizeSpacer() {
 
 function onResize() {
   resizeSpacer();
+  calculateVisibleSpace();
 }
 
 dispatcher.on(constants.EVENT_RESIZE, onResize);
 
 setTimeout(onResize, 0);
+
+/**
+ * Calculate visible space and set data attribute for easy access
+ */
+
+function calculateVisibleSpace() {
+  var visibleSpace = $spacer.getBoundingClientRect().height + $nav.getBoundingClientRect().top;
+
+  if (+$spacer.getAttribute("data-space") !== visibleSpace) {
+    $spacer.setAttribute("data-space", visibleSpace);
+
+    dispatcher.dispatch({
+      type: constants.EVENT_NAV_VISIBLE_SPACE_CHANGE,
+      space: visibleSpace
+    });
+  }
+}
+
+// listen for current scroll for accurate measurement
+window.addEventListener("scroll", calculateVisibleSpace, { passive: true });
+
+// debounce for final measurement
+window.onscroll = debounce(calculateVisibleSpace, 250);

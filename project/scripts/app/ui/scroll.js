@@ -105,7 +105,6 @@ window.addEventListener("scroll", onScroll, { passive: true });
  * });
  */
 
-var $nav = document.querySelector(".js-nav");
 var $navSpacer = document.querySelector(".js-nav-spacer");
 
 function onRequestScrollto(e) {
@@ -125,19 +124,14 @@ function onRequestScrollto(e) {
       }
     },
     function() {
-      // calculate offset nav
-      var offset = 0;
-      if ($navSpacer && $nav) {
-        offset += $navSpacer.getBoundingClientRect().height;
-        offset += $nav.getBoundingClientRect().top;
-      }
-
       // set focus
       e.target.setAttribute("tabindex", "-1");
       e.target.focus();
 
       // adjust scroll ofset
-      window.scrollBy({ top: -offset, behavior: "smooth" });
+      if ($navSpacer) {
+        window.scrollBy({ top: -$navSpacer.getAttribute("data-space"), behavior: "smooth" });
+      }
 
       // re-enable scroll up/down logic
       setTimeout(function() {

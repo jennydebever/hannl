@@ -1,0 +1,32 @@
+//- @pugdoc
+  name: typo
+  description: typography HAN.nl
+  examples:
+    - +course-hero
+
+mixin course-hero(image, title, intro)
+  include ../../utils/srcset
+
+  .course-hero(class='js-course-hero')
+    .course-hero__image(class='js-course-hero__image')
+      picture.course-hero__image__picture(class='js-course-hero__image__picture')
+        span.course-hero__image__picture__overlay(class='js-course-hero__image__picture__overlay')
+        - var sizes = []
+        - sizes.push({ minWidth: 1200, width: 1440, ratio: 2.666 });
+        - sizes.push({ minWidth: 1024, width: 1200, ratio: 2 });
+        - sizes.push({ minWidth: 768, width: 1024, ratio: 2 });
+        - sizes.push({ minWidth: 500, width: 768, ratio: 2 });
+        - sizes.push({ minWidth: 320, width: 500, ratio: 2 });
+        - sizes.push({ minWidth: 1, width: 320, ratio: 2 });
+        +srcset(image, sizes)
+
+        img(src='', alt='')
+
+    .course-hero__content
+      .course-hero__content-wrapper
+        if title
+          h1.course-hero__content__title #{title}
+
+        if block
+          p.course-hero__content__intro
+            block

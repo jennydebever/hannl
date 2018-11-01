@@ -1,0 +1,102 @@
+.course-hero {
+  margin-bottom: 1000px;
+}
+
+.course-hero__image {
+  margin-bottom: -80px;
+  border-bottom: 1px dashed red;
+}
+
+.course-hero__image__picture {
+  display: block;
+  position: relative;
+  height: 540px;
+  transition: height 0.25s;
+
+  img {
+    display: block;
+    position: absolute;
+    top: 0;
+  }
+}
+
+.course-hero__image__picture__overlay {
+  background: $black;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+  z-index: 1;
+  transition: opacity 0.15s;
+}
+
+.course-hero__content {
+  @include page-spacing;
+  width: 100%;
+  max-width: #{$container-width + 80px};
+  margin: 0 auto;
+  z-index: 1;
+  position: relative;
+
+  // add white block outside of grid
+  // to fake breaking out
+  &::before {
+    content: "";
+    display: block;
+    width: #{$grid-item-spacing-s * 2};
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background-color: $white;
+
+    @include breakpoint($bp-m) {
+      width: #{$grid-item-spacing-m * 2};
+    }
+
+    @include breakpoint($bp-l) {
+      width: #{$grid-item-spacing-l * 2};
+    }
+  }
+}
+
+.course-hero__content-wrapper {
+  @include grid-item-spacing-left;
+  @include grid-item-spacing-right;
+  padding-top: #{$grid-item-spacing-s * 2};
+  background-color: $white;
+  max-width: grid-calc(10);
+
+  @include breakpoint($bp-m) {
+    padding-top: #{$grid-item-spacing-m * 2};
+  }
+
+  @include breakpoint($bp-l) {
+    padding-top: #{$grid-item-spacing-l * 2};
+  }
+}
+
+.course-hero__content__title {
+  @include h1;
+  @include underscore;
+  margin-bottom: #{$grid-item-spacing-s * 2};
+
+  @include breakpoint($bp-m) {
+    margin-bottom: #{$grid-item-spacing-m * 2};
+  }
+
+  @include breakpoint($bp-l) {
+    margin-bottom: #{$grid-item-spacing-l * 2};
+  }
+}
+
+.course-hero__content__intro {
+  @include richtext-simple;
+  @include lead;
+  @include margin-bottom-standard;
+  max-width: 800px;
+}

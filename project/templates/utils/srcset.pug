@@ -9,7 +9,7 @@ mixin srcset(image, sizes)
   if image
     each size in sizes
 
-      - var params = Object.assign({}, { q: 55, fit: 'crop', dpr: 1, auto: 'format' }, size.params);
+      - var params = Object.assign({}, { q: 55, fit: 'crop', crop: 'faces', dpr: 1, auto: 'format' }, size.params);
       - params.w = size.width
       
       //- calculate height by ratio

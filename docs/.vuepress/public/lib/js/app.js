@@ -2948,7 +2948,7 @@ object-assign
 
         delegate.bind(document.body, "a", "click", onAnchorLinkClick);
       },
-      { "../../../constants": 32, "../../dispatcher": 24, "delegate-events": 4 }
+      { "../../../constants": 34, "../../dispatcher": 25, "delegate-events": 4 }
     ],
     17: [
       function(require, module, exports) {
@@ -3036,7 +3036,7 @@ object-assign
 
         toggleOnLoad();
       },
-      { "../../../constants": 32, "delegate-events": 4, "find-parent": 6, "slide-anim": 13 }
+      { "../../../constants": 34, "delegate-events": 4, "find-parent": 6, "slide-anim": 13 }
     ],
     18: [
       function(require, module, exports) {
@@ -3085,9 +3085,81 @@ object-assign
           dispatcher.on(constants.EVENT_RESIZE, scroller.resize);
         }
       },
-      { "../../../constants": 32, "../../dispatcher": 24, scrollama: 12 }
+      { "../../../constants": 34, "../../dispatcher": 25, scrollama: 12 }
     ],
     19: [
+      function(require, module, exports) {
+        var scrollama = require("scrollama");
+
+        var lerp = require("../../utils/lerp");
+        var dispatcher = require("../../dispatcher");
+        var constants = require("../../../constants");
+
+        /**
+         * Parallax effect for the hero
+         */
+
+        var $hero = document.querySelector(".js-course-hero");
+        var $picture = document.querySelector(".js-course-hero__image__picture");
+        var $overlay = document.querySelector(".js-course-hero__image__picture__overlay");
+        var $img = document.querySelector(".js-course-hero__image__picture img");
+
+        function onProgress(e) {
+          $picture.style.transform = "scaleY(" + (1 - e.progress) + ")";
+          $img.style.transform = "scaleY(" + (1 + e.progress) + ")";
+          $overlay.style.transform = "scaleY(" + (1 + e.progress) + ")";
+          $overlay.style.opacity = lerp(0, 1, e.progress);
+        }
+
+        var scroller = scrollama();
+
+        function setupParallax(e) {
+          if (!$hero || !$picture || !$img) return;
+
+          scroller
+            .setup({
+              step: ".js-course-hero__image",
+              offset: (1 / document.documentElement.clientHeight) * e.space,
+              progress: true,
+              debug: true
+            })
+            .onStepProgress(onProgress);
+        }
+
+        dispatcher.on(constants.EVENT_RESIZE, scroller.resize);
+        dispatcher.once(constants.EVENT_NAV_VISIBLE_SPACE_CHANGE, setupParallax);
+
+        /**
+         * Listen for nav space changes
+         */
+
+        function onNavSpaceChange(e) {
+          scroller.offsetTrigger((1 / document.documentElement.clientHeight) * e.space);
+          scroller.resize();
+        }
+
+        dispatcher.on(constants.EVENT_NAV_VISIBLE_SPACE_CHANGE, onNavSpaceChange);
+
+        // /**
+        //  * Do parallax only for desktop
+        //  */
+
+        // function onBreakpointChange(e) {
+        //   if (e.breakpoint === constants.DESKTOP) {
+        //     scroller.enable();
+        //   } else {
+        //     scroller.disable();
+        //     onProgress({
+        //       progress: 0
+        //     });
+        //   }
+        // }
+
+        // dispatcher.on(constants.EVENT_BREAKPOINT_CHANGE, onBreakpointChange);
+      },
+      { "../../../constants": 34, "../../dispatcher": 25, "../../utils/lerp": 32, scrollama: 12 }
+    ],
+    20: [
       function(require, module, exports) {
         var delegate = require("delegate-events");
         var focusTrap = require("../ui/focus-trap");
@@ -3350,9 +3422,9 @@ object-assign
 
         dispatcher.on(constants.REQUEST_MODAL_CLOSE, onRequestClose);
       },
-      { "../../constants": 32, "../dispatcher": 24, "../ui/focus-trap": 27, "delegate-events": 4 }
+      { "../../constants": 34, "../dispatcher": 25, "../ui/focus-trap": 28, "delegate-events": 4 }
     ],
-    20: [
+    21: [
       function(require, module, exports) {
         var delegate = require("delegate-events");
         var findParent = require("find-parent");
@@ -3455,9 +3527,9 @@ object-assign
 
         delegate.bind(document.body, ".js-subnav__item a", "focusout", onFocusOut);
       },
-      { "../../../constants": 32, "../../ui/get-breakpoint": 28, "delegate-events": 4, "find-parent": 6 }
+      { "../../../constants": 34, "../../ui/get-breakpoint": 29, "delegate-events": 4, "find-parent": 6 }
     ],
-    21: [
+    22: [
       function(require, module, exports) {
         var findParent = require("find-parent");
         var constants = require("../../../constants");
@@ -3522,9 +3594,9 @@ object-assign
           });
         }
       },
-      { "../../../constants": 32, "../../dispatcher": 24, "find-parent": 6 }
+      { "../../../constants": 34, "../../dispatcher": 25, "find-parent": 6 }
     ],
-    22: [
+    23: [
       function(require, module, exports) {
         var dispatcher = require("../../dispatcher");
         var constants = require("../../../constants");
@@ -3611,10 +3683,12 @@ object-assign
 
         dispatcher.on(constants.EVENT_SECTION_INVIEW, setActiveNavItem);
       },
-      { "../../../constants": 32, "../../dispatcher": 24, "../../ui/get-breakpoint": 28 }
+      { "../../../constants": 34, "../../dispatcher": 25, "../../ui/get-breakpoint": 29 }
     ],
-    23: [
+    24: [
       function(require, module, exports) {
+        var debounce = require("debounce");
+
         var dispatcher = require("../../dispatcher");
         var constants = require("../../../constants");
         var getBreakpoint = require("../../ui/get-breakpoint");
@@ -3660,15 +3734,39 @@ object-assign
 
         function onResize() {
           resizeSpacer();
+          calculateVisibleSpace();
         }
 
         dispatcher.on(constants.EVENT_RESIZE, onResize);
 
         setTimeout(onResize, 0);
+
+        /**
+         * Calculate visible space and set data attribute for easy access
+         */
+
+        function calculateVisibleSpace() {
+          var visibleSpace = $spacer.getBoundingClientRect().height + $nav.getBoundingClientRect().top;
+
+          if (+$spacer.getAttribute("data-space") !== visibleSpace) {
+            $spacer.setAttribute("data-space", visibleSpace);
+
+            dispatcher.dispatch({
+              type: constants.EVENT_NAV_VISIBLE_SPACE_CHANGE,
+              space: visibleSpace
+            });
+          }
+        }
+
+        // listen for current scroll for accurate measurement
+        window.addEventListener("scroll", calculateVisibleSpace, { passive: true });
+
+        // debounce for final measurement
+        window.onscroll = debounce(calculateVisibleSpace, 250);
       },
-      { "../../../constants": 32, "../../dispatcher": 24, "../../ui/get-breakpoint": 28 }
+      { "../../../constants": 34, "../../dispatcher": 25, "../../ui/get-breakpoint": 29, debounce: 3 }
     ],
-    24: [
+    25: [
       function(require, module, exports) {
         var EventEmitter = require("events").EventEmitter;
         var assign = require("object-assign");
@@ -3714,40 +3812,45 @@ object-assign
       },
       { events: 5, "object-assign": 10 }
     ],
-    25: [
+    26: [
       function(require, module, exports) {
         window.HAN = {};
         require("./ui/breakpoint-events");
 
         require("./components/nav/fixed");
+        require("./ui/scroll");
+
+        // course specific, split later?
         require("./components/nav/coursenav");
         require("./components/nav/coursenav-desktop");
         require("./components/nav/coursenav-mobile");
-        require("./ui/scroll");
-        require("./utils/grid");
-        require("./utils/video");
+        require("./components/hero/course-hero");
+
+        // content
         require("./components/content/collapsibles");
         require("./components/content/section");
         require("./components/content/anchor-link");
         require("./components/modal");
+        require("./utils/video");
         require("./utils/grid");
       },
       {
         "./components/content/anchor-link": 16,
         "./components/content/collapsibles": 17,
         "./components/content/section": 18,
-        "./components/modal": 19,
-        "./components/nav/coursenav": 22,
-        "./components/nav/coursenav-desktop": 20,
-        "./components/nav/coursenav-mobile": 21,
-        "./components/nav/fixed": 23,
-        "./ui/breakpoint-events": 26,
-        "./ui/scroll": 29,
-        "./utils/grid": 30,
-        "./utils/video": 31
+        "./components/hero/course-hero": 19,
+        "./components/modal": 20,
+        "./components/nav/coursenav": 23,
+        "./components/nav/coursenav-desktop": 21,
+        "./components/nav/coursenav-mobile": 22,
+        "./components/nav/fixed": 24,
+        "./ui/breakpoint-events": 27,
+        "./ui/scroll": 30,
+        "./utils/grid": 31,
+        "./utils/video": 33
       }
     ],
-    26: [
+    27: [
       function(require, module, exports) {
         var constants = require("../../constants");
         var dispatcher = require("../dispatcher");
@@ -3808,9 +3911,9 @@ object-assign
           }
         }
       },
-      { "../../constants": 32, "../dispatcher": 24, "./get-breakpoint": 28, debounce: 3 }
+      { "../../constants": 34, "../dispatcher": 25, "./get-breakpoint": 29, debounce: 3 }
     ],
-    27: [
+    28: [
       function(require, module, exports) {
         var focusTrap = require("focus-trap");
         var assign = require("object-assign");
@@ -3855,7 +3958,7 @@ object-assign
       },
       { "focus-trap": 7, "object-assign": 10 }
     ],
-    28: [
+    29: [
       function(require, module, exports) {
         var constants = require("../../constants");
 
@@ -3883,9 +3986,9 @@ object-assign
 
         module.exports = getBreakpoint;
       },
-      { "../../constants": 32 }
+      { "../../constants": 34 }
     ],
-    29: [
+    30: [
       function(require, module, exports) {
         var constants = require("../../constants");
         var dispatcher = require("../dispatcher");
@@ -3994,7 +4097,6 @@ object-assign
          * });
          */
 
-        var $nav = document.querySelector(".js-nav");
         var $navSpacer = document.querySelector(".js-nav-spacer");
 
         function onRequestScrollto(e) {
@@ -4014,19 +4116,14 @@ object-assign
               }
             },
             function() {
-              // calculate offset nav
-              var offset = 0;
-              if ($navSpacer && $nav) {
-                offset += $navSpacer.getBoundingClientRect().height;
-                offset += $nav.getBoundingClientRect().top;
-              }
-
               // set focus
               e.target.setAttribute("tabindex", "-1");
               e.target.focus();
 
               // adjust scroll ofset
-              window.scrollBy({ top: -offset, behavior: "smooth" });
+              if ($navSpacer) {
+                window.scrollBy({ top: -$navSpacer.getAttribute("data-space"), behavior: "smooth" });
+              }
 
               // re-enable scroll up/down logic
               setTimeout(function() {
@@ -4052,9 +4149,9 @@ object-assign
           }
         }
       },
-      { "../../constants": 32, "../dispatcher": 24, "scroll-into-view": 11 }
+      { "../../constants": 34, "../dispatcher": 25, "scroll-into-view": 11 }
     ],
-    30: [
+    31: [
       function(require, module, exports) {
         /**
          * Toggle demo grid overlay with control + L
@@ -4088,7 +4185,19 @@ object-assign
       },
       {}
     ],
-    31: [
+    32: [
+      function(require, module, exports) {
+        /**
+         * Linear Interpolation util
+         */
+
+        module.exports = function lerp(start, end, t) {
+          return start * (1 - t) + end * t;
+        };
+      },
+      {}
+    ],
+    33: [
       function(require, module, exports) {
         /**
          * Video controls
@@ -4114,7 +4223,7 @@ object-assign
       },
       {}
     ],
-    32: [
+    34: [
       function(require, module, exports) {
         var keyMirror = require("keymirror");
         var assign = require("object-assign");
@@ -4149,6 +4258,7 @@ object-assign
           EVENT_MODAL_BEFORE_CLOSE: null,
           EVENT_SECTION_INVIEW: null,
           EVENT_SECTION_OUTVIEW: null,
+          EVENT_NAV_VISIBLE_SPACE_CHANGE: null,
           REQUEST_MODAL_OPEN: null,
           REQUEST_MODAL_CLOSE: null,
           REQUEST_SCROLLTO: null
@@ -4184,5 +4294,5 @@ object-assign
     ]
   },
   {},
-  [25]
+  [26]
 );

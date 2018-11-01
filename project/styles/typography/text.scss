@@ -15,7 +15,7 @@
 
 @mixin h1 {
   @include margin-bottom-standard;
-  font-family: $bold;
+  font-family: $bold-condensed;
   font-size: 28px;
   text-transform: uppercase;
 

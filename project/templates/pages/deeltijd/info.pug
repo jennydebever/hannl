@@ -1,6 +1,7 @@
 extends ./_deeltijd
 include ../../utils/todo
 include ../../components/nav/coursenav
+include ../../components/hero/course-hero
 
 block append vars
   - pageTitle.push('Deeltijd info');
@@ -10,4 +11,5 @@ block subnav
   +coursenav('leraar basisonderwijs (pabo) deeltijd', coursenavItems)
   
 block main
-  | praktische info <a href="">hero</a>
+  +course-hero('vrouw-techniek.jpg', 'Praktische info')
+    | Hoeveel tijd kost mijn deeltijdstudie? Wat zijn de toelatingseisen voor de Pabo, de studiekosten, vergoedingen, fiscale spelregels... Op deze pagina vind je alle praktische informatie over de deeltijd Pabo.
