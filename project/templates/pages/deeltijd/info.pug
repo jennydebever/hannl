@@ -3,6 +3,7 @@ include ../../utils/todo
 include ../../components/nav/coursenav
 include ../../components/hero/course-hero
 include ../../components/content/line
+include ../../components/content/collapsibles
 
 block append vars
   - pageTitle.push('Deeltijd info');
@@ -17,12 +18,42 @@ block main
 
   +section-line
   +todo('mapaddress')
-  +todo('collapsibles')
+
+  - var items = [];
+  - items.push({ title: 'Parkeergelegenheid', body: '<p>De HAN Campus is prima bereikbaar met de auto. Je parkeert je auto gratis.</p>', is_open: true })
+  - items.push({ title: 'Eten en drinken', body: '<p>…</p>', is_open: false })
+  +section-collapsibles(null, items)
+
   +todo('facts table')
-  +todo('collapsibles')
+
+  - var items = [];
+  - items.push({ title: 'Toelatingseisen 2018/2019', body: '<p>…</p>', is_open: true })
+  - items.push({ title: 'Niet het juiste diploma/21+', body: '<p>…</p>', is_open: false })
+  - items.push({ title: 'Buitenlands diploma/andere taal', body: '<p>…</p>', is_open: false })
+  - items.push({ title: 'Geen baan in het onderwijs vereist', body: '<p>…</p>', is_open: false })
+  +section-collapsibles('Toelatingsinformatie', items)
+
   +todo('shout for action')
-  +todo('collapsibles')
-  +todo('collapsibles')
-  +todo('collapsibles')
+
+  - var items = [];
+  - items.push({ title: 'Vergoedingen', body: '<p>Heb je een WW-uitkering en wil je je laten omscholen? De overheid heeft een regeling waarmee je kunt studeren met behoud van uitkering: Brug-WW. Je moet dan wel een parttime baan vinden van minimaal 8 uur per week, mét de garantie van een baan na afloop van je studie. Je werkgever betaalt de uren die je voor hem 	werkt. Voor je studie-uren ontvang je een aanvullende WW-uitkering.</p>', is_open: true })
+  - items.push({ title: 'Voordelen', body: '<p>…</p>', is_open: false })
+  - items.push({ title: 'Eisen', body: '<p>…</p>', is_open: false })
+  +section-collapsibles('Voor werkgevers', items)
+
+  - var items = [];
+  - items.push({ title: 'Vergoedingen', body: '<p>Er zijn twee soorten vergoedingen voor de deeltijd Pabo. De lerarenbeurs voor als je al HBO-docent bent. Of de Tegemoetkoming Leraren voor mensen die willen starten met beroep van leraar.</p>', is_open: true })
+  - items.push({ title: 'Vrijstellingen krijgen', body: '<p>…</p>', is_open: false })
+  - items.push({ title: 'Vrijstelling minor', body: '<p>…</p>', is_open: false })
+  - items.push({ title: 'Werkplek regelen', body: '<p>…</p>', is_open: false })
+  +section-collapsibles('Voor jou als student', items)
+
+  - var items = [];
+  - items.push({ title: 'Collegegeld', body: '<p>Nog niet eerder een bachelordiploma gehaald? Je betaalt het wettelijke collegegeld van €2.060. Misschien betaal je voor het 1e jaar maar helft van dit bedrag: op dit moment geldt de halveringsregeling van de overheid. </p><p>Heb je al eerder een bachelor- of masterdiploma gehaald? Dan betaal je het instellingscollegegeld van €4.300 per jaar. Er zijn enkele uitzonderingen. Je betaalt ook wettelijk collegegeld als je:</p><ul><li>voor de 1e keer een opleiding onderwijs of gezondheidszorg volgt;</li><li>een 2e (nieuwe) bachelor- of master start vóór het afronden van je 1e bachelor- of master;</li><li>een Associate degree hebt, maar nog geen Nederlandse bachelor of master hebt behaald.</li></ul>', is_open: true })
+  - items.push({ title: 'Materiaal', body: '<p>…</p>', is_open: false })
+  - items.push({ title: 'Fiscaal voordeel', body: '<p>…</p>', is_open: false })
+  - items.push({ title: 'Levenlanglerenkrediet', body: '<p>…</p>', is_open: false })
+  +section-collapsibles('Investering', items)
+
   +todo('contact')
   +todo('scream for action')

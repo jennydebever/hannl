@@ -2,6 +2,7 @@
   @include page-spacing;
   position: relative;
   overflow: hidden;
+  margin: 100px 0; // TODO: section spacings
 }
 
 .section-wrapper {
@@ -22,14 +23,14 @@
   }
 }
 
-@mixin section-inner {
+@mixin section-inner($max-columns: 8) {
   .section__header {
-    @include section-inner-self;
+    @include section-inner-self($max-columns);
     width: 100%;
   }
 
   .section__content {
-    @include section-inner-self;
+    @include section-inner-self($max-columns);
   }
 }
 
@@ -94,7 +95,7 @@
  */
 
 .section--collapsibles {
-  @include section-inner-self;
+  @include section-inner(10);
 }
 
 /**

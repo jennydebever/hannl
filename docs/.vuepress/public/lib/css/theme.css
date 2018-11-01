@@ -1859,17 +1859,12 @@ hr {
   border: 0;
   border-top: 1px solid #e3e3e3;
 }
-.section,
-.section--textmedia,
-.section-wrapper {
-  margin-left: auto;
-  margin-right: auto;
-}
 .section {
   padding-left: 8px;
   padding-right: 8px;
   position: relative;
   overflow: hidden;
+  margin: 100px 0;
 }
 @media (min-width: 768px) {
   .strong-link__label {
@@ -1897,6 +1892,8 @@ hr {
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
   position: relative;
 }
 .section__header__title__eyebrow,
@@ -1979,13 +1976,18 @@ hr {
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .section--textmedia-right .textmedia {
   -ms-flex-direction: row-reverse;
   flex-direction: row-reverse;
 }
+.section--collapsibles .section__header {
+  width: 100%;
+}
 @media (min-width: 1024px) {
-  .section--collapsibles {
+  .section--collapsibles .section__header {
     padding-left: 8px;
     padding-right: 8px;
     -ms-flex-positive: 1;
@@ -1994,21 +1996,50 @@ hr {
     flex-shrink: 1;
     -webkit-flex-basis: auto;
     -ms-flex-preferred-size: auto;
-    width: 66.66667%;
-    max-width: 800px;
+    width: 83.33333%;
+    max-width: 1000px;
     flex-basis: auto;
     margin-left: auto;
     margin-right: auto;
   }
 }
 @media (min-width: 1024px) and (min-width: 768px) {
-  .section--collapsibles {
+  .section--collapsibles .section__header {
     padding-left: 16px;
     padding-right: 16px;
   }
 }
 @media (min-width: 1024px) and (min-width: 1024px) {
-  .section--collapsibles {
+  .section--collapsibles .section__header {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+@media (min-width: 1024px) {
+  .section--collapsibles .section__content {
+    padding-left: 8px;
+    padding-right: 8px;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -ms-flex-negative: 1;
+    flex-shrink: 1;
+    -webkit-flex-basis: auto;
+    -ms-flex-preferred-size: auto;
+    width: 83.33333%;
+    max-width: 1000px;
+    flex-basis: auto;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+@media (min-width: 1024px) and (min-width: 768px) {
+  .section--collapsibles .section__content {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+@media (min-width: 1024px) and (min-width: 1024px) {
+  .section--collapsibles .section__content {
     padding-left: 20px;
     padding-right: 20px;
   }
