@@ -814,6 +814,10 @@ body.modal-is-open--coursenav {
     outline: 1px solid rgba(0, 0, 0, 0.75);
     outline-offset: 3px;
   }
+  .coursenav__title:after {
+    color: #e50056;
+    content: "_";
+  }
 }
 @media (min-width: 1024px) and (min-width: 768px) {
   .coursenav-body-wrapper {
@@ -1180,6 +1184,10 @@ html:not([data-breakpoint="desktop"]) .coursenav-dropdown__item__link:hover {
 [data-whatinput="keyboard"] .coursenav__toggle__label:focus {
   outline: 1px solid rgba(0, 0, 0, 0.75);
   outline-offset: 3px;
+}
+.coursenav__toggle__label:after {
+  color: #e50056;
+  content: "_";
 }
 .tmpbar {
   padding-left: 8px;

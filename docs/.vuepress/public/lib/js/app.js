@@ -2964,9 +2964,14 @@ object-assign
          * to decide whether to expand or not
          */
 
-        function toggle($btn, $content, speed) {
+        function toggle($btn, $content, setImmediate) {
           if (!$btn || !$content) {
             return;
+          }
+
+          var speed = 200;
+          if (setImmediate === true) {
+            speed = 1;
           }
 
           // get button collapsible parent
@@ -2981,7 +2986,11 @@ object-assign
             $collapsible.classList.add(constants.OPEN_CLASS);
 
             // animate open content div
-            slideDown($content, { duration: speed || 200 }).then(function() {
+            slideDown($content, { duration: speed }).then(function() {
+              if (setImmediate === true) {
+                return;
+              }
+
               // make focusable
               $content.setAttribute("tabIndex", "-1");
 
@@ -2998,7 +3007,7 @@ object-assign
             $collapsible.classList.remove(constants.OPEN_CLASS);
 
             // animate close content div
-            slideUp($content, { duration: speed || 200 });
+            slideUp($content, { duration: speed });
           }
         }
 
@@ -3030,7 +3039,7 @@ object-assign
             var $content = $collapsible.querySelector(".js-collapsible__content");
 
             // show/hide with 1ms speed
-            toggle($btn, $content, 1);
+            toggle($btn, $content, true);
           }
         }
 
