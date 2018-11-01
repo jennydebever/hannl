@@ -5,18 +5,20 @@
 }
 
 .section-wrapper {
-  //@include grid;
+  @include grid;
   position: relative;
 }
 
 /**
  * Text section
  */
-@mixin section-inner-self {
+@mixin section-inner-self($max-columns: 8) {
   @include breakpoint($bp-l) {
-    @include grid-item(8);
-    max-width: #{($container-width + 40px) / 100 * (100 / 12 * 8)};
+    @include grid-item($max-columns);
+    max-width: #{($container-width + 40px) / 100 * (100 / 12 * $max-columns)};
     flex-basis: auto;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
@@ -70,7 +72,6 @@
 
 .section--richtext {
   @include section-inner-self;
-  @include demo-section-padding;
 }
 
 /**
@@ -94,5 +95,14 @@
 
 .section--collapsibles {
   @include section-inner-self;
-  @include demo-section-padding;
+}
+
+/**
+ * Line
+ */
+
+.section--line {
+  .section__content {
+    @include grid-item(12);
+  }
 }

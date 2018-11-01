@@ -1790,11 +1790,6 @@ html:not([data-breakpoint="desktop"]) .coursenav-dropdown__item__link:hover {
   background-color: transparent;
   border: 0;
 }
-.section__header__title__eyebrow,
-.section__header__title__text {
-  font-family: AvenirNextLTW01-BoldCn, Avenir next, Avenir, sans-serif;
-  text-transform: uppercase;
-}
 [data-whatinput="keyboard"] .strong-link:focus {
   outline: 1px solid rgba(0, 0, 0, 0.75);
   outline-offset: 3px;
@@ -1836,11 +1831,6 @@ html:not([data-breakpoint="desktop"]) .coursenav-dropdown__item__link:hover {
   max-width: 16px;
   max-height: 16px;
 }
-.section,
-.section--textmedia {
-  margin-left: auto;
-  margin-right: auto;
-}
 .strong-link .icon-arrow {
   fill: currentColor;
 }
@@ -1849,11 +1839,6 @@ html:not([data-breakpoint="desktop"]) .coursenav-dropdown__item__link:hover {
   padding: 8px 0;
   display: block;
   position: relative;
-}
-.section--collapsibles,
-.section--richtext {
-  padding-top: 50px;
-  padding-bottom: 50px;
 }
 .strong-link__label:after {
   content: "";
@@ -1866,16 +1851,24 @@ html:not([data-breakpoint="desktop"]) .coursenav-dropdown__item__link:hover {
   background-color: transparent;
   transition: background-color 0.1s;
 }
-.section,
-.section-wrapper {
-  position: relative;
-}
 .strong-link:hover .strong-link__label:after {
   background-color: currentColor;
+}
+hr {
+  margin: 0;
+  border: 0;
+  border-top: 1px solid #e3e3e3;
+}
+.section,
+.section--textmedia,
+.section-wrapper {
+  margin-left: auto;
+  margin-right: auto;
 }
 .section {
   padding-left: 8px;
   padding-right: 8px;
+  position: relative;
   overflow: hidden;
 }
 @media (min-width: 768px) {
@@ -1896,11 +1889,26 @@ html:not([data-breakpoint="desktop"]) .coursenav-dropdown__item__link:hover {
     padding-right: 20px;
   }
 }
+.section-wrapper {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  position: relative;
+}
+.section__header__title__eyebrow,
+.section__header__title__text {
+  font-family: AvenirNextLTW01-BoldCn, Avenir next, Avenir, sans-serif;
+  display: block;
+  text-transform: uppercase;
+}
 .section__header__title__eyebrow {
   font-size: 15px;
   color: #e50056;
   margin-bottom: 1em;
-  display: block;
 }
 @media (min-width: 768px) {
   .section__header__title__eyebrow {
@@ -1923,12 +1931,13 @@ html:not([data-breakpoint="desktop"]) .coursenav-dropdown__item__link:hover {
     width: 66.66667%;
     max-width: 800px;
     flex-basis: auto;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 .section__header__title__text {
   font-size: 24px;
   margin-bottom: 0.5em;
-  display: block;
 }
 @media (min-width: 768px) {
   .section__header__title__text {
@@ -1988,6 +1997,8 @@ html:not([data-breakpoint="desktop"]) .coursenav-dropdown__item__link:hover {
     width: 66.66667%;
     max-width: 800px;
     flex-basis: auto;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 @media (min-width: 1024px) and (min-width: 768px) {
@@ -2002,8 +2013,26 @@ html:not([data-breakpoint="desktop"]) .coursenav-dropdown__item__link:hover {
     padding-right: 20px;
   }
 }
-.course-hero {
-  margin-bottom: 1000px;
+.section--line .section__content {
+  padding-left: 8px;
+  padding-right: 8px;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -ms-flex-negative: 1;
+  flex-shrink: 1;
+  -ms-flex-preferred-size: auto;
+  flex-basis: auto;
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .section__header__intro {
+    font-size: 18px;
+    line-height: 1.7;
+  }
+  .section--line .section__content {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
 }
 .course-hero__image__picture {
   display: block;
@@ -2013,6 +2042,10 @@ html:not([data-breakpoint="desktop"]) .coursenav-dropdown__item__link:hover {
   overflow: hidden;
 }
 @media (min-width: 1024px) {
+  .section--line .section__content {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
   .course-hero__image__picture {
     height: 540px;
   }
@@ -2048,10 +2081,6 @@ html:not([data-breakpoint="desktop"]) .coursenav-dropdown__item__link:hover {
   position: relative;
 }
 @media (min-width: 768px) {
-  .section__header__intro {
-    font-size: 18px;
-    line-height: 1.7;
-  }
   .course-hero__content {
     padding-left: 16px;
     padding-right: 16px;
