@@ -1,0 +1,6 @@
+{
+  "name": "Footer",
+  "slug": "footer",
+  "height": 15,
+  "source": "<footer class=\"footer\"><div class=\"footer-wrapper\"><div class=\"footer-body-wrapper\">footer</div></div></footer>"
+}
