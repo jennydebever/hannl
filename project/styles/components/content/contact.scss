@@ -1,0 +1,71 @@
+.contact--buttons {
+  position: relative;
+  margin: 40px 0;
+
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: -999px;
+    top: 50%;
+    z-index: -1;
+    width: 9999px;
+    height: 1px;
+    background-color: $grey2;
+  }
+}
+
+.contact--buttons--button {
+  display: inline-block;
+
+  & + & {
+    @include breakpoint($bp-m) {
+      margin-left: $grid-item-spacing-m;
+    }
+
+    @include breakpoint($bp-l) {
+      margin-left: $grid-item-spacing-l;
+    }
+  }
+}
+
+.contact--meta-contents--meta-content {
+  @include margin-bottom-large;
+
+  @include breakpoint($bp-m) {
+    display: inline-block;
+    margin-right: $grid-item-spacing-m * 2;
+  }
+
+  @include breakpoint($bp-l) {
+    margin-right: $grid-item-spacing-l * 2;
+  }
+}
+
+.contact--meta-contents--meta-content--title {
+  display: block;
+  @include margin-bottom-standard;
+  font-family: $demi;
+  color: $grey6;
+  font-size: 15px;
+
+  @include breakpoint($bp-m) {
+    font-size: 16px;
+  }
+}
+
+.contact--meta-contents--meta-content--content {
+  p {
+    @include p;
+    color: $grey5;
+    font-size: 13px;
+    @include breakpoint($bp-m) {
+      font-size: 14px;
+    }
+  }
+
+  a {
+    @include link;
+    color: $black;
+  }
+}

@@ -1,0 +1,25 @@
+//- @pugdoc
+  name: Sectie (Contact)
+
+mixin section-contact(title, intro, options)
+  include ./section
+  include ../atoms/btn-primary
+  include ../atoms/btn-secondary
+  +section(null, title, intro)(class='section--contact')
+    if options.buttons
+      .contact--buttons
+        each button in options.buttons
+          .contact--buttons--button
+            if button.type === 'primary'
+              +btn-primary(button.label, button.href, button.icon)
+
+            else if button.type === 'secondary'
+              +btn-secondary(button.label, button.href, button.icon)
+    
+    if options.metaContents  
+      .contact--meta-contents
+        each meta in options.metaContents
+          .contact--meta-contents--meta-content
+            strong.contact--meta-contents--meta-content--title #{meta.title}
+            .contact--meta-contents--meta-content--content !{meta.content}
+              

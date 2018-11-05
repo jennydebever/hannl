@@ -2,6 +2,7 @@ extends ./_deeltijd
 include ../../utils/todo
 include ../../components/nav/coursenav
 include ../../components/content/line
+include ../../components/content/contact
 
 block append vars
   - pageTitle.push('Deeltijd');
@@ -22,5 +23,12 @@ block main
 
   +section-line
 
-  +todo('contact')
+  - var contactOptions = {};
+  - contactOptions['buttons'] = [];
+  - contactOptions['buttons'].push({ type: 'primary', label: 'Start de Chat', href: 'https://han.nl', icon: 'clock-line' });
+  - contactOptions['buttons'].push({ type: 'secondary', label: 'Stel ons een vraag via het formulier', href: 'https://han.nl', icon: 'external' });
+  - contactOptions['metaContents'] = [];
+  - contactOptions['metaContents'].push({ title: 'Openingstijden', content: '<p>Werkdagen: 09:00 tot 16:30 uur<br />Schoolvakanties: 09:00 tot 15:00 uur</p>' });
+  - contactOptions['metaContents'].push({ title: 'Liever bellen of appen?', content: '<p>Bellen: <a href="tel:0243530500">024 - 353 0500</a><br />WhatsApp: <a href="whatsapp:0625640470">06 - 25 64 04 70</a></p>' });
+  +section-contact('Direct antwoord',  'Vragen over de Pabo deeltijd of de verkorte Pabo opleiding?<br />Het HAN Voorlichtingscentrum geeft je direct antwoord.', contactOptions)
   +todo('shout for action')

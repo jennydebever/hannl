@@ -2177,6 +2177,67 @@ hr {
     padding-right: 20px;
   }
 }
+.section--contact .section__header {
+  width: 100%;
+}
+@media (min-width: 1024px) {
+  .section--contact .section__header {
+    padding-left: 8px;
+    padding-right: 8px;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -ms-flex-negative: 1;
+    flex-shrink: 1;
+    -webkit-flex-basis: auto;
+    -ms-flex-preferred-size: auto;
+    width: 83.33333%;
+    max-width: 1000px;
+    flex-basis: auto;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+@media (min-width: 1024px) and (min-width: 768px) {
+  .section--contact .section__header {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+@media (min-width: 1024px) and (min-width: 1024px) {
+  .section--contact .section__header {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+@media (min-width: 1024px) {
+  .section--contact .section__content {
+    padding-left: 8px;
+    padding-right: 8px;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -ms-flex-negative: 1;
+    flex-shrink: 1;
+    -webkit-flex-basis: auto;
+    -ms-flex-preferred-size: auto;
+    width: 83.33333%;
+    max-width: 1000px;
+    flex-basis: auto;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+@media (min-width: 1024px) and (min-width: 768px) {
+  .section--contact .section__content {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+@media (min-width: 1024px) and (min-width: 1024px) {
+  .section--contact .section__content {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
 .course-hero__image__picture {
   display: block;
   position: relative;
@@ -2304,6 +2365,11 @@ hr {
   margin-bottom: 1em;
   max-width: 800px;
 }
+.footer-wrapper,
+.textmedia {
+  -webkit-box-pack: center;
+  max-width: 1200px;
+}
 .course-hero__content__intro a {
   color: #e50056;
   text-decoration: underline;
@@ -2339,7 +2405,6 @@ hr {
   justify-content: center;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  max-width: 1200px;
   margin: 32px 0;
 }
 @media (min-width: 1024px) {
@@ -2682,11 +2747,6 @@ hr {
 .collapsible__title {
   margin: 0;
 }
-.footer,
-.footer-wrapper {
-  margin-left: auto;
-  margin-right: auto;
-}
 .collapsible__title__button {
   font-size: 18px;
   color: #000;
@@ -2744,21 +2804,6 @@ hr {
     right: 21px;
   }
 }
-.menu,
-.sitesearch {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 101;
-  width: 100vw;
-}
-.menu,
-.sitesearch,
-.takeover,
-.takeover__content {
-  right: 0;
-  bottom: 0;
-}
 .is-open .collapsible__title__button .icon-chevron {
   transform: rotate(-90deg);
 }
@@ -2774,13 +2819,6 @@ hr {
 .intro p {
   font-size: 18px;
 }
-.footer,
-.menu__close,
-.sitesearch__close,
-.skiplinks a,
-.takeover__close {
-  color: #fff;
-}
 .intro p a:focus,
 .intro p a:hover {
   text-decoration: none;
@@ -2788,6 +2826,37 @@ hr {
 .intro p p {
   font-family: AvenirNextLTW01-Medium, Avenir next, Avenir, sans-serif;
   font-size: 16px;
+}
+.contact--buttons {
+  position: relative;
+  margin: 40px 0;
+}
+.contact--buttons:before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: -999px;
+  top: 50%;
+  z-index: -1;
+  width: 9999px;
+  height: 1px;
+  background-color: #e3e3e3;
+}
+.menu,
+.sitesearch {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 101;
+  width: 100vw;
+  right: 0;
+  bottom: 0;
+}
+.contact--buttons--button {
+  display: inline-block;
+}
+.contact--meta-contents--meta-content {
+  margin-bottom: 2em;
 }
 @media (min-width: 768px) {
   .collapsible__content {
@@ -2800,11 +2869,69 @@ hr {
   .intro p {
     font-size: 22px;
   }
+  .contact--buttons--button + .contact--buttons--button {
+    margin-left: 16px;
+  }
+  .contact--meta-contents--meta-content {
+    display: inline-block;
+    margin-right: 32px;
+  }
 }
 @media (min-width: 1024px) {
   .intro p {
     font-size: 24px;
   }
+  .contact--buttons--button + .contact--buttons--button {
+    margin-left: 20px;
+  }
+  .contact--meta-contents--meta-content {
+    margin-right: 40px;
+  }
+}
+.footer,
+.footer-wrapper {
+  margin-left: auto;
+  margin-right: auto;
+}
+.contact--meta-contents--meta-content--title {
+  display: block;
+  margin-bottom: 1em;
+  font-family: Avenir Next LT W01 Demi, Avenir next, Avenir, sans-serif;
+  color: #262626;
+  font-size: 15px;
+}
+@media (min-width: 768px) {
+  .contact--meta-contents--meta-content--title {
+    font-size: 16px;
+  }
+}
+.contact--meta-contents--meta-content--content p {
+  margin-bottom: 1em;
+  font-family: AvenirNextLTW01-Medium, Avenir next, Avenir, sans-serif;
+  line-height: 1.6;
+  color: #454545;
+  font-size: 13px;
+}
+@media (min-width: 768px) {
+  .contact--meta-contents--meta-content--content p {
+    line-height: 1.7;
+    font-size: 14px;
+  }
+}
+.contact--meta-contents--meta-content--content a {
+  text-decoration: underline;
+  color: #000;
+}
+.footer,
+.menu__close,
+.sitesearch__close,
+.skiplinks a,
+.takeover__close {
+  color: #fff;
+}
+.contact--meta-contents--meta-content--content a:focus,
+.contact--meta-contents--meta-content--content a:hover {
+  text-decoration: none;
 }
 .sitesearch {
   opacity: 0;
@@ -2888,7 +3015,6 @@ hr {
   justify-content: center;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  max-width: 1200px;
 }
 .footer-body-wrapper {
   padding-left: 8px;
@@ -2928,6 +3054,8 @@ hr {
   }
 }
 .takeover {
+  right: 0;
+  bottom: 0;
   z-index: 200;
   width: 100vw;
   transform: scale3d(0, 0, 0);
@@ -2966,6 +3094,8 @@ hr {
   background-color: #fff;
   position: absolute;
   top: 0;
+  right: 0;
+  bottom: 0;
   left: 0;
   height: 100%;
   width: 100%;

@@ -115,3 +115,11 @@
 .section--facts-table {
   @include section-inner(10);
 }
+
+/**
+ * Contact
+ */
+
+.section--contact {
+  @include section-inner(10);
+}
