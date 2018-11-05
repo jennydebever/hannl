@@ -283,13 +283,29 @@ body {
   color: #000;
   background-color: #f8f8f8;
 }
-body.modal-is-open--coursenav {
+body.modal-is-open--coursenav,
+body.modal-is-open--takeover {
   overflow-y: hidden;
+}
+body.modal-is-closing--takeover,
+body.modal-is-opening--takeover,
+html:not([data-breakpoint="desktop"]) .coursenav-wrapper {
+  overflow-y: auto;
 }
 .main {
   background-color: #fff;
   margin: 0 auto;
   max-width: 1440px;
+  transform: scaleX(1);
+  transition: transform 1s ease-in-out;
+  transform-origin: top center;
+}
+.modal-is-open--takeover .main {
+  transform: scale3d(0.97, 0.97, 0.97);
+}
+.modal-is-closing--takeover .main {
+  transition-duration: 0.5s;
+  transform: scaleX(1);
 }
 .demo-grid-overlay {
   padding-left: 8px;
@@ -985,9 +1001,6 @@ html:not([data-breakpoint="desktop"]) .coursenav.is-open {
 html:not([data-breakpoint="desktop"]) .coursenav.is-closed {
   height: 100%;
   animation: c 0.4s cubic-bezier(0.05, 0, 0.002, 1) forwards;
-}
-html:not([data-breakpoint="desktop"]) .coursenav-wrapper {
-  overflow-y: auto;
 }
 html:not([data-breakpoint="desktop"]) .coursenav-wrapper::-webkit-scrollbar {
   width: 5px;
@@ -2648,11 +2661,16 @@ hr {
 .sitesearch {
   position: fixed;
   top: 0;
-  right: 0;
-  bottom: 0;
   left: 0;
   z-index: 101;
   width: 100vw;
+}
+.menu,
+.sitesearch,
+.takeover,
+.takeover__content {
+  right: 0;
+  bottom: 0;
 }
 .is-open .collapsible__title__button .icon-chevron {
   transform: rotate(-90deg);
@@ -2672,7 +2690,8 @@ hr {
 .footer,
 .menu__close,
 .sitesearch__close,
-.skiplinks a {
+.skiplinks a,
+.takeover__close {
   color: #fff;
 }
 .intro p a:focus,
@@ -2712,16 +2731,11 @@ hr {
 .sitesearch.is-closed {
   transform: scaleX(1);
   opacity: 1;
-  animation: g 0.4s cubic-bezier(0.05, 0, 0.002, 1) forwards;
+  animation: j 0.4s cubic-bezier(0.05, 0, 0.002, 1) forwards;
 }
 @keyframes f {
   to {
     opacity: 1;
-  }
-}
-@keyframes g {
-  to {
-    opacity: 0;
   }
 }
 .menu {
@@ -2736,7 +2750,7 @@ hr {
 .menu.is-closed {
   transform: scaleX(1);
   opacity: 1;
-  animation: g 0.4s cubic-bezier(0.05, 0, 0.002, 1) forwards;
+  animation: j 0.4s cubic-bezier(0.05, 0, 0.002, 1) forwards;
 }
 .skiplinks a {
   position: absolute;
@@ -2746,11 +2760,15 @@ hr {
   font-weight: 400;
   height: 0;
 }
-.skiplinks a:focus {
-  height: auto;
+.skiplinks a:focus,
+.takeover,
+.takeover__background {
   position: fixed;
   left: 0;
   top: 0;
+}
+.skiplinks a:focus {
+  height: auto;
   z-index: 2000;
   opacity: 1;
   display: inline-block;
@@ -2819,6 +2837,103 @@ hr {
     padding-left: 20px;
     padding-right: 20px;
   }
+}
+@keyframes g {
+  to {
+    transform: translateZ(0);
+  }
+}
+@keyframes h {
+  to {
+    transform: translate3d(0, 100vh, 0);
+  }
+}
+.takeover {
+  z-index: 200;
+  width: 100vw;
+  transform: scale3d(0, 0, 0);
+}
+.takeover.is-closed,
+.takeover.is-open {
+  transform: scaleX(1);
+}
+@keyframes i {
+  to {
+    opacity: 0.5;
+  }
+}
+@keyframes j {
+  to {
+    opacity: 0;
+  }
+}
+.takeover__background {
+  display: block;
+  z-index: 199;
+  right: 0;
+  bottom: 0;
+  background-color: #000;
+  opacity: 0;
+}
+.is-open .takeover__background {
+  animation: i 1s cubic-bezier(0.05, 0, 0.002, 1) forwards;
+}
+.is-closed .takeover__background {
+  opacity: 0.5;
+  animation: j 0.5s cubic-bezier(0.05, 0, 0.002, 1) forwards;
+}
+.takeover__content {
+  z-index: 202;
+  background-color: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  transform: translate3d(0, 100vh, 0);
+}
+.is-open .takeover__content {
+  animation: g 0.6s ease-in-out forwards;
+}
+.is-closed .takeover__content {
+  overflow: hidden;
+  transform: translateZ(0);
+  animation: h 0.4s ease-in-out forwards;
+}
+@keyframes k {
+  to {
+    transform: translate3d(-50%, 0, 0) translateX(0.5px);
+  }
+}
+@keyframes l {
+  to {
+    transform: translate3d(-50%, 200px, 0) translateX(0.5px);
+  }
+}
+.takeover__close {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  z-index: 203;
+  transform: translate3d(-50%, 200px, 0) translateX(0.5px);
+  background-color: #000;
+  padding: 20px;
+}
+.is-open .takeover__close {
+  animation-name: k;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+  animation-duration: 0.5s;
+  animation-delay: 0.1s;
+}
+.is-closed .takeover__close {
+  animation-name: l;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+  animation-duration: 0.4s;
+  animation-delay: 0;
 }
 .demo-theme-white {
   padding: 10px 10px 0;

@@ -4,6 +4,8 @@ include ../../components/nav/coursenav
 include ../../components/hero/course-hero
 include ../../components/content/line
 include ../../components/content/collapsibles
+include ../../components/content/takeover
+include ../../components/atoms/btn-primary
 
 block append vars
   - pageTitle.push('Deeltijd info');
@@ -15,6 +17,8 @@ block subnav
 block main
   +course-hero('vrouw-techniek.jpg', 'Praktische info')
     | Hoeveel tijd kost mijn deeltijdstudie? Wat zijn de toelatingseisen voor de Pabo, de studiekosten, vergoedingen, fiscale spelregels... Op deze pagina vind je alle praktische informatie over de deeltijd Pabo.
+
+  +btn-primary('Open modal', '#takeover1', 'external')
 
   +section-line
   +todo('mapaddress')
@@ -57,3 +61,7 @@ block main
 
   +todo('contact')
   +todo('scream for action')
+
+
+block takeover
+  +takeover()#takeover1

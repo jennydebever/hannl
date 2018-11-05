@@ -1,0 +1,139 @@
+@keyframes animate-takeover-in {
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes animate-takeover-out {
+  to {
+    transform: translate3d(0, 100vh, 0);
+  }
+}
+
+.takeover {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 200;
+  width: 100vw;
+  transform: scale3d(0, 0, 0);
+
+  &.is-open {
+    transform: scale3d(1, 1, 1);
+  }
+
+  &.is-closed {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+/**
+ * Black fading background
+ */
+
+@keyframes animate-takeover-background-in {
+  to {
+    opacity: 0.5;
+  }
+}
+
+@keyframes animate-takeover-background-out {
+  to {
+    opacity: 0;
+  }
+}
+
+.takeover__background {
+  display: block;
+  z-index: 199;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: $black;
+  opacity: 0;
+
+  .is-open & {
+    animation: animate-takeover-background-in 1s $ease forwards;
+  }
+
+  .is-closed & {
+    opacity: 0.5;
+    animation: animate-takeover-background-out 0.5s $ease forwards;
+  }
+}
+
+/**
+ * Content
+ */
+
+.takeover__content {
+  z-index: 202;
+  background-color: $white;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch; //sass-lint:disable-line no-misspelled-properties
+  transform: translate3d(0, 100vh, 0);
+
+  .is-open & {
+    animation: animate-takeover-in 0.6s ease-in-out forwards;
+  }
+
+  .is-closed & {
+    overflow: hidden;
+    transform: translate3d(0, 0, 0);
+    animation: animate-takeover-out 0.4s ease-in-out forwards;
+  }
+}
+
+/**
+ * Close button
+ */
+
+@keyframes animate-takeover-close-in {
+  to {
+    transform: translate3d(-50%, 0, 0) translateX(0.5px);
+  }
+}
+
+@keyframes animate-close-out {
+  to {
+    transform: translate3d(-50%, 200px, 0) translateX(0.5px);
+  }
+}
+
+.takeover__close {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  z-index: 203;
+  transform: translate3d(-50%, 200px, 0) translateX(0.5px);
+  background-color: $black;
+  color: $white;
+  padding: 20px;
+
+  .is-open & {
+    animation-name: animate-takeover-close-in;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+    animation-duration: 0.5s;
+    animation-delay: 0.1s;
+  }
+
+  .is-closed & {
+    animation-name: animate-close-out;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+    animation-duration: 0.4s;
+    animation-delay: 0;
+  }
+}

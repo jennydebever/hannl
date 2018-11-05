@@ -13,8 +13,14 @@ body {
   color: $black;
   background-color: $grey1;
 
-  &.modal-is-open--coursenav {
+  &.modal-is-open--coursenav,
+  &.modal-is-open--takeover {
     overflow-y: hidden;
+  }
+
+  &.modal-is-opening--takeover,
+  &.modal-is-closing--takeover {
+    overflow-y: auto;
   }
 }
 
@@ -26,6 +32,18 @@ body {
   background-color: $white;
   margin: 0 auto;
   max-width: 1440px;
+  transform: scale3d(1, 1, 1);
+  transition: transform 1s ease-in-out;
+  transform-origin: top center;
+
+  .modal-is-open--takeover & {
+    transform: scale3d(0.97, 0.97, 0.97);
+  }
+
+  .modal-is-closing--takeover & {
+    transition-duration: 0.5s;
+    transform: scale3d(1, 1, 1);
+  }
 }
 
 /**

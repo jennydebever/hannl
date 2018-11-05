@@ -7,13 +7,17 @@ var constants = require("../../../constants");
  */
 
 function onAnchorLinkClick(e) {
-  var href = e.target.getAttribute("href");
+  var href = e.delegateTarget.getAttribute("href");
   if (href.indexOf("#") !== 0) {
     return;
   }
 
   var $rel = document.getElementById(href.substring(1));
   if ($rel) {
+    if ($rel.hasAttribute("aria-modal")) {
+      return;
+    }
+
     e.preventDefault();
 
     dispatcher.dispatch({

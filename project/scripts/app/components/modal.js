@@ -13,36 +13,43 @@ var dispatcher = require("../dispatcher");
  *  <button type="button" aria-label="Close modal" aria-expanded="false" aria-controls="menu" class="js-modal-close">close</button>
  * </div>
  *
- * <button type="button" aria-label="Open modal" aria-expanded="false" aria-controls="menu" class="js-modal-open">close</button>
+ * <button type="button" aria-label="Open modal" aria-expanded="false" aria-controls="menu" class="js-modal-open">open</button>
  * <button type="button" aria-label="Toggle modal" aria-expanded="false" aria-controls="menu" class="js-modal-toggle">toggle</button>
  *
  * TODO: for now only 1 item can be opened at a time
  * things go wrong when more items are open at the same time
  * may need to be refactored to allow for multiple,
  * or at least to a point where things don't break
+ *
+ * TODO: url history for some modals?
  */
 
 /**
  * Show modal
  */
 
-var currentModal = null;
+var currentModalId = null;
+var currentModalType = null;
 
 function open(rel) {
   if (!rel) return;
 
-  if (currentModal) {
-    close(currentModal);
+  if (currentModalId) {
+    close(currentModalId);
   }
-
-  currentModal = rel;
 
   var $currentModal = document.getElementById(rel);
   if (!$currentModal) {
     return;
   }
 
+  currentModalId = rel;
+  currentModalType = $currentModal.getAttribute("data-modal") || currentModalId;
+
   function openAnimationEnd() {
+    // remove opening class
+    document.body.classList.remove(constants.MODAL_OPENING_CLASS);
+
     // stop listening to animationend
     $currentModal.removeEventListener("animationend", openAnimationEnd);
 
@@ -50,17 +57,17 @@ function open(rel) {
     document.addEventListener("keydown", onKeyDown, false);
 
     // toggle buttons aria-expanded attribute
-    var $$showButtons = document.querySelectorAll(".js-modal-show[aria-controls='" + currentModal + "']");
+    var $$showButtons = document.querySelectorAll(".js-modal-show[aria-controls='" + currentModalId + "']");
     for (var i = 0, l = $$showButtons.length; i < l; ++i) {
       $$showButtons[i].setAttribute("aria-expanded", true);
     }
 
-    var $$closeButtons = document.querySelectorAll(".js-modal-hide[aria-controls='" + currentModal + "']");
+    var $$closeButtons = document.querySelectorAll(".js-modal-hide[aria-controls='" + currentModalId + "']");
     for (i = 0, l = $$closeButtons.length; i < l; ++i) {
       $$closeButtons[i].setAttribute("aria-expanded", false);
     }
 
-    var $$toggleButtons = document.querySelectorAll(".js-modal-toggle[aria-controls='" + currentModal + "']");
+    var $$toggleButtons = document.querySelectorAll(".js-modal-toggle[aria-controls='" + currentModalId + "']");
     for (i = 0, l = $$toggleButtons.length; i < l; ++i) {
       $$toggleButtons[i].setAttribute("aria-expanded", true);
     }
@@ -86,7 +93,8 @@ function open(rel) {
 
   // add class to body
   document.body.classList.add(constants.MODAL_OPEN_CLASS);
-  document.body.classList.add(constants.MODAL_OPEN_CLASS + "--" + currentModal);
+  document.body.classList.add(constants.MODAL_OPEN_CLASS + "--" + currentModalType);
+  document.body.classList.add(constants.MODAL_OPENING_CLASS);
 
   // add class to element
   $currentModal.classList.add(constants.OPEN_CLASS);
@@ -115,16 +123,19 @@ delegate.bind(document.body, ".js-modal-open", "click", onOpenButtonClick);
  */
 
 function close(rel, cb) {
-  if (rel && rel !== currentModal) {
+  if (rel && rel !== currentModalId) {
     return;
   }
 
-  var $currentModal = document.getElementById(currentModal);
+  var $currentModal = document.getElementById(currentModalId);
   if (!$currentModal) {
     return;
   }
 
   function closeAnimationEnd() {
+    // remove closing class from body
+    document.body.classList.remove(constants.MODAL_CLOSING_CLASS);
+
     // stop listening for keydown
     document.removeEventListener("keydown", onKeyDown);
 
@@ -142,23 +153,23 @@ function close(rel, cb) {
 
     // remove class from body
     document.body.classList.remove(constants.MODAL_OPEN_CLASS);
-    document.body.classList.remove(constants.MODAL_OPEN_CLASS + "--" + currentModal);
+    document.body.classList.remove(constants.MODAL_OPEN_CLASS + "--" + currentModalType);
 
     // enable focus outside of modal
     focusTrap.disable();
 
     // toggle buttons aria-expanded attribute
-    var $$showButtons = document.querySelectorAll(".js-modal-show[aria-controls='" + currentModal + "']");
+    var $$showButtons = document.querySelectorAll(".js-modal-show[aria-controls='" + currentModalId + "']");
     for (var i = 0, l = $$showButtons.length; i < l; ++i) {
       $$showButtons[i].setAttribute("aria-expanded", true);
     }
 
-    var $$closeButtons = document.querySelectorAll(".js-modal-hide[aria-controls='" + currentModal + "']");
+    var $$closeButtons = document.querySelectorAll(".js-modal-hide[aria-controls='" + currentModalId + "']");
     for (i = 0, l = $$closeButtons.length; i < l; ++i) {
       $$closeButtons[i].setAttribute("aria-expanded", false);
     }
 
-    var $$toggleButtons = document.querySelectorAll(".js-modal-toggle[aria-controls='" + currentModal + "']");
+    var $$toggleButtons = document.querySelectorAll(".js-modal-toggle[aria-controls='" + currentModalId + "']");
     for (i = 0, l = $$toggleButtons.length; i < l; ++i) {
       $$toggleButtons[i].setAttribute("aria-expanded", false);
     }
@@ -169,7 +180,8 @@ function close(rel, cb) {
       target: $currentModal
     });
 
-    currentModal = null;
+    currentModalId = null;
+    currentModalType = null;
 
     if (cb) cb();
   }
@@ -185,6 +197,9 @@ function close(rel, cb) {
 
   // start closing
   $currentModal.classList.add(constants.CLOSED_CLASS);
+  document.body.classList.add(constants.MODAL_CLOSING_CLASS);
+
+  history.pushState("", "", window.location.pathname);
 }
 
 /**
@@ -258,3 +273,21 @@ function onRequestClose(e) {
 }
 
 dispatcher.on(constants.REQUEST_MODAL_CLOSE, onRequestClose);
+
+/**
+ * Catch hash change
+ */
+
+function onPopState() {
+  if (location.hash) {
+    try {
+      open(location.hash.substring(1));
+    } catch (err) {
+      console.log(err);
+    }
+  } else {
+    close(null);
+  }
+}
+onPopState();
+window.addEventListener("popstate", onPopState);

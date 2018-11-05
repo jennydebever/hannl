@@ -11,6 +11,8 @@ var classes = {
   CLOSED_CLASS: "is-closed",
   INVIEW_CLASS: "is-inview",
   MODAL_OPEN_CLASS: "modal-is-open",
+  MODAL_OPENING_CLASS: "modal-is-opening",
+  MODAL_CLOSING_CLASS: "modal-is-closing",
   SCROLLING_UP_CLASS: "is-scrolling-up",
   SCROLLED_TOP_CLASS: "is-scrolled-to-top",
   SCROLLED_BOTTOM_CLASS: "is-scrolled-to-bottom",

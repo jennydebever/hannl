@@ -1,6 +1,7 @@
 extends ./_deeltijd
 include ../../utils/todo
 include ../../components/nav/coursenav
+include ../../components/content/line
 
 block append vars
   - pageTitle.push('Deeltijd');
@@ -18,5 +19,8 @@ block main
   +todo('textmedia')
   +todo('textmedia highlight')
   +todo('link lists')
+
+  +section-line
+
   +todo('contact')
   +todo('shout for action')

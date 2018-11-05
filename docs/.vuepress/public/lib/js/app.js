@@ -2930,13 +2930,17 @@ object-assign
          */
 
         function onAnchorLinkClick(e) {
-          var href = e.target.getAttribute("href");
+          var href = e.delegateTarget.getAttribute("href");
           if (href.indexOf("#") !== 0) {
             return;
           }
 
           var $rel = document.getElementById(href.substring(1));
           if ($rel) {
+            if ($rel.hasAttribute("aria-modal")) {
+              return;
+            }
+
             e.preventDefault();
 
             dispatcher.dispatch({
@@ -3174,36 +3178,43 @@ object-assign
          *  <button type="button" aria-label="Close modal" aria-expanded="false" aria-controls="menu" class="js-modal-close">close</button>
          * </div>
          *
-         * <button type="button" aria-label="Open modal" aria-expanded="false" aria-controls="menu" class="js-modal-open">close</button>
+         * <button type="button" aria-label="Open modal" aria-expanded="false" aria-controls="menu" class="js-modal-open">open</button>
          * <button type="button" aria-label="Toggle modal" aria-expanded="false" aria-controls="menu" class="js-modal-toggle">toggle</button>
          *
          * TODO: for now only 1 item can be opened at a time
          * things go wrong when more items are open at the same time
          * may need to be refactored to allow for multiple,
          * or at least to a point where things don't break
+         *
+         * TODO: url history for some modals?
          */
 
         /**
          * Show modal
          */
 
-        var currentModal = null;
+        var currentModalId = null;
+        var currentModalType = null;
 
         function open(rel) {
           if (!rel) return;
 
-          if (currentModal) {
-            close(currentModal);
+          if (currentModalId) {
+            close(currentModalId);
           }
-
-          currentModal = rel;
 
           var $currentModal = document.getElementById(rel);
           if (!$currentModal) {
             return;
           }
 
+          currentModalId = rel;
+          currentModalType = $currentModal.getAttribute("data-modal") || currentModalId;
+
           function openAnimationEnd() {
+            // remove opening class
+            document.body.classList.remove(constants.MODAL_OPENING_CLASS);
+
             // stop listening to animationend
             $currentModal.removeEventListener("animationend", openAnimationEnd);
 
@@ -3211,17 +3222,17 @@ object-assign
             document.addEventListener("keydown", onKeyDown, false);
 
             // toggle buttons aria-expanded attribute
-            var $$showButtons = document.querySelectorAll(".js-modal-show[aria-controls='" + currentModal + "']");
+            var $$showButtons = document.querySelectorAll(".js-modal-show[aria-controls='" + currentModalId + "']");
             for (var i = 0, l = $$showButtons.length; i < l; ++i) {
               $$showButtons[i].setAttribute("aria-expanded", true);
             }
 
-            var $$closeButtons = document.querySelectorAll(".js-modal-hide[aria-controls='" + currentModal + "']");
+            var $$closeButtons = document.querySelectorAll(".js-modal-hide[aria-controls='" + currentModalId + "']");
             for (i = 0, l = $$closeButtons.length; i < l; ++i) {
               $$closeButtons[i].setAttribute("aria-expanded", false);
             }
 
-            var $$toggleButtons = document.querySelectorAll(".js-modal-toggle[aria-controls='" + currentModal + "']");
+            var $$toggleButtons = document.querySelectorAll(".js-modal-toggle[aria-controls='" + currentModalId + "']");
             for (i = 0, l = $$toggleButtons.length; i < l; ++i) {
               $$toggleButtons[i].setAttribute("aria-expanded", true);
             }
@@ -3247,7 +3258,8 @@ object-assign
 
           // add class to body
           document.body.classList.add(constants.MODAL_OPEN_CLASS);
-          document.body.classList.add(constants.MODAL_OPEN_CLASS + "--" + currentModal);
+          document.body.classList.add(constants.MODAL_OPEN_CLASS + "--" + currentModalType);
+          document.body.classList.add(constants.MODAL_OPENING_CLASS);
 
           // add class to element
           $currentModal.classList.add(constants.OPEN_CLASS);
@@ -3276,16 +3288,19 @@ object-assign
          */
 
         function close(rel, cb) {
-          if (rel && rel !== currentModal) {
+          if (rel && rel !== currentModalId) {
             return;
           }
 
-          var $currentModal = document.getElementById(currentModal);
+          var $currentModal = document.getElementById(currentModalId);
           if (!$currentModal) {
             return;
           }
 
           function closeAnimationEnd() {
+            // remove closing class from body
+            document.body.classList.remove(constants.MODAL_CLOSING_CLASS);
+
             // stop listening for keydown
             document.removeEventListener("keydown", onKeyDown);
 
@@ -3303,23 +3318,23 @@ object-assign
 
             // remove class from body
             document.body.classList.remove(constants.MODAL_OPEN_CLASS);
-            document.body.classList.remove(constants.MODAL_OPEN_CLASS + "--" + currentModal);
+            document.body.classList.remove(constants.MODAL_OPEN_CLASS + "--" + currentModalType);
 
             // enable focus outside of modal
             focusTrap.disable();
 
             // toggle buttons aria-expanded attribute
-            var $$showButtons = document.querySelectorAll(".js-modal-show[aria-controls='" + currentModal + "']");
+            var $$showButtons = document.querySelectorAll(".js-modal-show[aria-controls='" + currentModalId + "']");
             for (var i = 0, l = $$showButtons.length; i < l; ++i) {
               $$showButtons[i].setAttribute("aria-expanded", true);
             }
 
-            var $$closeButtons = document.querySelectorAll(".js-modal-hide[aria-controls='" + currentModal + "']");
+            var $$closeButtons = document.querySelectorAll(".js-modal-hide[aria-controls='" + currentModalId + "']");
             for (i = 0, l = $$closeButtons.length; i < l; ++i) {
               $$closeButtons[i].setAttribute("aria-expanded", false);
             }
 
-            var $$toggleButtons = document.querySelectorAll(".js-modal-toggle[aria-controls='" + currentModal + "']");
+            var $$toggleButtons = document.querySelectorAll(".js-modal-toggle[aria-controls='" + currentModalId + "']");
             for (i = 0, l = $$toggleButtons.length; i < l; ++i) {
               $$toggleButtons[i].setAttribute("aria-expanded", false);
             }
@@ -3330,7 +3345,8 @@ object-assign
               target: $currentModal
             });
 
-            currentModal = null;
+            currentModalId = null;
+            currentModalType = null;
 
             if (cb) cb();
           }
@@ -3346,6 +3362,9 @@ object-assign
 
           // start closing
           $currentModal.classList.add(constants.CLOSED_CLASS);
+          document.body.classList.add(constants.MODAL_CLOSING_CLASS);
+
+          history.pushState("", "", window.location.pathname);
         }
 
         /**
@@ -3419,6 +3438,24 @@ object-assign
         }
 
         dispatcher.on(constants.REQUEST_MODAL_CLOSE, onRequestClose);
+
+        /**
+         * Catch hash change
+         */
+
+        function onPopState() {
+          if (location.hash) {
+            try {
+              open(location.hash.substring(1));
+            } catch (err) {
+              console.log(err);
+            }
+          } else {
+            close(null);
+          }
+        }
+        onPopState();
+        window.addEventListener("popstate", onPopState);
       },
       { "../../constants": 34, "../dispatcher": 25, "../ui/focus-trap": 28, "delegate-events": 4 }
     ],
@@ -4235,6 +4272,8 @@ object-assign
           CLOSED_CLASS: "is-closed",
           INVIEW_CLASS: "is-inview",
           MODAL_OPEN_CLASS: "modal-is-open",
+          MODAL_OPENING_CLASS: "modal-is-opening",
+          MODAL_CLOSING_CLASS: "modal-is-closing",
           SCROLLING_UP_CLASS: "is-scrolling-up",
           SCROLLED_TOP_CLASS: "is-scrolled-to-top",
           SCROLLED_BOTTOM_CLASS: "is-scrolled-to-bottom",
