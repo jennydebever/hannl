@@ -85,7 +85,7 @@
   transform: translate3d(0, 100vh, 0);
 
   .is-open & {
-    animation: animate-takeover-in 0.6s ease-in-out forwards;
+    animation: animate-takeover-in 0.4s ease-in-out forwards;
   }
 
   .is-closed & {

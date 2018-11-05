@@ -297,14 +297,14 @@ html:not([data-breakpoint="desktop"]) .coursenav-wrapper {
   margin: 0 auto;
   max-width: 1440px;
   transform: scaleX(1);
-  transition: transform 1s ease-in-out;
+  transition: transform 0.5s ease-in-out;
   transform-origin: top center;
 }
 .modal-is-open--takeover .main {
   transform: scale3d(0.97, 0.97, 0.97);
 }
 .modal-is-closing--takeover .main {
-  transition-duration: 0.5s;
+  transition-duration: 0.25s;
   transform: scaleX(1);
 }
 .demo-grid-overlay {
@@ -2895,7 +2895,7 @@ hr {
   transform: translate3d(0, 100vh, 0);
 }
 .is-open .takeover__content {
-  animation: g 0.6s ease-in-out forwards;
+  animation: g 0.4s ease-in-out forwards;
 }
 .is-closed .takeover__content {
   overflow: hidden;
