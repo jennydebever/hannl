@@ -84,8 +84,13 @@
     border-bottom: solid 1px $grey2;
 
     th {
-      font-family: $bold;
+      font-family: $demi;
       vertical-align: top;
+      color: $grey6;
+    }
+
+    td {
+      color: $grey5;
     }
 
     th,

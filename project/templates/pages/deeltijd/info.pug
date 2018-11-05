@@ -4,6 +4,7 @@ include ../../components/nav/coursenav
 include ../../components/hero/course-hero
 include ../../components/content/line
 include ../../components/content/collapsibles
+include ../../components/content/facts-table
 include ../../components/content/takeover
 include ../../components/atoms/btn-primary
 
@@ -28,7 +29,23 @@ block main
   - items.push({ title: 'Eten en drinken', body: '<p>…</p>', is_open: false })
   +section-collapsibles(null, items)
 
-  +todo('facts table')
+  - var items = [];
+  - items.push(['Diploma', 'Bachelor (HBO)'])
+  - items.push(['Accreditatie', '?'])
+  - items.push(['Vorm', 'Deeltijd'])
+  - items.push(['Voertaal', 'Nederlands'])
+  - items.push(['Startdatum', 'februari, september'])
+  - items.push(['Tijdsduur', '4 jaar, eventueel 2,5 jaar<br><a href="#takeover1">Bekijk vrijstellingen</a>'])
+  - items.push(['Studiepunten', '?'])
+  - items.push(['Investering', '?'])
+  - items.push(['Studiebelasting', 'x uur per week'])
+  - items.push(['Contacturen', '8'])
+  - items.push(['Zelfstudie-uren', '10 - 20'])
+  - items.push(['Werkplek-uren', '8 - 12 uur per week'])
+  - items.push(['Lesdagen', 'woensdag (september) of maandag (februari)'])
+  - items.push(['Lestijden', '13:45 - 20:45'])
+  - items.push(['Locatie', 'Kapittelweg 35, Nijmegen'])
+  +section-facts-table('Studiefeiten Opleiding Pabo 2019/2020', items)
 
   - var items = [];
   - items.push({ title: 'Toelatingseisen 2018/2019', body: '<ul><li>Heb je een vwo- of een bachelordiploma? Dan kun je zonder toelatingstoetsen starten met de deeltijdpabo. </li><li>Met een bachelor- of wo-diploma kun je ook meteen starten met de verkorte deeltijdopleiding van 2,5 jaar.</li><li>Met een havo-diploma moet je examen hebben gedaan in Natuur & Techniek en de vakken geschiedenis en aardrijkskunde.</li></ul><p>In alle andere gevallen moet je aantonen dat je voldoende kennis hebt voor de 3 vakgebieden Natuur & Techniek, geschiedenis en aardrijkskunde. Daarvoor kun je toelatingstoetsen doen. Slaag je voor deze toetsen, dan kun je starten met de Pabo.</p><p>Op de website goedvoorbereidnaardepabo.nl vind je alle informatie die je nodig hebt om je voor te bereiden op de toelatingstoetsen. Je kunt ook meedoen aan de ondersteuningslessen van de HAN: in het voorjaar 2019 zijn er lessen voor alle vakken.</p>', is_open: true })
@@ -65,3 +82,4 @@ block main
 
 block takeover
   +takeover()#takeover1
+    | takeover 1

@@ -1500,8 +1500,12 @@ html:not([data-breakpoint="desktop"]) .coursenav-dropdown__item__link:hover {
   border-bottom: 1px solid #e3e3e3;
 }
 .richtext table th {
-  font-family: Avenir Next LT W01 Bold, Avenir next, Avenir, sans-serif;
+  font-family: Avenir Next LT W01 Demi, Avenir next, Avenir, sans-serif;
   vertical-align: top;
+  color: #262626;
+}
+.richtext table td {
+  color: #454545;
 }
 .richtext table td,
 .richtext table th {
@@ -1646,17 +1650,17 @@ html:not([data-breakpoint="desktop"]) .coursenav-dropdown__item__link:hover {
   width: 5px;
   border-radius: 50%;
 }
-.section,
-.section__content {
-  width: 100%;
-}
 .richtext-small table {
   width: 100%;
   border-bottom: 1px solid #e3e3e3;
 }
 .richtext-small table th {
-  font-family: Avenir Next LT W01 Bold, Avenir next, Avenir, sans-serif;
+  font-family: Avenir Next LT W01 Demi, Avenir next, Avenir, sans-serif;
   vertical-align: top;
+  color: #262626;
+}
+.richtext-small table td {
+  color: #454545;
 }
 .richtext-small table td,
 .richtext-small table th {
@@ -1880,9 +1884,19 @@ hr {
   border: 0;
   border-top: 1px solid #e3e3e3;
 }
+.table-wrapper {
+  margin-bottom: 1.5em;
+  width: 100%;
+  -webkit-overflow-scrolling: touch;
+  overflow-x: auto;
+}
+.table-wrapper:only-child {
+  margin-bottom: 0;
+}
 .section {
   padding-left: 8px;
   padding-right: 8px;
+  width: 100%;
   position: relative;
   overflow: hidden;
   margin: 100px 0;
@@ -1922,6 +1936,9 @@ hr {
   font-family: AvenirNextLTW01-BoldCn, Avenir next, Avenir, sans-serif;
   display: block;
   text-transform: uppercase;
+}
+.section__content {
+  width: 100%;
 }
 .section__header__title__eyebrow {
   font-size: 15px;
@@ -2086,6 +2103,71 @@ hr {
     padding-right: 16px;
   }
 }
+.section--facts-table .section__header {
+  width: 100%;
+}
+@media (min-width: 1024px) {
+  .section--line .section__content {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .section--facts-table .section__header {
+    padding-left: 8px;
+    padding-right: 8px;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -ms-flex-negative: 1;
+    flex-shrink: 1;
+    -webkit-flex-basis: auto;
+    -ms-flex-preferred-size: auto;
+    width: 83.33333%;
+    max-width: 1000px;
+    flex-basis: auto;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+@media (min-width: 1024px) and (min-width: 768px) {
+  .section--facts-table .section__header {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+@media (min-width: 1024px) and (min-width: 1024px) {
+  .section--facts-table .section__header {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+@media (min-width: 1024px) {
+  .section--facts-table .section__content {
+    padding-left: 8px;
+    padding-right: 8px;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -ms-flex-negative: 1;
+    flex-shrink: 1;
+    -webkit-flex-basis: auto;
+    -ms-flex-preferred-size: auto;
+    width: 83.33333%;
+    max-width: 1000px;
+    flex-basis: auto;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+@media (min-width: 1024px) and (min-width: 768px) {
+  .section--facts-table .section__content {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+@media (min-width: 1024px) and (min-width: 1024px) {
+  .section--facts-table .section__content {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
 .course-hero__image__picture {
   display: block;
   position: relative;
@@ -2094,10 +2176,6 @@ hr {
   overflow: hidden;
 }
 @media (min-width: 1024px) {
-  .section--line .section__content {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
   .course-hero__image__picture {
     height: 540px;
   }
@@ -2803,18 +2881,6 @@ hr {
   flex-wrap: wrap;
   max-width: 1200px;
 }
-.demo-theme-black .btn-primary,
-.demo-theme-black .btn-secondary,
-.demo-theme-black .strong-link,
-.demo-theme-red .btn-primary,
-.demo-theme-red .btn-secondary,
-.demo-theme-red .strong-link,
-.demo-theme-white .btn-primary,
-.demo-theme-white .btn-secondary,
-.demo-theme-white .strong-link {
-  margin-right: 10px;
-  margin-bottom: 10px;
-}
 .footer-body-wrapper {
   padding-left: 8px;
   padding-right: 8px;
@@ -2830,6 +2896,10 @@ hr {
   .footer-body-wrapper {
     padding-left: 16px;
     padding-right: 16px;
+  }
+  .tippy-tooltip .icon-info {
+    max-width: 12px;
+    max-height: 12px;
   }
 }
 @media (min-width: 1024px) {
@@ -2934,6 +3004,72 @@ hr {
   animation-timing-function: ease-in-out;
   animation-duration: 0.4s;
   animation-delay: 0;
+}
+.tippy-tooltip {
+  outline: 0;
+  background-color: #fff;
+  padding: 0;
+  margin-left: 5px;
+}
+[data-whatinput="keyboard"] .tippy-tooltip:focus {
+  outline: 1px solid rgba(229, 0, 86, 0.75);
+  outline-offset: 3px;
+}
+.tippy-tooltip .icon-info {
+  fill: #e50056;
+  transition: fill 0.1s;
+  max-width: 12px;
+  max-height: 12px;
+  display: inline;
+}
+.tippy-tooltip.light-theme {
+  color: #454545;
+  box-shadow: 0 0 20px 4px rgba(154, 161, 177, 0.15), 0 4px 80px -8px rgba(36, 40, 47, 0.25),
+    0 4px 4px -2px rgba(91, 94, 105, 0.15);
+}
+.tippy-tooltip.light-theme .tippy-roundarrow {
+  fill: #fff;
+}
+.tooltip__content {
+  padding: 28px 24px;
+  text-align: left;
+}
+.tooltip__content:focus {
+  outline: 0;
+}
+.tooltip__content__header {
+  font-family: AvenirNextLTW01-BoldCn, Avenir next, Avenir, sans-serif;
+  font-size: 15px;
+  text-transform: uppercase;
+  text-transform: none;
+}
+@media (min-width: 768px) {
+  .tooltip__content__header {
+    font-size: 18px;
+  }
+}
+@media (min-width: 1024px) {
+  .tooltip__content__header {
+    font-size: 19px;
+  }
+}
+.tooltip__content__text {
+  font-family: AvenirNextLTW01-Medium, Avenir next, Avenir, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 18px;
+}
+.demo-theme-black .btn-primary,
+.demo-theme-black .btn-secondary,
+.demo-theme-black .strong-link,
+.demo-theme-red .btn-primary,
+.demo-theme-red .btn-secondary,
+.demo-theme-red .strong-link,
+.demo-theme-white .btn-primary,
+.demo-theme-white .btn-secondary,
+.demo-theme-white .strong-link {
+  margin-right: 10px;
+  margin-bottom: 10px;
 }
 .demo-theme-white {
   padding: 10px 10px 0;

@@ -14,6 +14,8 @@ require("./components/hero/course-hero");
 require("./components/content/collapsibles");
 require("./components/content/section");
 require("./components/content/anchor-link");
+require("./components/content/tooltip");
+require("./components/content/table");
 require("./components/modal");
 require("./utils/video");
 require("./utils/grid");

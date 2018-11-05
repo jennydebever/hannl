@@ -107,3 +107,11 @@
     @include grid-item(12);
   }
 }
+
+/**
+ * Facts table
+ */
+
+.section--facts-table {
+  @include section-inner(10);
+}
