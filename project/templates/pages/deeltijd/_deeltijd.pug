@@ -1,4 +1,5 @@
 extends ../_base
+include ../../components/content/takeover
 
 block append vars
   - 
@@ -58,3 +59,7 @@ block append vars
       ]
     }
     ];
+
+block append takeover
+  +takeover()#pilot
+    | Welkom op de pilot van de nieuwe HAN.nl

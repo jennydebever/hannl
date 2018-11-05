@@ -1124,6 +1124,7 @@ html:not([data-breakpoint="desktop"]) .coursenav-dropdown__item__link {
 .tmpbar-wrapper {
   display: -ms-flexbox;
 }
+.tmpbar__message,
 html:not([data-breakpoint="desktop"]) .coursenav-dropdown__item__link:hover {
   text-decoration: none;
 }
@@ -1339,12 +1340,21 @@ html:not([data-breakpoint="desktop"]) .coursenav-dropdown__item__link:hover {
   left: 0;
 }
 .tmpbar__message {
+  outline: 0;
   font-family: Avenir Next LT W01 Demi, Avenir next, Avenir, sans-serif;
   color: #fff;
   -ms-flex-item-align: center;
   align-self: center;
   font-size: 13px;
   margin-left: 16px;
+}
+.richtext a,
+.tmpbar__message:hover {
+  text-decoration: underline;
+}
+[data-whatinput="keyboard"] .tmpbar__message:focus {
+  outline: 1px solid hsla(0, 0%, 100%, 0.75);
+  outline-offset: 3px;
 }
 @media (min-width: 500px) {
   .tmpbar__message {
@@ -1459,7 +1469,6 @@ html:not([data-breakpoint="desktop"]) .coursenav-dropdown__item__link:hover {
 }
 .richtext a {
   color: #e50056;
-  text-decoration: underline;
 }
 .richtext a:focus,
 .richtext a:hover {

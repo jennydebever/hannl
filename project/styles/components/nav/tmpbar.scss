@@ -102,11 +102,17 @@
  */
 
 .tmpbar__message {
+  @include focusable($white);
+  text-decoration: none;
   font-family: $demi;
   color: $white;
   align-self: center;
   font-size: 13px;
   margin-left: 16px;
+
+  &:hover {
+    text-decoration: underline;
+  }
 
   @include breakpoint($bp-s) {
     font-size: 14px;
