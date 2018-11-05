@@ -14,12 +14,15 @@
  * Text section
  */
 @mixin section-inner-self($max-columns: 8) {
+  @include grid-item(12);
+  flex-basis: auto;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+
   @include breakpoint($bp-l) {
     @include grid-item($max-columns);
     max-width: #{($container-width + 40px) / 100 * (100 / 12 * $max-columns)};
-    flex-basis: auto;
-    margin-left: auto;
-    margin-right: auto;
   }
 }
 
