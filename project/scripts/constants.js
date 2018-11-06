@@ -37,7 +37,8 @@ var events = keyMirror({
   EVENT_TAB_CHANGE: null,
   REQUEST_MODAL_OPEN: null,
   REQUEST_MODAL_CLOSE: null,
-  REQUEST_SCROLLTO: null
+  REQUEST_SCROLLTO: null,
+  REQUEST_PREVENT_SCROLL_BEHAVIOR: null
 });
 
 /**

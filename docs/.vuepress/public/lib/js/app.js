@@ -849,10 +849,10 @@
               function m(t) {
                 return +t.getAttribute("data-scrollama-index");
               }
-              function C() {
+              function T() {
                 window.pageYOffset > t ? (u = "down") : window.pageYOffset < t && (u = "up"), (t = window.pageYOffset);
               }
-              function T() {
+              function C() {
                 var t, e;
                 (a = window.innerHeight),
                   (t = document.body),
@@ -951,7 +951,7 @@
                   i.containerExit && "function" == typeof i.containerExit && i.containerExit(t);
               }
               function B(t) {
-                C(),
+                T(),
                   t.forEach(function(t) {
                     var e = t.isIntersecting,
                       n = t.boundingClientRect,
@@ -970,7 +970,7 @@
                   });
               }
               function j(t) {
-                C(),
+                T(),
                   t.forEach(function(t) {
                     var e = t.isIntersecting,
                       n = t.boundingClientRect,
@@ -986,7 +986,7 @@
                   });
               }
               function V(t) {
-                C(),
+                T(),
                   t.forEach(function(t) {
                     var e = t.isIntersecting,
                       n = t.target,
@@ -996,7 +996,7 @@
                   });
               }
               function Y(t) {
-                C(),
+                T(),
                   t.forEach(function(t) {
                     var e = t.isIntersecting,
                       n = t.target,
@@ -1006,7 +1006,7 @@
                   });
               }
               function F(t) {
-                C(),
+                T(),
                   t.forEach(function(t) {
                     var e = t.isIntersecting,
                       n = t.intersectionRatio,
@@ -1017,7 +1017,7 @@
                   });
               }
               function H(t) {
-                C();
+                T();
                 var e = t[0],
                   n = e.isIntersecting,
                   r = e.boundingClientRect,
@@ -1025,7 +1025,7 @@
                 -c < o && (n ? M() : "enter" === A.state && R());
               }
               function W(t) {
-                C();
+                T();
                 var e = t[0],
                   n = e.isIntersecting;
                 e.boundingClientRect.top < c && (n ? M() : "enter" === A.state && R());
@@ -1183,14 +1183,14 @@
                           return { direction: null, state: null };
                         })),
                         (A = { direction: null, state: null }),
-                        T(),
+                        C(),
                         k(!0))
                       : console.error("scrollama error: no step elements"),
                     U
                   );
                 }),
                 (U.resize = function() {
-                  return T(), U;
+                  return C(), U;
                 }),
                 (U.enable = function() {
                   return k(!0), U;
@@ -1305,21 +1305,21 @@
             function M(t) {
               return +t.replace(/px/, "");
             }
-            (t.slideDown = function(T) {
+            (t.slideDown = function(C) {
               var k = 1 < arguments.length && void 0 !== arguments[1] ? arguments[1] : {};
               return new e(function(t) {
                 if (
                   (k.onComplete && console.warn("options.onComplete will be deprecated. use 'then' instead"),
-                  -1 === N.findIndex(T))
+                  -1 === N.findIndex(C))
                 ) {
-                  var e = D(T),
+                  var e = D(C),
                     n = "number" == typeof k.endHeight,
                     r = k.display || "block",
                     o = k.duration || 400,
                     i = k.onComplete || function() {},
                     a = k.onCancelled || function() {},
-                    s = T.getAttribute("style") || "",
-                    p = window.getComputedStyle(T),
+                    s = C.getAttribute("style") || "",
+                    p = window.getComputedStyle(C),
                     c = (function(t, e) {
                       var n = t.getAttribute("style") || "",
                         r = window.getComputedStyle(t);
@@ -1341,7 +1341,7 @@
                         t.setAttribute("style", n),
                         { height: c, paddingTop: i, paddingBottom: a, borderTop: s, borderBottom: p }
                       );
-                    })(T, r),
+                    })(C, r),
                     l = /border-box/.test(p.getPropertyValue("box-sizing")),
                     d = c.height,
                     u = c.paddingTop,
@@ -1362,33 +1362,33 @@
                     A = h + "px";
                   if (y === L && g === _ && w === O && E === S && x === A) return i(), void t();
                   requestAnimationFrame(function() {
-                    (T.style.height = y),
-                      (T.style.paddingTop = g),
-                      (T.style.paddingBottom = w),
-                      (T.style.borderTopWidth = E),
-                      (T.style.borderBottomWidth = x),
-                      (T.style.display = r),
-                      (T.style.overflow = "hidden"),
-                      (T.style.visibility = "visible"),
-                      (T.style.transition = b),
-                      (T.style.webkitTransition = b),
+                    (C.style.height = y),
+                      (C.style.paddingTop = g),
+                      (C.style.paddingBottom = w),
+                      (C.style.borderTopWidth = E),
+                      (C.style.borderBottomWidth = x),
+                      (C.style.display = r),
+                      (C.style.overflow = "hidden"),
+                      (C.style.visibility = "visible"),
+                      (C.style.transition = b),
+                      (C.style.webkitTransition = b),
                       requestAnimationFrame(function() {
-                        (T.style.height = L),
-                          (T.style.paddingTop = _),
-                          (T.style.paddingBottom = O),
-                          (T.style.borderTopWidth = S),
-                          (T.style.borderBottomWidth = A);
+                        (C.style.height = L),
+                          (C.style.paddingTop = _),
+                          (C.style.paddingBottom = O),
+                          (C.style.borderTopWidth = S),
+                          (C.style.borderBottomWidth = A);
                       });
                   });
-                  var C = setTimeout(function() {
-                    I(T),
-                      (T.style.display = r),
-                      n && ((T.style.height = k.endHeight + "px"), (T.style.overflow = "hidden")),
-                      N.remove(T),
+                  var T = setTimeout(function() {
+                    I(C),
+                      (C.style.display = r),
+                      n && ((C.style.height = k.endHeight + "px"), (C.style.overflow = "hidden")),
+                      N.remove(C),
                       i(),
                       t();
                   }, o);
-                  N.add(T, s, C, a);
+                  N.add(C, s, T, a);
                 }
               });
             }),
@@ -1957,11 +1957,11 @@
                   d = t.split("-")[1];
                 return l + (d ? "-" + d : "");
               }
-              function C(t, e, n) {
+              function T(t, e, n) {
                 var r = 3 < arguments.length && void 0 !== arguments[3] ? arguments[3] : null;
                 return O(n, r ? S(e) : v(e, n), r);
               }
-              function T(t) {
+              function C(t) {
                 var e = getComputedStyle(t),
                   n = parseFloat(e.marginTop) + parseFloat(e.marginBottom),
                   r = parseFloat(e.marginLeft) + parseFloat(e.marginRight);
@@ -1975,7 +1975,7 @@
               }
               function N(t, e, n) {
                 n = n.split("-")[0];
-                var r = T(t),
+                var r = C(t),
                   o = { width: r.width, height: r.height },
                   i = -1 !== ["right", "left"].indexOf(n),
                   a = i ? "top" : "left",
@@ -2337,7 +2337,7 @@
                           d = l.toLowerCase(),
                           u = p ? "left" : "top",
                           f = p ? "bottom" : "right",
-                          m = T(r)[c];
+                          m = C(r)[c];
                         s[f] - m < a[d] && (t.offsets.popper[d] -= a[d] - (s[f] - m)),
                           s[d] + m > a[f] && (t.offsets.popper[d] += s[d] + m - a[f]),
                           (t.offsets.popper = L(t.offsets.popper));
@@ -2553,7 +2553,7 @@
                         );
                       },
                       onLoad: function(t, e, n, r, o) {
-                        var i = C(o, e, t, n.positionFixed),
+                        var i = T(o, e, t, n.positionFixed),
                           a = A(n.placement, i, e, t, n.modifiers.flip.boundariesElement, n.modifiers.flip.padding);
                         return (
                           e.setAttribute("x-placement", a),
@@ -2617,7 +2617,7 @@
                                 flipped: !1,
                                 offsets: {}
                               };
-                              (t.offsets.reference = C(
+                              (t.offsets.reference = T(
                                 this.state,
                                 this.popper,
                                 this.reference,
@@ -2928,22 +2928,22 @@
                   var n = t.match(e);
                   return n ? n[1].split(",").map(parseFloat) : [];
                 },
-                Ct = /translateX?Y?\(([^)]+)\)/,
-                Tt = /scaleX?Y?\(([^)]+)\)/,
+                Tt = /translateX?Y?\(([^)]+)\)/,
+                Ct = /scaleX?Y?\(([^)]+)\)/,
                 kt = function(t, e) {
                   var n = Rt(Et(t, tt.POPPER)),
                     r = "top" === n || "bottom" === n,
                     o = "right" === n || "bottom" === n,
                     i = {
-                      translate: { axis: St(e, "translate"), numbers: At(e, Ct) },
-                      scale: { axis: St(e, "scale"), numbers: At(e, Tt) }
+                      translate: { axis: St(e, "translate"), numbers: At(e, Tt) },
+                      scale: { axis: St(e, "scale"), numbers: At(e, Ct) }
                     },
                     a = e
                       .replace(
-                        Ct,
+                        Tt,
                         "translate" + _t(i.translate.axis, r) + "(" + Ot("translate", i.translate.numbers, r, o) + ")"
                       )
-                      .replace(Tt, "scale" + _t(i.scale.axis, r) + "(" + Ot("scale", i.scale.numbers, r, o) + ")");
+                      .replace(Ct, "scale" + _t(i.scale.axis, r) + "(" + Ot("scale", i.scale.numbers, r, o) + ")");
                   t.style[void 0 !== document.body.style.transform ? "transform" : "webkitTransform"] = a;
                 },
                 Nt = function(t, e) {
@@ -3202,10 +3202,10 @@
                     E();
                   }
                 }
-                function C(t) {
+                function T(t) {
                   Et(t.target, b.props.target) && w(t);
                 }
-                function T(t) {
+                function C(t) {
                   Et(t.target, b.props.target) && E();
                 }
                 function k(t) {
@@ -3287,13 +3287,13 @@
                       if (b.props.target)
                         switch (e) {
                           case "mouseenter":
-                            I("mouseover", C, t), I("mouseout", T, t);
+                            I("mouseover", T, t), I("mouseout", C, t);
                             break;
                           case "focus":
-                            I("focusin", C, t), I("focusout", T, t);
+                            I("focusin", T, t), I("focusout", C, t);
                             break;
                           case "click":
-                            I(e, C, t);
+                            I(e, T, t);
                         }
                       else
                         switch ((I(e, _, t), b.props.touchHold && (I("touchstart", _, t), I("touchend", S, t)), e)) {
@@ -3714,12 +3714,13 @@
     22: [
       function(t, e, n) {
         var r = t("delegate-events"),
-          c = t("find-parent"),
-          l = t("../../../constants");
+          l = t("find-parent"),
+          d = t("../../dispatcher"),
+          u = t("../../../constants");
         function o(t, e, n) {
           if (t && e) {
             for (
-              var r = c.byClassName(t, "js-tabs"), o = r.querySelectorAll(".js-tabs__button"), i = 0, a = o.length;
+              var r = l.byClassName(t, "js-tabs"), o = r.querySelectorAll(".js-tabs__button"), i = 0, a = o.length;
               i < a;
               ++i
             ) {
@@ -3727,16 +3728,19 @@
               s !== t && s.setAttribute("aria-expanded", !1);
             }
             t.setAttribute("aria-expanded", !0);
-            var p = new CustomEvent(l.EVENT_TAB_CHANGE, {
+            var p = new CustomEvent(u.EVENT_TAB_CHANGE, {
               bubbles: !0,
               detail: { target: t, rel: t.getAttribute("aria-controls") }
             });
-            r.dispatchEvent(p),
-              n ||
-                (e.setAttribute("tabIndex", "-1"),
-                setTimeout(function() {
-                  e.focus();
-                }, 0));
+            if ((r.dispatchEvent(p), !n)) {
+              e.setAttribute("tabIndex", "-1"), d.dispatch({ type: u.REQUEST_PREVENT_SCROLL_BEHAVIOR, yesno: !0 });
+              var c = window.scrollY;
+              setTimeout(function() {
+                e.focus(),
+                  window.scroll({ top: c }),
+                  d.dispatch({ type: u.REQUEST_PREVENT_SCROLL_BEHAVIOR, yesno: !1 });
+              }, 0);
+            }
           }
         }
         r.bind(document.body, ".js-tabs__button", "click", function(t) {
@@ -3746,11 +3750,11 @@
         });
         for (var i = document.querySelectorAll(".js-tabs"), a = 0, s = i.length; a < s; ++a) {
           var p = i[a].querySelector('.js-tabs__button[aria-expanded="true"]'),
-            d = p.getAttribute("aria-controls");
-          d && o(p, document.getElementById(d));
+            c = p.getAttribute("aria-controls");
+          c && o(p, document.getElementById(c));
         }
       },
-      { "../../../constants": 39, "delegate-events": 4, "find-parent": 6 }
+      { "../../../constants": 39, "../../dispatcher": 30, "delegate-events": 4, "find-parent": 6 }
     ],
     23: [
       function(t, e, n) {
@@ -4242,7 +4246,11 @@
                   document.body.classList.add(o.SCROLLED_FREE_CLASS);
           }
         }
-        c(), window.addEventListener("scroll", c, { passive: !0 });
+        c(),
+          window.addEventListener("scroll", c, { passive: !0 }),
+          r.on(o.REQUEST_PREVENT_SCROLL_BEHAVIOR, function(t) {
+            p = t.yesno;
+          });
         var l = document.querySelector(".js-nav-spacer");
         if (
           (r.on(o.REQUEST_SCROLLTO, function(t) {
@@ -4345,7 +4353,8 @@
               EVENT_TAB_CHANGE: null,
               REQUEST_MODAL_OPEN: null,
               REQUEST_MODAL_CLOSE: null,
-              REQUEST_SCROLLTO: null
+              REQUEST_SCROLLTO: null,
+              REQUEST_PREVENT_SCROLL_BEHAVIOR: null
             }),
             {
               KEY_ESCAPE: 27,

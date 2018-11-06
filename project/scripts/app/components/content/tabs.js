@@ -1,5 +1,6 @@
 var delegate = require("delegate-events");
 var findParent = require("find-parent");
+var dispatcher = require("../../dispatcher");
 var constants = require("../../../constants");
 
 /**
@@ -44,10 +45,25 @@ function show($btn, $content, setImmediate) {
     // make focusable
     $content.setAttribute("tabIndex", "-1");
 
+    dispatcher.dispatch({
+      type: constants.REQUEST_PREVENT_SCROLL_BEHAVIOR,
+      yesno: true
+    });
+
+    var scrollY = window.scrollY;
+
     // set focus for screenreaders
     // but move to the end of the stack for event to be handled
     setTimeout(function() {
       $content.focus();
+
+      // restore scroll position
+      window.scroll({ top: scrollY });
+
+      dispatcher.dispatch({
+        type: constants.REQUEST_PREVENT_SCROLL_BEHAVIOR,
+        yesno: false
+      });
     }, 0);
   }
 }
