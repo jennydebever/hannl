@@ -1,5 +1,4 @@
-// .link-list {
-// }
+// .link-list {}
 
 .link-list__item {
   position: relative;
@@ -19,6 +18,11 @@
 }
 
 .link-list__item__link {
+  @include focusable;
   @include p;
   color: $black;
+
+  &:hover {
+    text-decoration: none;
+  }
 }

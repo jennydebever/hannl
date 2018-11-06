@@ -3753,17 +3753,25 @@ hr {
   border-radius: 100%;
 }
 .link-list__item__link {
+  outline: 0;
   margin-bottom: 1em;
   font-family: AvenirNextLTW01-Medium, Avenir next, Avenir, sans-serif;
   font-size: 16px;
   line-height: 1.6;
   color: #000;
 }
+[data-whatinput="keyboard"] .link-list__item__link:focus {
+  outline: 1px solid rgba(0, 0, 0, 0.75);
+  outline-offset: 3px;
+}
 @media (min-width: 768px) {
   .link-list__item__link {
     font-size: 18px;
     line-height: 1.7;
   }
+}
+.link-list__item__link:hover {
+  text-decoration: none;
 }
 .sitesearch {
   position: fixed;
