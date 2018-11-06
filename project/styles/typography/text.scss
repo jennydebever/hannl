@@ -14,7 +14,7 @@
 }
 
 @mixin h1 {
-  @include margin-bottom-standard;
+  margin-bottom: 1em;
   font-family: $bold-condensed;
   font-size: 28px;
   text-transform: uppercase;
@@ -140,7 +140,7 @@
 
 // Also used for ul/ol
 @mixin p {
-  @include margin-bottom-standard;
+  margin-bottom: 1em;
   font-family: $medium;
   font-size: 16px;
   line-height: 1.6;

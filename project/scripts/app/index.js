@@ -16,6 +16,8 @@ require("./components/content/section");
 require("./components/content/anchor-link");
 require("./components/content/tooltip");
 require("./components/content/table");
+require("./components/content/locations");
+require("./components/content/tabs");
 require("./components/modal");
 require("./utils/video");
 require("./utils/grid");

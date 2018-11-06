@@ -6,6 +6,7 @@ include ../../components/content/line
 include ../../components/content/collapsibles
 include ../../components/content/facts-table
 include ../../components/content/takeover
+include ../../components/content/locations
 include ../../components/atoms/btn-primary
 
 block append vars
@@ -22,7 +23,11 @@ block main
   +btn-primary('Open modal', '#takeover1', 'external')
 
   +section-line
-  +todo('mapaddress')
+  
+  - var locations = [];
+  - locations.push({image: 'Arnhem-campus.jpg', street: 'Ruitenberglaan', number: '26', zipcode: '6826 CC', city: 'Arnhem', phone: '026-300 00 00', btn: { label: 'Bereken je reistijd', href: '#' }});
+  - locations.push({city: 'Nijmegen', image: 'Nijmegen-campus.jpg', street: 'Kapittelweg', number: '33', zipcode: '6525 EN', city: 'Nijmegen', phone: '024-353 00 00', btn: { label: 'Bereken je reistijd', href: '#' }});
+  +section-locations('De locaties van de opleiding', locations)
 
   - var items = [];
   - items.push({ title: 'Parkeergelegenheid', body: '<p>De HAN Campus is prima bereikbaar met de auto. Je parkeert je auto gratis.</p>', is_open: true })

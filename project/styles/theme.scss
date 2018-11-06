@@ -5,7 +5,6 @@
 @import "./libs/normalize";
 @import "./libs/reset";
 @import "./libs/breakpoint";
-@import "./libs/margins";
 @import "./libs/scrollbar";
 
 // common
@@ -33,6 +32,9 @@
 @import "./components/atoms/strong-link";
 @import "./components/atoms/hr";
 @import "./components/atoms/table";
+@import "./components/atoms/tabs";
+@import "./components/atoms/address";
+@import "./components/atoms/shadow";
 
 // components
 @import "./components/section";
@@ -40,6 +42,7 @@
 @import "./components/content/textmedia";
 @import "./components/content/collapsibles";
 @import "./components/content/intro";
+@import "./components/content/locations";
 
 // least important loading order
 @import "./components/nav/sitesearch";

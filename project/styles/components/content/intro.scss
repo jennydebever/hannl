@@ -6,6 +6,6 @@
   p {
     @include richtext-simple;
     @include lead;
-    @include margin-bottom-standard;
+    margin-bottom: 1em;
   }
 }

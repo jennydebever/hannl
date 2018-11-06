@@ -1,0 +1,157 @@
+.locations {
+  position: relative;
+
+  @include breakpoint($bp-m) {
+    margin-bottom: 56px;
+  }
+
+  @include breakpoint($bp-l) {
+    margin-bottom: 80px;
+  }
+}
+
+/**
+ * Wrapper
+ */
+
+.locations-wrapper {
+  width: 100%;
+  background: $white;
+  z-index: 1;
+
+  @include breakpoint($bp-m) {
+    @include shadow;
+    position: absolute;
+    width: 300px;
+    left: 60px;
+    bottom: -56px;
+  }
+
+  @include breakpoint($bp-l) {
+    left: 100px;
+    bottom: -80px;
+  }
+}
+
+/**
+ * Mobile images
+ */
+
+.locations__small-images {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: nowrap;
+
+  @include breakpoint($bp-m) {
+    display: none;
+  }
+}
+
+.locations__small-images__item {
+  width: 100%;
+  margin-bottom: -5px;
+  flex-basis: 100%;
+  flex-shrink: 0;
+  flex-grow: 1;
+  transition: transform 0.25s $ease;
+
+  img,
+  picture {
+    display: block;
+    width: 100%;
+  }
+}
+
+/**
+ * Tabs wrapper
+ */
+
+.locations__tabs {
+  position: relative;
+  z-index: 1;
+}
+
+/**
+ * Locations
+ */
+
+.locations__locations {
+  position: relative;
+  background-color: $white;
+  z-index: 1;
+  padding: 32px;
+
+  @include breakpoint($bp-m) {
+    padding: 40px;
+  }
+
+  @include breakpoint($bp-l) {
+    padding: 48px 28px 48px 48px;
+  }
+}
+
+.locations__locations__item {
+  display: none;
+
+  &.is-open {
+    display: block;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+/**
+ * Desktop images
+ */
+
+.locations__large-images {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: nowrap;
+
+  img,
+  picture {
+    display: block;
+    width: 100%;
+  }
+}
+
+.locations__large-images__item {
+  display: block;
+  flex-basis: 100%;
+  flex-shrink: 0;
+  flex-grow: 1;
+  transition: transform 0.25s $ease;
+}
+
+/**
+ * Location
+ */
+.address__body__title {
+  font-family: $bold;
+  text-decoration: none;
+  font-size: 20px;
+  line-height: 26px;
+  margin-bottom: 8px;
+}
+
+.address__body__text {
+  color: $grey5;
+  font-family: $medium;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 27px;
+  text-align: left;
+  text-decoration: underline;
+}
+
+.address__body__phone {
+  a {
+    color: $grey5;
+  }
+}

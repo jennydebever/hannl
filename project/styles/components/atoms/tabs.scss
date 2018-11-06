@@ -1,0 +1,36 @@
+.tabs {
+  height: 48px;
+  width: 100%;
+  color: $white;
+  background-color: $black;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 21px;
+  display: flex;
+  flex-direction: row;
+}
+
+.tabs__button {
+  @include focusable($hanred, 1px, -3px);
+  height: 100%;
+  width: 50%;
+  text-align: center;
+  background-color: $black;
+
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+
+  &[aria-expanded="true"] {
+    background-color: $white;
+    color: #272727;
+    font-weight: 600;
+
+    &:hover {
+      cursor: default;
+      text-decoration: none;
+    }
+  }
+}

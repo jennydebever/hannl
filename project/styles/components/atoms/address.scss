@@ -1,0 +1,35 @@
+// .address {}
+
+/**
+* Body
+*/
+
+.address__body {
+  a {
+    @include focusable($hanred);
+  }
+}
+
+.address__body__title {
+  font-family: $bold;
+  color: #0c011c;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 25px;
+}
+
+.address__body__text {
+  color: $black;
+}
+
+.address__body__phone {
+  color: $black;
+}
+
+/**
+ * Footer
+ */
+
+.address__footer {
+  padding-top: 18px;
+}

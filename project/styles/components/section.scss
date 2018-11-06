@@ -51,13 +51,13 @@
 
 .section__header__title__eyebrow {
   @include eyebrow;
-  @include margin-bottom-standard;
+  margin-bottom: 1em;
   display: block;
 }
 
 .section__header__title__text {
   @include h2;
-  @include margin-bottom-small;
+  margin-bottom: 0.5em;
   display: block;
 
   @include breakpoint($bp-m) {
@@ -67,7 +67,7 @@
 
 .section__header__intro {
   @include p;
-  @include margin-bottom-standard;
+  margin-bottom: 1em;
 }
 
 /**
@@ -117,4 +117,17 @@
 
 .section--facts-table {
   @include section-inner(10);
+}
+
+/**
+ * Locations
+ */
+
+.section--locations {
+  @include section-inner(12);
+
+  @include breakpoint($bp-m) {
+    padding-bottom: 30px; // compensate for bottom shadow
+    margin-bottom: -30px;
+  }
 }
