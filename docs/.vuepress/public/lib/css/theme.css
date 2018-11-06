@@ -2111,6 +2111,10 @@ hr {
     padding-left: 16px;
     padding-right: 16px;
   }
+  .section--link-list .link-list {
+    columns: 2;
+    column-gap: 32px;
+  }
 }
 .section--facts-table .section__header {
   width: 100%;
@@ -2177,6 +2181,67 @@ hr {
     padding-right: 20px;
   }
 }
+.section--link-list .section__header {
+  width: 100%;
+}
+@media (min-width: 1024px) {
+  .section--link-list .section__header {
+    padding-left: 8px;
+    padding-right: 8px;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -ms-flex-negative: 1;
+    flex-shrink: 1;
+    -webkit-flex-basis: auto;
+    -ms-flex-preferred-size: auto;
+    width: 83.33333%;
+    max-width: 1000px;
+    flex-basis: auto;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+@media (min-width: 1024px) and (min-width: 768px) {
+  .section--link-list .section__header {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+@media (min-width: 1024px) and (min-width: 1024px) {
+  .section--link-list .section__header {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+@media (min-width: 1024px) {
+  .section--link-list .section__content {
+    padding-left: 8px;
+    padding-right: 8px;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -ms-flex-negative: 1;
+    flex-shrink: 1;
+    -webkit-flex-basis: auto;
+    -ms-flex-preferred-size: auto;
+    width: 83.33333%;
+    max-width: 1000px;
+    flex-basis: auto;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+@media (min-width: 1024px) and (min-width: 768px) {
+  .section--link-list .section__content {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+@media (min-width: 1024px) and (min-width: 1024px) {
+  .section--link-list .section__content {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
 .course-hero__image__picture {
   display: block;
   position: relative;
@@ -2185,6 +2250,9 @@ hr {
   overflow: hidden;
 }
 @media (min-width: 1024px) {
+  .section--link-list .link-list {
+    column-gap: 40px;
+  }
   .course-hero__image__picture {
     height: 540px;
   }
@@ -2682,11 +2750,6 @@ hr {
 .collapsible__title {
   margin: 0;
 }
-.footer,
-.footer-wrapper {
-  margin-left: auto;
-  margin-right: auto;
-}
 .collapsible__title__button {
   font-size: 18px;
   color: #000;
@@ -2744,21 +2807,6 @@ hr {
     right: 21px;
   }
 }
-.menu,
-.sitesearch {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 101;
-  width: 100vw;
-}
-.menu,
-.sitesearch,
-.takeover,
-.takeover__content {
-  right: 0;
-  bottom: 0;
-}
 .is-open .collapsible__title__button .icon-chevron {
   transform: rotate(-90deg);
 }
@@ -2774,19 +2822,15 @@ hr {
 .intro p {
   font-size: 18px;
 }
-.footer,
-.menu__close,
-.sitesearch__close,
-.skiplinks a,
-.takeover__close {
-  color: #fff;
+.intro p p,
+.link-list__item__link {
+  font-family: AvenirNextLTW01-Medium, Avenir next, Avenir, sans-serif;
 }
 .intro p a:focus,
 .intro p a:hover {
   text-decoration: none;
 }
 .intro p p {
-  font-family: AvenirNextLTW01-Medium, Avenir next, Avenir, sans-serif;
   font-size: 16px;
 }
 @media (min-width: 768px) {
@@ -2804,6 +2848,55 @@ hr {
 @media (min-width: 1024px) {
   .intro p {
     font-size: 24px;
+  }
+}
+.link-list__item {
+  position: relative;
+  padding-left: 20px;
+  margin: 16px 0;
+}
+.footer,
+.footer-wrapper {
+  margin-left: auto;
+  margin-right: auto;
+}
+.link-list__item:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 6px;
+  height: 6px;
+  background-color: #e50056;
+  border-radius: 100%;
+}
+.menu,
+.sitesearch {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 101;
+  width: 100vw;
+  right: 0;
+  bottom: 0;
+}
+.link-list__item__link {
+  margin-bottom: 1em;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #000;
+}
+.footer,
+.menu__close,
+.sitesearch__close,
+.skiplinks a,
+.takeover__close {
+  color: #fff;
+}
+@media (min-width: 768px) {
+  .link-list__item__link {
+    font-size: 18px;
+    line-height: 1.7;
   }
 }
 .sitesearch {
@@ -2928,6 +3021,8 @@ hr {
   }
 }
 .takeover {
+  right: 0;
+  bottom: 0;
   z-index: 200;
   width: 100vw;
   transform: scale3d(0, 0, 0);
@@ -2966,6 +3061,8 @@ hr {
   background-color: #fff;
   position: absolute;
   top: 0;
+  right: 0;
+  bottom: 0;
   left: 0;
   height: 100%;
   width: 100%;

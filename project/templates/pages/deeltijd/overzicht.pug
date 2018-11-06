@@ -2,6 +2,7 @@ extends ./_deeltijd
 include ../../utils/todo
 include ../../components/nav/coursenav
 include ../../components/content/line
+include ../../components/content/link-list
 
 block append vars
   - pageTitle.push('Deeltijd');
@@ -18,9 +19,18 @@ block main
   +todo('shout for action')
   +todo('textmedia')
   +todo('textmedia highlight')
-  +todo('link lists')
+  
+  - var items = [];
+  - items.push({ label: 'Mijn eerste link.', href: 'https://han.nl' });
+  - items.push({ label: 'Mijn tweede link.', href: 'https://han.nl' });
+  - items.push({ label: 'Mijn derde link is een veel te lange link die over meerdere regels zal gaan.', href: 'https://han.nl' });
+  - items.push({ label: 'Mijn vierde link.', href: 'https://han.nl' });
+  - items.push({ label: 'Mijn vijfde financiering link.', href: 'https://han.nl' });
+  +section-link-list('Informatie voor het aanmelden', 'Zin om te starten? We wijzen je graag de weg.', items)
 
   +section-line
 
   +todo('contact')
   +todo('shout for action')
+  
+  
