@@ -125,9 +125,6 @@
 
 .section--locations {
   @include section-inner(12);
-
-  @include breakpoint($bp-m) {
-    padding-bottom: 30px; // compensate for bottom shadow
-    margin-bottom: -30px;
-  }
+  padding-bottom: 30px; // compensate for bottom shadow
+  margin-bottom: -30px;
 }

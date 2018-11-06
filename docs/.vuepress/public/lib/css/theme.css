@@ -2611,6 +2611,10 @@ hr {
     padding-right: 20px;
   }
 }
+.section--locations {
+  padding-bottom: 30px;
+  margin-bottom: -30px;
+}
 .section--locations .section__header {
   padding-left: 8px;
   padding-right: 8px;
@@ -2737,12 +2741,6 @@ hr {
 @media (min-width: 1024px) and (min-width: 1024px) {
   .section--locations .section__content {
     padding-right: 20px;
-  }
-}
-@media (min-width: 768px) {
-  .section--locations {
-    padding-bottom: 30px;
-    margin-bottom: -30px;
   }
 }
 .course-hero__image__picture {
@@ -3438,9 +3436,25 @@ hr {
 .locations {
   position: relative;
 }
+.locations:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 60px;
+  right: 30px;
+  bottom: 30px;
+  left: 30px;
+  background-color: #000;
+  z-index: 0;
+  border-radius: 30px;
+  box-shadow: 0 0 30px 30px rgba(0, 0, 0, 0.3);
+}
 @media (min-width: 768px) {
   .locations {
     margin-bottom: 56px;
+  }
+  .locations:after {
+    display: none;
   }
 }
 @media (min-width: 1024px) {
@@ -3452,11 +3466,12 @@ hr {
   width: 100%;
   background: #fff;
   z-index: 1;
+  position: relative;
 }
 @media (min-width: 768px) {
   .locations-wrapper {
     position: absolute;
-    width: 300px;
+    width: 310px;
     left: 60px;
     bottom: -56px;
   }
@@ -3464,10 +3479,10 @@ hr {
     content: "";
     display: block;
     position: absolute;
-    top: 30px;
-    right: 60px;
+    top: 60px;
+    right: 30px;
     bottom: 30px;
-    left: 60px;
+    left: 30px;
     background-color: #000;
     z-index: 0;
     border-radius: 30px;

@@ -1,8 +1,14 @@
 .locations {
+  @include shadow(60px, 30px, 30px, 30px);
   position: relative;
 
   @include breakpoint($bp-m) {
     margin-bottom: 56px;
+
+    // no shadow on wrapper for larger screens
+    &::after {
+      display: none;
+    }
   }
 
   @include breakpoint($bp-l) {
@@ -18,11 +24,12 @@
   width: 100%;
   background: $white;
   z-index: 1;
+  position: relative;
 
   @include breakpoint($bp-m) {
     @include shadow;
     position: absolute;
-    width: 300px;
+    width: 310px;
     left: 60px;
     bottom: -56px;
   }

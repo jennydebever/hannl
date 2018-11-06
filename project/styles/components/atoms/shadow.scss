@@ -1,12 +1,12 @@
-@mixin shadow {
+@mixin shadow($top: 60px, $right: 30px, $bottom: 30px, $left: 30px) {
   &::after {
     content: "";
     display: block;
     position: absolute;
-    top: 30px;
-    right: 60px;
-    bottom: 30px;
-    left: 60px;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
     background-color: $black;
     z-index: 0;
     border-radius: 30px;
