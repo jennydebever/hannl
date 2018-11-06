@@ -868,7 +868,6 @@ use {
     position: relative;
     z-index: 98;
     background-color: #f8f8f8;
-    border-bottom: 1px solid #e3e3e3;
   }
 }
 @media (min-width: 1024px) and (min-width: 768px) {
@@ -884,6 +883,17 @@ use {
   }
 }
 @media (min-width: 1024px) {
+  .coursenav:after {
+    content: "";
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    background-color: #e3e3e3;
+    z-index: -1;
+  }
   .coursenav.is-closed {
     animation: b 0 forwards;
   }
