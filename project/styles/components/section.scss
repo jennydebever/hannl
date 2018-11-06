@@ -128,3 +128,22 @@
   padding-bottom: 30px; // compensate for bottom shadow
   margin-bottom: -30px;
 }
+
+/*
+ * Link-list
+ */
+
+.section--link-list {
+  @include section-inner(10);
+
+  .link-list {
+    @include breakpoint($bp-m) {
+      columns: 2;
+      column-gap: $grid-item-spacing-m * 2;
+    }
+
+    @include breakpoint($bp-l) {
+      column-gap: $grid-item-spacing-l * 2;
+    }
+  }
+}

@@ -1,295 +1,174 @@
-/*! han.nl v0.1.0 */ (function() {
-  function r(e, n, t) {
-    function o(i, f) {
-      if (!n[i]) {
-        if (!e[i]) {
-          var c = "function" == typeof require && require;
-          if (!f && c) return c(i, !0);
-          if (u) return u(i, !0);
-          var a = new Error("Cannot find module '" + i + "'");
-          throw ((a.code = "MODULE_NOT_FOUND"), a);
-        }
-        var p = (n[i] = { exports: {} });
-        e[i][0].call(
-          p.exports,
-          function(r) {
-            var n = e[i][1][r];
-            return o(n || r);
-          },
-          p,
-          p.exports,
-          r,
-          e,
-          n,
-          t
-        );
+/*! han.nl v0.1.0 */ !(function E(i, O, u) {
+  function l(n, r) {
+    if (!O[n]) {
+      if (!i[n]) {
+        var t = "function" == typeof require && require;
+        if (!r && t) return t(n, !0);
+        if (a) return a(n, !0);
+        var e = new Error("Cannot find module '" + n + "'");
+        throw ((e.code = "MODULE_NOT_FOUND"), e);
       }
-      return n[i].exports;
+      var o = (O[n] = { exports: {} });
+      i[n][0].call(
+        o.exports,
+        function(r) {
+          return l(i[n][1][r] || r);
+        },
+        o,
+        o.exports,
+        E,
+        i,
+        O,
+        u
+      );
     }
-    for (var u = "function" == typeof require && require, i = 0; i < t.length; i++) o(t[i]);
-    return o;
+    return O[n].exports;
   }
-  return r;
-})()(
+  for (var a = "function" == typeof require && require, r = 0; r < u.length; r++) l(u[r]);
+  return l;
+})(
   {
     1: [
-      function(require, module, exports) {
-        /**
-         * Copyright 2013-2014 Facebook, Inc.
-         *
-         * Licensed under the Apache License, Version 2.0 (the "License");
-         * you may not use this file except in compliance with the License.
-         * You may obtain a copy of the License at
-         *
-         * http://www.apache.org/licenses/LICENSE-2.0
-         *
-         * Unless required by applicable law or agreed to in writing, software
-         * distributed under the License is distributed on an "AS IS" BASIS,
-         * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-         * See the License for the specific language governing permissions and
-         * limitations under the License.
-         *
-         */
-
+      function(r, n, t) {
         "use strict";
-
-        /**
-         * Constructs an enumeration with keys equal to their value.
-         *
-         * For example:
-         *
-         *   var COLORS = keyMirror({blue: null, red: null});
-         *   var myColor = COLORS.blue;
-         *   var isColorValid = !!COLORS[myColor];
-         *
-         * The last line could not be performed if the values of the generated enum were
-         * not equal to their keys.
-         *
-         *   Input:  {key1: val1, key2: val2}
-         *   Output: {key1: key1, key2: key2}
-         *
-         * @param {object} obj
-         * @return {object}
-         */
-        var keyMirror = function(obj) {
-          var ret = {};
-          var key;
-          if (!(obj instanceof Object && !Array.isArray(obj))) {
+        n.exports = function(r) {
+          var n,
+            t = {};
+          if (!(r instanceof Object) || Array.isArray(r))
             throw new Error("keyMirror(...): Argument must be an object.");
-          }
-          for (key in obj) {
-            if (!obj.hasOwnProperty(key)) {
-              continue;
-            }
-            ret[key] = key;
-          }
-          return ret;
+          for (n in r) r.hasOwnProperty(n) && (t[n] = n);
+          return t;
         };
-
-        module.exports = keyMirror;
       },
       {}
     ],
     2: [
-      function(require, module, exports) {
-        /*
-object-assign
-(c) Sindre Sorhus
-@license MIT
-*/
-
+      function(r, n, t) {
         "use strict";
-        /* eslint-disable no-unused-vars */
-        var getOwnPropertySymbols = Object.getOwnPropertySymbols;
-        var hasOwnProperty = Object.prototype.hasOwnProperty;
-        var propIsEnumerable = Object.prototype.propertyIsEnumerable;
-
-        function toObject(val) {
-          if (val === null || val === undefined) {
-            throw new TypeError("Object.assign cannot be called with null or undefined");
-          }
-
-          return Object(val);
-        }
-
-        function shouldUseNative() {
+        var u = Object.getOwnPropertySymbols,
+          l = Object.prototype.hasOwnProperty,
+          a = Object.prototype.propertyIsEnumerable;
+        n.exports = (function() {
           try {
-            if (!Object.assign) {
-              return false;
-            }
-
-            // Detect buggy property enumeration order in older V8 versions.
-
-            // https://bugs.chromium.org/p/v8/issues/detail?id=4118
-            var test1 = new String("abc"); // eslint-disable-line no-new-wrappers
-            test1[5] = "de";
-            if (Object.getOwnPropertyNames(test1)[0] === "5") {
-              return false;
-            }
-
-            // https://bugs.chromium.org/p/v8/issues/detail?id=3056
-            var test2 = {};
-            for (var i = 0; i < 10; i++) {
-              test2["_" + String.fromCharCode(i)] = i;
-            }
-            var order2 = Object.getOwnPropertyNames(test2).map(function(n) {
-              return test2[n];
-            });
-            if (order2.join("") !== "0123456789") {
-              return false;
-            }
-
-            // https://bugs.chromium.org/p/v8/issues/detail?id=3056
-            var test3 = {};
-            "abcdefghijklmnopqrst".split("").forEach(function(letter) {
-              test3[letter] = letter;
-            });
-            if (Object.keys(Object.assign({}, test3)).join("") !== "abcdefghijklmnopqrst") {
-              return false;
-            }
-
-            return true;
-          } catch (err) {
-            // We don't expect any of the above to throw, but better to be safe.
-            return false;
+            if (!Object.assign) return !1;
+            var r = new String("abc");
+            if (((r[5] = "de"), "5" === Object.getOwnPropertyNames(r)[0])) return !1;
+            for (var n = {}, t = 0; t < 10; t++) n["_" + String.fromCharCode(t)] = t;
+            if (
+              "0123456789" !==
+              Object.getOwnPropertyNames(n)
+                .map(function(r) {
+                  return n[r];
+                })
+                .join("")
+            )
+              return !1;
+            var e = {};
+            return (
+              "abcdefghijklmnopqrst".split("").forEach(function(r) {
+                e[r] = r;
+              }),
+              "abcdefghijklmnopqrst" === Object.keys(Object.assign({}, e)).join("")
+            );
+          } catch (r) {
+            return !1;
           }
-        }
-
-        module.exports = shouldUseNative()
+        })()
           ? Object.assign
-          : function(target, source) {
-              var from;
-              var to = toObject(target);
-              var symbols;
-
-              for (var s = 1; s < arguments.length; s++) {
-                from = Object(arguments[s]);
-
-                for (var key in from) {
-                  if (hasOwnProperty.call(from, key)) {
-                    to[key] = from[key];
-                  }
-                }
-
-                if (getOwnPropertySymbols) {
-                  symbols = getOwnPropertySymbols(from);
-                  for (var i = 0; i < symbols.length; i++) {
-                    if (propIsEnumerable.call(from, symbols[i])) {
-                      to[symbols[i]] = from[symbols[i]];
-                    }
-                  }
+          : function(r, n) {
+              for (
+                var t,
+                  e,
+                  o = (function(r) {
+                    if (null == r) throw new TypeError("Object.assign cannot be called with null or undefined");
+                    return Object(r);
+                  })(r),
+                  E = 1;
+                E < arguments.length;
+                E++
+              ) {
+                for (var i in (t = Object(arguments[E]))) l.call(t, i) && (o[i] = t[i]);
+                if (u) {
+                  e = u(t);
+                  for (var O = 0; O < e.length; O++) a.call(t, e[O]) && (o[e[O]] = t[e[O]]);
                 }
               }
-
-              return to;
+              return o;
             };
       },
       {}
     ],
     3: [
-      function(require, module, exports) {
-        var constants = require("../../constants");
-
-        /**
-         * get current breakpoint
-         */
-
-        function getBreakpoint() {
-          var view = null;
-
-          for (var key in constants.BREAKPOINTS) {
-            if (window.matchMedia) {
-              if (window.matchMedia("(min-width: " + constants.BREAKPOINTS[key] + "px)").matches) {
-                view = key;
-              }
-            } else {
-              if (document.documentElement.clientWidth >= constants.BREAKPOINTS[key]) {
-                view = key;
-              }
-            }
-          }
-
-          return view;
-        }
-
-        module.exports = getBreakpoint;
+      function(r, n, t) {
+        var e = r("../../constants");
+        n.exports = function() {
+          var r = null;
+          for (var n in e.BREAKPOINTS)
+            window.matchMedia
+              ? window.matchMedia("(min-width: " + e.BREAKPOINTS[n] + "px)").matches && (r = n)
+              : document.documentElement.clientWidth >= e.BREAKPOINTS[n] && (r = n);
+          return r;
+        };
       },
       { "../../constants": 4 }
     ],
     4: [
-      function(require, module, exports) {
-        var keyMirror = require("keymirror");
-        var assign = require("object-assign");
-
-        /**
-         * Classes
-         */
-
-        var classes = {
-          OPEN_CLASS: "is-open",
-          FOCUS_CLASS: "has-focus",
-          CLOSED_CLASS: "is-closed",
-          MODAL_OPEN_CLASS: "modal-is-open",
-          SCROLLING_UP_CLASS: "is-scrolling-up",
-          SCROLLED_TOP_CLASS: "is-scrolled-to-top",
-          SCROLLED_BOTTOM_CLASS: "is-scrolled-to-bottom",
-          SCROLLED_FREE_CLASS: "is-scrolled-free",
-          COURSENAV_DROPDOWN_OPEN_CLASS: "has-coursenav-dropdown-open"
-        };
-
-        /**
-         * Events
-         */
-
-        var events = keyMirror({
-          EVENT_BREAKPOINT_CHANGE: null,
-          EVENT_RESIZE: null,
-          EVENT_MODAL_AFTER_OPEN: null,
-          EVENT_MODAL_BEFORE_OPEN: null,
-          EVENT_MODAL_AFTER_CLOSE: null,
-          EVENT_MODAL_BEFORE_CLOSE: null,
-          REQUEST_MODAL_OPEN: null,
-          REQUEST_MODAL_CLOSE: null
-        });
-
-        /**
-         * Misc
-         */
-
-        var misc = {
-          KEY_ESCAPE: 27,
-          KEY_ENTER: 13,
-          KEY_TAB: 9,
-          KEY_BACKSPACE: 8,
-          KEY_DELETE: 46,
-          KEY_UP: 38,
-          KEY_DOWN: 40,
-          BREAKPOINTS: {
-            MOBILE: 0,
-            TABLET: 768,
-            DESKTOP: 1024
-          },
-          MOBILE: "MOBILE",
-          TABLET: "TABLET",
-          DESKTOP: "DESKTOP"
-        };
-
-        var constants = assign({}, classes, events, misc);
-
-        module.exports = constants;
+      function(r, n, t) {
+        var e = r("keymirror"),
+          o = r("object-assign")(
+            {},
+            {
+              OPEN_CLASS: "is-open",
+              FOCUS_CLASS: "has-focus",
+              CLOSED_CLASS: "is-closed",
+              INVIEW_CLASS: "is-inview",
+              MODAL_OPEN_CLASS: "modal-is-open",
+              MODAL_OPENING_CLASS: "modal-is-opening",
+              MODAL_CLOSING_CLASS: "modal-is-closing",
+              SCROLLING_UP_CLASS: "is-scrolling-up",
+              SCROLLED_TOP_CLASS: "is-scrolled-to-top",
+              SCROLLED_BOTTOM_CLASS: "is-scrolled-to-bottom",
+              SCROLLED_FREE_CLASS: "is-scrolled-free",
+              COURSENAV_DROPDOWN_OPEN_CLASS: "has-coursenav-dropdown-open"
+            },
+            e({
+              EVENT_BREAKPOINT_CHANGE: null,
+              EVENT_RESIZE: null,
+              EVENT_MODAL_AFTER_OPEN: null,
+              EVENT_MODAL_BEFORE_OPEN: null,
+              EVENT_MODAL_AFTER_CLOSE: null,
+              EVENT_MODAL_BEFORE_CLOSE: null,
+              EVENT_SECTION_INVIEW: null,
+              EVENT_SECTION_OUTVIEW: null,
+              EVENT_NAV_VISIBLE_SPACE_CHANGE: null,
+              EVENT_TAB_CHANGE: null,
+              REQUEST_MODAL_OPEN: null,
+              REQUEST_MODAL_CLOSE: null,
+              REQUEST_SCROLLTO: null,
+              REQUEST_PREVENT_SCROLL_BEHAVIOR: null
+            }),
+            {
+              KEY_ESCAPE: 27,
+              KEY_ENTER: 13,
+              KEY_TAB: 9,
+              KEY_BACKSPACE: 8,
+              KEY_DELETE: 46,
+              KEY_UP: 38,
+              KEY_DOWN: 40,
+              BREAKPOINTS: { MOBILE: 0, TABLET: 768, DESKTOP: 1024 },
+              MOBILE: "MOBILE",
+              TABLET: "TABLET",
+              DESKTOP: "DESKTOP"
+            }
+          );
+        n.exports = o;
       },
       { keymirror: 1, "object-assign": 2 }
     ],
     5: [
-      function(require, module, exports) {
-        /**
-         * Script loaded in head
-         * must be kept as lightweight as possible
-         */
-
-        // set data attribute on body for current breakpoint
-        var getBreakpoint = require("../app/ui/get-breakpoint");
-        document.documentElement.setAttribute("data-breakpoint", getBreakpoint().toLowerCase());
+      function(r, n, t) {
+        var e = r("../app/ui/get-breakpoint");
+        document.documentElement.setAttribute("data-breakpoint", e().toLowerCase());
       },
       { "../app/ui/get-breakpoint": 3 }
     ]

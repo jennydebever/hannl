@@ -10,8 +10,7 @@
     "templates": "gulp templates",
     "build": "gulp build",
     "server": "gulp server",
-    "docs:build": "vuepress build docs",
-    "precommit": "pretty-quick --staged"
+    "docs:build": "vuepress build docs"
   },
   "author": "",
   "license": "ISC",
@@ -71,5 +70,10 @@
     "tippy.js": "^3.1.1",
     "track-focus": "^1.0.0",
     "what-input": "^5.1.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
   }
 }
