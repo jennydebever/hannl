@@ -2,7 +2,7 @@
   @include shadow(60px, 30px, 30px, 30px);
   position: relative;
 
-  @include breakpoint($bp-m) {
+  @include breakpoint($bp-m - 100px) {
     margin-bottom: 56px;
 
     // no shadow on wrapper for larger screens
@@ -26,7 +26,7 @@
   z-index: 1;
   position: relative;
 
-  @include breakpoint($bp-m) {
+  @include breakpoint($bp-m - 100px) {
     @include shadow;
     position: absolute;
     width: 310px;
@@ -50,7 +50,7 @@
   display: flex;
   flex-wrap: nowrap;
 
-  @include breakpoint($bp-m) {
+  @include breakpoint($bp-m - 100px) {
     display: none;
   }
 }
@@ -89,7 +89,7 @@
   z-index: 1;
   padding: 32px;
 
-  @include breakpoint($bp-m) {
+  @include breakpoint($bp-m - 100px) {
     padding: 40px;
   }
 

@@ -32,7 +32,7 @@ mixin locations(locations)
 
       //- tabs
       -
-        var tablabels = locations.map(location => {
+        var tabLabels = locations.map(location => {
           return {
             label: location.city,
             rel: getLocationId(location)
@@ -40,7 +40,7 @@ mixin locations(locations)
         });
 
       .locations__tabs
-        +tabs(tablabels)
+        +tabs(tabLabels)
 
       //- locations
       ul.locations__locations
@@ -55,7 +55,8 @@ mixin locations(locations)
           picture
             - var sizes = []
             - sizes.push({ minWidth: 1024, width: 1160, height: 650 });
-            - sizes.push({ minWidth: 768, width: 1024, height: 575 });
+            - sizes.push({ minWidth: 850, width: 1024, height: 575 });
+            - sizes.push({ minWidth: 668, width: 850, height: 450 });
             +srcset(location.image, sizes)
 
             img(src='', alt='')

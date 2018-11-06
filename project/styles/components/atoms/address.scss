@@ -7,6 +7,10 @@
 .address__body {
   a {
     @include focusable($hanred);
+
+    &:hover {
+      text-decoration: none;
+    }
   }
 }
 

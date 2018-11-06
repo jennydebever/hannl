@@ -2143,6 +2143,9 @@ hr {
   outline: 1px solid rgba(229, 0, 86, 0.75);
   outline-offset: 3px;
 }
+.address__body a:hover {
+  text-decoration: none;
+}
 .address__body__title {
   color: #0c011c;
   font-weight: 700;
@@ -3449,7 +3452,7 @@ hr {
   border-radius: 30px;
   box-shadow: 0 0 30px 30px rgba(0, 0, 0, 0.3);
 }
-@media (min-width: 768px) {
+@media (min-width: 668px) {
   .locations {
     margin-bottom: 56px;
   }
@@ -3468,7 +3471,7 @@ hr {
   z-index: 1;
   position: relative;
 }
-@media (min-width: 768px) {
+@media (min-width: 668px) {
   .locations-wrapper {
     position: absolute;
     width: 310px;
@@ -3503,7 +3506,7 @@ hr {
   -ms-flex-wrap: nowrap;
   flex-wrap: nowrap;
 }
-@media (min-width: 768px) {
+@media (min-width: 668px) {
   .locations__small-images {
     display: none;
   }
@@ -3533,7 +3536,7 @@ hr {
   background-color: #fff;
   padding: 32px;
 }
-@media (min-width: 768px) {
+@media (min-width: 668px) {
   .locations__locations {
     padding: 40px;
   }

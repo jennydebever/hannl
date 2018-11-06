@@ -16,7 +16,7 @@ mixin address(location)
         span #{location.zipcode} #{location.city}
 
       p.address__body__phone
-        | Telefoon: <a href="tel:#{location.phone}">#{location.phone}</a>
+        | Telefoon: <a href="tel:#{location.phone.replace(/\s|-/g, '')}">#{location.phone}</a>
 
     if location.btn
       .address__footer
