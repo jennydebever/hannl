@@ -15,13 +15,6 @@ var dispatcher = require("../dispatcher");
  *
  * <button type="button" aria-label="Open modal" aria-expanded="false" aria-controls="menu" class="js-modal-open">open</button>
  * <button type="button" aria-label="Toggle modal" aria-expanded="false" aria-controls="menu" class="js-modal-toggle">toggle</button>
- *
- * TODO: for now only 1 item can be opened at a time
- * things go wrong when more items are open at the same time
- * may need to be refactored to allow for multiple,
- * or at least to a point where things don't break
- *
- * TODO: url history for some modals?
  */
 
 /**
@@ -34,8 +27,12 @@ var currentModalType = null;
 function open(rel) {
   if (!rel) return;
 
+  // if another is open, close that first
   if (currentModalId) {
-    close(currentModalId);
+    close(currentModalId, function() {
+      open(rel);
+    });
+    return;
   }
 
   var $currentModal = document.getElementById(rel);
@@ -101,6 +98,9 @@ function open(rel) {
 
   // listen for animation ending
   $currentModal.addEventListener("animationend", openAnimationEnd, false);
+
+  // add history state
+  history.pushState("", "", "#" + currentModalId);
 }
 
 /**

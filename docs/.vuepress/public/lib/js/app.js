@@ -3840,39 +3840,46 @@
           d = null,
           u = null;
         function o(t) {
-          if (t) {
-            d && i(d);
-            var a = document.getElementById(t);
-            a &&
-              ((d = t),
-              (u = a.getAttribute("data-modal") || d),
-              l.dispatch({ type: c.EVENT_MODAL_BEFORE_OPEN, target: a }),
-              a.removeAttribute("hidden"),
-              document.body.classList.add(c.MODAL_OPEN_CLASS),
-              document.body.classList.add(c.MODAL_OPEN_CLASS + "--" + u),
-              document.body.classList.add(c.MODAL_OPENING_CLASS),
-              a.classList.add(c.OPEN_CLASS),
-              a.addEventListener(
-                "animationend",
-                function t() {
-                  document.body.classList.remove(c.MODAL_OPENING_CLASS),
-                    a.removeEventListener("animationend", t),
-                    document.addEventListener("keydown", f, !1);
-                  for (
-                    var e = document.querySelectorAll(".js-modal-show[aria-controls='" + d + "']"), n = 0, r = e.length;
-                    n < r;
-                    ++n
-                  )
-                    e[n].setAttribute("aria-expanded", !0);
-                  var o = document.querySelectorAll(".js-modal-hide[aria-controls='" + d + "']");
-                  for (n = 0, r = o.length; n < r; ++n) o[n].setAttribute("aria-expanded", !1);
-                  var i = document.querySelectorAll(".js-modal-toggle[aria-controls='" + d + "']");
-                  for (n = 0, r = i.length; n < r; ++n) i[n].setAttribute("aria-expanded", !0);
-                  p.enable(a), l.dispatch({ type: c.EVENT_MODAL_AFTER_OPEN, target: a });
-                },
-                !1
-              ));
-          }
+          if (t)
+            if (d)
+              i(d, function() {
+                o(t);
+              });
+            else {
+              var a = document.getElementById(t);
+              a &&
+                ((d = t),
+                (u = a.getAttribute("data-modal") || d),
+                l.dispatch({ type: c.EVENT_MODAL_BEFORE_OPEN, target: a }),
+                a.removeAttribute("hidden"),
+                document.body.classList.add(c.MODAL_OPEN_CLASS),
+                document.body.classList.add(c.MODAL_OPEN_CLASS + "--" + u),
+                document.body.classList.add(c.MODAL_OPENING_CLASS),
+                a.classList.add(c.OPEN_CLASS),
+                a.addEventListener(
+                  "animationend",
+                  function t() {
+                    document.body.classList.remove(c.MODAL_OPENING_CLASS),
+                      a.removeEventListener("animationend", t),
+                      document.addEventListener("keydown", f, !1);
+                    for (
+                      var e = document.querySelectorAll(".js-modal-show[aria-controls='" + d + "']"),
+                        n = 0,
+                        r = e.length;
+                      n < r;
+                      ++n
+                    )
+                      e[n].setAttribute("aria-expanded", !0);
+                    var o = document.querySelectorAll(".js-modal-hide[aria-controls='" + d + "']");
+                    for (n = 0, r = o.length; n < r; ++n) o[n].setAttribute("aria-expanded", !1);
+                    var i = document.querySelectorAll(".js-modal-toggle[aria-controls='" + d + "']");
+                    for (n = 0, r = i.length; n < r; ++n) i[n].setAttribute("aria-expanded", !0);
+                    p.enable(a), l.dispatch({ type: c.EVENT_MODAL_AFTER_OPEN, target: a });
+                  },
+                  !1
+                ),
+                history.pushState("", "", "#" + d));
+            }
         }
         function i(t, a) {
           if (!t || t === d) {

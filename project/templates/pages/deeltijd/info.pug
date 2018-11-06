@@ -87,4 +87,7 @@ block main
 
 block append takeover
   +takeover()#takeover1
-    | takeover 1
+    +btn-primary('Open takeover 2', '#takeover2', 'external')
+
+  +takeover()#takeover2
+    +btn-primary('Open takeover 1', '#takeover1', 'external')

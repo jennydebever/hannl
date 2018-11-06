@@ -545,9 +545,15 @@
     </div>
     <div class="takeover js-takeover" hidden="hidden" id="takeover1" role="dialog" aria-modal="true" aria-label="Hoofdnavigatie" data-modal="takeover">
       <div class="takeover__background"></div>
-      <div class="takeover__content">takeover 1
+      <div class="takeover__content"><a class="btn-primary" href="#takeover2"><span class="btn-primary__label">Open takeover 2</span><svg class="icon icon-external" aria-hidden="true" viewBox="0 0 48 44" width="48" height="44"><use xlink:href="#external"></use></svg></a>
       </div>
       <button class="takeover__close js-modal-close" type="button" aria-label="Verdieping sluiten" aria-expanded="false" aria-controls="takeover1">Sluiten</button>
+    </div>
+    <div class="takeover js-takeover" hidden="hidden" id="takeover2" role="dialog" aria-modal="true" aria-label="Hoofdnavigatie" data-modal="takeover">
+      <div class="takeover__background"></div>
+      <div class="takeover__content"><a class="btn-primary" href="#takeover1"><span class="btn-primary__label">Open takeover 1</span><svg class="icon icon-external" aria-hidden="true" viewBox="0 0 48 44" width="48" height="44"><use xlink:href="#external"></use></svg></a>
+      </div>
+      <button class="takeover__close js-modal-close" type="button" aria-label="Verdieping sluiten" aria-expanded="false" aria-controls="takeover2">Sluiten</button>
     </div>
     <script src="/lib/js/libs.js" defer></script>
     <script src="/lib/js/app.js" defer></script>
