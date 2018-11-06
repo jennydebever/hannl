@@ -141,7 +141,7 @@
   }
 
   .coursenav-dropdown__item__link {
-    @include focusable($grey3, 1px, 0);
+    @include focusable($grey3, 1px, -3px);
     font-size: 14px;
     color: $grey5;
     background-color: $white;
