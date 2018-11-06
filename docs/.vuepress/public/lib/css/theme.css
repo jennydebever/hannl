@@ -3514,7 +3514,7 @@ hr {
 .collapsible__title__button .icon-chevron {
   position: absolute;
   right: 13px;
-  top: 25px;
+  top: 20px;
   fill: #e50056;
   transition: transform 0.15s;
   transform: rotate(90deg);
@@ -3522,7 +3522,7 @@ hr {
 }
 @media (min-width: 768px) {
   .collapsible__title__button .icon-chevron {
-    top: 37px;
+    top: 34px;
     right: 21px;
   }
 }

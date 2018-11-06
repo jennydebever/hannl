@@ -53,24 +53,20 @@
   .icon-chevron {
     position: absolute;
     right: 13px;
-    top: 25px;
+    top: 20px;
     fill: $hanred;
     transition: transform 0.15s;
     transform: rotate(90deg);
     transform-origin: 50% 50%;
-    // width: 6px;
-    // height: auto;
 
     @include breakpoint($bp-m) {
-      top: 37px;
+      top: 34px;
       right: 21px;
-      // width: 7px;
     }
 
     @include breakpoint($bp-l) {
       top: 39px;
       right: 21px;
-      // width: 8px;
     }
 
     .is-open & {
