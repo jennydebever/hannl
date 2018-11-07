@@ -7,6 +7,8 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const files = glob.sync("./project/templates/pages/**/!(_)*.pug");
 console.log(files);
 
+const contentBase = path.resolve(__dirname, "docs", ".vuepress", "public");
+
 module.exports = {
   mode: "development",
   entry: {
@@ -17,7 +19,7 @@ module.exports = {
     libs: ["./project/scripts/libs/index.js"]
   },
   output: {
-    path: path.resolve(__dirname, "docs", ".vuepress", "public"),
+    path: contentBase,
     publicPath: "/",
     filename: "[name].bundle.js"
   },
@@ -46,7 +48,7 @@ module.exports = {
         test: /\.scss$/,
         use: [
           process.env.NODE_ENV !== "production" ? "style-loader" : MiniCssExtractPlugin.loader,
-          "css-loader", // translates CSS into CommonJS
+          "css-loader?url=false", // translates CSS into CommonJS
           "sass-loader" // compiles Sass to CSS, using Node Sass by default
         ]
       },
@@ -89,7 +91,7 @@ module.exports = {
 
   devServer: {
     publicPath: "/",
-    contentBase: path.join(__dirname, "public"),
+    contentBase: contentBase,
     historyApiFallback: true,
     hot: true,
     hotOnly: true,
