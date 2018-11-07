@@ -32,7 +32,7 @@ module.exports = {
         loader: "pug-lint-loader",
         options: Object.assign(
           {
-            emitError: false
+            emitError: false // dont fail to compile
           },
           require("./.pug-lintrc")
         ),
@@ -81,7 +81,7 @@ module.exports = {
       )
     )
     .concat([
-      new WriteFilePlugin(),
+      new WriteFilePlugin(), // actually write files while in devServer, for vuepress
       new MiniCssExtractPlugin({
         // Options similar to the same options in webpackOptions.output
         // both options are optional
@@ -89,7 +89,7 @@ module.exports = {
         chunkFilename: "[id].css"
       }),
       new StyleLintPlugin({
-        syntax: "scss"
+        emitErrors: false // dont fail to compile
         // lintDirtyModulesOnly: true
       })
     ]),
