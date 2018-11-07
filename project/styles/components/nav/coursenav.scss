@@ -45,7 +45,7 @@
   width: 100vw;
   opacity: 0;
   z-index: 97;
-  transform: scale(0, 0, 0);
+  transform: scale(0);
 
   .modal-is-open--coursenav &,
   .has-coursenav-dropdown-open & {

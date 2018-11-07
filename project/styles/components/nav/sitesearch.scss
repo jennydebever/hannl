@@ -20,15 +20,15 @@
   width: 100vw;
   opacity: 0;
   background: $grey5;
-  transform: scale(0, 0, 0);
+  transform: scale(0);
 
   &.is-open {
     animation: animate-sitesearch-in 0.4s $ease forwards;
-    transform: scale(1, 1, 1);
+    transform: scale(1);
   }
 
   &.is-closed {
-    transform: scale3d(1, 1, 1);
+    transform: scale3d(1);
     opacity: 1;
     animation: animate-sitesearch-out 0.4s $ease forwards;
   }

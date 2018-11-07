@@ -18,6 +18,7 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, "docs", ".vuepress", "public"),
+    publicPath: "/",
     filename: "[name].bundle.js"
   },
   module: {
@@ -48,6 +49,15 @@ module.exports = {
           "css-loader", // translates CSS into CommonJS
           "sass-loader" // compiles Sass to CSS, using Node Sass by default
         ]
+      },
+      {
+        test: /\.(woff2?|ttf|otf|eot|svg)$/,
+        exclude: /node_modules/,
+        loader: "file-loader",
+        options: {
+          name: "[name].[ext]",
+          outputPath: "fonts/"
+        }
       }
     ]
   },
