@@ -1,0 +1,89 @@
+const path = require("path");
+const glob = require("glob");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const WriteFilePlugin = require("write-file-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
+const files = glob.sync("./project/templates/pages/**/!(_)*.pug");
+console.log(files);
+
+module.exports = {
+  mode: "development",
+  entry: {
+    theme: ["./project/styles/theme.scss"],
+    print: ["./project/styles/print.scss"],
+    head: ["./project/scripts/head/index.js"],
+    app: ["./project/scripts/app/index.js"],
+    libs: ["./project/scripts/libs/index.js"]
+  },
+  output: {
+    path: path.resolve(__dirname, "docs", ".vuepress", "public"),
+    filename: "[name].bundle.js"
+  },
+  module: {
+    rules: [
+      // {
+      //   test: /\.(pug|jade)$/,
+      //   exclude: /node_modules/,
+      //   loader: "pug-lint-loader",
+      //   options: Object.assign(
+      //     {
+      //       emitError: false
+      //     },
+      //     require("./.puglintrc.js")
+      //   ),
+      //   enforce: "pre"
+      // },
+      {
+        test: /\.pug$/,
+        loader: "pug-loader",
+        options: {
+          pretty: true
+        }
+      },
+      {
+        test: /\.scss$/,
+        use: [
+          process.env.NODE_ENV !== "production" ? "style-loader" : MiniCssExtractPlugin.loader,
+          "css-loader", // translates CSS into CommonJS
+          "sass-loader" // compiles Sass to CSS, using Node Sass by default
+        ]
+      }
+    ]
+  },
+  // optimization: {
+  //   minimizer: [new UglifyJsPlugin()]
+  // },
+  plugins: []
+    .concat(
+      files.map(
+        file =>
+          new HtmlWebpackPlugin({
+            title: "han.nl",
+            filename: `${file.replace("./project/templates/pages", ".").replace(".pug", ".html")}`,
+            template: file,
+            inject: false,
+            minify: false
+          })
+      )
+    )
+    .concat([
+      new WriteFilePlugin(),
+      new MiniCssExtractPlugin({
+        // Options similar to the same options in webpackOptions.output
+        // both options are optional
+        filename: "[name].css",
+        chunkFilename: "[id].css"
+      })
+    ]),
+
+  devServer: {
+    publicPath: "/",
+    contentBase: path.join(__dirname, "public"),
+    historyApiFallback: true,
+    hot: true,
+    hotOnly: true,
+    inline: true,
+    port: 8000
+  }
+};

@@ -14,24 +14,27 @@ html(lang='nl')
     meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
     meta(http-equiv='X-UA-Compatible', content='IE=Edge,chrome=1')
     
-    title #{pageTitle.join(' ')} - HAN.nl
+    title #{pageTitle.join(' ')} - #{htmlWebpackPlugin.options.title}
     meta(http-equiv='cleartype', content='on')
     meta(name='author', content='Eight Media')
     meta(name='format-detection', content='telephone=no')
 
-    script(src=JS_URL + 'head.js', async)
+    script(src=htmlWebpackPlugin.files.chunks.head.entry)
 
     //- preload fonts
     link(rel='preload', href=FONTS_URL + '627fbb5a-3bae-4cd9-b617-2f923e29d55e.woff2', as="font", type="font/woff2", crossorigin="anonymous")
     link(rel='preload', href=FONTS_URL + 'aad99a1f-7917-4dd6-bbb5-b07cedbff64f.woff2', as="font", type="font/woff2", crossorigin="anonymous")
     link(rel='preload', href=FONTS_URL + '14c73713-e4df-4dba-933b-057feeac8dd1.woff2', as="font", type="font/woff2", crossorigin="anonymous")
 
-    link(rel='stylesheet', href=CSS_URL + 'theme.css')
-    link(rel='stylesheet', href=CSS_URL + 'print.css', media='print')
+    each css in htmlWebpackPlugin.files.chunks.theme.css
+      link(rel='stylesheet', href=css)
+    
+    each css in htmlWebpackPlugin.files.chunks.print.css
+      link(rel='stylesheet', href=css, media='print')
     
     //- preload js
-    link(rel='preload', href=JS_URL + 'app.js', as='script')
-    link(rel='preload', href=JS_URL + 'libs.js', as='script')
+    link(rel='preload', href=htmlWebpackPlugin.files.chunks.libs.entry, as='script')
+    link(rel='preload', href=htmlWebpackPlugin.files.chunks.app.entry, as='script')
 
   body
 
@@ -60,5 +63,7 @@ html(lang='nl')
     block takeover
 
     block scripts
-      script(src=JS_URL + 'libs.js', defer)
-      script(src=JS_URL + 'app.js', defer)
+      script(src=htmlWebpackPlugin.files.chunks.libs.entry)
+      script(src=htmlWebpackPlugin.files.chunks.app.entry)
+      script(src=htmlWebpackPlugin.files.chunks.theme.entry)
+      script(src=htmlWebpackPlugin.files.chunks.print.entry)
