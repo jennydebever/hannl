@@ -12,8 +12,10 @@ console.log(files);
 
 const contentBase = path.resolve(__dirname, "docs", ".vuepress", "public");
 
+const production = process.env.NODE_ENV !== "production";
+
 module.exports = {
-  mode: "development",
+  mode: production ? "production" : "development",
   entry: {
     theme: ["./project/styles/theme.scss"],
     print: ["./project/styles/print.scss"],
@@ -50,8 +52,20 @@ module.exports = {
       {
         test: /\.scss$/,
         use: [
-          process.env.NODE_ENV !== "production" ? "style-loader" : MiniCssExtractPlugin.loader,
-          "css-loader?url=false", // translates CSS into CommonJS
+          "style-loader",
+          MiniCssExtractPlugin.loader,
+          {
+            loader: "css-loader",
+            options: {
+              url: false // leave url() alone
+            }
+          },
+          {
+            loader: "postcss-loader",
+            options: {
+              plugins: [require("autoprefixer")]
+            }
+          },
           "sass-loader" // compiles Sass to CSS, using Node Sass by default
         ]
       },

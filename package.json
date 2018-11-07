@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "",
   "main": "index.js",
+  "browsers": "last 20 versions",
   "scripts": {
     "start": "gulp",
     "start-docs": "vuepress dev docs",
@@ -60,6 +61,7 @@
     "vuepress": "^0.14.4"
   },
   "dependencies": {
+    "autoprefixer": "^9.3.1",
     "classlist-polyfill": "^1.2.0",
     "css-loader": "^1.0.1",
     "debounce": "^1.2.0",
@@ -71,6 +73,7 @@
     "keymirror": "^0.1.1",
     "mini-css-extract-plugin": "^0.4.4",
     "node-sass": "^4.10.0",
+    "postcss-loader": "^3.0.0",
     "pug-lint-loader": "0.0.4",
     "pug-loader": "^2.4.0",
     "sass-loader": "^7.1.0",
