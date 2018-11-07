@@ -4092,9 +4092,11 @@
             f();
         }
         function f() {
-          var t = d.getBoundingClientRect().height + s.getBoundingClientRect().top;
-          +d.getAttribute("data-space") !== t &&
-            (d.setAttribute("data-space", t), o.dispatch({ type: i.EVENT_NAV_VISIBLE_SPACE_CHANGE, space: t }));
+          if (d && s) {
+            var t = d.getBoundingClientRect().height + s.getBoundingClientRect().top;
+            +d.getAttribute("data-space") !== t &&
+              (d.setAttribute("data-space", t), o.dispatch({ type: i.EVENT_NAV_VISIBLE_SPACE_CHANGE, space: t }));
+          }
         }
         o.on(i.EVENT_RESIZE, u),
           setTimeout(u, 0),

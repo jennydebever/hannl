@@ -3,6 +3,7 @@ include ../../utils/todo
 include ../../components/nav/coursenav
 include ../../components/hero/course-hero
 include ../../components/content/collapsibles
+include ../../components/content/shout
 
 block append vars
   - pageTitle.push('Deeltijd studie');
@@ -26,7 +27,13 @@ block main
   - items.push({ title: 'Minors', body: '<p>…</p>', is_open: false })
   - items.push({ title: 'Afstuderen', body: '<p>…</p>', is_open: false })
   +section-collapsibles('Programma', items)
+  
+  - var title = 'De nodige ervaring in huis?';
+  - var image = 'kind-robot.jpg';
+  - var intro = 'Dan kun je waarschijnlijk vrijstellingen krijgen. Als je veel ervaring hebt en de juiste vooropleiding, kun je je deeltijd Pabo aanzienlijk inkorten. Meer weten over de verkorte Pabo en jouw persoonlijke leerroute? Maak een afspraak voor een gesprek.';
+  - var buttons = [];
+  - buttons.push({ href: '/', label: 'Maak afspraak over je persoonlijke leerroute', type: BUTTON_PRIMARY, icon: 'external' });
+  +section-shout(title, image, intro, buttons)
 
-  +todo('shout for action')
   +todo('biocards')
   +todo('scream for action')

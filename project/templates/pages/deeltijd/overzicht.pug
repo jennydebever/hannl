@@ -3,6 +3,7 @@ include ../../utils/todo
 include ../../components/nav/coursenav
 include ../../components/content/line
 include ../../components/content/link-list
+include ../../components/content/shout
 
 block append vars
   - pageTitle.push('Deeltijd');
@@ -16,7 +17,14 @@ block main
   +todo('course facts')
   +todo('usp cards')
   +todo('vaardigheden')
-  +todo('shout for action')
+  
+  - var title = 'Kom sparren met je studieadviseur';
+  - var image = 'kind-robot.jpg';
+  - var intro = 'Je eigen oordeel is het belangrijkst bij zo`n beslissende keuze. Een adviesgesprek met een HAN studieadviseur kan daarbij helpen. Je kunt je verwachtingen toetsen en je krijgt inzicht in je persoonlijke studieprogramma.';
+  - var buttons = [];
+  - buttons.push({ href: '/', label: 'Regel een adviesgesprek', type: BUTTON_PRIMARY, icon: 'external' });
+  +section-shout(title, image, intro, buttons)
+
   +todo('textmedia')
   +todo('textmedia highlight')
   
@@ -31,6 +39,6 @@ block main
   +section-line
 
   +todo('contact')
-  +todo('shout for action')
+  +todo('scream for action')
   
   

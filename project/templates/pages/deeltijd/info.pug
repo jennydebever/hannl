@@ -7,6 +7,7 @@ include ../../components/content/collapsibles
 include ../../components/content/facts-table
 include ../../components/content/takeover
 include ../../components/content/locations
+include ../../components/content/shout
 include ../../components/atoms/btn-primary
 
 block append vars
@@ -59,7 +60,13 @@ block main
   - items.push({ title: 'Geen baan in het onderwijs vereist', body: '<p>…</p>', is_open: false })
   +section-collapsibles('Toelatingsinformatie', items)
 
-  +todo('shout for action')
+  - var title = 'Nieuwsgierig';
+  - var image = 'kind-robot.jpg';
+  - var intro = 'Je eigen oordeel is het belangrijkste. Kom kennismaken en sfeer proeven: onze deuren staan voor je open!';
+  - var buttons = [];
+  - buttons.push({ href: '/', label: 'Bezoek de Open Avond', type: BUTTON_PRIMARY, icon: 'external' });
+  - buttons.push({ href: '/', label: 'Regel een adviesgesprek', type: BUTTON_SECONDARY, icon: 'external' });
+  +section-shout(title, image, intro, buttons)
 
   - var items = [];
   - items.push({ title: 'Vergoedingen', body: '<p>Heb je een WW-uitkering en wil je je laten omscholen? De overheid heeft een regeling waarmee je kunt studeren met behoud van uitkering: Brug-WW. Je moet dan wel een parttime baan vinden van minimaal 8 uur per week, mét de garantie van een baan na afloop van je studie. Je werkgever betaalt de uren die je voor hem 	werkt. Voor je studie-uren ontvang je een aanvullende WW-uitkering.</p>', is_open: true })

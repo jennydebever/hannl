@@ -2,7 +2,7 @@
   @include page-spacing;
   position: relative;
   overflow: hidden;
-  margin: 100px 0; // TODO: section spacings
+  // margin: 100px 0; // TODO: section spacings
 }
 
 .section-wrapper {
@@ -146,4 +146,12 @@
       column-gap: $grid-item-spacing-l * 2;
     }
   }
+}
+
+/**
+ * Shout for action
+ */
+
+.section--shout {
+  background-color: $black;
 }
