@@ -1,5 +1,26 @@
 //- @pugdoc
   name: Sectie (Shout for action)
+  examples:
+    - 
+      name: Sectie (Shout for action, tekst lang)
+      example: |
+          - var title = 'Kom sparren met je studieadviseur';
+          - var image = 'kind-robot.jpg';
+          - var intro = 'Dan kun je waarschijnlijk vrijstellingen krijgen. Als je veel ervaring hebt en de juiste vooropleiding, kun je je deeltijd Pabo aanzienlijk inkorten. Meer weten over de verkorte Pabo en jouw persoonlijke leerroute? Maak een afspraak voor een gesprek.';
+          - var buttons = [];
+          - buttons.push({ href: '/', label: 'Regel een adviesgesprek', type: BUTTON_PRIMARY, icon: 'external' });
+          +section-shout(title, image, intro, buttons)
+  
+    - 
+      name: Sectie (Shout for action, tekst kort)
+      example: |
+        - var title = 'Nieuwsgierig';
+        - var image = 'kind-robot.jpg';
+        - var intro = 'Je eigen oordeel is het belangrijkste. Kom kennismaken en sfeer proeven: onze deuren staan voor je open!';
+        - var buttons = [];
+        - buttons.push({ href: '/', label: 'Bezoek de Open Avond', type: BUTTON_PRIMARY, icon: 'external' });
+        - buttons.push({ href: '/', label: 'Regel een adviesgesprek', type: BUTTON_SECONDARY, icon: 'external' });
+        +section-shout(title, image, intro, buttons)
 
 mixin section-shout(title, image, intro, buttons)
   include ./section
@@ -15,8 +36,8 @@ mixin section-shout(title, image, intro, buttons)
         .shout__picture-wrapper
           picture.shout__picture
             - var sizes = []
-            - sizes.push({ minWidth: 1024, width: 560, ratio: 1 });
-            - sizes.push({ minWidth: 768, width: 560, ratio: 1 });
+            - sizes.push({ minWidth: 1024, width: 520, ratio: 1 });
+            - sizes.push({ minWidth: 768, width: 1024, ratio: 21/9 });
             - sizes.push({ minWidth: 500, width: 768, ratio: 21/9 });
             - sizes.push({ minWidth: 375, width: 500, ratio: 21/9 });
             - sizes.push({ minWidth: 1, width: 375, ratio: 21/9 });
