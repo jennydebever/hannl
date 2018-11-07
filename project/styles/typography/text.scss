@@ -157,6 +157,20 @@
   line-height: 1.7;
 }
 
+@mixin small {
+  font-family: $medium;
+  font-size: 14px;
+  line-height: 1.6;
+
+  @include breakpoint($bp-m) {
+    font-size: 15px;
+  }
+
+  @include breakpoint($bp-l) {
+    font-size: 16px;
+  }
+}
+
 /** 
 * Underscore can be used in titles
 */

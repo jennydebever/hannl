@@ -155,3 +155,23 @@
 .section--shout {
   background-color: $black;
 }
+
+/**
+ * Image list
+ */
+
+.section--image-list {
+  @include breakpoint(max $bp-m) {
+    @include section-inner(12);
+  }
+
+  .image-list {
+    padding-top: 35px;
+    padding-bottom: 35px;
+
+    @include breakpoint($bp-l) {
+      padding-top: 50px;
+      padding-bottom: 50px;
+    }
+  }
+}

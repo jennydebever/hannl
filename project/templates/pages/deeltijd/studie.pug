@@ -4,6 +4,8 @@ include ../../components/nav/coursenav
 include ../../components/hero/course-hero
 include ../../components/content/collapsibles
 include ../../components/content/shout
+include ../../components/content/image-list
+include ../../components/content/line
 
 block append vars
   - pageTitle.push('Deeltijd studie');
@@ -16,7 +18,17 @@ block main
   +course-hero('kind-robot.jpg', 'Dit is je studie')
     | Op de deeltijd Pabo kun je jezelf ontwikkelen tot een moderne leerkracht met een eigen visie. In deze flexibele Pabo kies je de accenten die jij interessant vindt. Na 4 jaar deeltijd Pabo heb je alles in huis om het talent in kinderen te laten opbloeien. Hoe verschillend ze ook zijn.
 
-  +todo('imagerow')
+  +section-line
+
+  - var items = [];
+  - items.push({ image: 'kind-robot.jpg', title: 'Groepsleerkracht', text: 'Je kunt lesgeven aan alle 8 groepen van het basisonderwijs. Je begeleidt kinderen én je bent gesprekspartner voor ouders.' })
+  - items.push({ image: 'kind-robot.jpg', title: 'Remedial teacher', text: 'Je werkt met kinderen die extra hulp nodig hebben. Van bijlessen tot emotionele kwesties: jij bent de rots in de branding.' })
+  - items.push({ image: 'kind-robot.jpg', title: 'Intern begeleider', text: 'Je hebt een belangrijke rol \'achter de schermen\'. Je regelt alles voor kinderen die extra zorg nodig hebben.' })
+  - items.push({ image: 'kind-robot.jpg', title: 'Intern begeleider', text: 'Je hebt een belangrijke rol \'achter de schermen\'. Je regelt alles voor kinderen die extra zorg nodig hebben.' })
+  +section-image-list(items)
+  
+  +section-line
+
   +todo('textmedia')#de-opbouw-van-de-studie
   +todo('textmedia')#losse-modules
   +todo('video')#ervaringen-van-anderen

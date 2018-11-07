@@ -1,0 +1,23 @@
+//- @pugdoc
+  name: Sectie (Image list)
+
+mixin section-image-list(items)
+  include ./section
+
+  +section()(class='section--image-list')&attributes(attributes)
+    ul.image-list
+      each item in items
+        li.image-list__item
+
+          .imagelistunit
+            picture.imagelistunit__picture
+              - var sizes = []
+              - sizes.push({ minWidth: 1024, width: 100, ratio: 1 });
+              - sizes.push({ minWidth: 768, width: 300, ratio: 21/9 });
+              - sizes.push({ minWidth: 1, width: 100, ratio: 1 });
+              +srcset(item.image, sizes)
+              img(src='', alt='')
+            
+            .imagelistunit__body
+              h3.imagelistunit__body__title #{item.title}
+              p.imagelistunit__body__text #{item.text}
