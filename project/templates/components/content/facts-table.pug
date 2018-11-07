@@ -5,7 +5,7 @@ mixin section-facts-table(title, rows)
   include ./section
   include ../atoms/richtext
 
-  +section(null, title)(class='section--facts-table')
+  +section(null, title)(class='section--facts-table')&attributes(attributes)
     +richtext
       table
         each row in rows

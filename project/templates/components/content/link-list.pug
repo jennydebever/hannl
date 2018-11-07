@@ -12,5 +12,5 @@ mixin link-list(items)
 
 mixin section-link-list(title, intro, items)
   include ./section
-  +section(null, title, intro)(class='section--link-list')
+  +section(null, title, intro)(class='section--link-list')&attributes(attributes)
     +link-list(items)

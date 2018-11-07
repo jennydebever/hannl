@@ -38,5 +38,5 @@ mixin collapsibles(items)
 mixin section-collapsibles(title, items)
   include ./section
 
-  +section(null, title)(class='section--collapsibles')
+  +section(null, title)(class='section--collapsibles')&attributes(attributes)
     +collapsibles(items)

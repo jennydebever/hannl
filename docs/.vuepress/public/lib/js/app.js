@@ -3602,7 +3602,7 @@
             var n = document.getElementById(e.substring(1));
             if (n) {
               if (n.hasAttribute("aria-modal")) return;
-              t.preventDefault(), o.dispatch({ type: i.REQUEST_SCROLLTO, target: n });
+              t.preventDefault(), history.pushState("", "", e), o.dispatch({ type: i.REQUEST_SCROLLTO, target: n });
             }
           }
         });

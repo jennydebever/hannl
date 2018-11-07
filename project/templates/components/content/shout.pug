@@ -30,7 +30,7 @@ mixin section-shout(title, image, intro, buttons)
   include ../atoms/btn-primary
   include ../atoms/btn-secondary
 
-  +section(class="section--shout")
+  +section(class="section--shout")&attributes(attributes)
     .shout
       .shout-wrapper
         .shout__picture-wrapper

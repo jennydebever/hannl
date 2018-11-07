@@ -82,5 +82,5 @@ mixin locations(locations)
 mixin section-locations(title, locations)
   include ./section
 
-  +section(null, title).section--locations
+  +section(null, title)(class='section--locations')&attributes(attributes)
     +locations(locations)
