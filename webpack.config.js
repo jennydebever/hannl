@@ -1,5 +1,7 @@
 const path = require("path");
 const glob = require("glob");
+const webpack = require("webpack");
+const pkg = require("./package.json");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const WriteFilePlugin = require("write-file-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
@@ -64,9 +66,6 @@ module.exports = {
       }
     ]
   },
-  // optimization: {
-  //   minimizer: [new UglifyJsPlugin()]
-  // },
   plugins: []
     .concat(
       files.map(
@@ -82,6 +81,16 @@ module.exports = {
     )
     .concat([
       new WriteFilePlugin(), // actually write files while in devServer, for vuepress
+      new webpack.BannerPlugin({
+        banner: `${pkg.name} version: ${pkg.version},
+hash:[hash],
+chunkhash:[chunkhash],
+name:[name],
+filebase:[filebase],
+query:[query],
+file:[file]
+        `
+      }),
       new MiniCssExtractPlugin({
         // Options similar to the same options in webpackOptions.output
         // both options are optional
