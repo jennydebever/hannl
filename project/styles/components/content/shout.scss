@@ -1,0 +1,108 @@
+.shout {
+}
+
+.shout-wrapper {
+  @include grid;
+
+  @include breakpoint($bp-m) {
+    background: $black;
+  }
+}
+
+.shout__picture-wrapper {
+  @include breakpoint($bp-m) {
+    @include grid-item(6);
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+.shout__picture {
+  display: block;
+  position: relative;
+  width: 100%;
+
+  @include breakpoint($bp-m) {
+    display: flex;
+    justify-content: flex-end;
+    align-items: baseline;
+    padding-top: 80px;
+    z-index: 1;
+  }
+
+  img {
+    display: block;
+    border-radius: 3px;
+
+    @include breakpoint($bp-m) {
+      width: 89.5%;
+    }
+  }
+}
+
+.shout__text-wrapper {
+  @include breakpoint($bp-m) {
+    @include grid-item(6);
+  }
+}
+
+.shout__text {
+  color: $white;
+
+  @include breakpoint($bp-m) {
+    padding: 100px 0 100px 24px;
+    position: relative;
+
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      background-color: $white;
+      bottom: 0;
+      height: 500px;
+      transform: translateY(100%) translateX(-100vw);
+      width: 200vw;
+    }
+  }
+}
+
+.shout__text__title {
+  @include h1;
+  @include underscore;
+  margin-bottom: 0.5em;
+  color: $white;
+}
+
+.shout__text__intro {
+  @include base;
+  margin-bottom: 2em;
+  color: $white;
+}
+
+.shout__text__buttons {
+  display: flex;
+  flex-wrap: wrap;
+
+  @include breakpoint($bp-m) {
+    margin-bottom: -16px;
+  }
+}
+
+.shout__text__buttons__button {
+  margin: 0 8px 8px 0;
+
+  @include breakpoint($bp-m) {
+    margin: 0 16px 16px 0;
+  }
+
+  &:last-of-type {
+    margin: 0;
+  }
+
+  .btn-primary {
+  }
+
+  .btn-secondary {
+    @include btn-secondary-on-black;
+  }
+}

@@ -3,6 +3,7 @@ include ../../utils/todo
 include ../../components/nav/coursenav
 include ../../components/content/line
 include ../../components/content/link-list
+include ../../components/content/shout
 
 block append vars
   - pageTitle.push('Deeltijd');
@@ -16,7 +17,29 @@ block main
   +todo('course facts')
   +todo('usp cards')
   +todo('vaardigheden')
-  +todo('shout for action')
+  
+  - var title = 'Kom sparren met je studieadviseur';
+  - var image = 'kind-robot.jpg';
+  - var intro = 'Je eigen oordeel is het belangrijkst bij zo`n beslissende keuze. Een adviesgesprek met een HAN studieadviseur kan daarbij helpen. Je kunt je verwachtingen toetsen en je krijgt inzicht in je persoonlijke studieprogramma.';
+  - var buttons = [];
+  - buttons.push({ href: '/', label: 'Regel een adviesgesprek', type: BUTTON_PRIMARY, icon: 'external' });
+  +section-shout(title, image, intro, buttons)
+  
+  - var title = 'De nodige ervaring in huis?';
+  - var image = 'kind-robot.jpg';
+  - var intro = 'Dan kun je waarschijnlijk vrijstellingen krijgen. Als je veel ervaring hebt en de juiste vooropleiding, kun je je deeltijd Pabo aanzienlijk inkorten. Meer weten over de verkorte Pabo en jouw persoonlijke leerroute?  Maak een afspraak voor een persoonlijk gesprek. Dan hoor je meteen welke vrijstellingen mogelijk zijn.';
+  - var buttons = [];
+  - buttons.push({ href: '/', label: 'Maak afspraak over je persoonlijke leerroute', type: BUTTON_PRIMARY, icon: 'external' });
+  +section-shout(title, image, intro, buttons)
+  
+  - var title = 'Nieuwsgierig';
+  - var image = 'kind-robot.jpg';
+  - var intro = 'Je eigen oordeel is het belangrijkste. Kom kennismaken en sfeer proeven: onze deuren staan voor je open!';
+  - var buttons = [];
+  - buttons.push({ href: '/', label: 'Bezoek de Open Avond', type: BUTTON_PRIMARY, icon: 'external' });
+  - buttons.push({ href: '/', label: 'Regel een adviesgesprek', type: BUTTON_SECONDARY, icon: 'external' });
+  +section-shout(title, image, intro, buttons)
+
   +todo('textmedia')
   +todo('textmedia highlight')
   
@@ -31,6 +54,6 @@ block main
   +section-line
 
   +todo('contact')
-  +todo('shout for action')
+  +todo('scream for action')
   
   
