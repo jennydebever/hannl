@@ -3842,10 +3842,18 @@ hr {
 .shout__picture {
   display: block;
   position: relative;
-  width: 100%;
+  width: 100vw;
+  transform: translateX(-8px);
+}
+@media (min-width: 768px) {
+  .shout__picture {
+    transform: translateX(-16px);
+  }
 }
 @media (min-width: 1024px) {
   .shout__picture {
+    transform: none;
+    width: 100%;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-align: baseline;
@@ -3862,10 +3870,10 @@ hr {
 }
 .shout__picture img {
   display: block;
-  border-radius: 3px;
 }
 @media (min-width: 1024px) {
   .shout__picture img {
+    border-radius: 3px;
     width: 95%;
   }
 }

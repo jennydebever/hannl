@@ -30,10 +30,17 @@
 .shout__picture {
   display: block;
   position: relative;
-  width: 100%;
+  width: 100vw;
+  transform: translateX(-$grid-item-spacing-s);
+
+  @include breakpoint($bp-m) {
+    transform: translateX(-$grid-item-spacing-m);
+  }
 
   // desktop view, make flex container
   @include breakpoint($bp-l) {
+    transform: none;
+    width: 100%;
     display: flex;
     align-items: baseline;
     z-index: 1;
@@ -47,10 +54,10 @@
 
   img {
     display: block;
-    border-radius: 3px;
 
     // add a little extra breathing room for text
     @include breakpoint($bp-l) {
+      border-radius: 3px;
       width: 95%;
     }
 
