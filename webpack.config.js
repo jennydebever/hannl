@@ -7,7 +7,7 @@ const WriteFilePlugin = require("write-file-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const StyleLintPlugin = require("stylelint-webpack-plugin");
 
-const files = glob.sync("./project/templates/pages/**/!(_)*.pug");
+const files = glob.sync("./project/templates/pages/**/!(_)*.pug").concat("./project/templates/icons/_symbols.pug");
 console.log(files);
 
 const contentBase = path.resolve(__dirname, "docs", ".vuepress", "public");
@@ -86,7 +86,10 @@ module.exports = {
         file =>
           new HtmlWebpackPlugin({
             title: "han.nl",
-            filename: `${file.replace("./project/templates/pages", ".").replace(".pug", ".html")}`,
+            filename: `${file
+              .replace("./project/templates/pages", ".")
+              .replace("./project/templates/icons/_", "./")
+              .replace(".pug", ".html")}`,
             template: file,
             inject: false,
             minify: false
