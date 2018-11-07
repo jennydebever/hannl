@@ -3,6 +3,7 @@ const glob = require("glob");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const WriteFilePlugin = require("write-file-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const StyleLintPlugin = require("stylelint-webpack-plugin");
 
 const files = glob.sync("./project/templates/pages/**/!(_)*.pug");
 console.log(files);
@@ -25,18 +26,18 @@ module.exports = {
   },
   module: {
     rules: [
-      // {
-      //   test: /\.(pug|jade)$/,
-      //   exclude: /node_modules/,
-      //   loader: "pug-lint-loader",
-      //   options: Object.assign(
-      //     {
-      //       emitError: false
-      //     },
-      //     require("./.puglintrc.js")
-      //   ),
-      //   enforce: "pre"
-      // },
+      {
+        test: /\.(pug|jade)$/,
+        exclude: /node_modules/,
+        loader: "pug-lint-loader",
+        options: Object.assign(
+          {
+            emitError: false
+          },
+          require("./.pug-lintrc")
+        ),
+        enforce: "pre"
+      },
       {
         test: /\.pug$/,
         loader: "pug-loader",
@@ -86,6 +87,10 @@ module.exports = {
         // both options are optional
         filename: "[name].css",
         chunkFilename: "[id].css"
+      }),
+      new StyleLintPlugin({
+        syntax: "scss"
+        // lintDirtyModulesOnly: true
       })
     ]),
 
