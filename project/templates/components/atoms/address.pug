@@ -11,11 +11,9 @@ mixin address(location)
   .address
     .address__body
       h4.address__body__title HAN campus #{location.city}
-      a.address__body__text(href="#")
-        span #{location.street} #{location.number}<br/>
-        span #{location.zipcode} #{location.city}
-
-      p.address__body__phone
+      address.address__body__text
+        <a href="">#{location.street} #{location.number}<br>#{location.zipcode} #{location.city}</a>
+        | <br>
         | Telefoon: <a href="tel:#{location.phone.replace(/\s|-/g, '')}">#{location.phone}</a>
 
     if location.btn

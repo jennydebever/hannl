@@ -134,31 +134,3 @@
   flex-grow: 1;
   transition: transform 0.75s $ease;
 }
-
-/**
- * Location
- */
-.address__body__title {
-  font-family: $bold;
-  text-decoration: none;
-  font-size: 20px;
-  line-height: 26px;
-  margin-bottom: 8px;
-}
-
-.address__body__text {
-  color: $grey5;
-  font-family: $medium;
-  font-size: 16px;
-  font-weight: 500;
-  letter-spacing: 0;
-  line-height: 27px;
-  text-align: left;
-  text-decoration: underline;
-}
-
-.address__body__phone {
-  a {
-    color: $grey5;
-  }
-}

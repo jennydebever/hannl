@@ -5,34 +5,39 @@
 */
 
 .address__body {
+}
+
+.address__body__title {
+  font-family: $bold;
+  color: $black;
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 8px;
+
+  @include breakpoint($bp-m) {
+    font-size: 19px;
+  }
+
+  @include breakpoint($bp-l) {
+    font-size: 20px;
+  }
+}
+
+.address__body__text {
+  @include base;
+  color: $black;
+  color: $grey5;
+  font-style: normal;
+
   a {
     @include focusable($hanred);
+    color: $grey5;
 
     &:hover {
       text-decoration: none;
     }
   }
 }
-
-.address__body__title {
-  font-family: $bold;
-  color: #0c011c;
-  font-size: 20px;
-  font-weight: bold;
-  line-height: 25px;
-}
-
-.address__body__text {
-  color: $black;
-}
-
-.address__body__phone {
-  color: $black;
-}
-
-/**
- * Footer
- */
 
 .address__footer {
   padding-top: 18px;
