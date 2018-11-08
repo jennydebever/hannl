@@ -1,0 +1,11 @@
+.underscore-wrap {
+  @include hyphens;
+  display: inline-block;
+  font-weight: inherit;
+  font-size: inherit;
+  text-decoration: inherit;
+}
+
+.underscore {
+  color: $hanred;
+}

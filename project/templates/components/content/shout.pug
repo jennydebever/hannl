@@ -24,8 +24,6 @@
 
 mixin section-shout(title, image, intro, buttons)
   include ./section
-  include ./intro
-  include ../atoms/richtext
   include ../../utils/srcset
   include ../atoms/btn-primary
   include ../atoms/btn-secondary
@@ -49,7 +47,7 @@ mixin section-shout(title, image, intro, buttons)
         .shout__text-wrapper
           .shout__text
             if title
-              h2.shout__text__title #{title}
+              h2.shout__text__title(class='js-underscore') #{title}
           
             if intro
               p.shout__text__intro !{intro}

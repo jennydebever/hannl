@@ -835,8 +835,8 @@
                 x = !1,
                 L = 0,
                 _ = !1,
-                O = !1,
-                S = null,
+                S = !1,
+                O = null,
                 A = null,
                 t = -1,
                 u = null,
@@ -900,13 +900,13 @@
               function N(t, e) {
                 if ("above" === e)
                   for (var n = 0; n < t; n++) {
-                    var r = S[n];
+                    var r = O[n];
                     "enter" === r.state && D(b[n], "down"),
                       "up" === r.direction && (P(b[n], "down", !1), D(b[n], "down"));
                   }
                 else if ("below" === e)
-                  for (var o = S.length - 1; t < o; o--) {
-                    var i = S[o];
+                  for (var o = O.length - 1; t < o; o--) {
+                    var i = O[o];
                     "enter" === i.state && D(b[o], "up"), "down" === i.direction && (P(b[o], "up", !1), D(b[o], "up"));
                   }
               }
@@ -914,25 +914,25 @@
                 void 0 === n && (n = !0);
                 var r = m(t),
                   o = { element: t, index: r, direction: e };
-                (S[r].direction = e),
-                  (S[r].state = "enter"),
+                (O[r].direction = e),
+                  (O[r].state = "enter"),
                   _ && n && "down" === e && N(r, "above"),
                   _ && n && "up" === e && N(r, "below"),
                   i.stepEnter &&
                     "function" == typeof i.stepEnter &&
                     !f[r] &&
-                    (i.stepEnter(o, S), E && Z({ id: y, index: r, state: "enter" }), O && (f[r] = !0)),
+                    (i.stepEnter(o, O), E && Z({ id: y, index: r, state: "enter" }), S && (f[r] = !0)),
                   x && I(t, "down" === e ? 0 : 1);
               }
               function D(t, e) {
                 var n = m(t),
                   r = { element: t, index: n, direction: e };
-                (S[n].direction = e),
-                  (S[n].state = "exit"),
+                (O[n].direction = e),
+                  (O[n].state = "exit"),
                   x && I(t, "down" === e ? 1 : 0),
                   i.stepExit &&
                     "function" == typeof i.stepExit &&
-                    (i.stepExit(r, S), E && Z({ id: y, index: n, state: "exit" }));
+                    (i.stepExit(r, O), E && Z({ id: y, index: n, state: "exit" }));
               }
               function I(t, e) {
                 var n = { element: t, index: m(t), progress: e };
@@ -960,7 +960,7 @@
                       i = n.height,
                       a = o - l,
                       s = m(r),
-                      p = S[s];
+                      p = O[s];
                     -c <= a &&
                       (e && "down" === u && "enter" !== p.state
                         ? P(r, u)
@@ -979,7 +979,7 @@
                       i = n.height,
                       a = o - l,
                       s = m(r),
-                      p = S[s];
+                      p = O[s];
                     -c <= a && a < i && e && "up" === u && "enter" !== p.state
                       ? P(r, u)
                       : a <= c && !e && "down" === u && "enter" === p.state && D(r, u);
@@ -991,7 +991,7 @@
                     var e = t.isIntersecting,
                       n = t.target,
                       r = m(n),
-                      o = S[r];
+                      o = O[r];
                     e && "down" === u && "enter" !== o.state && "down" !== o.direction && (P(n, "down"), D(n, "down"));
                   });
               }
@@ -1001,7 +1001,7 @@
                     var e = t.isIntersecting,
                       n = t.target,
                       r = m(n),
-                      o = S[r];
+                      o = O[r];
                     e && "up" === u && "enter" !== o.state && "up" !== o.direction && (P(n, "up"), D(n, "up"));
                   });
               }
@@ -1024,13 +1024,13 @@
                   o = (r.top, r.bottom);
                 -c < o && (n ? M() : "enter" === A.state && R());
               }
-              function W(t) {
+              function q(t) {
                 T();
                 var e = t[0],
                   n = e.isIntersecting;
                 e.boundingClientRect.top < c && (n ? M() : "enter" === A.state && R());
               }
-              function q() {
+              function W() {
                 e.stepProgress &&
                   e.stepProgress.forEach(function(t) {
                     return t.disconnect();
@@ -1101,7 +1101,7 @@
                       });
                     return o.observe(t), o;
                   })),
-                  x && q(),
+                  x && W(),
                   h &&
                     v &&
                     ((function() {
@@ -1116,7 +1116,7 @@
                         rootMargin: "-" + n.height + "px 0px " + n.height + "px 0px",
                         threshold: 0
                       };
-                      (e.bottom = new IntersectionObserver(W, t)), e.bottom.observe(h);
+                      (e.bottom = new IntersectionObserver(q, t)), e.bottom.observe(h);
                     })());
               }
               var U = {};
@@ -1171,7 +1171,7 @@
                       ? ((E = s),
                         (x = i),
                         (_ = p),
-                        (O = m),
+                        (S = m),
                         U.offsetTrigger(o),
                         (L = Math.max(1, +a)),
                         (w = !0),
@@ -1179,7 +1179,7 @@
                         b.forEach(function(t, e) {
                           return t.setAttribute("data-scrollama-index", e);
                         }),
-                        (S = b.map(function() {
+                        (O = b.map(function() {
                           return { direction: null, state: null };
                         })),
                         (A = { direction: null, state: null }),
@@ -1357,10 +1357,10 @@
                     x = e ? p.borderBottomWidth : "0px",
                     L = n ? k.endHeight + "px" : l ? d + m + h + "px" : d - u - f + "px",
                     _ = u + "px",
-                    O = f + "px",
-                    S = m + "px",
+                    S = f + "px",
+                    O = m + "px",
                     A = h + "px";
-                  if (y === L && g === _ && w === O && E === S && x === A) return i(), void t();
+                  if (y === L && g === _ && w === S && E === O && x === A) return i(), void t();
                   requestAnimationFrame(function() {
                     (C.style.height = y),
                       (C.style.paddingTop = g),
@@ -1375,8 +1375,8 @@
                       requestAnimationFrame(function() {
                         (C.style.height = L),
                           (C.style.paddingTop = _),
-                          (C.style.paddingBottom = O),
-                          (C.style.borderTopWidth = S),
+                          (C.style.paddingBottom = S),
+                          (C.style.borderTopWidth = O),
                           (C.style.borderBottomWidth = A);
                       });
                   });
@@ -1604,7 +1604,7 @@
                       }
                       return t;
                     },
-                  W = {
+                  q = {
                     a11y: !0,
                     content: "",
                     placement: "top",
@@ -1654,7 +1654,7 @@
                     onHidden: function() {},
                     onMount: function() {}
                   },
-                  q = ["placement", "popperOptions", "flip", "flipBehavior", "distance", "offset"],
+                  W = ["placement", "popperOptions", "flip", "flipBehavior", "distance", "offset"],
                   t = "undefined" != typeof window && "undefined" != typeof document,
                   e = ["Edge", "Trident", "Firefox"],
                   n = 0,
@@ -1843,7 +1843,7 @@
                 }
                 return L(o);
               }
-              function O(t, e) {
+              function S(t, e) {
                 var n = 2 < arguments.length && void 0 !== arguments[2] && arguments[2],
                   r = h(10),
                   o = "HTML" === e.nodeName,
@@ -1877,7 +1877,7 @@
                   d
                 );
               }
-              function S(t) {
+              function O(t) {
                 if (!t || !t.parentElement || h()) return document.documentElement;
                 for (var e = t.parentElement; e && "none" === w(e, "transform"); ) e = e.parentElement;
                 return e || document.documentElement;
@@ -1885,12 +1885,12 @@
               function u(t, e, n, r) {
                 var o = 4 < arguments.length && void 0 !== arguments[4] && arguments[4],
                   i = { top: 0, left: 0 },
-                  a = o ? S(t) : v(t, e);
+                  a = o ? O(t) : v(t, e);
                 if ("viewport" === r)
                   i = (function(t) {
                     var e = 1 < arguments.length && void 0 !== arguments[1] && arguments[1],
                       n = t.ownerDocument.documentElement,
-                      r = O(t, n),
+                      r = S(t, n),
                       o = Math.max(n.clientWidth, window.innerWidth || 0),
                       i = Math.max(n.clientHeight, window.innerHeight || 0),
                       a = e ? 0 : b(n),
@@ -1902,7 +1902,7 @@
                   "scrollParent" === r
                     ? "BODY" === (s = m(f(e))).nodeName && (s = t.ownerDocument.documentElement)
                     : (s = "window" === r ? t.ownerDocument.documentElement : r);
-                  var p = O(s, a, o);
+                  var p = S(s, a, o);
                   if (
                     "HTML" !== s.nodeName ||
                     (function t(e) {
@@ -1959,7 +1959,7 @@
               }
               function T(t, e, n) {
                 var r = 3 < arguments.length && void 0 !== arguments[3] ? arguments[3] : null;
-                return O(n, r ? S(e) : v(e, n), r);
+                return S(n, r ? O(e) : v(e, n), r);
               }
               function C(t) {
                 var e = getComputedStyle(t),
@@ -2842,7 +2842,7 @@
                   });
                 },
                 gt = function(o) {
-                  return Object.keys(W).reduce(function(t, e) {
+                  return Object.keys(q).reduce(function(t, e) {
                     var n,
                       r = (o.getAttribute("data-tippy-" + e) || "").trim();
                     return (
@@ -2900,7 +2900,7 @@
                 _t = function(t, e) {
                   return (e ? t : { X: "Y", Y: "X" }[t]) || "";
                 },
-                Ot = function(t, e, n, r) {
+                St = function(t, e, n, r) {
                   var o = e[0],
                     i = e[1];
                   return o || i
@@ -2920,7 +2920,7 @@
                       }[t]
                     : "";
                 },
-                St = function(t, e) {
+                Ot = function(t, e) {
                   var n = t.match(new RegExp(e + "([XY])"));
                   return n ? n[1] : "";
                 },
@@ -2935,15 +2935,15 @@
                     r = "top" === n || "bottom" === n,
                     o = "right" === n || "bottom" === n,
                     i = {
-                      translate: { axis: St(e, "translate"), numbers: At(e, Tt) },
-                      scale: { axis: St(e, "scale"), numbers: At(e, Ct) }
+                      translate: { axis: Ot(e, "translate"), numbers: At(e, Tt) },
+                      scale: { axis: Ot(e, "scale"), numbers: At(e, Ct) }
                     },
                     a = e
                       .replace(
                         Tt,
-                        "translate" + _t(i.translate.axis, r) + "(" + Ot("translate", i.translate.numbers, r, o) + ")"
+                        "translate" + _t(i.translate.axis, r) + "(" + St("translate", i.translate.numbers, r, o) + ")"
                       )
-                      .replace(Ct, "scale" + _t(i.scale.axis, r) + "(" + Ot("scale", i.scale.numbers, r, o) + ")");
+                      .replace(Ct, "scale" + _t(i.scale.axis, r) + "(" + St("scale", i.scale.numbers, r, o) + ")");
                   t.style[void 0 !== document.body.style.transform ? "transform" : "webkitTransform"] = a;
                 },
                 Nt = function(t, e) {
@@ -3010,14 +3010,14 @@
                 },
                 Ft = nt ? navigator : {},
                 Ht = nt ? window : {},
-                Wt = /MSIE |Trident\//.test(Ft.userAgent),
-                qt = /iPhone|iPad|iPod/.test(Ft.platform) && !Ht.MSStream,
+                qt = /MSIE |Trident\//.test(Ft.userAgent),
+                Wt = /iPhone|iPad|iPod/.test(Ft.platform) && !Ht.MSStream,
                 Xt = "ontouchstart" in Ht,
                 Ut = !1,
                 zt = function() {
                   Ut ||
                     ((Ut = !0),
-                    qt && document.body.classList.add("tippy-iOS"),
+                    Wt && document.body.classList.add("tippy-iOS"),
                     window.performance && document.addEventListener("mousemove", Gt));
                 },
                 Kt = 0,
@@ -3026,7 +3026,7 @@
                   e - Kt < 20 &&
                     ((Ut = !1),
                     document.removeEventListener("mousemove", t),
-                    qt || document.body.classList.remove("tippy-iOS")),
+                    Wt || document.body.classList.remove("tippy-iOS")),
                     (Kt = e);
                 },
                 Qt = function(t) {
@@ -3071,7 +3071,7 @@
                   l = [],
                   d = !1,
                   u = !1,
-                  f = 0 < n.interactiveDebounce ? Vt(O, n.interactiveDebounce) : O,
+                  f = 0 < n.interactiveDebounce ? Vt(S, n.interactiveDebounce) : S,
                   m = $t++,
                   h = vt(m, n),
                   v = pt(h),
@@ -3148,7 +3148,7 @@
                       var e, n;
                       if (((i = !0), b.props.wait)) return b.props.wait(b, t);
                       P() && (v.arrow && (v.arrow.style.margin = "0"), document.addEventListener("mousemove", g));
-                      var r = ut(b.props.delay, 0, W.delay);
+                      var r = ut(b.props.delay, 0, q.delay);
                       r
                         ? (o = setTimeout(function() {
                             V();
@@ -3159,7 +3159,7 @@
                 function E() {
                   if ((B(), !b.state.isVisible)) return x();
                   i = !1;
-                  var t = ut(b.props.delay, 1, W.delay);
+                  var t = ut(b.props.delay, 1, q.delay);
                   t
                     ? (r = setTimeout(function() {
                         b.state.isVisible && Y();
@@ -3178,7 +3178,7 @@
                     (b.state.isVisible || (s = t),
                     "click" === t.type && !1 !== b.props.hideOnClick && b.state.isVisible ? E() : w(t));
                 }
-                function O(t) {
+                function S(t) {
                   var e = xt(t.target, function(t) {
                       return t._tippy;
                     }),
@@ -3186,7 +3186,7 @@
                     r = e === b.reference;
                   n || r || (It(Rt(b.popper), b.popper.getBoundingClientRect(), t, b.props) && (L(), E()));
                 }
-                function S(t) {
+                function O(t) {
                   if (!k(t))
                     return b.props.interactive
                       ? (document.body.addEventListener("mouseleave", E),
@@ -3229,7 +3229,7 @@
                         offset: H({ offset: b.props.offset }, t && t.modifiers ? t.modifiers.offset : {})
                       }),
                       onCreate: function() {
-                        (e.style[Rt(b.popper)] = Mt(b.props.distance, W.distance)),
+                        (e.style[Rt(b.popper)] = Mt(b.props.distance, q.distance)),
                           r && b.props.arrowTransform && kt(r, b.props.arrowTransform);
                       },
                       onUpdate: function() {
@@ -3238,7 +3238,7 @@
                           (t.bottom = ""),
                           (t.left = ""),
                           (t.right = ""),
-                          (t[Rt(b.popper)] = Mt(b.props.distance, W.distance)),
+                          (t[Rt(b.popper)] = Mt(b.props.distance, q.distance)),
                           r && b.props.arrowTransform && kt(r, b.props.arrowTransform);
                       }
                     }),
@@ -3296,12 +3296,12 @@
                             I(e, T, t);
                         }
                       else
-                        switch ((I(e, _, t), b.props.touchHold && (I("touchstart", _, t), I("touchend", S, t)), e)) {
+                        switch ((I(e, _, t), b.props.touchHold && (I("touchstart", _, t), I("touchend", O, t)), e)) {
                           case "mouseenter":
-                            I("mouseleave", S, t);
+                            I("mouseleave", O, t);
                             break;
                           case "focus":
-                            I(Wt ? "focusout" : "blur", A, t);
+                            I(qt ? "focusout" : "blur", A, t);
                         }
                       return t;
                     }, []);
@@ -3317,17 +3317,17 @@
                   clearTimeout(o), clearTimeout(r);
                 }
                 function j(e) {
-                  Yt(e, W);
+                  Yt(e, q);
                   var t = b.props,
                     n = Bt(b.reference, H({}, b.props, e, { performance: !0 }));
                   (n.performance = e.performance || t.performance),
                     (b.props = n),
                     ("trigger" in e || "touchHold" in e) && (R(), M()),
-                    "interactiveDebounce" in e && (L(), (f = Vt(O, e.interactiveDebounce))),
+                    "interactiveDebounce" in e && (L(), (f = Vt(S, e.interactiveDebounce))),
                     bt(b.popper, t, n),
                     (b.popperChildren = pt(b.popper)),
                     b.popperInstance &&
-                      q.some(function(t) {
+                      W.some(function(t) {
                         return t in e;
                       }) &&
                       (b.popperInstance.destroy(),
@@ -3339,7 +3339,7 @@
                   var t =
                     0 < arguments.length && void 0 !== arguments[0]
                       ? arguments[0]
-                      : ut(b.props.duration, 0, W.duration[0]);
+                      : ut(b.props.duration, 0, q.duration[0]);
                   if (!b.state.isDestroyed && b.state.isEnabled && (!Ut || b.props.touch))
                     return b.reference.isVirtual || document.documentElement.contains(b.reference)
                       ? void (
@@ -3361,7 +3361,7 @@
                                   P())
                                 ) {
                                   b.popperChildren.arrow && (b.popperChildren.arrow.style.margin = "");
-                                  var e = ut(b.props.delay, 0, W.delay);
+                                  var e = ut(b.props.delay, 0, q.delay);
                                   s.type && g(e && p ? p : s);
                                 }
                                 Pt(b.popperInstance, t),
@@ -3380,7 +3380,7 @@
                                     (b.popperChildren.content.style.transitionDelay = Math.round(t / 6) + "ms"),
                                   b.props.interactive && b.reference.classList.add("tippy-active"),
                                   b.props.sticky &&
-                                    (st([b.popper], Wt ? 0 : b.props.updateDuration),
+                                    (st([b.popper], qt ? 0 : b.props.updateDuration),
                                     (function t() {
                                       b.popperInstance && b.popperInstance.scheduleUpdate(),
                                         b.state.isMounted ? requestAnimationFrame(t) : st([b.popper], 0);
@@ -3406,7 +3406,7 @@
                     e =
                       0 < arguments.length && void 0 !== arguments[0]
                         ? arguments[0]
-                        : ut(b.props.duration, 1, W.duration[1]);
+                        : ut(b.props.duration, 1, q.duration[1]);
                   !b.state.isDestroyed &&
                     b.state.isEnabled &&
                     (!1 !== b.props.onHide(b) &&
@@ -3453,7 +3453,7 @@
                 ne = !1;
               function re(t, e, n) {
                 var r;
-                Yt(e, W),
+                Yt(e, q),
                   ee ||
                     ((r = ne),
                     document.addEventListener("click", Qt, r),
@@ -3464,7 +3464,7 @@
                       (!navigator.maxTouchPoints && !navigator.msMaxTouchPoints) ||
                       document.addEventListener("pointerdown", zt),
                     (ee = !0));
-                var o = H({}, W, e);
+                var o = H({}, q, e);
                 ct(t) &&
                   (function(n) {
                     var t = {
@@ -3527,12 +3527,12 @@
                 };
               }
               (re.version = "3.1.1"),
-                (re.defaults = W),
+                (re.defaults = q),
                 (re.one = function(t, e) {
                   return re(t, e, !0).instances[0];
                 }),
                 (re.setDefaults = function(t) {
-                  (W = H({}, W, t)), (re.defaults = W);
+                  (q = H({}, q, t)), (re.defaults = q);
                 }),
                 (re.disableAnimations = function() {
                   re.setDefaults({ duration: 0, updateDuration: 0, animateFill: !1 });
@@ -3607,9 +3607,18 @@
           }
         });
       },
-      { "../../../constants": 39, "../../dispatcher": 30, "delegate-events": 4 }
+      { "../../../constants": 41, "../../dispatcher": 32, "delegate-events": 4 }
     ],
     18: [
+      function(t, e, n) {
+        t("delegate-events").bind(document.body, ".js-click-block", "click", function(t) {
+          var e = t.delegateTarget.querySelector("a");
+          e !== t.target && (t.preventDefault(), (location.href = e.href));
+        });
+      },
+      { "delegate-events": 4 }
+    ],
+    19: [
       function(t, e, n) {
         var r = t("delegate-events"),
           i = t("../../../constants"),
@@ -3642,9 +3651,9 @@
             }
           })();
       },
-      { "../../../constants": 39, "delegate-events": 4, "find-parent": 6, "slide-anim": 13 }
+      { "../../../constants": 41, "delegate-events": 4, "find-parent": 6, "slide-anim": 13 }
     ],
-    19: [
+    20: [
       function(t, e, n) {
         var r = t("delegate-events"),
           p = t("find-parent"),
@@ -3672,9 +3681,9 @@
           r.bind(l, ".js-tabs", c.EVENT_TAB_CHANGE, o);
         }
       },
-      { "../../../constants": 39, "delegate-events": 4, "find-parent": 6 }
+      { "../../../constants": 41, "delegate-events": 4, "find-parent": 6 }
     ],
-    20: [
+    21: [
       function(t, e, n) {
         var r = t("scrollama"),
           o = t("../../dispatcher"),
@@ -3694,9 +3703,9 @@
             o.on(i.EVENT_RESIZE, a.resize);
         }
       },
-      { "../../../constants": 39, "../../dispatcher": 30, scrollama: 12 }
+      { "../../../constants": 41, "../../dispatcher": 32, scrollama: 12 }
     ],
-    21: [
+    22: [
       function(t, e, n) {
         !(function(t) {
           for (var e = 0, n = t.length; e < n; ++e) {
@@ -3711,7 +3720,7 @@
       },
       {}
     ],
-    22: [
+    23: [
       function(t, e, n) {
         var r = t("delegate-events"),
           l = t("find-parent"),
@@ -3754,9 +3763,9 @@
           c && o(p, document.getElementById(c));
         }
       },
-      { "../../../constants": 39, "../../dispatcher": 30, "delegate-events": 4, "find-parent": 6 }
+      { "../../../constants": 41, "../../dispatcher": 32, "delegate-events": 4, "find-parent": 6 }
     ],
-    23: [
+    24: [
       function(t, e, n) {
         var r = t("tippy.js"),
           o = t("../../../constants"),
@@ -3794,9 +3803,26 @@
           t.which === o.KEY_ESCAPE && (i.disable(), r.hideAllPoppers());
         }
       },
-      { "../../../constants": 39, "../../ui/focus-trap": 33, "tippy.js": 15 }
+      { "../../../constants": 41, "../../ui/focus-trap": 35, "tippy.js": 15 }
     ],
-    24: [
+    25: [
+      function(t, e, n) {
+        for (var r = document.querySelectorAll(".js-underscore"), o = 0, i = r.length; o < i; ++o) {
+          var a = r[o],
+            s = a.textContent.trim().split(" "),
+            p = document.createElement("span");
+          p.classList.add("underscore-wrap"), (p.innerHTML = s[s.length - 1]);
+          var c = document.createElement("span");
+          c.classList.add("underscore"),
+            (c.innerHTML = "_"),
+            p.appendChild(c),
+            (a.innerText = s.splice(0, s.length - 1).join(" ") + " "),
+            a.appendChild(p);
+        }
+      },
+      {}
+    ],
+    26: [
       function(t, e, n) {
         var r = t("scrollama"),
           o = t("../../utils/lerp"),
@@ -3824,14 +3850,14 @@
             f.setup({ step: ".js-course-hero__image", offset: 0, progress: !0, debug: !1 }).onStepProgress(u);
       },
       {
-        "../../../constants": 39,
-        "../../dispatcher": 30,
-        "../../ui/get-breakpoint": 34,
-        "../../utils/lerp": 37,
+        "../../../constants": 41,
+        "../../dispatcher": 32,
+        "../../ui/get-breakpoint": 36,
+        "../../utils/lerp": 39,
         scrollama: 12
       }
     ],
-    25: [
+    27: [
       function(t, e, n) {
         var r = t("delegate-events"),
           p = t("../ui/focus-trap"),
@@ -3951,9 +3977,9 @@
           a(),
           window.addEventListener("popstate", a);
       },
-      { "../../constants": 39, "../dispatcher": 30, "../ui/focus-trap": 33, "delegate-events": 4 }
+      { "../../constants": 41, "../dispatcher": 32, "../ui/focus-trap": 35, "delegate-events": 4 }
     ],
-    26: [
+    28: [
       function(t, e, n) {
         var r,
           o = t("delegate-events"),
@@ -3996,9 +4022,9 @@
             c(i.byClassName(t.relatedTarget, "js-subnav__item"));
           });
       },
-      { "../../../constants": 39, "../../ui/get-breakpoint": 34, "delegate-events": 4, "find-parent": 6 }
+      { "../../../constants": 41, "../../ui/get-breakpoint": 36, "delegate-events": 4, "find-parent": 6 }
     ],
-    27: [
+    29: [
       function(t, e, n) {
         var r = t("find-parent"),
           o = t("../../../constants"),
@@ -4027,9 +4053,9 @@
               (s.setAttribute("hidden", !0), document.body.removeEventListener("click", p));
           });
       },
-      { "../../../constants": 39, "../../dispatcher": 30, "find-parent": 6 }
+      { "../../../constants": 41, "../../dispatcher": 32, "find-parent": 6 }
     ],
-    28: [
+    30: [
       function(t, e, n) {
         var r = t("../../dispatcher"),
           a = t("../../../constants"),
@@ -4064,9 +4090,9 @@
           }
         });
       },
-      { "../../../constants": 39, "../../dispatcher": 30, "../../ui/get-breakpoint": 34 }
+      { "../../../constants": 41, "../../dispatcher": 32, "../../ui/get-breakpoint": 36 }
     ],
-    29: [
+    31: [
       function(t, e, n) {
         var r = t("debounce"),
           o = t("../../dispatcher"),
@@ -4103,9 +4129,9 @@
           window.addEventListener("scroll", f, { passive: !0 }),
           (window.onscroll = r(f, 250));
       },
-      { "../../../constants": 39, "../../dispatcher": 30, "../../ui/get-breakpoint": 34, debounce: 3 }
+      { "../../../constants": 41, "../../dispatcher": 32, "../../ui/get-breakpoint": 36, debounce: 3 }
     ],
-    30: [
+    32: [
       function(t, e, n) {
         var r = t("events").EventEmitter,
           o = t("object-assign")({}, r.prototype, {
@@ -4124,7 +4150,7 @@
       },
       { events: 5, "object-assign": 10 }
     ],
-    31: [
+    33: [
       function(t, e, n) {
         (window.HAN = {}),
           t("./ui/breakpoint-events"),
@@ -4141,31 +4167,35 @@
           t("./components/content/table"),
           t("./components/content/locations"),
           t("./components/content/tabs"),
+          t("./components/content/click-block"),
+          t("./components/content/underscore"),
           t("./components/modal"),
           t("./utils/video"),
           t("./utils/grid");
       },
       {
         "./components/content/anchor-link": 17,
-        "./components/content/collapsibles": 18,
-        "./components/content/locations": 19,
-        "./components/content/section": 20,
-        "./components/content/table": 21,
-        "./components/content/tabs": 22,
-        "./components/content/tooltip": 23,
-        "./components/hero/course-hero": 24,
-        "./components/modal": 25,
-        "./components/nav/coursenav": 28,
-        "./components/nav/coursenav-desktop": 26,
-        "./components/nav/coursenav-mobile": 27,
-        "./components/nav/fixed": 29,
-        "./ui/breakpoint-events": 32,
-        "./ui/scroll": 35,
-        "./utils/grid": 36,
-        "./utils/video": 38
+        "./components/content/click-block": 18,
+        "./components/content/collapsibles": 19,
+        "./components/content/locations": 20,
+        "./components/content/section": 21,
+        "./components/content/table": 22,
+        "./components/content/tabs": 23,
+        "./components/content/tooltip": 24,
+        "./components/content/underscore": 25,
+        "./components/hero/course-hero": 26,
+        "./components/modal": 27,
+        "./components/nav/coursenav": 30,
+        "./components/nav/coursenav-desktop": 28,
+        "./components/nav/coursenav-mobile": 29,
+        "./components/nav/fixed": 31,
+        "./ui/breakpoint-events": 34,
+        "./ui/scroll": 37,
+        "./utils/grid": 38,
+        "./utils/video": 40
       }
     ],
-    32: [
+    34: [
       function(t, e, n) {
         var r = t("../../constants"),
           o = t("../dispatcher"),
@@ -4183,9 +4213,9 @@
         }
         p(), window.addEventListener("resize", s, { passive: !0 }), s();
       },
-      { "../../constants": 39, "../dispatcher": 30, "./get-breakpoint": 34 }
+      { "../../constants": 41, "../dispatcher": 32, "./get-breakpoint": 36 }
     ],
-    33: [
+    35: [
       function(t, e, n) {
         var r,
           o = t("focus-trap"),
@@ -4201,7 +4231,7 @@
       },
       { "focus-trap": 7, "object-assign": 10 }
     ],
-    34: [
+    36: [
       function(t, e, n) {
         var r = t("../../constants");
         e.exports = function() {
@@ -4213,9 +4243,9 @@
           return t;
         };
       },
-      { "../../constants": 39 }
+      { "../../constants": 41 }
     ],
-    35: [
+    37: [
       function(t, e, n) {
         var o = t("../../constants"),
           r = t("../dispatcher"),
@@ -4282,9 +4312,9 @@
           d && r.dispatch({ type: o.REQUEST_SCROLLTO, target: d });
         }
       },
-      { "../../constants": 39, "../dispatcher": 30, "scroll-into-view": 11 }
+      { "../../constants": 41, "../dispatcher": 32, "scroll-into-view": 11 }
     ],
-    36: [
+    38: [
       function(t, e, n) {
         var r = 0;
         function o() {
@@ -4308,7 +4338,7 @@
       },
       {}
     ],
-    37: [
+    39: [
       function(t, e, n) {
         e.exports = function(t, e, n) {
           return t * (1 - n) + e * n;
@@ -4316,7 +4346,7 @@
       },
       {}
     ],
-    38: [
+    40: [
       function(t, e, n) {
         var r,
           o = document.getElementsByClassName("play-pause");
@@ -4330,7 +4360,7 @@
       },
       {}
     ],
-    39: [
+    41: [
       function(t, e, n) {
         var r = t("keymirror"),
           o = t("object-assign")(
@@ -4385,5 +4415,5 @@
     ]
   },
   {},
-  [31]
+  [33]
 );

@@ -4,6 +4,7 @@ include ../../components/nav/coursenav
 include ../../components/content/line
 include ../../components/content/link-list
 include ../../components/content/shout
+include ../../components/content/scream
 
 block append vars
   - pageTitle.push('Deeltijd');
@@ -39,6 +40,4 @@ block main
   +section-line
 
   +todo('contact')
-  +todo('scream for action')
-  
-  
+  +section-scream('kind-robot.jpg', 'Volgende pagina', 'Dit is je studie', 'Hoe is de opleiding tot leraar basisonderwijs opgebouwd?', { label: 'Bekijk wat en hoe je gaat leren', href: './studie.html' })

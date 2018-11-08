@@ -87,7 +87,6 @@
 
 .course-hero__content__title {
   @include h1;
-  @include underscore;
   max-width: grid-calc(10);
   background-color: $white;
   margin-bottom: #{$grid-item-spacing-s};

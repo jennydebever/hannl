@@ -6,6 +6,7 @@ include ../../components/content/collapsibles
 include ../../components/content/shout
 include ../../components/content/image-list
 include ../../components/content/line
+include ../../components/content/scream
 
 block append vars
   - pageTitle.push('Deeltijd studie');
@@ -47,4 +48,4 @@ block main
   +section-shout(title, image, intro, buttons)
 
   +todo('biocards')
-  +todo('scream for action')
+  +section-scream('kind-robot.jpg', 'Volgende pagina', 'Praktische info', 'Alles wat je wilt weten over de deeltijd Pabo.', { label: 'Bekijk alle praktische informatie', href: './info.html' })

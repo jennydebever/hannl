@@ -1,0 +1,125 @@
+.scream {
+  padding-bottom: calc(#{100% / 21 * 9} - 16px);
+
+  @include breakpoint($bp-s) {
+    padding-bottom: calc(#{100% / 21 * 9 / 3});
+  }
+
+  @include breakpoint($bp-l) {
+    padding-bottom: calc(#{100% / 21 * 9 / 2});
+  }
+
+  @include breakpoint($bp-xl) {
+    padding-bottom: calc(#{100% / 21 * 9 / 2} + 30px);
+  }
+}
+
+/**
+ * Image
+ */
+
+.scream__picture {
+  display: block;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 0;
+
+  img {
+    display: block;
+  }
+}
+
+/**
+ * Text
+ */
+
+.scream__content-wrapper {
+  @include grid-item(12);
+  margin-left: auto;
+
+  @include breakpoint($bp-s) {
+    @include grid-item(8);
+  }
+
+  @include breakpoint($bp-m) {
+    @include grid-item(7);
+  }
+
+  @include breakpoint($bp-m + 100px) {
+    @include grid-item(6.5);
+  }
+
+  @include breakpoint($bp-l) {
+    @include grid-item(6);
+  }
+
+  @include breakpoint($bp-xl) {
+    @include grid-item(5.4);
+  }
+}
+
+.scream__content {
+  background-color: transparent;
+  padding-top: 50px;
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+
+  &:hover {
+    .btn-primary {
+      background-color: $deep-red;
+      border-color: $deep-red;
+    }
+
+    .scream__content__title__eyebrow {
+      text-decoration: underline;
+    }
+  }
+
+  @include breakpoint($bp-s) {
+    background-color: $black;
+    padding: 30px;
+  }
+
+  @include breakpoint($bp-m) {
+    padding: 50px;
+  }
+
+  @include breakpoint($bp-xxl) {
+    padding: 72px;
+  }
+}
+
+.scream__content__title {
+  @include h1;
+  color: $white;
+  margin-bottom: 16px;
+}
+
+.scream__content__title__eyebrow {
+  @include eyebrow;
+  color: $grey1;
+  display: block;
+  margin-bottom: 25px;
+
+  @include breakpoint($bp-m) {
+    margin-bottom: 35px;
+  }
+}
+
+.scream__content__intro {
+  @include p;
+  color: $white;
+  margin-bottom: 30px;
+
+  @include breakpoint($bp-xl) {
+    margin-bottom: 50px;
+  }
+}
+
+.scream__content__button {
+  .btn-primary {
+  }
+}

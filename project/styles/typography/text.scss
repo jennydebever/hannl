@@ -24,7 +24,7 @@
   }
 
   @include breakpoint($bp-l) {
-    font-size: 48px;
+    font-size: 47px;
   }
 }
 
@@ -168,17 +168,6 @@
 
   @include breakpoint($bp-l) {
     font-size: 16px;
-  }
-}
-
-/** 
-* Underscore can be used in titles
-*/
-
-@mixin underscore {
-  &::after {
-    color: $hanred;
-    content: "_";
   }
 }
 
