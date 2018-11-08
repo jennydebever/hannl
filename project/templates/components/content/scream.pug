@@ -1,8 +1,15 @@
 //- @pugdoc
   name: Sectie (Scream for action)
   examples:
-    - |
-      +section-scream('kind-robot.jpg', null, 'Zin om te starten', 'Dan is het tijd voor een intake.', { label: 'Meld je aan voor het intakegesprek', href: './studie.html' })
+    - 
+      name: Sectie (Scream for action, zonder eyebrow)
+      example: |
+        +section-scream('kind-robot.jpg', null, 'Zin om te starten?', 'Dan is het tijd voor een intake.', { label: 'Meld je aan voor het intakegesprek', href: './studie.html' })
+      
+    -
+      name: Sectie (Scream for action, met eyebrow)
+      example: |
+        +section-scream('kind-robot.jpg', 'Volgende pagina', 'Dit is je studie', 'Hoe is de opleiding tot leraar basisonderwijs opgebouwd?', { label: 'Bekijk wat en hoe je gaat leren', href: './studie.html' })
 
 mixin section-scream(image, eyebrow, title, intro, button)
   include ./section
@@ -34,35 +41,3 @@ mixin section-scream(image, eyebrow, title, intro, button)
         
         +srcset(image, sizes)
         img(src='', alt='')
-        
-      
-      //- .shout-wrapper
-      //-   .shout__picture-wrapper
-      //-     picture.shout__picture
-      //-       - var sizes = []
-      //-       - sizes.push({ minWidth: 1024, width: 520, ratio: 1 });
-      //-       - sizes.push({ minWidth: 900, width: 1024, ratio: 21/9 });
-      //-       - sizes.push({ minWidth: 768, width: 900, ratio: 21/9 });
-      //-       - sizes.push({ minWidth: 500, width: 768, ratio: 21/9 });
-      //-       - sizes.push({ minWidth: 375, width: 500, ratio: 21/9 });
-      //-       - sizes.push({ minWidth: 1, width: 375, ratio: 21/9 });
-            
-      //-       +srcset(image, sizes)
-      //-       img(src='', alt='')
-            
-      //-   .shout__text-wrapper
-      //-     .shout__text
-      //-       if title
-      //-         h2.shout__text__title #{title}
-          
-      //-       if intro
-      //-         p.shout__text__intro !{intro}
-
-      //-       if buttons
-      //-         .shout__text__buttons
-      //-           each button in buttons
-      //-             .shout__text__buttons__button
-      //-               if button.type === BUTTON_PRIMARY
-      //-                 +btn-primary(button.label, button.href, button.icon)
-      //-               else if button.type === BUTTON_SECONDARY
-      //-                 +btn-secondary(button.label, button.href, button.icon)

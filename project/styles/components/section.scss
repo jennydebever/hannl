@@ -189,3 +189,11 @@
     position: static;
   }
 }
+
+/**
+* Contact
+*/
+
+.section--contact {
+  @include section-inner(10);
+}
