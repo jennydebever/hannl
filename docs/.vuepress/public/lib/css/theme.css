@@ -2900,6 +2900,148 @@ hr {
 .section--shout {
   background-color: #000;
 }
+@media (max-width: 767px) {
+  .section--image-list .section__header {
+    padding-left: 8px;
+    padding-right: 8px;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -ms-flex-negative: 1;
+    flex-shrink: 1;
+    -ms-flex-preferred-size: auto;
+    flex-basis: auto;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    width: 100%;
+  }
+}
+@media (max-width: 767px) and (min-width: 768px) {
+  .section--image-list .section__header {
+    padding-left: 16px;
+  }
+}
+@media (max-width: 767px) and (min-width: 1024px) {
+  .section--image-list .section__header {
+    padding-left: 20px;
+  }
+}
+@media (max-width: 767px) and (min-width: 768px) {
+  .section--image-list .section__header {
+    padding-right: 16px;
+  }
+}
+@media (max-width: 767px) and (min-width: 1024px) {
+  .section--image-list .section__header {
+    padding-right: 20px;
+    padding-left: 8px;
+    padding-right: 8px;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -ms-flex-negative: 1;
+    flex-shrink: 1;
+    -ms-flex-preferred-size: auto;
+    flex-basis: auto;
+    width: 100%;
+    max-width: 1200px;
+  }
+}
+@media (max-width: 767px) and (min-width: 1024px) and (min-width: 768px) {
+  .section--image-list .section__header {
+    padding-left: 16px;
+  }
+}
+@media (max-width: 767px) and (min-width: 1024px) and (min-width: 1024px) {
+  .section--image-list .section__header {
+    padding-left: 20px;
+  }
+}
+@media (max-width: 767px) and (min-width: 1024px) and (min-width: 768px) {
+  .section--image-list .section__header {
+    padding-right: 16px;
+  }
+}
+@media (max-width: 767px) and (min-width: 1024px) and (min-width: 1024px) {
+  .section--image-list .section__header {
+    padding-right: 20px;
+  }
+}
+@media (max-width: 767px) {
+  .section--image-list .section__content {
+    padding-left: 8px;
+    padding-right: 8px;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -ms-flex-negative: 1;
+    flex-shrink: 1;
+    -ms-flex-preferred-size: auto;
+    width: 100%;
+    flex-basis: auto;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+  }
+}
+@media (max-width: 767px) and (min-width: 768px) {
+  .section--image-list .section__content {
+    padding-left: 16px;
+  }
+}
+@media (max-width: 767px) and (min-width: 1024px) {
+  .section--image-list .section__content {
+    padding-left: 20px;
+  }
+}
+@media (max-width: 767px) and (min-width: 768px) {
+  .section--image-list .section__content {
+    padding-right: 16px;
+  }
+}
+@media (max-width: 767px) and (min-width: 1024px) {
+  .section--image-list .section__content {
+    padding-right: 20px;
+    padding-left: 8px;
+    padding-right: 8px;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -ms-flex-negative: 1;
+    flex-shrink: 1;
+    -ms-flex-preferred-size: auto;
+    flex-basis: auto;
+    width: 100%;
+    max-width: 1200px;
+  }
+}
+@media (max-width: 767px) and (min-width: 1024px) and (min-width: 768px) {
+  .section--image-list .section__content {
+    padding-left: 16px;
+  }
+}
+@media (max-width: 767px) and (min-width: 1024px) and (min-width: 1024px) {
+  .section--image-list .section__content {
+    padding-left: 20px;
+  }
+}
+@media (max-width: 767px) and (min-width: 1024px) and (min-width: 768px) {
+  .section--image-list .section__content {
+    padding-right: 16px;
+  }
+}
+@media (max-width: 767px) and (min-width: 1024px) and (min-width: 1024px) {
+  .section--image-list .section__content {
+    padding-right: 20px;
+  }
+}
+.section--image-list .image-list {
+  padding-top: 35px;
+  padding-bottom: 35px;
+}
+@media (min-width: 1024px) {
+  .section--image-list .image-list {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+}
 .course-hero__image__picture {
   display: block;
   position: relative;
@@ -4092,6 +4234,140 @@ hr {
   background-color: #47cbae;
   border-color: #47cbae;
   color: #000;
+}
+.image-list {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0;
+  padding-right: 0;
+  margin-bottom: -35px;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+}
+.image-list__item {
+  width: 100%;
+  margin-bottom: 35px;
+}
+@media (min-width: 768px) {
+  .image-list__item {
+    padding-left: 8px;
+    padding-right: 8px;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -ms-flex-negative: 1;
+    flex-shrink: 1;
+    -ms-flex-preferred-size: auto;
+    flex-basis: auto;
+    width: 33.33333%;
+    max-width: 33.33333%;
+  }
+}
+@media (min-width: 768px) and (min-width: 768px) {
+  .image-list__item {
+    padding-left: 16px;
+  }
+}
+@media (min-width: 768px) and (min-width: 1024px) {
+  .image-list__item {
+    padding-left: 20px;
+  }
+}
+@media (min-width: 768px) and (min-width: 768px) {
+  .image-list__item {
+    padding-right: 16px;
+  }
+}
+@media (min-width: 768px) and (min-width: 1024px) {
+  .image-list__item {
+    padding-right: 20px;
+  }
+}
+.imagelistunit {
+  display: -ms-flexbox;
+  display: flex;
+}
+@media (min-width: 768px) {
+  .imagelistunit {
+    display: block;
+  }
+}
+@media (min-width: 1024px) {
+  .imagelistunit {
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+.imagelistunit__picture {
+  width: 100px;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+}
+@media (min-width: 768px) {
+  .imagelistunit__picture {
+    width: 100%;
+  }
+}
+@media (min-width: 1024px) {
+  .imagelistunit__picture {
+    width: 100px;
+  }
+}
+.imagelistunit__picture img {
+  display: block;
+}
+.imagelistunit__body {
+  padding-left: 16px;
+}
+@media (min-width: 768px) {
+  .imagelistunit__body {
+    padding-left: 0;
+    padding-top: 16px;
+  }
+}
+@media (min-width: 1024px) {
+  .imagelistunit__body {
+    padding-left: 16px;
+    padding-top: 0;
+  }
+}
+.imagelistunit__body__title {
+  font-family: Avenir Next LT W01 Bold, Avenir next, Avenir, sans-serif;
+  color: #000;
+  font-size: 16px;
+  margin: -2px 0 4px;
+}
+@media (min-width: 768px) {
+  .imagelistunit__body__title {
+    font-size: 18px;
+  }
+}
+@media (min-width: 1024px) {
+  .imagelistunit__body__title {
+    font-size: 19px;
+  }
+}
+.imagelistunit__body__text {
+  font-family: AvenirNextLTW01-Medium, Avenir next, Avenir, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #454545;
+}
+@media (min-width: 768px) {
+  .imagelistunit__body__text {
+    font-size: 15px;
+  }
+}
+@media (min-width: 1024px) {
+  .imagelistunit__body__text {
+    font-size: 16px;
+  }
 }
 .sitesearch {
   position: fixed;
