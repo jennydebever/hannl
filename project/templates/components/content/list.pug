@@ -2,8 +2,7 @@
   name: Lijst
 
 mixin list(items, options={})
-  - var className = options.split ? "list__list--split" : ''
-  - className += options.checkmark ? "list__list--checkmark" : ''
+  - var className = `${options.split ? "list__list--split" : ''} ${options.checkmark ? "list__list--checkmark" : ''}`;
   ul.list__list(class=className)
     each item in items
       li.list__list__item
