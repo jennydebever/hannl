@@ -1,4 +1,4 @@
-.contact--buttons {
+.contact__buttons {
   position: relative;
   margin: 40px 0;
 
@@ -15,7 +15,7 @@
   }
 }
 
-.contact--buttons--button {
+.contact__buttons__button {
   display: inline-block;
 
   & + & {
@@ -29,8 +29,8 @@
   }
 }
 
-.contact--meta-contents--meta-content {
-  @include margin-bottom-large;
+.contact__metas__meta {
+  margin-bottom: 30px;
 
   @include breakpoint($bp-m) {
     display: inline-block;
@@ -42,9 +42,9 @@
   }
 }
 
-.contact--meta-contents--meta-content--title {
+.contact__metas__meta__title {
+  margin: 10px 0;
   display: block;
-  @include margin-bottom-standard;
   font-family: $demi;
   color: $grey6;
   font-size: 15px;
@@ -54,7 +54,7 @@
   }
 }
 
-.contact--meta-contents--meta-content--content {
+.contact__metas__meta__content {
   p {
     @include p;
     color: $grey5;
