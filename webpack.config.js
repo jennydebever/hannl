@@ -16,6 +16,7 @@ const production = process.env.NODE_ENV !== "production";
 
 module.exports = {
   mode: production ? "production" : "development",
+  devtool: production ? "source-map" : "cheap-eval-source-map",
   entry: {
     theme: ["./project/styles/theme.scss"],
     print: ["./project/styles/print.scss"],
@@ -57,16 +58,23 @@ module.exports = {
           {
             loader: "css-loader",
             options: {
+              sourceMap: true,
               url: false // leave url() alone
             }
           },
           {
             loader: "postcss-loader",
             options: {
+              sourceMap: true,
               plugins: [require("autoprefixer")]
             }
           },
-          "sass-loader" // compiles Sass to CSS, using Node Sass by default
+          {
+            loader: "sass-loader",
+            options: {
+              sourceMap: true
+            }
+          }
         ]
       },
       {
