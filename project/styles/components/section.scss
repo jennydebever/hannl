@@ -147,13 +147,13 @@
     @include breakpoint($bp-l) {
       @include grid;
     }
-    .list__wrapper--12 {
+    .list__list__wrapper--12 {
       // desktop view, make 12 grid columns wide
       @include breakpoint($bp-l) {
         @include grid-item(12);
       }
     }
-    .list__wrapper--6 {
+    .list__list__wrapper--6 {
       // desktop view, make 6 grid columns wide
       @include breakpoint($bp-l) {
         @include grid-item(6);

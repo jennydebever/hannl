@@ -3,7 +3,7 @@
 
 mixin list(items, options={})
   - var className = `${options.split ? "list__list--split" : ''} ${options.checkmark ? "list__list--checkmark" : ''}`;
-  ul.list__list(class=className)
+  ul.list__list__items(class=className)
     each item in items
       li.list__list__item
         if item.href
@@ -23,9 +23,9 @@ mixin section-list(eyebrow, title, intro, lists)
         each list in lists
           - var length = lists.length;
           if list.items
-            .list__wrapper(class="list__wrapper--" + 12 / length)
+            .list__list__wrapper(class="list__list__wrapper--" + 12 / length)
               if list.title
-                h3.list__title #{list.title}
+                h3.list__list__title #{list.title}
               if list.intro
-                .list__intro #{list.intro}
+                .list__list__intro #{list.intro}
               +list(list.items, list.options)

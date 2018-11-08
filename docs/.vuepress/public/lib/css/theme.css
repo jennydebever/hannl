@@ -2923,7 +2923,7 @@ hr {
   }
 }
 @media (min-width: 1024px) {
-  .section--list .list__lists .list__wrapper--12 {
+  .section--list .list__lists .list__list__wrapper--12 {
     padding-left: 8px;
     padding-right: 8px;
     -ms-flex-positive: 1;
@@ -2936,27 +2936,27 @@ hr {
   }
 }
 @media (min-width: 1024px) and (min-width: 768px) {
-  .section--list .list__lists .list__wrapper--12 {
+  .section--list .list__lists .list__list__wrapper--12 {
     padding-left: 16px;
   }
 }
 @media (min-width: 1024px) and (min-width: 1024px) {
-  .section--list .list__lists .list__wrapper--12 {
+  .section--list .list__lists .list__list__wrapper--12 {
     padding-left: 20px;
   }
 }
 @media (min-width: 1024px) and (min-width: 768px) {
-  .section--list .list__lists .list__wrapper--12 {
+  .section--list .list__lists .list__list__wrapper--12 {
     padding-right: 16px;
   }
 }
 @media (min-width: 1024px) and (min-width: 1024px) {
-  .section--list .list__lists .list__wrapper--12 {
+  .section--list .list__lists .list__list__wrapper--12 {
     padding-right: 20px;
   }
 }
 @media (min-width: 1024px) {
-  .section--list .list__lists .list__wrapper--6 {
+  .section--list .list__lists .list__list__wrapper--6 {
     padding-left: 8px;
     padding-right: 8px;
     -ms-flex-positive: 1;
@@ -2969,22 +2969,22 @@ hr {
   }
 }
 @media (min-width: 1024px) and (min-width: 768px) {
-  .section--list .list__lists .list__wrapper--6 {
+  .section--list .list__lists .list__list__wrapper--6 {
     padding-left: 16px;
   }
 }
 @media (min-width: 1024px) and (min-width: 1024px) {
-  .section--list .list__lists .list__wrapper--6 {
+  .section--list .list__lists .list__list__wrapper--6 {
     padding-left: 20px;
   }
 }
 @media (min-width: 1024px) and (min-width: 768px) {
-  .section--list .list__lists .list__wrapper--6 {
+  .section--list .list__lists .list__list__wrapper--6 {
     padding-right: 16px;
   }
 }
 @media (min-width: 1024px) and (min-width: 1024px) {
-  .section--list .list__lists .list__wrapper--6 {
+  .section--list .list__lists .list__list__wrapper--6 {
     padding-right: 20px;
   }
 }
@@ -4171,23 +4171,23 @@ hr {
 .list__lists {
   margin-top: 16px;
 }
-.list__title {
+.list__list__title {
   font-family: AvenirNextLTW01-BoldCn, Avenir next, Avenir, sans-serif;
   font-size: 20px;
   text-transform: uppercase;
   margin: 16px 0;
 }
 @media (min-width: 768px) {
-  .list__title {
+  .list__list__title {
     font-size: 22px;
   }
 }
 @media (min-width: 1024px) {
-  .list__title {
+  .list__list__title {
     font-size: 24px;
   }
 }
-.list__intro {
+.list__list__intro {
   margin-bottom: 1em;
   font-family: AvenirNextLTW01-Medium, Avenir next, Avenir, sans-serif;
   font-size: 16px;
@@ -4195,12 +4195,12 @@ hr {
   margin-bottom: 16px;
 }
 @media (min-width: 768px) {
-  .list__intro {
+  .list__list__intro {
     font-size: 18px;
     line-height: 1.7;
   }
 }
-.list__list {
+.list__list__items {
   margin-bottom: 32px;
 }
 .list__list__item {
