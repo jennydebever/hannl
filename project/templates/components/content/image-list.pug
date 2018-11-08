@@ -1,10 +1,10 @@
 //- @pugdoc
   name: Sectie (Image list)
 
-mixin section-image-list(items)
+mixin section-image-list(eyebrow, items)
   include ./section
 
-  +section()(class='section--image-list')&attributes(attributes)
+  +section(eyebrow)(class='section--image-list')&attributes(attributes)
     ul.image-list
       each item in items
         li.image-list__item

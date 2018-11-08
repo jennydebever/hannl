@@ -126,15 +126,15 @@
 
 @mixin lead {
   font-family: $demi;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.6;
 
   @include breakpoint($bp-m) {
-    font-size: 22px;
+    font-size: 20px;
   }
 
   @include breakpoint($bp-l) {
-    font-size: 24px;
+    font-size: 22px;
   }
 }
 
