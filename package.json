@@ -18,7 +18,7 @@
     "server": "gulp server",
     "docs:build": "vuepress build docs",
     "precommit": "pretty-quick --staged",
-    "webpack": "NODE_ENV=development webpack-dev-server --hot",
+    "webpack": "NODE_ENV=development webpack-dev-server --hot --progress",
     "webpack:build": "NODE_ENV=production webpack -p"
   },
   "author": "",

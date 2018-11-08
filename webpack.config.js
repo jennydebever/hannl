@@ -11,8 +11,7 @@ const files = glob.sync("./project/templates/pages/**/!(_)*.pug").concat("./proj
 console.log(files);
 
 const contentBase = path.resolve(__dirname, "docs", ".vuepress", "public");
-
-const production = process.env.NODE_ENV !== "production";
+const production = process.env.NODE_ENV === "production";
 
 module.exports = {
   mode: production ? "production" : "development",
@@ -23,10 +22,13 @@ module.exports = {
     head: ["./project/scripts/head/index.js"],
     app: ["./project/scripts/app/index.js"],
     libs: ["./project/scripts/libs/index.js"]
+    // dev: ["./index.js"]
   },
   output: {
     path: contentBase,
-    publicPath: "/",
+    publicPath: "/assets/",
+    hotUpdateChunkFilename: "./hot/[id].[hash].hot-update.js",
+    hotUpdateMainFilename: "./hot/[hash].hot-update.json",
     filename: "[name].bundle.js"
   },
   module: {
@@ -59,7 +61,7 @@ module.exports = {
             loader: "css-loader",
             options: {
               sourceMap: true,
-              url: false // leave url() alone
+              url: true // we need this to load the fonts
             }
           },
           {
@@ -118,8 +120,6 @@ file:[file]
         `
       }),
       new MiniCssExtractPlugin({
-        // Options similar to the same options in webpackOptions.output
-        // both options are optional
         filename: "[name].css",
         chunkFilename: "[id].css"
       }),
@@ -130,11 +130,13 @@ file:[file]
     ]),
 
   devServer: {
-    publicPath: "/",
+    publicPath: "/assets/",
     contentBase: contentBase,
-    historyApiFallback: true,
+    historyApiFallback: {
+      index: "/assets/"
+    },
     hot: true,
-    hotOnly: true,
+    hotOnly: false,
     inline: true,
     port: 8000
   }
