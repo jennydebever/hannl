@@ -10,8 +10,7 @@
     "templates": "gulp templates",
     "build": "gulp build",
     "server": "gulp server",
-    "docs:build": "vuepress build docs",
-    "precommit": "pretty-quick --staged"
+    "docs:build": "vuepress build docs"
   },
   "author": "",
   "license": "ISC",
@@ -64,6 +63,7 @@
     "focus-trap": "^3.0.0",
     "intersection-observer": "^0.5.1",
     "keymirror": "^0.1.1",
+    "picturefill": "^3.0.3",
     "scroll-into-view": "^1.9.3",
     "scrollama": "^1.4.4",
     "slide-anim": "^1.2.0",
@@ -71,5 +71,10 @@
     "tippy.js": "^3.1.1",
     "track-focus": "^1.0.0",
     "what-input": "^5.1.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
   }
 }

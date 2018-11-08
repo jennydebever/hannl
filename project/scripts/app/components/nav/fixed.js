@@ -57,6 +57,8 @@ setTimeout(onResize, 0);
  */
 
 function calculateVisibleSpace() {
+  if (!$spacer || !$nav) return;
+
   var visibleSpace = $spacer.getBoundingClientRect().height + $nav.getBoundingClientRect().top;
 
   if (+$spacer.getAttribute("data-space") !== visibleSpace) {

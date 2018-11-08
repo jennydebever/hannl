@@ -1,1902 +1,1540 @@
-/*! han.nl v0.1.0 */ (function() {
-  function r(e, n, t) {
-    function o(i, f) {
-      if (!n[i]) {
-        if (!e[i]) {
-          var c = "function" == typeof require && require;
-          if (!f && c) return c(i, !0);
-          if (u) return u(i, !0);
-          var a = new Error("Cannot find module '" + i + "'");
-          throw ((a.code = "MODULE_NOT_FOUND"), a);
-        }
-        var p = (n[i] = { exports: {} });
-        e[i][0].call(
-          p.exports,
-          function(r) {
-            var n = e[i][1][r];
-            return o(n || r);
-          },
-          p,
-          p.exports,
-          r,
-          e,
-          n,
-          t
-        );
+/*! han.nl v0.1.0 */ !(function o(s, c, a) {
+  function l(e, t) {
+    if (!c[e]) {
+      if (!s[e]) {
+        var n = "function" == typeof require && require;
+        if (!t && n) return n(e, !0);
+        if (u) return u(e, !0);
+        var i = new Error("Cannot find module '" + e + "'");
+        throw ((i.code = "MODULE_NOT_FOUND"), i);
       }
-      return n[i].exports;
+      var r = (c[e] = { exports: {} });
+      s[e][0].call(
+        r.exports,
+        function(t) {
+          return l(s[e][1][t] || t);
+        },
+        r,
+        r.exports,
+        o,
+        s,
+        c,
+        a
+      );
     }
-    for (var u = "function" == typeof require && require, i = 0; i < t.length; i++) o(t[i]);
-    return o;
+    return c[e].exports;
   }
-  return r;
-})()(
+  for (var u = "function" == typeof require && require, t = 0; t < a.length; t++) l(a[t]);
+  return l;
+})(
   {
     1: [
-      function(require, module, exports) {
-        /*
- * classList.js: Cross-browser full element.classList implementation.
- * 1.1.20170427
- *
- * By Eli Grey, http://eligrey.com
- * License: Dedicated to the public domain.
- *   See https://github.com/eligrey/classList.js/blob/master/LICENSE.md
- */
-
-        /*global self, document, DOMException */
-
-        /*! @source http://purl.eligrey.com/github/classList.js/blob/master/classList.js */
-
-        if ("document" in window.self) {
-          // Full polyfill for browsers with no classList support
-          // Including IE < Edge missing SVGElement.classList
-          if (
-            !("classList" in document.createElement("_")) ||
-            (document.createElementNS && !("classList" in document.createElementNS("http://www.w3.org/2000/svg", "g")))
-          ) {
-            (function(view) {
+      function(t, e, n) {
+        "document" in window.self &&
+          (("classList" in document.createElement("_") &&
+            (!document.createElementNS ||
+              "classList" in document.createElementNS("http://www.w3.org/2000/svg", "g"))) ||
+            (function(t) {
               "use strict";
-
-              if (!("Element" in view)) return;
-
-              var classListProp = "classList",
-                protoProp = "prototype",
-                elemCtrProto = view.Element[protoProp],
-                objCtr = Object,
-                strTrim =
-                  String[protoProp].trim ||
-                  function() {
-                    return this.replace(/^\s+|\s+$/g, "");
+              if ("Element" in t) {
+                var e = "classList",
+                  n = "prototype",
+                  i = t.Element[n],
+                  r = Object,
+                  o =
+                    String[n].trim ||
+                    function() {
+                      return this.replace(/^\s+|\s+$/g, "");
+                    },
+                  s =
+                    Array[n].indexOf ||
+                    function(t) {
+                      for (var e = 0, n = this.length; e < n; e++) if (e in this && this[e] === t) return e;
+                      return -1;
+                    },
+                  c = function(t, e) {
+                    (this.name = t), (this.code = DOMException[t]), (this.message = e);
                   },
-                arrIndexOf =
-                  Array[protoProp].indexOf ||
-                  function(item) {
-                    var i = 0,
-                      len = this.length;
-                    for (; i < len; i++) {
-                      if (i in this && this[i] === item) {
-                        return i;
-                      }
-                    }
-                    return -1;
+                  a = function(t, e) {
+                    if ("" === e) throw new c("SYNTAX_ERR", "An invalid or illegal string was specified");
+                    if (/\s/.test(e)) throw new c("INVALID_CHARACTER_ERR", "String contains an invalid character");
+                    return s.call(t, e);
                   },
-                // Vendors: please allow content code to instantiate DOMExceptions
-                DOMEx = function(type, message) {
-                  this.name = type;
-                  this.code = DOMException[type];
-                  this.message = message;
-                },
-                checkTokenAndGetIndex = function(classList, token) {
-                  if (token === "") {
-                    throw new DOMEx("SYNTAX_ERR", "An invalid or illegal string was specified");
-                  }
-                  if (/\s/.test(token)) {
-                    throw new DOMEx("INVALID_CHARACTER_ERR", "String contains an invalid character");
-                  }
-                  return arrIndexOf.call(classList, token);
-                },
-                ClassList = function(elem) {
-                  var trimmedClasses = strTrim.call(elem.getAttribute("class") || ""),
-                    classes = trimmedClasses ? trimmedClasses.split(/\s+/) : [],
-                    i = 0,
-                    len = classes.length;
-                  for (; i < len; i++) {
-                    this.push(classes[i]);
-                  }
-                  this._updateClassName = function() {
-                    elem.setAttribute("class", this.toString());
+                  l = function(t) {
+                    for (
+                      var e = o.call(t.getAttribute("class") || ""), n = e ? e.split(/\s+/) : [], i = 0, r = n.length;
+                      i < r;
+                      i++
+                    )
+                      this.push(n[i]);
+                    this._updateClassName = function() {
+                      t.setAttribute("class", this.toString());
+                    };
+                  },
+                  u = (l[n] = []),
+                  f = function() {
+                    return new l(this);
                   };
-                },
-                classListProto = (ClassList[protoProp] = []),
-                classListGetter = function() {
-                  return new ClassList(this);
-                };
-              // Most DOMException implementations don't allow calling DOMException's toString()
-              // on non-DOMExceptions. Error's toString() is sufficient here.
-              DOMEx[protoProp] = Error[protoProp];
-              classListProto.item = function(i) {
-                return this[i] || null;
-              };
-              classListProto.contains = function(token) {
-                token += "";
-                return checkTokenAndGetIndex(this, token) !== -1;
-              };
-              classListProto.add = function() {
-                var tokens = arguments,
-                  i = 0,
-                  l = tokens.length,
-                  token,
-                  updated = false;
-                do {
-                  token = tokens[i] + "";
-                  if (checkTokenAndGetIndex(this, token) === -1) {
-                    this.push(token);
-                    updated = true;
+                if (
+                  ((c[n] = Error[n]),
+                  (u.item = function(t) {
+                    return this[t] || null;
+                  }),
+                  (u.contains = function(t) {
+                    return -1 !== a(this, (t += ""));
+                  }),
+                  (u.add = function() {
+                    for (
+                      var t, e = arguments, n = 0, i = e.length, r = !1;
+                      (t = e[n] + ""), -1 === a(this, t) && (this.push(t), (r = !0)), ++n < i;
+
+                    );
+                    r && this._updateClassName();
+                  }),
+                  (u.remove = function() {
+                    var t,
+                      e,
+                      n = arguments,
+                      i = 0,
+                      r = n.length,
+                      o = !1;
+                    do {
+                      for (t = n[i] + "", e = a(this, t); -1 !== e; ) this.splice(e, 1), (o = !0), (e = a(this, t));
+                    } while (++i < r);
+                    o && this._updateClassName();
+                  }),
+                  (u.toggle = function(t, e) {
+                    t += "";
+                    var n = this.contains(t),
+                      i = n ? !0 !== e && "remove" : !1 !== e && "add";
+                    return i && this[i](t), !0 === e || !1 === e ? e : !n;
+                  }),
+                  (u.toString = function() {
+                    return this.join(" ");
+                  }),
+                  r.defineProperty)
+                ) {
+                  var h = { get: f, enumerable: !0, configurable: !0 };
+                  try {
+                    r.defineProperty(i, e, h);
+                  } catch (t) {
+                    (void 0 !== t.number && -2146823252 !== t.number) ||
+                      ((h.enumerable = !1), r.defineProperty(i, e, h));
                   }
-                } while (++i < l);
-
-                if (updated) {
-                  this._updateClassName();
-                }
-              };
-              classListProto.remove = function() {
-                var tokens = arguments,
-                  i = 0,
-                  l = tokens.length,
-                  token,
-                  updated = false,
-                  index;
-                do {
-                  token = tokens[i] + "";
-                  index = checkTokenAndGetIndex(this, token);
-                  while (index !== -1) {
-                    this.splice(index, 1);
-                    updated = true;
-                    index = checkTokenAndGetIndex(this, token);
-                  }
-                } while (++i < l);
-
-                if (updated) {
-                  this._updateClassName();
-                }
-              };
-              classListProto.toggle = function(token, force) {
-                token += "";
-
-                var result = this.contains(token),
-                  method = result ? force !== true && "remove" : force !== false && "add";
-
-                if (method) {
-                  this[method](token);
-                }
-
-                if (force === true || force === false) {
-                  return force;
-                } else {
-                  return !result;
-                }
-              };
-              classListProto.toString = function() {
-                return this.join(" ");
-              };
-
-              if (objCtr.defineProperty) {
-                var classListPropDesc = {
-                  get: classListGetter,
-                  enumerable: true,
-                  configurable: true
-                };
-                try {
-                  objCtr.defineProperty(elemCtrProto, classListProp, classListPropDesc);
-                } catch (ex) {
-                  // IE 8 doesn't support enumerable:true
-                  // adding undefined to fight this issue https://github.com/eligrey/classList.js/issues/36
-                  // modernie IE8-MSW7 machine has IE8 8.0.6001.18702 and is affected
-                  if (ex.number === undefined || ex.number === -0x7ff5ec54) {
-                    classListPropDesc.enumerable = false;
-                    objCtr.defineProperty(elemCtrProto, classListProp, classListPropDesc);
-                  }
-                }
-              } else if (objCtr[protoProp].__defineGetter__) {
-                elemCtrProto.__defineGetter__(classListProp, classListGetter);
+                } else r[n].__defineGetter__ && i.__defineGetter__(e, f);
               }
-            })(window.self);
-          }
-
-          // There is full or partial native classList support, so just check if we need
-          // to normalize the add/remove and toggle APIs.
-
+            })(window.self),
           (function() {
             "use strict";
-
-            var testElement = document.createElement("_");
-
-            testElement.classList.add("c1", "c2");
-
-            // Polyfill for IE 10/11 and Firefox <26, where classList.add and
-            // classList.remove exist but support only one argument at a time.
-            if (!testElement.classList.contains("c2")) {
-              var createMethod = function(method) {
-                var original = DOMTokenList.prototype[method];
-
-                DOMTokenList.prototype[method] = function(token) {
-                  var i,
-                    len = arguments.length;
-
-                  for (i = 0; i < len; i++) {
-                    token = arguments[i];
-                    original.call(this, token);
-                  }
+            var t = document.createElement("_");
+            if ((t.classList.add("c1", "c2"), !t.classList.contains("c2"))) {
+              var e = function(t) {
+                var i = DOMTokenList.prototype[t];
+                DOMTokenList.prototype[t] = function(t) {
+                  var e,
+                    n = arguments.length;
+                  for (e = 0; e < n; e++) (t = arguments[e]), i.call(this, t);
                 };
               };
-              createMethod("add");
-              createMethod("remove");
+              e("add"), e("remove");
             }
-
-            testElement.classList.toggle("c3", false);
-
-            // Polyfill for IE 10 and Firefox <24, where classList.toggle does not
-            // support the second argument.
-            if (testElement.classList.contains("c3")) {
-              var _toggle = DOMTokenList.prototype.toggle;
-
-              DOMTokenList.prototype.toggle = function(token, force) {
-                if (1 in arguments && !this.contains(token) === !force) {
-                  return force;
-                } else {
-                  return _toggle.call(this, token);
-                }
+            if ((t.classList.toggle("c3", !1), t.classList.contains("c3"))) {
+              var n = DOMTokenList.prototype.toggle;
+              DOMTokenList.prototype.toggle = function(t, e) {
+                return 1 in arguments && !this.contains(t) == !e ? e : n.call(this, t);
               };
             }
-
-            testElement = null;
-          })();
-        }
+            t = null;
+          })());
       },
       {}
     ],
     2: [
-      function(require, module, exports) {
-        /**
-         * Copyright 2016 Google Inc. All Rights Reserved.
-         *
-         * Licensed under the W3C SOFTWARE AND DOCUMENT NOTICE AND LICENSE.
-         *
-         *  https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document
-         *
-         */
-
-        (function(window, document) {
+      function(t, e, n) {
+        !(function(m, g) {
           "use strict";
-
-          // Exits early if all IntersectionObserver and IntersectionObserverEntry
-          // features are natively supported.
           if (
-            "IntersectionObserver" in window &&
-            "IntersectionObserverEntry" in window &&
-            "intersectionRatio" in window.IntersectionObserverEntry.prototype
-          ) {
-            // Minimal polyfill for Edge 15's lack of `isIntersecting`
-            // See: https://github.com/w3c/IntersectionObserver/issues/211
-            if (!("isIntersecting" in window.IntersectionObserverEntry.prototype)) {
-              Object.defineProperty(window.IntersectionObserverEntry.prototype, "isIntersecting", {
+            "IntersectionObserver" in m &&
+            "IntersectionObserverEntry" in m &&
+            "intersectionRatio" in m.IntersectionObserverEntry.prototype
+          )
+            "isIntersecting" in m.IntersectionObserverEntry.prototype ||
+              Object.defineProperty(m.IntersectionObserverEntry.prototype, "isIntersecting", {
                 get: function() {
-                  return this.intersectionRatio > 0;
+                  return 0 < this.intersectionRatio;
                 }
               });
-            }
-            return;
-          }
-
-          /**
-           * An IntersectionObserver registry. This registry exists to hold a strong
-           * reference to IntersectionObserver instances currently observing a target
-           * element. Without this registry, instances without another reference may be
-           * garbage collected.
-           */
-          var registry = [];
-
-          /**
-           * Creates the global IntersectionObserverEntry constructor.
-           * https://w3c.github.io/IntersectionObserver/#intersection-observer-entry
-           * @param {Object} entry A dictionary of instance properties.
-           * @constructor
-           */
-          function IntersectionObserverEntry(entry) {
-            this.time = entry.time;
-            this.target = entry.target;
-            this.rootBounds = entry.rootBounds;
-            this.boundingClientRect = entry.boundingClientRect;
-            this.intersectionRect = entry.intersectionRect || getEmptyRect();
-            this.isIntersecting = !!entry.intersectionRect;
-
-            // Calculates the intersection ratio.
-            var targetRect = this.boundingClientRect;
-            var targetArea = targetRect.width * targetRect.height;
-            var intersectionRect = this.intersectionRect;
-            var intersectionArea = intersectionRect.width * intersectionRect.height;
-
-            // Sets intersection ratio.
-            if (targetArea) {
-              // Round the intersection ratio to avoid floating point math issues:
-              // https://github.com/w3c/IntersectionObserver/issues/324
-              this.intersectionRatio = Number((intersectionArea / targetArea).toFixed(4));
-            } else {
-              // If area is zero and is intersecting, sets to 1, otherwise to 0
-              this.intersectionRatio = this.isIntersecting ? 1 : 0;
-            }
-          }
-
-          /**
-           * Creates the global IntersectionObserver constructor.
-           * https://w3c.github.io/IntersectionObserver/#intersection-observer-interface
-           * @param {Function} callback The function to be invoked after intersection
-           *     changes have queued. The function is not invoked if the queue has
-           *     been emptied by calling the `takeRecords` method.
-           * @param {Object=} opt_options Optional configuration options.
-           * @constructor
-           */
-          function IntersectionObserver(callback, opt_options) {
-            var options = opt_options || {};
-
-            if (typeof callback != "function") {
-              throw new Error("callback must be a function");
-            }
-
-            if (options.root && options.root.nodeType != 1) {
-              throw new Error("root must be an Element");
-            }
-
-            // Binds and throttles `this._checkForIntersections`.
-            this._checkForIntersections = throttle(this._checkForIntersections.bind(this), this.THROTTLE_TIMEOUT);
-
-            // Private properties.
-            this._callback = callback;
-            this._observationTargets = [];
-            this._queuedEntries = [];
-            this._rootMarginValues = this._parseRootMargin(options.rootMargin);
-
-            // Public properties.
-            this.thresholds = this._initThresholds(options.threshold);
-            this.root = options.root || null;
-            this.rootMargin = this._rootMarginValues
-              .map(function(margin) {
-                return margin.value + margin.unit;
-              })
-              .join(" ");
-          }
-
-          /**
-           * The minimum interval within which the document will be checked for
-           * intersection changes.
-           */
-          IntersectionObserver.prototype.THROTTLE_TIMEOUT = 100;
-
-          /**
-           * The frequency in which the polyfill polls for intersection changes.
-           * this can be updated on a per instance basis and must be set prior to
-           * calling `observe` on the first target.
-           */
-          IntersectionObserver.prototype.POLL_INTERVAL = null;
-
-          /**
-           * Use a mutation observer on the root element
-           * to detect intersection changes.
-           */
-          IntersectionObserver.prototype.USE_MUTATION_OBSERVER = true;
-
-          /**
-           * Starts observing a target element for intersection changes based on
-           * the thresholds values.
-           * @param {Element} target The DOM element to observe.
-           */
-          IntersectionObserver.prototype.observe = function(target) {
-            var isTargetAlreadyObserved = this._observationTargets.some(function(item) {
-              return item.element == target;
-            });
-
-            if (isTargetAlreadyObserved) {
-              return;
-            }
-
-            if (!(target && target.nodeType == 1)) {
-              throw new Error("target must be an Element");
-            }
-
-            this._registerInstance();
-            this._observationTargets.push({ element: target, entry: null });
-            this._monitorIntersections();
-            this._checkForIntersections();
-          };
-
-          /**
-           * Stops observing a target element for intersection changes.
-           * @param {Element} target The DOM element to observe.
-           */
-          IntersectionObserver.prototype.unobserve = function(target) {
-            this._observationTargets = this._observationTargets.filter(function(item) {
-              return item.element != target;
-            });
-            if (!this._observationTargets.length) {
-              this._unmonitorIntersections();
-              this._unregisterInstance();
-            }
-          };
-
-          /**
-           * Stops observing all target elements for intersection changes.
-           */
-          IntersectionObserver.prototype.disconnect = function() {
-            this._observationTargets = [];
-            this._unmonitorIntersections();
-            this._unregisterInstance();
-          };
-
-          /**
-           * Returns any queue entries that have not yet been reported to the
-           * callback and clears the queue. This can be used in conjunction with the
-           * callback to obtain the absolute most up-to-date intersection information.
-           * @return {Array} The currently queued entries.
-           */
-          IntersectionObserver.prototype.takeRecords = function() {
-            var records = this._queuedEntries.slice();
-            this._queuedEntries = [];
-            return records;
-          };
-
-          /**
-           * Accepts the threshold value from the user configuration object and
-           * returns a sorted array of unique threshold values. If a value is not
-           * between 0 and 1 and error is thrown.
-           * @private
-           * @param {Array|number=} opt_threshold An optional threshold value or
-           *     a list of threshold values, defaulting to [0].
-           * @return {Array} A sorted list of unique and valid threshold values.
-           */
-          IntersectionObserver.prototype._initThresholds = function(opt_threshold) {
-            var threshold = opt_threshold || [0];
-            if (!Array.isArray(threshold)) threshold = [threshold];
-
-            return threshold.sort().filter(function(t, i, a) {
-              if (typeof t != "number" || isNaN(t) || t < 0 || t > 1) {
-                throw new Error("threshold must be a number between 0 and 1 inclusively");
-              }
-              return t !== a[i - 1];
-            });
-          };
-
-          /**
-           * Accepts the rootMargin value from the user configuration object
-           * and returns an array of the four margin values as an object containing
-           * the value and unit properties. If any of the values are not properly
-           * formatted or use a unit other than px or %, and error is thrown.
-           * @private
-           * @param {string=} opt_rootMargin An optional rootMargin value,
-           *     defaulting to '0px'.
-           * @return {Array<Object>} An array of margin objects with the keys
-           *     value and unit.
-           */
-          IntersectionObserver.prototype._parseRootMargin = function(opt_rootMargin) {
-            var marginString = opt_rootMargin || "0px";
-            var margins = marginString.split(/\s+/).map(function(margin) {
-              var parts = /^(-?\d*\.?\d+)(px|%)$/.exec(margin);
-              if (!parts) {
-                throw new Error("rootMargin must be specified in pixels or percent");
-              }
-              return { value: parseFloat(parts[1]), unit: parts[2] };
-            });
-
-            // Handles shorthand.
-            margins[1] = margins[1] || margins[0];
-            margins[2] = margins[2] || margins[0];
-            margins[3] = margins[3] || margins[1];
-
-            return margins;
-          };
-
-          /**
-           * Starts polling for intersection changes if the polling is not already
-           * happening, and if the page's visibility state is visible.
-           * @private
-           */
-          IntersectionObserver.prototype._monitorIntersections = function() {
-            if (!this._monitoringIntersections) {
-              this._monitoringIntersections = true;
-
-              // If a poll interval is set, use polling instead of listening to
-              // resize and scroll events or DOM mutations.
-              if (this.POLL_INTERVAL) {
-                this._monitoringInterval = setInterval(this._checkForIntersections, this.POLL_INTERVAL);
-              } else {
-                addEvent(window, "resize", this._checkForIntersections, true);
-                addEvent(document, "scroll", this._checkForIntersections, true);
-
-                if (this.USE_MUTATION_OBSERVER && "MutationObserver" in window) {
-                  this._domObserver = new MutationObserver(this._checkForIntersections);
-                  this._domObserver.observe(document, {
-                    attributes: true,
-                    childList: true,
-                    characterData: true,
-                    subtree: true
-                  });
-                }
-              }
-            }
-          };
-
-          /**
-           * Stops polling for intersection changes.
-           * @private
-           */
-          IntersectionObserver.prototype._unmonitorIntersections = function() {
-            if (this._monitoringIntersections) {
-              this._monitoringIntersections = false;
-
-              clearInterval(this._monitoringInterval);
-              this._monitoringInterval = null;
-
-              removeEvent(window, "resize", this._checkForIntersections, true);
-              removeEvent(document, "scroll", this._checkForIntersections, true);
-
-              if (this._domObserver) {
-                this._domObserver.disconnect();
-                this._domObserver = null;
-              }
-            }
-          };
-
-          /**
-           * Scans each observation target for intersection changes and adds them
-           * to the internal entries queue. If new entries are found, it
-           * schedules the callback to be invoked.
-           * @private
-           */
-          IntersectionObserver.prototype._checkForIntersections = function() {
-            var rootIsInDom = this._rootIsInDom();
-            var rootRect = rootIsInDom ? this._getRootRect() : getEmptyRect();
-
-            this._observationTargets.forEach(function(item) {
-              var target = item.element;
-              var targetRect = getBoundingClientRect(target);
-              var rootContainsTarget = this._rootContainsTarget(target);
-              var oldEntry = item.entry;
-              var intersectionRect =
-                rootIsInDom && rootContainsTarget && this._computeTargetAndRootIntersection(target, rootRect);
-
-              var newEntry = (item.entry = new IntersectionObserverEntry({
-                time: now(),
-                target: target,
-                boundingClientRect: targetRect,
-                rootBounds: rootRect,
-                intersectionRect: intersectionRect
-              }));
-
-              if (!oldEntry) {
-                this._queuedEntries.push(newEntry);
-              } else if (rootIsInDom && rootContainsTarget) {
-                // If the new entry intersection ratio has crossed any of the
-                // thresholds, add a new entry.
-                if (this._hasCrossedThreshold(oldEntry, newEntry)) {
-                  this._queuedEntries.push(newEntry);
-                }
-              } else {
-                // If the root is not in the DOM or target is not contained within
-                // root but the previous entry for this target had an intersection,
-                // add a new record indicating removal.
-                if (oldEntry && oldEntry.isIntersecting) {
-                  this._queuedEntries.push(newEntry);
-                }
-              }
-            }, this);
-
-            if (this._queuedEntries.length) {
-              this._callback(this.takeRecords(), this);
-            }
-          };
-
-          /**
-           * Accepts a target and root rect computes the intersection between then
-           * following the algorithm in the spec.
-           * TODO(philipwalton): at this time clip-path is not considered.
-           * https://w3c.github.io/IntersectionObserver/#calculate-intersection-rect-algo
-           * @param {Element} target The target DOM element
-           * @param {Object} rootRect The bounding rect of the root after being
-           *     expanded by the rootMargin value.
-           * @return {?Object} The final intersection rect object or undefined if no
-           *     intersection is found.
-           * @private
-           */
-          IntersectionObserver.prototype._computeTargetAndRootIntersection = function(target, rootRect) {
-            // If the element isn't displayed, an intersection can't happen.
-            if (window.getComputedStyle(target).display == "none") return;
-
-            var targetRect = getBoundingClientRect(target);
-            var intersectionRect = targetRect;
-            var parent = getParentNode(target);
-            var atRoot = false;
-
-            while (!atRoot) {
-              var parentRect = null;
-              var parentComputedStyle = parent.nodeType == 1 ? window.getComputedStyle(parent) : {};
-
-              // If the parent isn't displayed, an intersection can't happen.
-              if (parentComputedStyle.display == "none") return;
-
-              if (parent == this.root || parent == document) {
-                atRoot = true;
-                parentRect = rootRect;
-              } else {
-                // If the element has a non-visible overflow, and it's not the <body>
-                // or <html> element, update the intersection rect.
-                // Note: <body> and <html> cannot be clipped to a rect that's not also
-                // the document rect, so no need to compute a new intersection.
+          else {
+            var e = [];
+            (t.prototype.THROTTLE_TIMEOUT = 100),
+              (t.prototype.POLL_INTERVAL = null),
+              (t.prototype.USE_MUTATION_OBSERVER = !0),
+              (t.prototype.observe = function(e) {
                 if (
-                  parent != document.body &&
-                  parent != document.documentElement &&
-                  parentComputedStyle.overflow != "visible"
+                  !this._observationTargets.some(function(t) {
+                    return t.element == e;
+                  })
                 ) {
-                  parentRect = getBoundingClientRect(parent);
+                  if (!e || 1 != e.nodeType) throw new Error("target must be an Element");
+                  this._registerInstance(),
+                    this._observationTargets.push({ element: e, entry: null }),
+                    this._monitorIntersections(),
+                    this._checkForIntersections();
                 }
-              }
-
-              // If either of the above conditionals set a new parentRect,
-              // calculate new intersection data.
-              if (parentRect) {
-                intersectionRect = computeRectIntersection(parentRect, intersectionRect);
-
-                if (!intersectionRect) break;
-              }
-              parent = getParentNode(parent);
-            }
-            return intersectionRect;
-          };
-
-          /**
-           * Returns the root rect after being expanded by the rootMargin value.
-           * @return {Object} The expanded root rect.
-           * @private
-           */
-          IntersectionObserver.prototype._getRootRect = function() {
-            var rootRect;
-            if (this.root) {
-              rootRect = getBoundingClientRect(this.root);
-            } else {
-              // Use <html>/<body> instead of window since scroll bars affect size.
-              var html = document.documentElement;
-              var body = document.body;
-              rootRect = {
+              }),
+              (t.prototype.unobserve = function(e) {
+                (this._observationTargets = this._observationTargets.filter(function(t) {
+                  return t.element != e;
+                })),
+                  this._observationTargets.length || (this._unmonitorIntersections(), this._unregisterInstance());
+              }),
+              (t.prototype.disconnect = function() {
+                (this._observationTargets = []), this._unmonitorIntersections(), this._unregisterInstance();
+              }),
+              (t.prototype.takeRecords = function() {
+                var t = this._queuedEntries.slice();
+                return (this._queuedEntries = []), t;
+              }),
+              (t.prototype._initThresholds = function(t) {
+                var e = t || [0];
+                return (
+                  Array.isArray(e) || (e = [e]),
+                  e.sort().filter(function(t, e, n) {
+                    if ("number" != typeof t || isNaN(t) || t < 0 || 1 < t)
+                      throw new Error("threshold must be a number between 0 and 1 inclusively");
+                    return t !== n[e - 1];
+                  })
+                );
+              }),
+              (t.prototype._parseRootMargin = function(t) {
+                var e = (t || "0px").split(/\s+/).map(function(t) {
+                  var e = /^(-?\d*\.?\d+)(px|%)$/.exec(t);
+                  if (!e) throw new Error("rootMargin must be specified in pixels or percent");
+                  return { value: parseFloat(e[1]), unit: e[2] };
+                });
+                return (e[1] = e[1] || e[0]), (e[2] = e[2] || e[0]), (e[3] = e[3] || e[1]), e;
+              }),
+              (t.prototype._monitorIntersections = function() {
+                this._monitoringIntersections ||
+                  ((this._monitoringIntersections = !0),
+                  this.POLL_INTERVAL
+                    ? (this._monitoringInterval = setInterval(this._checkForIntersections, this.POLL_INTERVAL))
+                    : (n(m, "resize", this._checkForIntersections, !0),
+                      n(g, "scroll", this._checkForIntersections, !0),
+                      this.USE_MUTATION_OBSERVER &&
+                        "MutationObserver" in m &&
+                        ((this._domObserver = new MutationObserver(this._checkForIntersections)),
+                        this._domObserver.observe(g, {
+                          attributes: !0,
+                          childList: !0,
+                          characterData: !0,
+                          subtree: !0
+                        }))));
+              }),
+              (t.prototype._unmonitorIntersections = function() {
+                this._monitoringIntersections &&
+                  ((this._monitoringIntersections = !1),
+                  clearInterval(this._monitoringInterval),
+                  (this._monitoringInterval = null),
+                  i(m, "resize", this._checkForIntersections, !0),
+                  i(g, "scroll", this._checkForIntersections, !0),
+                  this._domObserver && (this._domObserver.disconnect(), (this._domObserver = null)));
+              }),
+              (t.prototype._checkForIntersections = function() {
+                var c = this._rootIsInDom(),
+                  a = c ? this._getRootRect() : { top: 0, bottom: 0, left: 0, right: 0, width: 0, height: 0 };
+                this._observationTargets.forEach(function(t) {
+                  var e = t.element,
+                    n = v(e),
+                    i = this._rootContainsTarget(e),
+                    r = t.entry,
+                    o = c && i && this._computeTargetAndRootIntersection(e, a),
+                    s = (t.entry = new l({
+                      time: m.performance && performance.now && performance.now(),
+                      target: e,
+                      boundingClientRect: n,
+                      rootBounds: a,
+                      intersectionRect: o
+                    }));
+                  r
+                    ? c && i
+                      ? this._hasCrossedThreshold(r, s) && this._queuedEntries.push(s)
+                      : r && r.isIntersecting && this._queuedEntries.push(s)
+                    : this._queuedEntries.push(s);
+                }, this),
+                  this._queuedEntries.length && this._callback(this.takeRecords(), this);
+              }),
+              (t.prototype._computeTargetAndRootIntersection = function(t, e) {
+                if ("none" != m.getComputedStyle(t).display) {
+                  for (var n, i, r, o, s, c, a, l, u = v(t), f = w(t), h = !1; !h; ) {
+                    var d = null,
+                      p = 1 == f.nodeType ? m.getComputedStyle(f) : {};
+                    if ("none" == p.display) return;
+                    if (
+                      (f == this.root || f == g
+                        ? ((h = !0), (d = e))
+                        : f != g.body && f != g.documentElement && "visible" != p.overflow && (d = v(f)),
+                      d &&
+                        ((n = d),
+                        (i = u),
+                        void 0,
+                        (r = Math.max(n.top, i.top)),
+                        (o = Math.min(n.bottom, i.bottom)),
+                        (s = Math.max(n.left, i.left)),
+                        (c = Math.min(n.right, i.right)),
+                        (l = o - r),
+                        !(u = 0 <= (a = c - s) &&
+                          0 <= l && { top: r, bottom: o, left: s, right: c, width: a, height: l })))
+                    )
+                      break;
+                    f = w(f);
+                  }
+                  return u;
+                }
+              }),
+              (t.prototype._getRootRect = function() {
+                var t;
+                if (this.root) t = v(this.root);
+                else {
+                  var e = g.documentElement,
+                    n = g.body;
+                  t = {
+                    top: 0,
+                    left: 0,
+                    right: e.clientWidth || n.clientWidth,
+                    width: e.clientWidth || n.clientWidth,
+                    bottom: e.clientHeight || n.clientHeight,
+                    height: e.clientHeight || n.clientHeight
+                  };
+                }
+                return this._expandRectByRootMargin(t);
+              }),
+              (t.prototype._expandRectByRootMargin = function(n) {
+                var t = this._rootMarginValues.map(function(t, e) {
+                    return "px" == t.unit ? t.value : (t.value * (e % 2 ? n.width : n.height)) / 100;
+                  }),
+                  e = { top: n.top - t[0], right: n.right + t[1], bottom: n.bottom + t[2], left: n.left - t[3] };
+                return (e.width = e.right - e.left), (e.height = e.bottom - e.top), e;
+              }),
+              (t.prototype._hasCrossedThreshold = function(t, e) {
+                var n = t && t.isIntersecting ? t.intersectionRatio || 0 : -1,
+                  i = e.isIntersecting ? e.intersectionRatio || 0 : -1;
+                if (n !== i)
+                  for (var r = 0; r < this.thresholds.length; r++) {
+                    var o = this.thresholds[r];
+                    if (o == n || o == i || o < n != o < i) return !0;
+                  }
+              }),
+              (t.prototype._rootIsInDom = function() {
+                return !this.root || r(g, this.root);
+              }),
+              (t.prototype._rootContainsTarget = function(t) {
+                return r(this.root || g, t);
+              }),
+              (t.prototype._registerInstance = function() {
+                e.indexOf(this) < 0 && e.push(this);
+              }),
+              (t.prototype._unregisterInstance = function() {
+                var t = e.indexOf(this);
+                -1 != t && e.splice(t, 1);
+              }),
+              (m.IntersectionObserver = t),
+              (m.IntersectionObserverEntry = l);
+          }
+          function l(t) {
+            (this.time = t.time),
+              (this.target = t.target),
+              (this.rootBounds = t.rootBounds),
+              (this.boundingClientRect = t.boundingClientRect),
+              (this.intersectionRect = t.intersectionRect || {
                 top: 0,
+                bottom: 0,
                 left: 0,
-                right: html.clientWidth || body.clientWidth,
-                width: html.clientWidth || body.clientWidth,
-                bottom: html.clientHeight || body.clientHeight,
-                height: html.clientHeight || body.clientHeight
-              };
-            }
-            return this._expandRectByRootMargin(rootRect);
-          };
-
-          /**
-           * Accepts a rect and expands it by the rootMargin value.
-           * @param {Object} rect The rect object to expand.
-           * @return {Object} The expanded rect.
-           * @private
-           */
-          IntersectionObserver.prototype._expandRectByRootMargin = function(rect) {
-            var margins = this._rootMarginValues.map(function(margin, i) {
-              return margin.unit == "px" ? margin.value : (margin.value * (i % 2 ? rect.width : rect.height)) / 100;
-            });
-            var newRect = {
-              top: rect.top - margins[0],
-              right: rect.right + margins[1],
-              bottom: rect.bottom + margins[2],
-              left: rect.left - margins[3]
-            };
-            newRect.width = newRect.right - newRect.left;
-            newRect.height = newRect.bottom - newRect.top;
-
-            return newRect;
-          };
-
-          /**
-           * Accepts an old and new entry and returns true if at least one of the
-           * threshold values has been crossed.
-           * @param {?IntersectionObserverEntry} oldEntry The previous entry for a
-           *    particular target element or null if no previous entry exists.
-           * @param {IntersectionObserverEntry} newEntry The current entry for a
-           *    particular target element.
-           * @return {boolean} Returns true if a any threshold has been crossed.
-           * @private
-           */
-          IntersectionObserver.prototype._hasCrossedThreshold = function(oldEntry, newEntry) {
-            // To make comparing easier, an entry that has a ratio of 0
-            // but does not actually intersect is given a value of -1
-            var oldRatio = oldEntry && oldEntry.isIntersecting ? oldEntry.intersectionRatio || 0 : -1;
-            var newRatio = newEntry.isIntersecting ? newEntry.intersectionRatio || 0 : -1;
-
-            // Ignore unchanged ratios
-            if (oldRatio === newRatio) return;
-
-            for (var i = 0; i < this.thresholds.length; i++) {
-              var threshold = this.thresholds[i];
-
-              // Return true if an entry matches a threshold or if the new ratio
-              // and the old ratio are on the opposite sides of a threshold.
-              if (threshold == oldRatio || threshold == newRatio || threshold < oldRatio !== threshold < newRatio) {
-                return true;
-              }
-            }
-          };
-
-          /**
-           * Returns whether or not the root element is an element and is in the DOM.
-           * @return {boolean} True if the root element is an element and is in the DOM.
-           * @private
-           */
-          IntersectionObserver.prototype._rootIsInDom = function() {
-            return !this.root || containsDeep(document, this.root);
-          };
-
-          /**
-           * Returns whether or not the target element is a child of root.
-           * @param {Element} target The target element to check.
-           * @return {boolean} True if the target element is a child of root.
-           * @private
-           */
-          IntersectionObserver.prototype._rootContainsTarget = function(target) {
-            return containsDeep(this.root || document, target);
-          };
-
-          /**
-           * Adds the instance to the global IntersectionObserver registry if it isn't
-           * already present.
-           * @private
-           */
-          IntersectionObserver.prototype._registerInstance = function() {
-            if (registry.indexOf(this) < 0) {
-              registry.push(this);
-            }
-          };
-
-          /**
-           * Removes the instance from the global IntersectionObserver registry.
-           * @private
-           */
-          IntersectionObserver.prototype._unregisterInstance = function() {
-            var index = registry.indexOf(this);
-            if (index != -1) registry.splice(index, 1);
-          };
-
-          /**
-           * Returns the result of the performance.now() method or null in browsers
-           * that don't support the API.
-           * @return {number} The elapsed time since the page was requested.
-           */
-          function now() {
-            return window.performance && performance.now && performance.now();
+                right: 0,
+                width: 0,
+                height: 0
+              }),
+              (this.isIntersecting = !!t.intersectionRect);
+            var e = this.boundingClientRect,
+              n = e.width * e.height,
+              i = this.intersectionRect,
+              r = i.width * i.height;
+            this.intersectionRatio = n ? Number((r / n).toFixed(4)) : this.isIntersecting ? 1 : 0;
           }
-
-          /**
-           * Throttles a function and delays its execution, so it's only called at most
-           * once within a given time period.
-           * @param {Function} fn The function to throttle.
-           * @param {number} timeout The amount of time that must pass before the
-           *     function can be called again.
-           * @return {Function} The throttled function.
-           */
-          function throttle(fn, timeout) {
-            var timer = null;
-            return function() {
-              if (!timer) {
-                timer = setTimeout(function() {
-                  fn();
-                  timer = null;
-                }, timeout);
-              }
-            };
+          function t(t, e) {
+            var n,
+              i,
+              r,
+              o = e || {};
+            if ("function" != typeof t) throw new Error("callback must be a function");
+            if (o.root && 1 != o.root.nodeType) throw new Error("root must be an Element");
+            (this._checkForIntersections = ((n = this._checkForIntersections.bind(this)),
+            (i = this.THROTTLE_TIMEOUT),
+            (r = null),
+            function() {
+              r ||
+                (r = setTimeout(function() {
+                  n(), (r = null);
+                }, i));
+            })),
+              (this._callback = t),
+              (this._observationTargets = []),
+              (this._queuedEntries = []),
+              (this._rootMarginValues = this._parseRootMargin(o.rootMargin)),
+              (this.thresholds = this._initThresholds(o.threshold)),
+              (this.root = o.root || null),
+              (this.rootMargin = this._rootMarginValues
+                .map(function(t) {
+                  return t.value + t.unit;
+                })
+                .join(" "));
           }
-
-          /**
-           * Adds an event handler to a DOM node ensuring cross-browser compatibility.
-           * @param {Node} node The DOM node to add the event handler to.
-           * @param {string} event The event name.
-           * @param {Function} fn The event handler to add.
-           * @param {boolean} opt_useCapture Optionally adds the even to the capture
-           *     phase. Note: this only works in modern browsers.
-           */
-          function addEvent(node, event, fn, opt_useCapture) {
-            if (typeof node.addEventListener == "function") {
-              node.addEventListener(event, fn, opt_useCapture || false);
-            } else if (typeof node.attachEvent == "function") {
-              node.attachEvent("on" + event, fn);
-            }
+          function n(t, e, n, i) {
+            "function" == typeof t.addEventListener
+              ? t.addEventListener(e, n, i || !1)
+              : "function" == typeof t.attachEvent && t.attachEvent("on" + e, n);
           }
-
-          /**
-           * Removes a previously added event handler from a DOM node.
-           * @param {Node} node The DOM node to remove the event handler from.
-           * @param {string} event The event name.
-           * @param {Function} fn The event handler to remove.
-           * @param {boolean} opt_useCapture If the event handler was added with this
-           *     flag set to true, it should be set to true here in order to remove it.
-           */
-          function removeEvent(node, event, fn, opt_useCapture) {
-            if (typeof node.removeEventListener == "function") {
-              node.removeEventListener(event, fn, opt_useCapture || false);
-            } else if (typeof node.detatchEvent == "function") {
-              node.detatchEvent("on" + event, fn);
-            }
+          function i(t, e, n, i) {
+            "function" == typeof t.removeEventListener
+              ? t.removeEventListener(e, n, i || !1)
+              : "function" == typeof t.detatchEvent && t.detatchEvent("on" + e, n);
           }
-
-          /**
-           * Returns the intersection between two rect objects.
-           * @param {Object} rect1 The first rect.
-           * @param {Object} rect2 The second rect.
-           * @return {?Object} The intersection rect or undefined if no intersection
-           *     is found.
-           */
-          function computeRectIntersection(rect1, rect2) {
-            var top = Math.max(rect1.top, rect2.top);
-            var bottom = Math.min(rect1.bottom, rect2.bottom);
-            var left = Math.max(rect1.left, rect2.left);
-            var right = Math.min(rect1.right, rect2.right);
-            var width = right - left;
-            var height = bottom - top;
-
-            return (
-              width >= 0 &&
-              height >= 0 && {
-                top: top,
-                bottom: bottom,
-                left: left,
-                right: right,
-                width: width,
-                height: height
-              }
-            );
-          }
-
-          /**
-           * Shims the native getBoundingClientRect for compatibility with older IE.
-           * @param {Element} el The element whose bounding rect to get.
-           * @return {Object} The (possibly shimmed) rect of the element.
-           */
-          function getBoundingClientRect(el) {
-            var rect;
-
+          function v(t) {
+            var e;
             try {
-              rect = el.getBoundingClientRect();
-            } catch (err) {
-              // Ignore Windows 7 IE11 "Unspecified error"
-              // https://github.com/w3c/IntersectionObserver/pull/205
-            }
-
-            if (!rect) return getEmptyRect();
-
-            // Older IE
-            if (!(rect.width && rect.height)) {
-              rect = {
-                top: rect.top,
-                right: rect.right,
-                bottom: rect.bottom,
-                left: rect.left,
-                width: rect.right - rect.left,
-                height: rect.bottom - rect.top
-              };
-            }
-            return rect;
+              e = t.getBoundingClientRect();
+            } catch (t) {}
+            return e
+              ? ((e.width && e.height) ||
+                  (e = {
+                    top: e.top,
+                    right: e.right,
+                    bottom: e.bottom,
+                    left: e.left,
+                    width: e.right - e.left,
+                    height: e.bottom - e.top
+                  }),
+                e)
+              : { top: 0, bottom: 0, left: 0, right: 0, width: 0, height: 0 };
           }
-
-          /**
-           * Returns an empty rect object. An empty rect is returned when an element
-           * is not in the DOM.
-           * @return {Object} The empty rect.
-           */
-          function getEmptyRect() {
-            return {
-              top: 0,
-              bottom: 0,
-              left: 0,
-              right: 0,
-              width: 0,
-              height: 0
-            };
-          }
-
-          /**
-           * Checks to see if a parent element contains a child element (including inside
-           * shadow DOM).
-           * @param {Node} parent The parent element.
-           * @param {Node} child The child element.
-           * @return {boolean} True if the parent node contains the child node.
-           */
-          function containsDeep(parent, child) {
-            var node = child;
-            while (node) {
-              if (node == parent) return true;
-
-              node = getParentNode(node);
+          function r(t, e) {
+            for (var n = e; n; ) {
+              if (n == t) return !0;
+              n = w(n);
             }
-            return false;
+            return !1;
           }
-
-          /**
-           * Gets the parent node of an element or its host element if the parent node
-           * is a shadow root.
-           * @param {Node} node The node whose parent to get.
-           * @return {Node|null} The parent node or null if no parent exists.
-           */
-          function getParentNode(node) {
-            var parent = node.parentNode;
-
-            if (parent && parent.nodeType == 11 && parent.host) {
-              // If the parent is a shadow root, return the host element.
-              return parent.host;
-            }
-            return parent;
+          function w(t) {
+            var e = t.parentNode;
+            return e && 11 == e.nodeType && e.host ? e.host : e;
           }
-
-          // Exposes the constructors globally.
-          window.IntersectionObserver = IntersectionObserver;
-          window.IntersectionObserverEntry = IntersectionObserverEntry;
         })(window, document);
       },
       {}
     ],
     3: [
-      function(require, module, exports) {
-        /* smoothscroll v0.4.0 - 2018 - Dustan Kasten, Jeremias Menichelli - MIT License */
-        (function() {
-          "use strict";
-
-          // polyfill
-          function polyfill() {
-            // aliases
-            var w = window;
-            var d = document;
-
-            // return if scroll behavior is supported and polyfill is not forced
-            if ("scrollBehavior" in d.documentElement.style && w.__forceSmoothScrollPolyfill__ !== true) {
-              return;
+      function(t, ft, e) {
+        var n, i, r, o, s, c, a, l, u;
+        (n = window),
+          (u = navigator.userAgent),
+          n.HTMLPictureElement &&
+            /ecko/.test(u) &&
+            u.match(/rv\:(\d+)/) &&
+            RegExp.$1 < 45 &&
+            addEventListener(
+              "resize",
+              ((r = document.createElement("source")),
+              (o = function(t) {
+                var e,
+                  n,
+                  i = t.parentNode;
+                "PICTURE" === i.nodeName.toUpperCase()
+                  ? ((e = r.cloneNode()),
+                    i.insertBefore(e, i.firstElementChild),
+                    setTimeout(function() {
+                      i.removeChild(e);
+                    }))
+                  : (!t._pfLastSize || t.offsetWidth > t._pfLastSize) &&
+                    ((t._pfLastSize = t.offsetWidth),
+                    (n = t.sizes),
+                    (t.sizes += ",100vw"),
+                    setTimeout(function() {
+                      t.sizes = n;
+                    }));
+              }),
+              (s = function() {
+                var t,
+                  e = document.querySelectorAll("picture > img, img[srcset][sizes]");
+                for (t = 0; t < e.length; t++) o(e[t]);
+              }),
+              (c = function() {
+                clearTimeout(i), (i = setTimeout(s, 99));
+              }),
+              (a = n.matchMedia && matchMedia("(orientation: landscape)")),
+              (l = function() {
+                c(), a && a.addListener && a.addListener(c);
+              }),
+              (r.srcset = "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="),
+              /^[c|i]|d$/.test(document.readyState || "") ? l() : document.addEventListener("DOMContentLoaded", l),
+              c)
+            ),
+          (function(t, o, l) {
+            "use strict";
+            var r, u, a;
+            o.createElement("picture");
+            var T = {},
+              s = !1,
+              e = function() {},
+              n = o.createElement("img"),
+              f = n.getAttribute,
+              h = n.setAttribute,
+              d = n.removeAttribute,
+              c = o.documentElement,
+              i = {},
+              I = { algorithm: "" },
+              p = "data-pfsrc",
+              m = p + "set",
+              g = navigator.userAgent,
+              S = /rident/.test(g) || (/ecko/.test(g) && g.match(/rv\:(\d+)/) && 35 < RegExp.$1),
+              x = "currentSrc",
+              v = /\s+\+?\d+(e\d+)?w/,
+              w = /(\([^)]+\))?\s*(.+)/,
+              y = t.picturefillCFG,
+              A = "font-size:100%!important;",
+              b = !0,
+              E = {},
+              _ = {},
+              L = t.devicePixelRatio,
+              R = { px: 1, in: 96 },
+              O = o.createElement("a"),
+              M = !1,
+              C = /^[ \t\n\r\u000c]+/,
+              k = /^[, \t\n\r\u000c]+/,
+              z = /^[^ \t\n\r\u000c]+/,
+              B = /[,]+$/,
+              P = /^\d+$/,
+              D = /^-?(?:[0-9]+|[0-9]*\.[0-9]+)(?:[eE][+-]?[0-9]+)?$/,
+              N = function(t, e, n, i) {
+                t.addEventListener ? t.addEventListener(e, n, i || !1) : t.attachEvent && t.attachEvent("on" + e, n);
+              },
+              U = function(e) {
+                var n = {};
+                return function(t) {
+                  return t in n || (n[t] = e(t)), n[t];
+                };
+              };
+            function F(t) {
+              return " " === t || "\t" === t || "\n" === t || "\f" === t || "\r" === t;
             }
-
-            // globals
-            var Element = w.HTMLElement || w.Element;
-            var SCROLL_TIME = 468;
-
-            // object gathering original scroll methods
-            var original = {
-              scroll: w.scroll || w.scrollTo,
-              scrollBy: w.scrollBy,
-              elementScroll: Element.prototype.scroll || scrollElement,
-              scrollIntoView: Element.prototype.scrollIntoView
-            };
-
-            // define timing method
-            var now = w.performance && w.performance.now ? w.performance.now.bind(w.performance) : Date.now;
-
-            /**
-             * indicates if a the current browser is made by Microsoft
-             * @method isMicrosoftBrowser
-             * @param {String} userAgent
-             * @returns {Boolean}
-             */
-            function isMicrosoftBrowser(userAgent) {
-              var userAgentPatterns = ["MSIE ", "Trident/", "Edge/"];
-
-              return new RegExp(userAgentPatterns.join("|")).test(userAgent);
-            }
-
-            /*
-     * IE has rounding bug rounding down clientHeight and clientWidth and
-     * rounding up scrollHeight and scrollWidth causing false positives
-     * on hasScrollableSpace
-     */
-            var ROUNDING_TOLERANCE = isMicrosoftBrowser(w.navigator.userAgent) ? 1 : 0;
-
-            /**
-             * changes scroll position inside an element
-             * @method scrollElement
-             * @param {Number} x
-             * @param {Number} y
-             * @returns {undefined}
-             */
-            function scrollElement(x, y) {
-              this.scrollLeft = x;
-              this.scrollTop = y;
-            }
-
-            /**
-             * returns result of applying ease math function to a number
-             * @method ease
-             * @param {Number} k
-             * @returns {Number}
-             */
-            function ease(k) {
-              return 0.5 * (1 - Math.cos(Math.PI * k));
-            }
-
-            /**
-             * indicates if a smooth behavior should be applied
-             * @method shouldBailOut
-             * @param {Number|Object} firstArg
-             * @returns {Boolean}
-             */
-            function shouldBailOut(firstArg) {
-              if (
-                firstArg === null ||
-                typeof firstArg !== "object" ||
-                firstArg.behavior === undefined ||
-                firstArg.behavior === "auto" ||
-                firstArg.behavior === "instant"
-              ) {
-                // first argument is not an object/null
-                // or behavior is auto, instant or undefined
-                return true;
-              }
-
-              if (typeof firstArg === "object" && firstArg.behavior === "smooth") {
-                // first argument is an object and behavior is smooth
-                return false;
-              }
-
-              // throw error when behavior is not supported
-              throw new TypeError(
-                "behavior member of ScrollOptions " +
-                  firstArg.behavior +
-                  " is not a valid value for enumeration ScrollBehavior."
-              );
-            }
-
-            /**
-             * indicates if an element has scrollable space in the provided axis
-             * @method hasScrollableSpace
-             * @param {Node} el
-             * @param {String} axis
-             * @returns {Boolean}
-             */
-            function hasScrollableSpace(el, axis) {
-              if (axis === "Y") {
-                return el.clientHeight + ROUNDING_TOLERANCE < el.scrollHeight;
-              }
-
-              if (axis === "X") {
-                return el.clientWidth + ROUNDING_TOLERANCE < el.scrollWidth;
-              }
-            }
-
-            /**
-             * indicates if an element has a scrollable overflow property in the axis
-             * @method canOverflow
-             * @param {Node} el
-             * @param {String} axis
-             * @returns {Boolean}
-             */
-            function canOverflow(el, axis) {
-              var overflowValue = w.getComputedStyle(el, null)["overflow" + axis];
-
-              return overflowValue === "auto" || overflowValue === "scroll";
-            }
-
-            /**
-             * indicates if an element can be scrolled in either axis
-             * @method isScrollable
-             * @param {Node} el
-             * @param {String} axis
-             * @returns {Boolean}
-             */
-            function isScrollable(el) {
-              var isScrollableY = hasScrollableSpace(el, "Y") && canOverflow(el, "Y");
-              var isScrollableX = hasScrollableSpace(el, "X") && canOverflow(el, "X");
-
-              return isScrollableY || isScrollableX;
-            }
-
-            /**
-             * finds scrollable parent of an element
-             * @method findScrollableParent
-             * @param {Node} el
-             * @returns {Node} el
-             */
-            function findScrollableParent(el) {
-              var isBody;
-
-              do {
-                el = el.parentNode;
-
-                isBody = el === d.body;
-              } while (isBody === false && isScrollable(el) === false);
-
-              isBody = null;
-
-              return el;
-            }
-
-            /**
-             * self invoked function that, given a context, steps through scrolling
-             * @method step
-             * @param {Object} context
-             * @returns {undefined}
-             */
-            function step(context) {
-              var time = now();
-              var value;
-              var currentX;
-              var currentY;
-              var elapsed = (time - context.startTime) / SCROLL_TIME;
-
-              // avoid elapsed times higher than one
-              elapsed = elapsed > 1 ? 1 : elapsed;
-
-              // apply easing to elapsed time
-              value = ease(elapsed);
-
-              currentX = context.startX + (context.x - context.startX) * value;
-              currentY = context.startY + (context.y - context.startY) * value;
-
-              context.method.call(context.scrollable, currentX, currentY);
-
-              // scroll more if we have not reached our destination
-              if (currentX !== context.x || currentY !== context.y) {
-                w.requestAnimationFrame(step.bind(w, context));
-              }
-            }
-
-            /**
-             * scrolls window or element with a smooth behavior
-             * @method smoothScroll
-             * @param {Object|Node} el
-             * @param {Number} x
-             * @param {Number} y
-             * @returns {undefined}
-             */
-            function smoothScroll(el, x, y) {
-              var scrollable;
-              var startX;
-              var startY;
-              var method;
-              var startTime = now();
-
-              // define scroll context
-              if (el === d.body) {
-                scrollable = w;
-                startX = w.scrollX || w.pageXOffset;
-                startY = w.scrollY || w.pageYOffset;
-                method = original.scroll;
-              } else {
-                scrollable = el;
-                startX = el.scrollLeft;
-                startY = el.scrollTop;
-                method = scrollElement;
-              }
-
-              // scroll looping over a frame
-              step({
-                scrollable: scrollable,
-                method: method,
-                startTime: startTime,
-                startX: startX,
-                startY: startY,
-                x: x,
-                y: y
-              });
-            }
-
-            // ORIGINAL METHODS OVERRIDES
-            // w.scroll and w.scrollTo
-            w.scroll = w.scrollTo = function() {
-              // avoid action when no arguments are passed
-              if (arguments[0] === undefined) {
-                return;
-              }
-
-              // avoid smooth behavior if not required
-              if (shouldBailOut(arguments[0]) === true) {
-                original.scroll.call(
-                  w,
-                  arguments[0].left !== undefined
-                    ? arguments[0].left
-                    : typeof arguments[0] !== "object"
-                      ? arguments[0]
-                      : w.scrollX || w.pageXOffset,
-                  // use top prop, second argument if present or fallback to scrollY
-                  arguments[0].top !== undefined
-                    ? arguments[0].top
-                    : arguments[1] !== undefined
-                      ? arguments[1]
-                      : w.scrollY || w.pageYOffset
+            var j,
+              H,
+              W,
+              q,
+              V,
+              X,
+              $,
+              Y,
+              G,
+              Q,
+              K,
+              J,
+              Z,
+              tt,
+              et,
+              nt,
+              it,
+              rt,
+              ot,
+              st = ((j = /^([\d\.]+)(em|vw|px)$/),
+              (H = U(function(t) {
+                return (
+                  "return " +
+                  (function() {
+                    for (var t = arguments, e = 0, n = t[0]; ++e in t; ) n = n.replace(t[e], t[++e]);
+                    return n;
+                  })(
+                    (t || "").toLowerCase(),
+                    /\band\b/g,
+                    "&&",
+                    /,/g,
+                    "||",
+                    /min-([a-z-\s]+):/g,
+                    "e.$1>=",
+                    /max-([a-z-\s]+):/g,
+                    "e.$1<=",
+                    /calc([^)]+)/g,
+                    "($1)",
+                    /(\d+[\.]*[\d]*)([a-z]+)/g,
+                    "($1 * e.$2)",
+                    /^(?!(e.[a-z]|[0-9\.&=|><\+\-\*\(\)\/])).*/gi,
+                    ""
+                  ) +
+                  ";"
                 );
-
-                return;
-              }
-
-              // LET THE SMOOTHNESS BEGIN!
-              smoothScroll.call(
-                w,
-                d.body,
-                arguments[0].left !== undefined ? ~~arguments[0].left : w.scrollX || w.pageXOffset,
-                arguments[0].top !== undefined ? ~~arguments[0].top : w.scrollY || w.pageYOffset
-              );
-            };
-
-            // w.scrollBy
-            w.scrollBy = function() {
-              // avoid action when no arguments are passed
-              if (arguments[0] === undefined) {
-                return;
-              }
-
-              // avoid smooth behavior if not required
-              if (shouldBailOut(arguments[0])) {
-                original.scrollBy.call(
-                  w,
-                  arguments[0].left !== undefined
-                    ? arguments[0].left
-                    : typeof arguments[0] !== "object"
-                      ? arguments[0]
-                      : 0,
-                  arguments[0].top !== undefined ? arguments[0].top : arguments[1] !== undefined ? arguments[1] : 0
-                );
-
-                return;
-              }
-
-              // LET THE SMOOTHNESS BEGIN!
-              smoothScroll.call(
-                w,
-                d.body,
-                ~~arguments[0].left + (w.scrollX || w.pageXOffset),
-                ~~arguments[0].top + (w.scrollY || w.pageYOffset)
-              );
-            };
-
-            // Element.prototype.scroll and Element.prototype.scrollTo
-            Element.prototype.scroll = Element.prototype.scrollTo = function() {
-              // avoid action when no arguments are passed
-              if (arguments[0] === undefined) {
-                return;
-              }
-
-              // avoid smooth behavior if not required
-              if (shouldBailOut(arguments[0]) === true) {
-                // if one number is passed, throw error to match Firefox implementation
-                if (typeof arguments[0] === "number" && arguments[1] === undefined) {
-                  throw new SyntaxError("Value could not be converted");
+              })),
+              function(t, e) {
+                var n;
+                if (!(t in E))
+                  if (((E[t] = !1), e && (n = t.match(j)))) E[t] = n[1] * R[n[2]];
+                  else
+                    try {
+                      E[t] = new Function("e", H(t))(R);
+                    } catch (t) {}
+                return E[t];
+              }),
+              ct = function(t, e) {
+                return t.w ? ((t.cWidth = T.calcListLength(e || "100vw")), (t.res = t.w / t.cWidth)) : (t.res = t.d), t;
+              },
+              at = function(t) {
+                if (s) {
+                  var e,
+                    n,
+                    i,
+                    r = t || {};
+                  if (
+                    (r.elements &&
+                      1 === r.elements.nodeType &&
+                      ("IMG" === r.elements.nodeName.toUpperCase()
+                        ? (r.elements = [r.elements])
+                        : ((r.context = r.elements), (r.elements = null))),
+                    (i = (e = r.elements || T.qsa(r.context || o, r.reevaluate || r.reselect ? T.sel : T.selShort))
+                      .length))
+                  ) {
+                    for (T.setupRun(r), M = !0, n = 0; n < i; n++) T.fillImg(e[n], r);
+                    T.teardownRun(r);
+                  }
                 }
-
-                original.elementScroll.call(
-                  this,
-                  // use left prop, first number argument or fallback to scrollLeft
-                  arguments[0].left !== undefined
-                    ? ~~arguments[0].left
-                    : typeof arguments[0] !== "object"
-                      ? ~~arguments[0]
-                      : this.scrollLeft,
-                  // use top prop, second argument or fallback to scrollTop
-                  arguments[0].top !== undefined
-                    ? ~~arguments[0].top
-                    : arguments[1] !== undefined
-                      ? ~~arguments[1]
-                      : this.scrollTop
+              };
+            function lt(t, e) {
+              return t.res - e.res;
+            }
+            function ut(t, e) {
+              var n, i, r;
+              if (t && e)
+                for (r = T.parseSet(e), t = T.makeUrl(t), n = 0; n < r.length; n++)
+                  if (t === T.makeUrl(r[n].url)) {
+                    i = r[n];
+                    break;
+                  }
+              return i;
+            }
+            t.console && console.warn,
+              x in n || (x = "src"),
+              (i["image/jpeg"] = !0),
+              (i["image/gif"] = !0),
+              (i["image/png"] = !0),
+              (i["image/svg+xml"] = o.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image", "1.1")),
+              (T.ns = ("pf" + new Date().getTime()).substr(0, 9)),
+              (T.supSrcset = "srcset" in n),
+              (T.supSizes = "sizes" in n),
+              (T.supPicture = !!t.HTMLPictureElement),
+              T.supSrcset &&
+                T.supPicture &&
+                !T.supSizes &&
+                ((W = o.createElement("img")),
+                (n.srcset = "data:,a"),
+                (W.src = "data:,a"),
+                (T.supSrcset = n.complete === W.complete),
+                (T.supPicture = T.supSrcset && T.supPicture)),
+              T.supSrcset && !T.supSizes
+                ? ((q = "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="),
+                  (V = o.createElement("img")),
+                  (X = function() {
+                    2 === V.width && (T.supSizes = !0), (u = T.supSrcset && !T.supSizes), (s = !0), setTimeout(at);
+                  }),
+                  (V.onload = X),
+                  (V.onerror = X),
+                  V.setAttribute("sizes", "9px"),
+                  (V.srcset =
+                    q + " 1w,data:image/gif;base64,R0lGODlhAgABAPAAAP///wAAACH5BAAAAAAALAAAAAACAAEAAAICBAoAOw== 9w"),
+                  (V.src = q))
+                : (s = !0),
+              (T.selShort = "picture>img,img[srcset]"),
+              (T.sel = T.selShort),
+              (T.cfg = I),
+              (T.DPR = L || 1),
+              (T.u = R),
+              (T.types = i),
+              (T.setSize = e),
+              (T.makeUrl = U(function(t) {
+                return (O.href = t), O.href;
+              })),
+              (T.qsa = function(t, e) {
+                return "querySelector" in t ? t.querySelectorAll(e) : [];
+              }),
+              (T.matchesMedia = function() {
+                return (
+                  t.matchMedia && (matchMedia("(min-width: 0.1em)") || {}).matches
+                    ? (T.matchesMedia = function(t) {
+                        return !t || matchMedia(t).matches;
+                      })
+                    : (T.matchesMedia = T.mMQ),
+                  T.matchesMedia.apply(this, arguments)
                 );
-
-                return;
-              }
-
-              var left = arguments[0].left;
-              var top = arguments[0].top;
-
-              // LET THE SMOOTHNESS BEGIN!
-              smoothScroll.call(
-                this,
-                this,
-                typeof left === "undefined" ? this.scrollLeft : ~~left,
-                typeof top === "undefined" ? this.scrollTop : ~~top
-              );
-            };
-
-            // Element.prototype.scrollBy
-            Element.prototype.scrollBy = function() {
-              // avoid action when no arguments are passed
-              if (arguments[0] === undefined) {
-                return;
-              }
-
-              // avoid smooth behavior if not required
-              if (shouldBailOut(arguments[0]) === true) {
-                original.elementScroll.call(
-                  this,
-                  arguments[0].left !== undefined
-                    ? ~~arguments[0].left + this.scrollLeft
-                    : ~~arguments[0] + this.scrollLeft,
-                  arguments[0].top !== undefined ? ~~arguments[0].top + this.scrollTop : ~~arguments[1] + this.scrollTop
+              }),
+              (T.mMQ = function(t) {
+                return !t || st(t);
+              }),
+              (T.calcLength = function(t) {
+                var e = st(t, !0) || !1;
+                return e < 0 && (e = !1), e;
+              }),
+              (T.supportsType = function(t) {
+                return !t || i[t];
+              }),
+              (T.parseSize = U(function(t) {
+                var e = (t || "").match(w);
+                return { media: e && e[1], length: e && e[2] };
+              })),
+              (T.parseSet = function(t) {
+                return (
+                  t.cands ||
+                    (t.cands = (function(i, f) {
+                      function t(t) {
+                        var e,
+                          n = t.exec(i.substring(s));
+                        if (n) return (e = n[0]), (s += e.length), e;
+                      }
+                      var h,
+                        d,
+                        e,
+                        n,
+                        r,
+                        o = i.length,
+                        s = 0,
+                        p = [];
+                      function c() {
+                        var t,
+                          e,
+                          n,
+                          i,
+                          r,
+                          o,
+                          s,
+                          c,
+                          a,
+                          l = !1,
+                          u = {};
+                        for (i = 0; i < d.length; i++)
+                          (o = (r = d[i])[r.length - 1]),
+                            (s = r.substring(0, r.length - 1)),
+                            (c = parseInt(s, 10)),
+                            (a = parseFloat(s)),
+                            P.test(s) && "w" === o
+                              ? ((t || e) && (l = !0), 0 === c ? (l = !0) : (t = c))
+                              : D.test(s) && "x" === o
+                                ? ((t || e || n) && (l = !0), a < 0 ? (l = !0) : (e = a))
+                                : P.test(s) && "h" === o
+                                  ? ((n || e) && (l = !0), 0 === c ? (l = !0) : (n = c))
+                                  : (l = !0);
+                        l ||
+                          ((u.url = h),
+                          t && (u.w = t),
+                          e && (u.d = e),
+                          n && (u.h = n),
+                          n || e || t || (u.d = 1),
+                          1 === u.d && (f.has1x = !0),
+                          (u.set = f),
+                          p.push(u));
+                      }
+                      function a() {
+                        for (t(C), e = "", n = "in descriptor"; ; ) {
+                          if (((r = i.charAt(s)), "in descriptor" === n))
+                            if (F(r)) e && (d.push(e), (e = ""), (n = "after descriptor"));
+                            else {
+                              if ("," === r) return (s += 1), e && d.push(e), void c();
+                              if ("(" === r) (e += r), (n = "in parens");
+                              else {
+                                if ("" === r) return e && d.push(e), void c();
+                                e += r;
+                              }
+                            }
+                          else if ("in parens" === n)
+                            if (")" === r) (e += r), (n = "in descriptor");
+                            else {
+                              if ("" === r) return d.push(e), void c();
+                              e += r;
+                            }
+                          else if ("after descriptor" === n)
+                            if (F(r));
+                            else {
+                              if ("" === r) return void c();
+                              (n = "in descriptor"), (s -= 1);
+                            }
+                          s += 1;
+                        }
+                      }
+                      for (;;) {
+                        if ((t(k), o <= s)) return p;
+                        (h = t(z)), (d = []), "," === h.slice(-1) ? ((h = h.replace(B, "")), c()) : a();
+                      }
+                    })(t.srcset, t)),
+                  t.cands
                 );
-
-                return;
-              }
-
-              this.scroll({
-                left: ~~arguments[0].left + this.scrollLeft,
-                top: ~~arguments[0].top + this.scrollTop,
-                behavior: arguments[0].behavior
-              });
-            };
-
-            // Element.prototype.scrollIntoView
-            Element.prototype.scrollIntoView = function() {
-              // avoid smooth behavior if not required
-              if (shouldBailOut(arguments[0]) === true) {
-                original.scrollIntoView.call(this, arguments[0] === undefined ? true : arguments[0]);
-
-                return;
-              }
-
-              // LET THE SMOOTHNESS BEGIN!
-              var scrollableParent = findScrollableParent(this);
-              var parentRects = scrollableParent.getBoundingClientRect();
-              var clientRects = this.getBoundingClientRect();
-
-              if (scrollableParent !== d.body) {
-                // reveal element inside parent
-                smoothScroll.call(
-                  this,
-                  scrollableParent,
-                  scrollableParent.scrollLeft + clientRects.left - parentRects.left,
-                  scrollableParent.scrollTop + clientRects.top - parentRects.top
-                );
-
-                // reveal parent in viewport unless is fixed
-                if (w.getComputedStyle(scrollableParent).position !== "fixed") {
-                  w.scrollBy({
-                    left: parentRects.left,
-                    top: parentRects.top,
-                    behavior: "smooth"
-                  });
+              }),
+              (T.getEmValue = function() {
+                var t;
+                if (!r && (t = o.body)) {
+                  var e = o.createElement("div"),
+                    n = c.style.cssText,
+                    i = t.style.cssText;
+                  (e.style.cssText =
+                    "position:absolute;left:0;visibility:hidden;display:block;padding:0;border:none;font-size:1em;width:1em;overflow:hidden;clip:rect(0px, 0px, 0px, 0px)"),
+                    (c.style.cssText = A),
+                    (t.style.cssText = A),
+                    t.appendChild(e),
+                    (r = e.offsetWidth),
+                    t.removeChild(e),
+                    (r = parseFloat(r, 10)),
+                    (c.style.cssText = n),
+                    (t.style.cssText = i);
                 }
-              } else {
-                // reveal element in viewport
-                w.scrollBy({
-                  left: clientRects.left,
-                  top: clientRects.top,
-                  behavior: "smooth"
-                });
-              }
-            };
-          }
-
-          if (typeof exports === "object" && typeof module !== "undefined") {
-            // commonjs
-            module.exports = { polyfill: polyfill };
-          } else {
-            // global
-            polyfill();
-          }
-        })();
+                return r || 16;
+              }),
+              (T.calcListLength = function(t) {
+                if (!(t in _) || I.uT) {
+                  var e = T.calcLength(
+                    (function(t) {
+                      var e,
+                        n,
+                        i,
+                        r,
+                        o,
+                        s,
+                        c,
+                        a = /^(?:[+-]?[0-9]+|[0-9]*\.[0-9]+)(?:[eE][+-]?[0-9]+)?(?:ch|cm|em|ex|in|mm|pc|pt|px|rem|vh|vmin|vmax|vw)$/i,
+                        l = /^calc\((?:[0-9a-z \.\+\-\*\/\(\)]+)\)$/i;
+                      for (
+                        i = (n = (function(t) {
+                          var e,
+                            n = "",
+                            i = [],
+                            r = [],
+                            o = 0,
+                            s = 0,
+                            c = !1;
+                          function a() {
+                            n && (i.push(n), (n = ""));
+                          }
+                          function l() {
+                            i[0] && (r.push(i), (i = []));
+                          }
+                          for (;;) {
+                            if ("" === (e = t.charAt(s))) return a(), l(), r;
+                            if (c) {
+                              if ("*" === e && "/" === t[s + 1]) {
+                                (c = !1), (s += 2), a();
+                                continue;
+                              }
+                              s += 1;
+                            } else {
+                              if (F(e)) {
+                                if ((t.charAt(s - 1) && F(t.charAt(s - 1))) || !n) {
+                                  s += 1;
+                                  continue;
+                                }
+                                if (0 === o) {
+                                  a(), (s += 1);
+                                  continue;
+                                }
+                                e = " ";
+                              } else if ("(" === e) o += 1;
+                              else if (")" === e) o -= 1;
+                              else {
+                                if ("," === e) {
+                                  a(), l(), (s += 1);
+                                  continue;
+                                }
+                                if ("/" === e && "*" === t.charAt(s + 1)) {
+                                  (c = !0), (s += 2);
+                                  continue;
+                                }
+                              }
+                              (n += e), (s += 1);
+                            }
+                          }
+                        })(t)).length,
+                          e = 0;
+                        e < i;
+                        e++
+                      )
+                        if (
+                          ((o = (r = n[e])[r.length - 1]),
+                          (c = o),
+                          (a.test(c) && 0 <= parseFloat(c)) || l.test(c) || "0" === c || "-0" === c || "+0" === c)
+                        ) {
+                          if (((s = o), r.pop(), 0 === r.length)) return s;
+                          if (((r = r.join(" ")), T.matchesMedia(r))) return s;
+                        }
+                      return "100vw";
+                    })(t)
+                  );
+                  _[t] = e || R.width;
+                }
+                return _[t];
+              }),
+              (T.setRes = function(t) {
+                var e;
+                if (t) for (var n = 0, i = (e = T.parseSet(t)).length; n < i; n++) ct(e[n], t.sizes);
+                return e;
+              }),
+              (T.setRes.res = ct),
+              (T.applySetCandidate = function(t, e) {
+                if (t.length) {
+                  var n,
+                    i,
+                    r,
+                    o,
+                    s,
+                    c,
+                    a,
+                    l,
+                    u,
+                    f,
+                    h,
+                    d,
+                    p,
+                    m,
+                    g,
+                    v,
+                    w,
+                    y,
+                    A,
+                    b,
+                    E = e[T.ns],
+                    _ = T.DPR;
+                  if (
+                    ((c = E.curSrc || e[x]),
+                    (a =
+                      E.curCan ||
+                      ((f = e),
+                      (h = c),
+                      !(d = t[0].set) && h && (d = (d = f[T.ns].sets) && d[d.length - 1]),
+                      (p = ut(h, d)) &&
+                        ((h = T.makeUrl(h)), (f[T.ns].curSrc = h), (f[T.ns].curCan = p).res || ct(p, p.set.sizes)),
+                      p)) &&
+                      a.set === t[0].set &&
+                      ((u = S && !e.complete && a.res - 0.1 > _) || ((a.cached = !0), a.res >= _ && (s = a))),
+                    !s)
+                  )
+                    for (t.sort(lt), s = t[(o = t.length) - 1], i = 0; i < o; i++)
+                      if ((n = t[i]).res >= _) {
+                        s =
+                          t[(r = i - 1)] &&
+                          (u || c !== T.makeUrl(n.url)) &&
+                          ((m = t[r].res),
+                          (g = n.res),
+                          (v = _),
+                          (w = t[r].cached),
+                          (b = A = y = void 0),
+                          "saveData" === I.algorithm
+                            ? 2.7 < m
+                              ? (b = v + 1)
+                              : ((A = (g - v) * (y = Math.pow(m - 0.6, 1.5))), w && (A += 0.1 * y), (b = m + A))
+                            : (b = 1 < v ? Math.sqrt(m * g) : m),
+                          v < b)
+                            ? t[r]
+                            : n;
+                        break;
+                      }
+                  s &&
+                    ((l = T.makeUrl(s.url)), (E.curSrc = l), (E.curCan = s), l !== c && T.setSrc(e, s), T.setSize(e));
+                }
+              }),
+              (T.setSrc = function(t, e) {
+                var n;
+                (t.src = e.url),
+                  "image/svg+xml" === e.set.type &&
+                    ((n = t.style.width),
+                    (t.style.width = t.offsetWidth + 1 + "px"),
+                    t.offsetWidth + 1 && (t.style.width = n));
+              }),
+              (T.getSet = function(t) {
+                var e,
+                  n,
+                  i,
+                  r = !1,
+                  o = t[T.ns].sets;
+                for (e = 0; e < o.length && !r; e++)
+                  if ((n = o[e]).srcset && T.matchesMedia(n.media) && (i = T.supportsType(n.type))) {
+                    "pending" === i && (n = i), (r = n);
+                    break;
+                  }
+                return r;
+              }),
+              (T.parseSets = function(t, e, n) {
+                var i,
+                  r,
+                  o,
+                  s,
+                  c = e && "PICTURE" === e.nodeName.toUpperCase(),
+                  a = t[T.ns];
+                (a.src === l || n.src) && ((a.src = f.call(t, "src")), a.src ? h.call(t, p, a.src) : d.call(t, p)),
+                  (a.srcset === l || n.srcset || !T.supSrcset || t.srcset) &&
+                    ((i = f.call(t, "srcset")), (a.srcset = i), (s = !0)),
+                  (a.sets = []),
+                  c &&
+                    ((a.pic = !0),
+                    (function(t, e) {
+                      var n,
+                        i,
+                        r,
+                        o,
+                        s = t.getElementsByTagName("source");
+                      for (n = 0, i = s.length; n < i; n++)
+                        ((r = s[n])[T.ns] = !0),
+                          (o = r.getAttribute("srcset")) &&
+                            e.push({
+                              srcset: o,
+                              media: r.getAttribute("media"),
+                              type: r.getAttribute("type"),
+                              sizes: r.getAttribute("sizes")
+                            });
+                    })(e, a.sets)),
+                  a.srcset
+                    ? ((r = { srcset: a.srcset, sizes: f.call(t, "sizes") }),
+                      a.sets.push(r),
+                      (o = (u || a.src) && v.test(a.srcset || "")) ||
+                        !a.src ||
+                        ut(a.src, r) ||
+                        r.has1x ||
+                        ((r.srcset += ", " + a.src), r.cands.push({ url: a.src, d: 1, set: r })))
+                    : a.src && a.sets.push({ srcset: a.src, sizes: null }),
+                  (a.curCan = null),
+                  (a.curSrc = l),
+                  (a.supported = !(c || (r && !T.supSrcset) || (o && !T.supSizes))),
+                  s && T.supSrcset && !a.supported && (i ? (h.call(t, m, i), (t.srcset = "")) : d.call(t, m)),
+                  a.supported &&
+                    !a.srcset &&
+                    ((!a.src && t.src) || t.src !== T.makeUrl(a.src)) &&
+                    (null === a.src ? t.removeAttribute("src") : (t.src = a.src)),
+                  (a.parsed = !0);
+              }),
+              (T.fillImg = function(t, e) {
+                var n,
+                  i,
+                  r,
+                  o,
+                  s,
+                  c = e.reselect || e.reevaluate;
+                (t[T.ns] || (t[T.ns] = {}), (n = t[T.ns]), c || n.evaled !== a) &&
+                  ((n.parsed && !e.reevaluate) || T.parseSets(t, t.parentNode, e),
+                  n.supported
+                    ? (n.evaled = a)
+                    : ((i = t),
+                      (o = T.getSet(i)),
+                      (s = !1),
+                      "pending" !== o && ((s = a), o && ((r = T.setRes(o)), T.applySetCandidate(r, i))),
+                      (i[T.ns].evaled = s)));
+              }),
+              (T.setupRun = function() {
+                (M && !b && L === t.devicePixelRatio) ||
+                  ((b = !1),
+                  (L = t.devicePixelRatio),
+                  (E = {}),
+                  (_ = {}),
+                  (T.DPR = L || 1),
+                  (R.width = Math.max(t.innerWidth || 0, c.clientWidth)),
+                  (R.height = Math.max(t.innerHeight || 0, c.clientHeight)),
+                  (R.vw = R.width / 100),
+                  (R.vh = R.height / 100),
+                  (a = [R.height, R.width, L].join("-")),
+                  (R.em = T.getEmValue()),
+                  (R.rem = R.em));
+              }),
+              T.supPicture
+                ? ((at = e), (T.fillImg = e))
+                : ((Z = t.attachEvent ? /d$|^c/ : /d$|^c|^i/),
+                  (tt = function() {
+                    var t = o.readyState || "";
+                    (et = setTimeout(tt, "loading" === t ? 200 : 999)),
+                      o.body && (T.fillImgs(), ($ = $ || Z.test(t)) && clearTimeout(et));
+                  }),
+                  (et = setTimeout(tt, o.body ? 9 : 99)),
+                  (nt = c.clientHeight),
+                  N(
+                    t,
+                    "resize",
+                    ((Y = function() {
+                      (b = Math.max(t.innerWidth || 0, c.clientWidth) !== R.width || c.clientHeight !== nt),
+                        (nt = c.clientHeight),
+                        b && T.fillImgs();
+                    }),
+                    (G = 99),
+                    (J = function() {
+                      var t = new Date() - K;
+                      t < G ? (Q = setTimeout(J, G - t)) : ((Q = null), Y());
+                    }),
+                    function() {
+                      (K = new Date()), Q || (Q = setTimeout(J, G));
+                    })
+                  ),
+                  N(o, "readystatechange", tt)),
+              (T.picturefill = at),
+              (T.fillImgs = at),
+              (T.teardownRun = e),
+              (at._ = T),
+              (t.picturefillCFG = {
+                pf: T,
+                push: function(t) {
+                  var e = t.shift();
+                  "function" == typeof T[e] ? T[e].apply(T, t) : ((I[e] = t[0]), M && T.fillImgs({ reselect: !0 }));
+                }
+              });
+            for (; y && y.length; ) t.picturefillCFG.push(y.shift());
+            (t.picturefill = at),
+              "object" == typeof ft && "object" == typeof ft.exports
+                ? (ft.exports = at)
+                : "function" == typeof define &&
+                  define.amd &&
+                  define("picturefill", function() {
+                    return at;
+                  }),
+              T.supPicture ||
+                (i["image/webp"] = ((it = "image/webp"),
+                (rt =
+                  "data:image/webp;base64,UklGRkoAAABXRUJQVlA4WAoAAAAQAAAAAAAAAAAAQUxQSAwAAAABBxAR/Q9ERP8DAABWUDggGAAAADABAJ0BKgEAAQADADQlpAADcAD++/1QAA=="),
+                ((ot = new t.Image()).onerror = function() {
+                  (i[it] = !1), at();
+                }),
+                (ot.onload = function() {
+                  (i[it] = 1 === ot.width), at();
+                }),
+                (ot.src = rt),
+                "pending"));
+          })(window, document);
       },
       {}
     ],
     4: [
-      function(require, module, exports) {
-        /**
-         * what-input - A global utility for tracking the current input method (mouse, keyboard or touch).
-         * @version v5.1.2
-         * @link https://github.com/ten1seven/what-input
-         * @license MIT
-         */
-        (function webpackUniversalModuleDefinition(root, factory) {
-          if (typeof exports === "object" && typeof module === "object") module.exports = factory();
-          else if (typeof define === "function" && define.amd) define("whatInput", [], factory);
-          else if (typeof exports === "object") exports["whatInput"] = factory();
-          else root["whatInput"] = factory();
-        })(this, function() {
-          return /******/ (function(modules) {
-            // webpackBootstrap
-            /******/ // The module cache
-            /******/ var installedModules = {}; // The require function
-
-            /******/ /******/ function __webpack_require__(moduleId) {
-              /******/ // Check if module is in cache
-              /******/ if (installedModules[moduleId]) /******/ return installedModules[moduleId].exports; // Create a new module (and put it into the cache)
-
-              /******/ /******/ var module = (installedModules[moduleId] = {
-                /******/ exports: {},
-                /******/ id: moduleId,
-                /******/ loaded: false
-                /******/
-              }); // Execute the module function
-
-              /******/ /******/ modules[moduleId].call(module.exports, module, module.exports, __webpack_require__); // Flag the module as loaded
-
-              /******/ /******/ module.loaded = true; // Return the exports of the module
-
-              /******/ /******/ return module.exports;
-              /******/
-            } // expose the modules object (__webpack_modules__)
-
-            /******/ /******/ __webpack_require__.m = modules; // expose the module cache
-
-            /******/ /******/ __webpack_require__.c = installedModules; // __webpack_public_path__
-
-            /******/ /******/ __webpack_require__.p = ""; // Load entry module and return exports
-
-            /******/ /******/ return __webpack_require__(0);
-            /******/
-          })(
-            /************************************************************************/
-            /******/ [
-              /* 0 */
-              /***/ function(module, exports) {
-                "use strict";
-
-                module.exports = (function() {
-                  /*
-	   * bail out if there is no document or window
-	   * (i.e. in a node/non-DOM environment)
-	   *
-	   * Return a stubbed API instead
-	   */
-                  if (typeof document === "undefined" || typeof window === "undefined") {
-                    return {
-                      // always return "initial" because no interaction will ever be detected
-                      ask: function ask() {
-                        return "initial";
-                      },
-
-                      // always return null
-                      element: function element() {
-                        return null;
-                      },
-
-                      // no-op
-                      ignoreKeys: function ignoreKeys() {},
-
-                      // no-op
-                      specificKeys: function specificKeys() {},
-
-                      // no-op
-                      registerOnChange: function registerOnChange() {},
-
-                      // no-op
-                      unRegisterOnChange: function unRegisterOnChange() {}
-                    };
-                  }
-
-                  /*
-	   * variables
-	   */
-
-                  // cache document.documentElement
-                  var docElem = document.documentElement;
-
-                  // currently focused dom element
-                  var currentElement = null;
-
-                  // last used input type
-                  var currentInput = "initial";
-
-                  // last used input intent
-                  var currentIntent = currentInput;
-
-                  // check for sessionStorage support
-                  // then check for session variables and use if available
-                  try {
-                    if (window.sessionStorage.getItem("what-input")) {
-                      currentInput = window.sessionStorage.getItem("what-input");
-                    }
-
-                    if (window.sessionStorage.getItem("what-intent")) {
-                      currentIntent = window.sessionStorage.getItem("what-intent");
-                    }
-                  } catch (e) {}
-
-                  // event buffer timer
-                  var eventTimer = null;
-
-                  // form input types
-                  var formInputs = ["input", "select", "textarea"];
-
-                  // empty array for holding callback functions
-                  var functionList = [];
-
-                  // list of modifier keys commonly used with the mouse and
-                  // can be safely ignored to prevent false keyboard detection
-                  var ignoreMap = [
-                    16, // shift
-                    17, // control
-                    18, // alt
-                    91, // Windows key / left Apple cmd
-                    93 // Windows menu / right Apple cmd
-                  ];
-
-                  var specificMap = [];
-
-                  // mapping of events to input types
-                  var inputMap = {
-                    keydown: "keyboard",
-                    keyup: "keyboard",
-                    mousedown: "mouse",
-                    mousemove: "mouse",
-                    MSPointerDown: "pointer",
-                    MSPointerMove: "pointer",
-                    pointerdown: "pointer",
-                    pointermove: "pointer",
-                    touchstart: "touch"
-
-                    // boolean: true if touch buffer is active
-                  };
-                  var isBuffering = false;
-
-                  // boolean: true if the page is being scrolled
-                  var isScrolling = false;
-
-                  // store current mouse position
-                  var mousePos = {
-                    x: null,
-                    y: null
-
-                    // map of IE 10 pointer events
-                  };
-                  var pointerMap = {
-                    2: "touch",
-                    3: "touch", // treat pen like touch
-                    4: "mouse"
-
-                    // check support for passive event listeners
-                  };
-                  var supportsPassive = false;
-
-                  try {
-                    var opts = Object.defineProperty({}, "passive", {
-                      get: function get() {
-                        supportsPassive = true;
-                      }
-                    });
-
-                    window.addEventListener("test", null, opts);
-                  } catch (e) {}
-
-                  /*
-	   * set up
-	   */
-
-                  var setUp = function setUp() {
-                    // add correct mouse wheel event mapping to `inputMap`
-                    inputMap[detectWheel()] = "mouse";
-
-                    addListeners();
-                    doUpdate("input");
-                    doUpdate("intent");
-                  };
-
-                  /*
-	   * events
-	   */
-
-                  var addListeners = function addListeners() {
-                    // `pointermove`, `MSPointerMove`, `mousemove` and mouse wheel event binding
-                    // can only demonstrate potential, but not actual, interaction
-                    // and are treated separately
-                    var options = supportsPassive ? { passive: true } : false;
-
-                    // pointer events (mouse, pen, touch)
-                    if (window.PointerEvent) {
-                      window.addEventListener("pointerdown", setInput);
-                      window.addEventListener("pointermove", setIntent);
-                    } else if (window.MSPointerEvent) {
-                      window.addEventListener("MSPointerDown", setInput);
-                      window.addEventListener("MSPointerMove", setIntent);
+      function(t, e, n) {
+        !(function() {
+          "use strict";
+          function t() {
+            var a = window,
+              l = document;
+            if (!("scrollBehavior" in l.documentElement.style && !0 !== a.__forceSmoothScrollPolyfill__)) {
+              var t,
+                e = a.HTMLElement || a.Element,
+                s = 468,
+                u = {
+                  scroll: a.scroll || a.scrollTo,
+                  scrollBy: a.scrollBy,
+                  elementScroll: e.prototype.scroll || h,
+                  scrollIntoView: e.prototype.scrollIntoView
+                },
+                f = a.performance && a.performance.now ? a.performance.now.bind(a.performance) : Date.now,
+                n = ((t = a.navigator.userAgent), new RegExp(["MSIE ", "Trident/", "Edge/"].join("|")).test(t) ? 1 : 0);
+              (a.scroll = a.scrollTo = function() {
+                void 0 !== arguments[0] &&
+                  (!0 !== i(arguments[0])
+                    ? c.call(
+                        a,
+                        l.body,
+                        void 0 !== arguments[0].left ? ~~arguments[0].left : a.scrollX || a.pageXOffset,
+                        void 0 !== arguments[0].top ? ~~arguments[0].top : a.scrollY || a.pageYOffset
+                      )
+                    : u.scroll.call(
+                        a,
+                        void 0 !== arguments[0].left
+                          ? arguments[0].left
+                          : "object" != typeof arguments[0]
+                            ? arguments[0]
+                            : a.scrollX || a.pageXOffset,
+                        void 0 !== arguments[0].top
+                          ? arguments[0].top
+                          : void 0 !== arguments[1]
+                            ? arguments[1]
+                            : a.scrollY || a.pageYOffset
+                      ));
+              }),
+                (a.scrollBy = function() {
+                  void 0 !== arguments[0] &&
+                    (i(arguments[0])
+                      ? u.scrollBy.call(
+                          a,
+                          void 0 !== arguments[0].left
+                            ? arguments[0].left
+                            : "object" != typeof arguments[0]
+                              ? arguments[0]
+                              : 0,
+                          void 0 !== arguments[0].top ? arguments[0].top : void 0 !== arguments[1] ? arguments[1] : 0
+                        )
+                      : c.call(
+                          a,
+                          l.body,
+                          ~~arguments[0].left + (a.scrollX || a.pageXOffset),
+                          ~~arguments[0].top + (a.scrollY || a.pageYOffset)
+                        ));
+                }),
+                (e.prototype.scroll = e.prototype.scrollTo = function() {
+                  if (void 0 !== arguments[0])
+                    if (!0 !== i(arguments[0])) {
+                      var t = arguments[0].left,
+                        e = arguments[0].top;
+                      c.call(this, this, void 0 === t ? this.scrollLeft : ~~t, void 0 === e ? this.scrollTop : ~~e);
                     } else {
-                      // mouse events
-                      window.addEventListener("mousedown", setInput);
-                      window.addEventListener("mousemove", setIntent);
-
-                      // touch events
-                      if ("ontouchstart" in window) {
-                        window.addEventListener("touchstart", eventBuffer, options);
-                        window.addEventListener("touchend", setInput);
-                      }
+                      if ("number" == typeof arguments[0] && void 0 === arguments[1])
+                        throw new SyntaxError("Value could not be converted");
+                      u.elementScroll.call(
+                        this,
+                        void 0 !== arguments[0].left
+                          ? ~~arguments[0].left
+                          : "object" != typeof arguments[0]
+                            ? ~~arguments[0]
+                            : this.scrollLeft,
+                        void 0 !== arguments[0].top
+                          ? ~~arguments[0].top
+                          : void 0 !== arguments[1]
+                            ? ~~arguments[1]
+                            : this.scrollTop
+                      );
                     }
+                }),
+                (e.prototype.scrollBy = function() {
+                  void 0 !== arguments[0] &&
+                    (!0 !== i(arguments[0])
+                      ? this.scroll({
+                          left: ~~arguments[0].left + this.scrollLeft,
+                          top: ~~arguments[0].top + this.scrollTop,
+                          behavior: arguments[0].behavior
+                        })
+                      : u.elementScroll.call(
+                          this,
+                          void 0 !== arguments[0].left
+                            ? ~~arguments[0].left + this.scrollLeft
+                            : ~~arguments[0] + this.scrollLeft,
+                          void 0 !== arguments[0].top
+                            ? ~~arguments[0].top + this.scrollTop
+                            : ~~arguments[1] + this.scrollTop
+                        ));
+                }),
+                (e.prototype.scrollIntoView = function() {
+                  if (!0 !== i(arguments[0])) {
+                    var t = (function(t) {
+                        for (
+                          var e, n, i;
+                          !1 == ((t = t.parentNode) === l.body) &&
+                          !1 === ((n = r((e = t), "Y") && o(e, "Y")), (i = r(e, "X") && o(e, "X")), n || i);
 
-                    // mouse wheel
-                    window.addEventListener(detectWheel(), setIntent, options);
-
-                    // keyboard events
-                    window.addEventListener("keydown", eventBuffer);
-                    window.addEventListener("keyup", eventBuffer);
-
-                    // focus events
-                    window.addEventListener("focusin", setElement);
-                    window.addEventListener("focusout", clearElement);
-                  };
-
-                  // checks conditions before updating new input
-                  var setInput = function setInput(event) {
-                    // only execute if the event buffer timer isn't running
-                    if (!isBuffering) {
-                      var eventKey = event.which;
-                      var value = inputMap[event.type];
-
-                      if (value === "pointer") {
-                        value = pointerType(event);
-                      }
-
-                      var ignoreMatch = !specificMap.length && ignoreMap.indexOf(eventKey) === -1;
-
-                      var specificMatch = specificMap.length && specificMap.indexOf(eventKey) !== -1;
-
-                      var shouldUpdate =
-                        (value === "keyboard" && eventKey && (ignoreMatch || specificMatch)) ||
-                        value === "mouse" ||
-                        value === "touch";
-
-                      if (currentInput !== value && shouldUpdate) {
-                        currentInput = value;
-
-                        try {
-                          window.sessionStorage.setItem("what-input", currentInput);
-                        } catch (e) {}
-
-                        doUpdate("input");
-                      }
-
-                      if (currentIntent !== value && shouldUpdate) {
-                        // preserve intent for keyboard typing in form fields
-                        var activeElem = document.activeElement;
-                        var notFormInput =
-                          activeElem &&
-                          activeElem.nodeName &&
-                          formInputs.indexOf(activeElem.nodeName.toLowerCase()) === -1;
-
-                        if (notFormInput) {
-                          currentIntent = value;
-
-                          try {
-                            window.sessionStorage.setItem("what-intent", currentIntent);
-                          } catch (e) {}
-
-                          doUpdate("intent");
-                        }
-                      }
-                    }
-                  };
-
-                  // updates the doc and `inputTypes` array with new input
-                  var doUpdate = function doUpdate(which) {
-                    docElem.setAttribute("data-what" + which, which === "input" ? currentInput : currentIntent);
-
-                    fireFunctions(which);
-                  };
-
-                  // updates input intent for `mousemove` and `pointermove`
-                  var setIntent = function setIntent(event) {
-                    // test to see if `mousemove` happened relative to the screen to detect scrolling versus mousemove
-                    detectScrolling(event);
-
-                    // only execute if the event buffer timer isn't running
-                    // or scrolling isn't happening
-                    if (!isBuffering && !isScrolling) {
-                      var value = inputMap[event.type];
-                      if (value === "pointer") {
-                        value = pointerType(event);
-                      }
-
-                      if (currentIntent !== value) {
-                        currentIntent = value;
-
-                        try {
-                          window.sessionStorage.setItem("what-intent", currentIntent);
-                        } catch (e) {}
-
-                        doUpdate("intent");
-                      }
-                    }
-                  };
-
-                  var setElement = function setElement(event) {
-                    if (!event.target.nodeName) {
-                      // If nodeName is undefined, clear the element
-                      // This can happen if click inside an <svg> element.
-                      clearElement();
-                      return;
-                    }
-
-                    currentElement = event.target.nodeName.toLowerCase();
-                    docElem.setAttribute("data-whatelement", currentElement);
-
-                    if (event.target.classList && event.target.classList.length) {
-                      docElem.setAttribute("data-whatclasses", event.target.classList.toString().replace(" ", ","));
-                    }
-                  };
-
-                  var clearElement = function clearElement() {
-                    currentElement = null;
-
-                    docElem.removeAttribute("data-whatelement");
-                    docElem.removeAttribute("data-whatclasses");
-                  };
-
-                  // buffers events that frequently also fire mouse events
-                  var eventBuffer = function eventBuffer(event) {
-                    // set the current input
-                    setInput(event);
-
-                    // clear the timer if it happens to be running
-                    window.clearTimeout(eventTimer);
-
-                    // set the isBuffering to `true`
-                    isBuffering = true;
-
-                    // run the timer
-                    eventTimer = window.setTimeout(function() {
-                      // if the timer runs out, set isBuffering back to `false`
-                      isBuffering = false;
-                    }, 100);
-                  };
-
-                  /*
-	   * utilities
-	   */
-
-                  var pointerType = function pointerType(event) {
-                    if (typeof event.pointerType === "number") {
-                      return pointerMap[event.pointerType];
-                    } else {
-                      // treat pen like touch
-                      return event.pointerType === "pen" ? "touch" : event.pointerType;
-                    }
-                  };
-
-                  // detect version of mouse wheel event to use
-                  // via https://developer.mozilla.org/en-US/docs/Web/Events/wheel
-                  var detectWheel = function detectWheel() {
-                    var wheelType = void 0;
-
-                    // Modern browsers support "wheel"
-                    if ("onwheel" in document.createElement("div")) {
-                      wheelType = "wheel";
-                    } else {
-                      // Webkit and IE support at least "mousewheel"
-                      // or assume that remaining browsers are older Firefox
-                      wheelType = document.onmousewheel !== undefined ? "mousewheel" : "DOMMouseScroll";
-                    }
-
-                    return wheelType;
-                  };
-
-                  // runs callback functions
-                  var fireFunctions = function fireFunctions(type) {
-                    for (var i = 0, len = functionList.length; i < len; i++) {
-                      if (functionList[i].type === type) {
-                        functionList[i].fn.call(undefined, type === "input" ? currentInput : currentIntent);
-                      }
-                    }
-                  };
-
-                  // finds matching element in an object
-                  var objPos = function objPos(match) {
-                    for (var i = 0, len = functionList.length; i < len; i++) {
-                      if (functionList[i].fn === match) {
-                        return i;
-                      }
-                    }
-                  };
-
-                  var detectScrolling = function detectScrolling(event) {
-                    if (mousePos["x"] !== event.screenX || mousePos["y"] !== event.screenY) {
-                      isScrolling = false;
-
-                      mousePos["x"] = event.screenX;
-                      mousePos["y"] = event.screenY;
-                    } else {
-                      isScrolling = true;
-                    }
-                  };
-
-                  /*
-	   * init
-	   */
-
-                  // don't start script unless browser cuts the mustard
-                  // (also passes if polyfills are used)
-                  if ("addEventListener" in window && Array.prototype.indexOf) {
-                    setUp();
-                  }
-
-                  /*
-	   * api
-	   */
-
-                  return {
-                    // returns string: the current input type
-                    // opt: 'intent'|'input'
-                    // 'input' (default): returns the same value as the `data-whatinput` attribute
-                    // 'intent': includes `data-whatintent` value if it's different than `data-whatinput`
-                    ask: function ask(opt) {
-                      return opt === "intent" ? currentIntent : currentInput;
-                    },
-
-                    // returns string: the currently focused element or null
-                    element: function element() {
-                      return currentElement;
-                    },
-
-                    // overwrites ignored keys with provided array
-                    ignoreKeys: function ignoreKeys(arr) {
-                      ignoreMap = arr;
-                    },
-
-                    // overwrites specific char keys to update on
-                    specificKeys: function specificKeys(arr) {
-                      specificMap = arr;
-                    },
-
-                    // attach functions to input and intent "events"
-                    // funct: function to fire on change
-                    // eventType: 'input'|'intent'
-                    registerOnChange: function registerOnChange(fn, eventType) {
-                      functionList.push({
-                        fn: fn,
-                        type: eventType || "input"
-                      });
-                    },
-
-                    unRegisterOnChange: function unRegisterOnChange(fn) {
-                      var position = objPos(fn);
-
-                      if (position || position === 0) {
-                        functionList.splice(position, 1);
-                      }
-                    }
-                  };
-                })();
-
-                /***/
-              }
-              /******/
-            ]
-          );
-        });
+                        );
+                        return t;
+                      })(this),
+                      e = t.getBoundingClientRect(),
+                      n = this.getBoundingClientRect();
+                    t !== l.body
+                      ? (c.call(this, t, t.scrollLeft + n.left - e.left, t.scrollTop + n.top - e.top),
+                        "fixed" !== a.getComputedStyle(t).position &&
+                          a.scrollBy({ left: e.left, top: e.top, behavior: "smooth" }))
+                      : a.scrollBy({ left: n.left, top: n.top, behavior: "smooth" });
+                  } else u.scrollIntoView.call(this, void 0 === arguments[0] || arguments[0]);
+                });
+            }
+            function h(t, e) {
+              (this.scrollLeft = t), (this.scrollTop = e);
+            }
+            function i(t) {
+              if (
+                null === t ||
+                "object" != typeof t ||
+                void 0 === t.behavior ||
+                "auto" === t.behavior ||
+                "instant" === t.behavior
+              )
+                return !0;
+              if ("object" == typeof t && "smooth" === t.behavior) return !1;
+              throw new TypeError(
+                "behavior member of ScrollOptions " +
+                  t.behavior +
+                  " is not a valid value for enumeration ScrollBehavior."
+              );
+            }
+            function r(t, e) {
+              return "Y" === e
+                ? t.clientHeight + n < t.scrollHeight
+                : "X" === e
+                  ? t.clientWidth + n < t.scrollWidth
+                  : void 0;
+            }
+            function o(t, e) {
+              var n = a.getComputedStyle(t, null)["overflow" + e];
+              return "auto" === n || "scroll" === n;
+            }
+            function d(t) {
+              var e,
+                n,
+                i,
+                r,
+                o = (f() - t.startTime) / s;
+              (r = o = 1 < o ? 1 : o),
+                (e = 0.5 * (1 - Math.cos(Math.PI * r))),
+                (n = t.startX + (t.x - t.startX) * e),
+                (i = t.startY + (t.y - t.startY) * e),
+                t.method.call(t.scrollable, n, i),
+                (n === t.x && i === t.y) || a.requestAnimationFrame(d.bind(a, t));
+            }
+            function c(t, e, n) {
+              var i,
+                r,
+                o,
+                s,
+                c = f();
+              t === l.body
+                ? ((r = (i = a).scrollX || a.pageXOffset), (o = a.scrollY || a.pageYOffset), (s = u.scroll))
+                : ((r = (i = t).scrollLeft), (o = t.scrollTop), (s = h)),
+                d({ scrollable: i, method: s, startTime: c, startX: r, startY: o, x: e, y: n });
+            }
+          }
+          "object" == typeof n && void 0 !== e ? (e.exports = { polyfill: t }) : t();
+        })();
       },
       {}
     ],
     5: [
-      function(require, module, exports) {
-        var ua = window.navigator.userAgent;
-
-        var msie = ua.indexOf("MSIE ");
-        var trident = ua.indexOf("Trident/");
-        var edge = ua.indexOf("Edge/");
-        if (msie > 0) {
-          // IE 10 or older => return version number
-          document.documentElement.className +=
-            " old-ie ie ie" + parseInt(ua.substring(msie + 5, ua.indexOf(".", msie)), 10);
-        } else if (trident > 0) {
-          // IE 11 => return version number
-          var rv = ua.indexOf("rv:");
-          document.documentElement.className += " ie ie" + parseInt(ua.substring(rv + 3, ua.indexOf(".", rv)), 10);
-        } else if (edge > 0) {
-          document.documentElement.className += " edge";
-        }
+      function(t, e, n) {
+        var i, r;
+        (i = this),
+          (r = function() {
+            return (function(n) {
+              var i = {};
+              function r(t) {
+                if (i[t]) return i[t].exports;
+                var e = (i[t] = { exports: {}, id: t, loaded: !1 });
+                return n[t].call(e.exports, e, e.exports, r), (e.loaded = !0), e.exports;
+              }
+              return (r.m = n), (r.c = i), (r.p = ""), r(0);
+            })([
+              function(t, e) {
+                "use strict";
+                t.exports = (function() {
+                  if ("undefined" == typeof document || "undefined" == typeof window)
+                    return {
+                      ask: function() {
+                        return "initial";
+                      },
+                      element: function() {
+                        return null;
+                      },
+                      ignoreKeys: function() {},
+                      specificKeys: function() {},
+                      registerOnChange: function() {},
+                      unRegisterOnChange: function() {}
+                    };
+                  var e = document.documentElement,
+                    n = null,
+                    c = "initial",
+                    a = c;
+                  try {
+                    window.sessionStorage.getItem("what-input") && (c = window.sessionStorage.getItem("what-input")),
+                      window.sessionStorage.getItem("what-intent") &&
+                        (a = window.sessionStorage.getItem("what-intent"));
+                  } catch (t) {}
+                  var i = null,
+                    l = ["input", "select", "textarea"],
+                    r = [],
+                    u = [16, 17, 18, 91, 93],
+                    f = [],
+                    h = {
+                      keydown: "keyboard",
+                      keyup: "keyboard",
+                      mousedown: "mouse",
+                      mousemove: "mouse",
+                      MSPointerDown: "pointer",
+                      MSPointerMove: "pointer",
+                      pointerdown: "pointer",
+                      pointermove: "pointer",
+                      touchstart: "touch"
+                    },
+                    d = !1,
+                    o = !1,
+                    s = { x: null, y: null },
+                    p = { 2: "touch", 3: "touch", 4: "mouse" },
+                    m = !1;
+                  try {
+                    var t = Object.defineProperty({}, "passive", {
+                      get: function() {
+                        m = !0;
+                      }
+                    });
+                    window.addEventListener("test", null, t);
+                  } catch (t) {}
+                  var g = function() {
+                      var t = !!m && { passive: !0 };
+                      window.PointerEvent
+                        ? (window.addEventListener("pointerdown", v), window.addEventListener("pointermove", y))
+                        : window.MSPointerEvent
+                          ? (window.addEventListener("MSPointerDown", v), window.addEventListener("MSPointerMove", y))
+                          : (window.addEventListener("mousedown", v),
+                            window.addEventListener("mousemove", y),
+                            "ontouchstart" in window &&
+                              (window.addEventListener("touchstart", E, t), window.addEventListener("touchend", v))),
+                        window.addEventListener(T(), y, t),
+                        window.addEventListener("keydown", E),
+                        window.addEventListener("keyup", E),
+                        window.addEventListener("focusin", A),
+                        window.addEventListener("focusout", b);
+                    },
+                    v = function(t) {
+                      if (!d) {
+                        var e = t.which,
+                          n = h[t.type];
+                        "pointer" === n && (n = _(t));
+                        var i = !f.length && -1 === u.indexOf(e),
+                          r = f.length && -1 !== f.indexOf(e),
+                          o = ("keyboard" === n && e && (i || r)) || "mouse" === n || "touch" === n;
+                        if (c !== n && o) {
+                          c = n;
+                          try {
+                            window.sessionStorage.setItem("what-input", c);
+                          } catch (t) {}
+                          w("input");
+                        }
+                        if (a !== n && o) {
+                          var s = document.activeElement;
+                          if (s && s.nodeName && -1 === l.indexOf(s.nodeName.toLowerCase())) {
+                            a = n;
+                            try {
+                              window.sessionStorage.setItem("what-intent", a);
+                            } catch (t) {}
+                            w("intent");
+                          }
+                        }
+                      }
+                    },
+                    w = function(t) {
+                      e.setAttribute("data-what" + t, "input" === t ? c : a), I(t);
+                    },
+                    y = function(t) {
+                      if ((S(t), !d && !o)) {
+                        var e = h[t.type];
+                        if (("pointer" === e && (e = _(t)), a !== e)) {
+                          a = e;
+                          try {
+                            window.sessionStorage.setItem("what-intent", a);
+                          } catch (t) {}
+                          w("intent");
+                        }
+                      }
+                    },
+                    A = function(t) {
+                      t.target.nodeName
+                        ? ((n = t.target.nodeName.toLowerCase()),
+                          e.setAttribute("data-whatelement", n),
+                          t.target.classList &&
+                            t.target.classList.length &&
+                            e.setAttribute("data-whatclasses", t.target.classList.toString().replace(" ", ",")))
+                        : b();
+                    },
+                    b = function() {
+                      (n = null), e.removeAttribute("data-whatelement"), e.removeAttribute("data-whatclasses");
+                    },
+                    E = function(t) {
+                      v(t),
+                        window.clearTimeout(i),
+                        (d = !0),
+                        (i = window.setTimeout(function() {
+                          d = !1;
+                        }, 100));
+                    },
+                    _ = function(t) {
+                      return "number" == typeof t.pointerType
+                        ? p[t.pointerType]
+                        : "pen" === t.pointerType
+                          ? "touch"
+                          : t.pointerType;
+                    },
+                    T = function() {
+                      return "onwheel" in document.createElement("div")
+                        ? "wheel"
+                        : void 0 !== document.onmousewheel
+                          ? "mousewheel"
+                          : "DOMMouseScroll";
+                    },
+                    I = function(t) {
+                      for (var e = 0, n = r.length; e < n; e++)
+                        r[e].type === t && r[e].fn.call(void 0, "input" === t ? c : a);
+                    },
+                    S = function(t) {
+                      s.x !== t.screenX || s.y !== t.screenY
+                        ? ((o = !1), (s.x = t.screenX), (s.y = t.screenY))
+                        : (o = !0);
+                    };
+                  return (
+                    "addEventListener" in window &&
+                      Array.prototype.indexOf &&
+                      ((h[T()] = "mouse"), g(), w("input"), w("intent")),
+                    {
+                      ask: function(t) {
+                        return "intent" === t ? a : c;
+                      },
+                      element: function() {
+                        return n;
+                      },
+                      ignoreKeys: function(t) {
+                        u = t;
+                      },
+                      specificKeys: function(t) {
+                        f = t;
+                      },
+                      registerOnChange: function(t, e) {
+                        r.push({ fn: t, type: e || "input" });
+                      },
+                      unRegisterOnChange: function(t) {
+                        var e = (function(t) {
+                          for (var e = 0, n = r.length; e < n; e++) if (r[e].fn === t) return e;
+                        })(t);
+                        (e || 0 === e) && r.splice(e, 1);
+                      }
+                    }
+                  );
+                })();
+              }
+            ]);
+          }),
+          "object" == typeof n && "object" == typeof e
+            ? (e.exports = r())
+            : "function" == typeof define && define.amd
+              ? define("whatInput", [], r)
+              : "object" == typeof n
+                ? (n.whatInput = r())
+                : (i.whatInput = r());
       },
       {}
     ],
     6: [
-      function(require, module, exports) {
-        require("classlist-polyfill");
-        require("intersection-observer");
-        require("smoothscroll-polyfill").polyfill();
-        require("what-input");
-        require("./detect-ie");
+      function(t, e, n) {
+        var i = window.navigator.userAgent,
+          r = i.indexOf("MSIE "),
+          o = i.indexOf("Trident/"),
+          s = i.indexOf("Edge/");
+        if (0 < r)
+          document.documentElement.className += " old-ie ie ie" + parseInt(i.substring(r + 5, i.indexOf(".", r)), 10);
+        else if (0 < o) {
+          var c = i.indexOf("rv:");
+          document.documentElement.className += " ie ie" + parseInt(i.substring(c + 3, i.indexOf(".", c)), 10);
+        } else 0 < s && (document.documentElement.className += " edge");
+      },
+      {}
+    ],
+    7: [
+      function(t, e, n) {
+        t("classlist-polyfill"),
+          t("picturefill")(),
+          t("intersection-observer"),
+          t("smoothscroll-polyfill").polyfill(),
+          t("what-input"),
+          t("./detect-ie");
       },
       {
-        "./detect-ie": 5,
+        "./detect-ie": 6,
         "classlist-polyfill": 1,
         "intersection-observer": 2,
-        "smoothscroll-polyfill": 3,
-        "what-input": 4
+        picturefill: 3,
+        "smoothscroll-polyfill": 4,
+        "what-input": 5
       }
     ]
   },
   {},
-  [6]
+  [7]
 );

@@ -1,0 +1,6 @@
+{
+  "name": "Adres",
+  "slug": "adres",
+  "height": 15,
+  "source": "<div class=\"address\"><div class=\"address__body\"><h4 class=\"address__body__title\">HAN campus Nijmegen</h4><address class=\"address__body__text\"><a href=\"\">Kapittelweg 33<br>6525 EN Nijmegen</a><br>\nTelefoon: <a href=\"tel:0243530000\">024-353 00 00</a></address></div><div class=\"address__footer\"><a class=\"btn-secondary\" href=\"#\"><span class=\"btn-secondary__label\">Bereken je reistijd</span><svg class=\"icon icon-arrow\" aria-hidden=\"true\" viewBox=\"0 0 48 40\" width=\"48\" height=\"40\"><use xlink:href=\"#arrow\"></use></svg></a></div></div>"
+}

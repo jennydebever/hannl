@@ -36,6 +36,10 @@ body {
   transition: transform 0.5s ease-in-out;
   transform-origin: top center;
 
+  &:focus {
+    outline: 0;
+  }
+
   .modal-is-open--takeover & {
     transform: scale3d(0.97, 0.97, 0.97);
   }

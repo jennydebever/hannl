@@ -27,20 +27,18 @@ function scripts(name) {
     transform: [envify]
   });
 
-  return (
-    b
-      .bundle()
-      .pipe(source(name + ".js"))
-      .pipe(buffer())
-      .on("error", gutil.log)
-      // .pipe(uglify())
-      .pipe(
-        banner("/*! han.nl v<%= pkg.version %> */", {
-          pkg: require("../../package.json")
-        })
-      )
-      .pipe(gulp.dest(paths.DEST.scripts))
-  );
+  return b
+    .bundle()
+    .pipe(source(name + ".js"))
+    .pipe(buffer())
+    .on("error", gutil.log)
+    .pipe(uglify())
+    .pipe(
+      banner("/*! han.nl v<%= pkg.version %> */", {
+        pkg: require("../../package.json")
+      })
+    )
+    .pipe(gulp.dest(paths.DEST.scripts));
 }
 
 // main

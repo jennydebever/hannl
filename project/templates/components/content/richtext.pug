@@ -73,7 +73,7 @@ mixin section-richtext(eyebrow, title, intro)
   include ../atoms/richtext
   include ./intro
 
-  +section(eyebrow, title)(class='section--richtext')
+  +section(eyebrow, title)(class='section--richtext')&attributes(attributes)
     if intro
       +intro #{intro}
     +richtext

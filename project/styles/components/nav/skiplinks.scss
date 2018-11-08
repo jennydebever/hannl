@@ -4,6 +4,7 @@
 
 .skiplinks {
   a {
+    @include focusable($white, 1px, -1px);
     @include accessibility;
 
     &:focus {

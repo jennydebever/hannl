@@ -25,7 +25,7 @@ mixin coursenav(title, links)
     .coursenav-wrapper(class='js-coursenav-wrapper')
       .coursenav-body-wrapper
         if title
-          a.coursenav__title(href=links[0].href) #{title}
+          a.coursenav__title(href=links[0].href, class='js-underscore') #{title}
 
         ul.coursenav__links
           each item in links
@@ -49,7 +49,7 @@ mixin coursenav(title, links)
     //- mobile toggle
     button.coursenav__toggle(class="js-coursenav-toggle js-modal-toggle", aria-label="Opleidingsnavigatie", aria-controls="coursenav", type="button", aria-expanded="false")
       span.coursenav__toggle__label
-        | #{title}
+        span(class='js-underscore') #{title}
       +icon#chevron
 
   .coursenav-overlay

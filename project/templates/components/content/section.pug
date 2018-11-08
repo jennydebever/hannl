@@ -20,14 +20,16 @@
 mixin section(eyebrow, title, intro)
   .section&attributes(attributes)
     .section-wrapper
-      if title || intro
+      if title || eyebrow || intro
         .section__header
-          if title
+          if title || eyebrow
             h2.section__header__title
               if eyebrow
                 span.section__header__title__eyebrow #{eyebrow}
                 span.accessibility :&nbsp;
-              span.section__header__title__text #{title}
+
+              if title
+                span.section__header__title__text #{title}
       
           if intro
             p.section__header__intro !{intro}

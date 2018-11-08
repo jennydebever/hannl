@@ -95,6 +95,23 @@ onScroll();
 window.addEventListener("scroll", onScroll, { passive: true });
 
 /**
+ * handle prevent scroll behavior request
+ * for example when focusing on an element
+ * you need to prevent scroll-up-down logic because of the automatic scroll
+ *
+ * dispatcher.dispatch({
+ *   type: constants.REQUEST_PREVENT_SCROLL_BEHAVIOR,
+ *   yesno: true | false
+ * });
+ */
+
+function onRequestPreventScrollBehavior(e) {
+  preventScrollBehavior = e.yesno;
+}
+
+dispatcher.on(constants.REQUEST_PREVENT_SCROLL_BEHAVIOR, onRequestPreventScrollBehavior);
+
+/**
  * handle request scroll to element
  * this behavior is way too complex, due to differences
  * in mobile/tablet and desktop navigation

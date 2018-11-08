@@ -17,7 +17,7 @@ In demo-typo.scss is te zien hoe de mixins ingezet kunnen worden in een componen
 //in component X.scss
 h2.demo-typo__title {
   @include h2;
-  @include margin-bottom-small;
+  margin-bottom: 0.5em;
 
   @include breakpoint($bp-m) {
     @include underscore;

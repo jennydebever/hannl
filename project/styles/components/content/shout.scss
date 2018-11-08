@@ -1,0 +1,173 @@
+/**
+ * Shout for action component
+ * This thing is pretty complex due to differences in mobile/desktop
+ * and the picture element flowing out of the container on desktop
+ */
+
+.shout {
+}
+
+.shout-wrapper {
+  @include breakpoint($bp-l) {
+    @include grid;
+    background: $black;
+  }
+}
+
+/**
+ * Picture
+ */
+
+.shout__picture-wrapper {
+  // desktop view, make 6 grid columns wide
+  @include breakpoint($bp-l) {
+    @include grid-item(6);
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+.shout__picture {
+  display: block;
+  position: relative;
+  width: 100vw;
+  transform: translateX(-$grid-item-spacing-s);
+
+  @include breakpoint($bp-m) {
+    transform: translateX(-$grid-item-spacing-m);
+  }
+
+  // desktop view, make flex container
+  @include breakpoint($bp-l) {
+    transform: none;
+    width: 100%;
+    display: flex;
+    align-items: baseline;
+    z-index: 1;
+    padding-top: 80px;
+  }
+
+  // align right on large screens
+  @include breakpoint($bp-xl) {
+    justify-content: flex-end;
+  }
+
+  img {
+    display: block;
+
+    // add a little extra breathing room for text
+    @include breakpoint($bp-l) {
+      border-radius: 3px;
+      width: 95%;
+    }
+
+    // add a little more breathing room for text
+    @include breakpoint($bp-xl) {
+      width: 89.5%;
+    }
+  }
+}
+
+/**
+ * Text grid
+ */
+
+.shout__text-wrapper {
+  padding: 30px 0;
+
+  @include breakpoint($bp-m) {
+    padding: 56px 0;
+  }
+
+  // make a grid container on mobile/tablet
+  @include breakpoint(max $bp-l) {
+    @include grid;
+  }
+
+  // desktop view, make 6 grid columns wide
+  @include breakpoint($bp-l) {
+    @include grid-item(6);
+    padding: 0;
+  }
+}
+
+.shout__text {
+  @include grid-item(12);
+  color: $white;
+  max-width: grid-calc(12);
+
+  // center div for tablet
+  @include breakpoint($bp-m) {
+    @include grid-item(10);
+    max-width: grid-calc(10);
+  }
+
+  // fill wrapper div entirely for desktop
+  @include breakpoint($bp-l) {
+    max-width: 100%;
+    width: 100%;
+    position: relative;
+    padding: 80px 0;
+
+    // huge white block to fake picture overflowing the box
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      background-color: $white;
+      bottom: 0;
+      height: 500px;
+      transform: translateY(100%) translateX(-100vw);
+      width: 200vw;
+    }
+  }
+
+  @include breakpoint($bp-xl) {
+    padding-left: 24px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+}
+
+/**
+ * Text
+ */
+
+.shout__text__title {
+  @include h1;
+  margin-bottom: 0.5em;
+  color: $white;
+}
+
+.shout__text__intro {
+  @include base;
+  margin-bottom: 2em;
+  color: $white;
+}
+
+/**
+ * Buttons
+ */
+
+.shout__text__buttons {
+  display: flex;
+  flex-wrap: wrap;
+
+  @include breakpoint($bp-m) {
+    margin-bottom: -16px;
+  }
+}
+
+.shout__text__buttons__button {
+  margin: 0 8px 8px 0;
+
+  @include breakpoint($bp-m) {
+    margin: 0 16px 16px 0;
+  }
+
+  // .btn-primary {}
+
+  .btn-secondary {
+    @include btn-secondary-on-black;
+  }
+}

@@ -14,7 +14,7 @@
 }
 
 @mixin h1 {
-  @include margin-bottom-standard;
+  margin-bottom: 1em;
   font-family: $bold-condensed;
   font-size: 28px;
   text-transform: uppercase;
@@ -24,7 +24,7 @@
   }
 
   @include breakpoint($bp-l) {
-    font-size: 48px;
+    font-size: 47px;
   }
 }
 
@@ -126,21 +126,21 @@
 
 @mixin lead {
   font-family: $demi;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.6;
 
   @include breakpoint($bp-m) {
-    font-size: 22px;
+    font-size: 20px;
   }
 
   @include breakpoint($bp-l) {
-    font-size: 24px;
+    font-size: 22px;
   }
 }
 
 // Also used for ul/ol
 @mixin p {
-  @include margin-bottom-standard;
+  margin-bottom: 1em;
   font-family: $medium;
   font-size: 16px;
   line-height: 1.6;
@@ -157,14 +157,17 @@
   line-height: 1.7;
 }
 
-/** 
-* Underscore can be used in titles
-*/
+@mixin small {
+  font-family: $medium;
+  font-size: 14px;
+  line-height: 1.6;
 
-@mixin underscore {
-  &::after {
-    color: $hanred;
-    content: "_";
+  @include breakpoint($bp-m) {
+    font-size: 15px;
+  }
+
+  @include breakpoint($bp-l) {
+    font-size: 16px;
   }
 }
 

@@ -1,0 +1,86 @@
+//- @pugdoc
+  name: Locations
+  description: Locaties component met één of twee locaties
+  capture: 0
+
+mixin locations(locations)
+  include ../../utils/slugify
+  include ../../utils/srcset
+  include ./richtext
+  include ../atoms/tabs
+  include ../atoms/address
+
+  -
+    function getLocationId(location) {
+      return 'adres-' + slugify([location.street, location.number, location.city].join('-'));
+    }
+
+  .locations(class="js-locations")
+    .locations-wrapper
+
+      //- mobile images
+      ul.locations__small-images(class="js-locations__images")
+        each location in locations
+          li.locations__small-images__item(data-rel=getLocationId(location), class="js-locations__images__item")
+            picture
+              - var sizes = []
+              - sizes.push({ minWidth: 500, width: 768, ratio: 2 });
+              - sizes.push({ minWidth: 350, width: 500, ratio: 1.75 });
+              - sizes.push({ minWidth: 1, width: 500, ratio: 1.5 });
+              +srcset(location.image, sizes)
+              img(src='', alt='')
+
+      //- tabs
+      -
+        var tabLabels = locations.map(location => {
+          return {
+            label: location.city,
+            rel: getLocationId(location)
+          }
+        });
+
+      .locations__tabs
+        +tabs(tabLabels)
+
+      //- locations
+      ul.locations__locations
+        each location in locations
+          li.locations__locations__item(data-rel=getLocationId(location), id=getLocationId(location))
+            +address(location)
+
+    //- tablet/desktop images
+    ul.locations__large-images(class="js-locations__images")
+      each location in locations
+        li.locations__large-images__item(data-rel=getLocationId(location), class="js-locations__images__item")
+          picture
+            - var sizes = []
+            - sizes.push({ minWidth: 1024, width: 1160, height: 650 });
+            - sizes.push({ minWidth: 850, width: 1024, height: 575 });
+            - sizes.push({ minWidth: 668, width: 850, height: 450 });
+            +srcset(location.image, sizes)
+
+            img(src='', alt='')
+
+
+
+//- @pugdoc
+  name: Locations
+  description: Section (Locations)
+  examples:
+    - |
+      include ./locations
+      - var locations = [];
+      - locations.push({image: 'Arnhem-campus.jpg', street: 'Ruitenberglaan', number: '26', zipcode: '6826 CC', city: 'Arnhem', phone: '026-300 00 00', btn: { label: 'Bereken je reistijd', href: '#' }});
+      - locations.push({city: 'Nijmegen', image: 'Nijmegen-campus.jpg', street: 'Kapittelweg', number: '33', zipcode: '6525 EN', city: 'Nijmegen', phone: '024-353 00 00', btn: { label: 'Bereken je reistijd', href: '#' }});
+      +section-locations('De locaties van de opleiding', locations)
+    - |
+      hr.demo
+      - var locations = [];
+      - locations.push({city: 'Nijmegen', image: 'Nijmegen-campus.jpg', street: 'Kapittelweg', number: '33', zipcode: '6525 EN', city: 'Nijmegen', phone: '024-353 00 00', btn: { label: 'Bereken je reistijd', href: '#' }});
+      +section-locations('De locaties van de opleiding', locations)
+
+mixin section-locations(title, locations)
+  include ./section
+
+  +section(null, title)(class='section--locations')&attributes(attributes)
+    +locations(locations)

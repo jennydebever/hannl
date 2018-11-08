@@ -1,0 +1,62 @@
+//- @pugdoc
+  name: Sectie (Shout for action)
+  examples:
+    - 
+      name: Sectie (Shout for action, tekst lang)
+      example: |
+          - var title = 'Kom sparren met je studieadviseur';
+          - var image = 'kind-robot.jpg';
+          - var intro = 'Dan kun je waarschijnlijk vrijstellingen krijgen. Als je veel ervaring hebt en de juiste vooropleiding, kun je je deeltijd Pabo aanzienlijk inkorten. Meer weten over de verkorte Pabo en jouw persoonlijke leerroute? Maak een afspraak voor een gesprek.';
+          - var buttons = [];
+          - buttons.push({ href: '/', label: 'Regel een adviesgesprek', type: BUTTON_PRIMARY, icon: 'external' });
+          +section-shout(title, image, intro, buttons)
+  
+    - 
+      name: Sectie (Shout for action, tekst kort)
+      example: |
+        - var title = 'Nieuwsgierig';
+        - var image = 'kind-robot.jpg';
+        - var intro = 'Je eigen oordeel is het belangrijkste. Kom kennismaken en sfeer proeven: onze deuren staan voor je open!';
+        - var buttons = [];
+        - buttons.push({ href: '/', label: 'Bezoek de Open Avond', type: BUTTON_PRIMARY, icon: 'external' });
+        - buttons.push({ href: '/', label: 'Regel een adviesgesprek', type: BUTTON_SECONDARY, icon: 'external' });
+        +section-shout(title, image, intro, buttons)
+
+mixin section-shout(title, image, intro, buttons)
+  include ./section
+  include ../../utils/srcset
+  include ../atoms/btn-primary
+  include ../atoms/btn-secondary
+
+  +section(class="section--shout")&attributes(attributes)
+    .shout
+      .shout-wrapper
+        .shout__picture-wrapper
+          picture.shout__picture
+            - var sizes = []
+            - sizes.push({ minWidth: 1024, width: 520, ratio: 1 });
+            - sizes.push({ minWidth: 900, width: 1024, ratio: 21/9 });
+            - sizes.push({ minWidth: 768, width: 900, ratio: 21/9 });
+            - sizes.push({ minWidth: 500, width: 768, ratio: 21/9 });
+            - sizes.push({ minWidth: 375, width: 500, ratio: 21/9 });
+            - sizes.push({ minWidth: 1, width: 375, ratio: 21/9 });
+            
+            +srcset(image, sizes)
+            img(src='', alt='')
+            
+        .shout__text-wrapper
+          .shout__text
+            if title
+              h2.shout__text__title(class='js-underscore') #{title}
+          
+            if intro
+              p.shout__text__intro !{intro}
+
+            if buttons
+              .shout__text__buttons
+                each button in buttons
+                  .shout__text__buttons__button
+                    if button.type === BUTTON_PRIMARY
+                      +btn-primary(button.label, button.href, button.icon)
+                    else if button.type === BUTTON_SECONDARY
+                      +btn-secondary(button.label, button.href, button.icon)

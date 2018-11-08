@@ -2,6 +2,9 @@ extends ./_deeltijd
 include ../../utils/todo
 include ../../components/nav/coursenav
 include ../../components/content/line
+include ../../components/content/link-list
+include ../../components/content/shout
+include ../../components/content/scream
 include ../../components/content/contact
 
 block append vars
@@ -15,11 +18,26 @@ block main
   +todo('course superhero')
   +todo('course facts')
   +todo('usp cards')
-  +todo('vaardigheden')
-  +todo('shout for action')
-  +todo('textmedia')
-  +todo('textmedia highlight')
-  +todo('link lists')
+  +todo('vaardigheden')#vaardigheden-en-beroepen
+  
+  - var title = 'Kom sparren met je studieadviseur';
+  - var image = 'kind-robot.jpg';
+  - var intro = 'Je eigen oordeel is het belangrijkst bij zo`n beslissende keuze. Een adviesgesprek met een HAN studieadviseur kan daarbij helpen. Je kunt je verwachtingen toetsen en je krijgt inzicht in je persoonlijke studieprogramma.';
+  - var buttons = [];
+  - buttons.push({ href: '/', label: 'Regel een adviesgesprek', type: BUTTON_PRIMARY, icon: 'external' });
+  +section-shout(title, image, intro, buttons)
+
+  +todo('textmedia')#toekomst-van-het-onderwijs
+  +todo('textmedia highlight')#combineren-met-werk-en-prive
+  
+  - var items = [];
+  - items.push({ label: 'Toelatingseisen', href: './info.html#toelatingsinformatie' });
+  - items.push({ label: 'Aanmeldprocedure', href: './info.html#' });
+  - items.push({ label: 'Financiering.', href: './info.html#investering' });
+  - items.push({ label: 'Voordelen voor je werkgever', href: './info.html#voor-werkgevers' });
+  - items.push({ label: 'Kennis bijspijkeren', href: './info.html#' });
+  - items.push({ label: 'Studeren met een beperking', href: './info.html#' });
+  +section-link-list('Informatie voor het aanmelden', 'Zin om te starten? We wijzen je graag de weg.', items)
 
   +section-line
 
@@ -31,4 +49,6 @@ block main
   - contactOptions['metaContents'].push({ title: 'Openingstijden', content: '<p>Werkdagen: 09:00 tot 16:30 uur<br />Schoolvakanties: 09:00 tot 15:00 uur</p>' });
   - contactOptions['metaContents'].push({ title: 'Liever bellen of appen?', content: '<p>Bellen: <a href="tel:0243530500">024 - 353 0500</a><br />WhatsApp: <a href="whatsapp:0625640470">06 - 25 64 04 70</a></p>' });
   +section-contact('Direct antwoord',  'Vragen over de Pabo deeltijd of de verkorte Pabo opleiding?<br />Het HAN Voorlichtingscentrum geeft je direct antwoord.', contactOptions)
-  +todo('shout for action')
+
+  +section-scream('kind-robot.jpg', 'Volgende pagina', 'Dit is je studie', 'Hoe is de opleiding tot leraar basisonderwijs opgebouwd?', { label: 'Bekijk wat en hoe je gaat leren', href: './studie.html' })
+

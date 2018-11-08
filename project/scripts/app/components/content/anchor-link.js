@@ -18,8 +18,13 @@ function onAnchorLinkClick(e) {
       return;
     }
 
+    // prevent default action to prevent browser jumping to anchor
     e.preventDefault();
 
+    // add history state
+    history.pushState("", "", href);
+
+    // and scroll to position
     dispatcher.dispatch({
       type: constants.REQUEST_SCROLLTO,
       target: $rel

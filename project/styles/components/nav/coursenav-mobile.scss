@@ -159,9 +159,11 @@ html:not([data-breakpoint="desktop"]) {
     outline: 0;
 
     @at-root {
-      [data-whatinput="keyboard"] {
-        .coursenav__links__item__link:focus {
-          @include focus-outline($grey3);
+      html:not([data-breakpoint="desktop"]) {
+        &[data-whatinput="keyboard"] {
+          .coursenav__links__item__link:focus {
+            @include focus-outline($grey3);
+          }
         }
       }
     }
@@ -216,9 +218,11 @@ html:not([data-breakpoint="desktop"]) {
     }
 
     @at-root {
-      [data-whatinput="keyboard"] {
-        .coursenav-dropdown__item__link:focus {
-          @include focus-outline($grey3);
+      html:not([data-breakpoint="desktop"]) {
+        &[data-whatinput="keyboard"] {
+          .coursenav-dropdown__item__link:focus {
+            @include focus-outline($grey3);
+          }
         }
       }
     }

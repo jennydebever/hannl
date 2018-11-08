@@ -2,7 +2,6 @@ const gulp = require("gulp-v4");
 const sass = require("gulp-sass");
 const sassLint = require("gulp-sass-lint");
 const prefix = require("gulp-autoprefixer");
-const minify = require("gulp-minify-css");
 const cssnano = require("gulp-cssnano");
 const changed = require("gulp-changed");
 const preprocess = require("gulp-preprocess");
@@ -33,7 +32,6 @@ gulp.task("styles:compile", () => {
       })
     )
     .pipe(prefix({ browsers: ["last 20 versions"], cascade: false }))
-    .pipe(minify())
     .pipe(
       cssnano({
         zindex: false,

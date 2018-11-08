@@ -1,0 +1,28 @@
+// .link-list {}
+
+.link-list__item {
+  position: relative;
+  padding-left: 20px;
+  margin: 16px 0;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 9px;
+    width: 6px;
+    height: 6px;
+    background-color: $hanred;
+    border-radius: 100%;
+  }
+}
+
+.link-list__item__link {
+  @include focusable;
+  @include p;
+  color: $black;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
