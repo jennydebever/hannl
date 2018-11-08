@@ -9,7 +9,6 @@ mixin textmedia(align, eyebrow, title, intro, buttons)
     - cls.push('textmedia--align-right');
 
   .textmedia(class=cls)
-
     .textmedia__body
 
       if title || eyebrow
@@ -41,9 +40,35 @@ mixin textmedia(align, eyebrow, title, intro, buttons)
 
 //- @pugdoc
   name: Sectie (Tekst en Media, afbeelding)
+  examples:
+    - 
+      name: Sectie (Tekst en Media, tekst links, media rechts)
+      example: |
+        include ./textmedia
+        - var image = 'kind-robot.jpg'
+        - var eyebrow = 'Hoe is je studie ingedeeld?'
+        - var title = 'De opbouw van de studie'
+        - var intro = '<p>De deeltijd Pabo duurt 4 jaar en bestaat uit 8 modules van een half jaar. Je loopt elk jaar stage, dus je past meteen toe wat je leert. Heb je een hbo of wo vooropleiding? Dan kun je de Pabo deeltijd ook in 2,5 jaar: een half jaar propedeuse, 1 jaar kernfase en 1 jaar afstuderen.</p>'
+        - var buttons = []
+        - buttons.push({ type: BUTTON_PRIMARY, label: 'Alle 8 modules bekijken', href: '#takeover1', icon: 'external'})
+        - buttons.push({ type: STRONG_LINK, label: 'Vrijstellingen', href: './info#vrijstellingen', icon: 'external'})
+        +section-textmedia-image(ALIGN_LEFT, image, eyebrow, title, intro, buttons)#de-opbouw-van-de-studie
+    
+    - 
+      name: Sectie (Tekst en Media, tekst links, media links)
+      example: |
+        include ./textmedia
+        - var image = 'kind-robot.jpg'
+        - var eyebrow = 'Studie zelf indelen'
+        - var title = 'Losse modules'
+        - var intro = '<p>De deeltijd Pabo heeft 3 modules die je los kunt volgen. Je krijgt een certificaat voor elke afgeronde module. Besluit je later om toch de hele opleiding te doen? Je kunt vrijstellingen aanvragen met de certificaten: ze zijn elk 30 studiepunten waard. </p>'
+        - var buttons = []
+        - buttons.push({ type: BUTTON_PRIMARY, label: 'Alle 8 modules bekijken', href: '#takeover1', icon: 'external'})
+        +section-textmedia-image(ALIGN_RIGHT, image, eyebrow, title, intro, buttons)#losse-modules
 
 mixin section-textmedia-image(align, image, eyebrow, title, intro, buttons)
   include ./section
+  include ../../utils/srcset
 
   +section(class='section--textmedia-image')&attributes(attributes)
     +textmedia(align, eyebrow, title, intro, buttons)
@@ -62,6 +87,19 @@ mixin section-textmedia-image(align, image, eyebrow, title, intro, buttons)
 
 //- @pugdoc
   name: Sectie (Tekst en Media, feiten)
+  examples:
+    - 
+      name: Sectie (Tekst en Media, tekst links, feiten rechts)
+      example: |
+        include ./textmedia
+        - var image = 'kind-robot.jpg'
+        - var eyebrow = 'Waar gaat je vak heen?'
+        - var title = 'Toekomst van het onderwijs'
+        - var intro = '<p>De staatssecretaris van Onderwijs heeft in 2015 opdracht gegeven voor een maatschappelijke dialoog over de toekomst van het Nederlandse onderwijs. De positie van leraren is een belangrijke pijler van deze toekomstvisie. Er is afgesproken om te investeren in de professionele ontwikkeling van leraren. Een moderne, eigentijdse opleiding zoals de Pabo deeltijd van de HAN sluit helemaal aan op deze toekomstvisie. </p>'
+        - var buttons = []
+        - buttons.push({ type: BUTTON_SECONDARY, label: 'Meer over de toekomst van het onderwijs', href: '#takeover1', icon: 'external'})
+        +section-textmedia-facts(ALIGN_LEFT, [1,2,3,4], eyebrow, title, intro, buttons)#toekomst-van-het-onderwijs
+        
 
 mixin section-textmedia-facts(align, facts, eyebrow, title, intro, buttons)
   include ./section
