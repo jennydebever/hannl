@@ -1,272 +1,66 @@
 .textmedia {
   @include grid;
-  // align-items: center;
-  margin: 32px 0;
 
-  @include breakpoint($bp-l) {
-    align-items: center;
+  &.textmedia--align-right {
+    flex-direction: row-reverse;
   }
 }
 
 /**
- * Media
+ * The media part
  */
 
 .textmedia__media {
-  @include grid-item-spaceless(12);
-  position: relative;
-  margin-bottom: 32px;
-  overflow: hidden;
-  border-radius: 4px;
-
-  @include breakpoint($bp-m) {
-    margin-left: 5%;
-    margin-right: 5%;
-    height: 350px;
-  }
-
-  @include breakpoint($bp-l) {
-    @include grid-item-spaceless(6);
-    height: inherit;
-    margin: 0;
-    // flex-basis: auto;
-  }
-
-  @include breakpoint($bp-xl) {
-    @include grid-item(6);
-  }
-
-  .textmedia__container {
-    position: relative;
-  }
-
-  .play-pause {
-    position: absolute;
-    right: 10px;
-    bottom: 10px;
-    z-index: 99;
-    color: $white;
-    font-size: 0;
-
-    width: 32px;
-    height: 32px;
-    background: rgba(0, 0, 0, 0.65);
-    border-radius: 4px;
-
-    & span {
-      position: absolute;
-      top: 8px;
-      left: 10px;
-
-      width: 12px;
-      height: 16px;
-    }
-
-    &.playing span {
-      border-right: 4px solid $white;
-      border-left: 4px solid $white;
-    }
-
-    &.paused span {
-      border: 0;
-      background: transparent;
-
-      border-color: transparent transparent transparent $white;
-      transition: 100ms all ease;
-      cursor: pointer;
-
-      // play state
-      border-style: solid;
-      border-width: 8px 0 8px 12px;
-    }
-
-    @include breakpoint($bp-m) {
-      top: 300px;
-      width: 40px;
-      height: 40px;
-
-      & span {
-        top: 12px;
-        left: 14px;
-      }
-    }
-
-    @include breakpoint($bp-l) {
-      top: inherit;
-      bottom: 15px;
-      right: 15px;
-      width: 48px;
-      height: 48px;
-
-      & span {
-        top: 16px;
-        left: 18px;
-      }
-    }
-
-    &:focus {
-      outline: 0;
-    }
-  }
-
-  .textmedia__caption {
-    position: absolute;
-    width: 100%;
-    bottom: 0;
-    right: 0;
-    background: rgba(12, 1, 28, 0.65);
-    color: $white;
-    font-size: 13px;
-    padding: 19px 38px 19px 19px;
-    line-height: 1.5;
-    border-radius: 0 0 4px 4px;
-
-    @include breakpoint($bp-m) {
-      position: absolute;
-      top: 293px;
-      right: 0;
-    }
-
-    @include breakpoint($bp-l) {
-      top: inherit;
-      bottom: 0;
-      width: 90%;
-      font-size: 14px;
-      padding: 24px 64px 24px 24px;
-    }
-
-    .play-pause {
-      top: 50%;
-      bottom: inherit;
-      margin-top: -16px;
-
-      @include breakpoint($bp-l) {
-        margin-top: -20px;
-      }
-    }
-  }
-}
-
-.textmedia__media__picture {
-  display: block;
-  width: 100%;
-
-  img {
-    width: 100%;
-    height: 100%;
-    display: block;
-    border-radius: 4px;
-
-    @include breakpoint($bp-l) {
-      width: 90%;
-    }
-  }
-}
-
-.textmedia__media__video {
-  display: block;
-  width: 100%;
-  position: relative;
-
-  video {
-    width: 100%;
-    display: block;
-    border-radius: 4px;
-
-    @include breakpoint($bp-l) {
-      width: 90%;
-    }
-  }
+  @include grid-item(6);
+  height: 500px;
 }
 
 /**
- * Text
+ * The text part
  */
 
-.textmedia__text {
-  @include grid-item-spaceless(12);
-
-  @include breakpoint($bp-m) {
-    @include grid-item-spaceless(10);
-    flex-grow: unset;
-  }
-
-  @include breakpoint($bp-l) {
-    @include grid-item(6);
-    flex-grow: 1;
-  }
-
-  @include breakpoint($bp-xl) {
-    @include grid-item(6);
-  }
-}
-
-.textmedia__header__eyebrow {
-  @include eyebrow;
-}
-
-.textmedia__text__title {
-  @include h2;
-  margin: 21px 0 17px;
-}
-
-.textmedia__text__body {
-  @include base;
-
-  align-items: center;
-}
-
-.textmedia__text__buttons {
+.textmedia__body {
+  @include grid-item(6);
   display: flex;
-  flex-direction: row;
-  margin-top: 40px;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.textmedia__body__title {
+  margin-bottom: 15px;
+}
+
+.textmedia__body__title__eyebrow {
+  @include eyebrow;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.textmedia__body__title__eyebrow__label {
+  @include h2;
+}
+
+.textmedia__body__intro {
+  @include base;
+  color: $grey5;
+  margin-bottom: 30px;
+}
+
+/**
+ * Buttons
+ */
+
+.textmedia__buttons {
+  @include button-row;
 }
 
 .textmedia__text__buttons__button {
-  margin-right: 16px;
-}
+  @include button-row-item;
 
-.section--textmedia-left {
-  @include breakpoint($bp-l) {
-    .textmedia__media__picture img,
-    .textmedia__media__video video {
-      margin-right: auto;
-    }
-
-    .textmedia__media .textmedia__caption {
-      left: 0;
-      right: inherit;
-    }
-
-    .textmedia__media__video .play-pause {
-      right: 70px;
-    }
+  .btn-primary {
   }
-}
-
-.section--textmedia-right {
-  @include breakpoint($bp-l) {
-    .textmedia__media__picture img,
-    .textmedia__media__video video {
-      margin-left: auto;
-    }
-
-    // .textmedia__media .textmedia__caption {
-    //   left: 55px;
-    //   right: 0;
-    // }
+  .btn-secondary {
   }
-
-  @include breakpoint($bp-xl) {
-    .textmedia__media__picture img,
-    .textmedia__media__video video {
-      margin-left: auto;
-    }
-
-    // .textmedia__media .textmedia__caption {
-    //   left: 74px;
-    //   right: 20px;
-    //   margin-left: 2px;
-    // }
+  .strong-link {
   }
 }

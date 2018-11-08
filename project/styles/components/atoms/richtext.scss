@@ -13,3 +13,11 @@
     @include base;
   }
 }
+
+/**
+ * Richtext simplified version
+ */
+
+.richtext-simple {
+  @include richtext-simple;
+}

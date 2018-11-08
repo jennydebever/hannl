@@ -7,6 +7,7 @@ include ../../components/content/shout
 include ../../components/content/image-list
 include ../../components/content/line
 include ../../components/content/scream
+include ../../components/content/textmedia
 
 block append vars
   - pageTitle.push('Deeltijd studie');
@@ -29,8 +30,23 @@ block main
   
   +section-line
 
-  +todo('textmedia')#de-opbouw-van-de-studie
-  +todo('textmedia')#losse-modules
+  - var image = 'kind-robot.jpg'
+  - var eyebrow = 'Hoe is je studie ingedeeld?'
+  - var title = 'De opbouw van de studie'
+  - var intro = '<p>De deeltijd Pabo duurt 4 jaar en bestaat uit 8 modules van een half jaar. Je loopt elk jaar stage, dus je past meteen toe wat je leert. Heb je een hbo of wo vooropleiding? Dan kun je de Pabo deeltijd ook in 2,5 jaar: een half jaar propedeuse, 1 jaar kernfase en 1 jaar afstuderen.</p>'
+  - var buttons = []
+  - buttons.push({ type: BUTTON_PRIMARY, label: 'Alle 8 modules bekijken', href: '#takeover1', icon: 'external'})
+  - buttons.push({ type: STRONG_LINK, label: 'Vrijstellingen', href: './info#vrijstellingen', icon: 'external'})
+  +section-textmedia-image(ALIGN_LEFT, image, eyebrow, title, intro, buttons)#de-opbouw-van-de-studie
+
+  - var image = 'kind-robot.jpg'
+  - var eyebrow = 'Studie zelf indelen'
+  - var title = 'Losse modules'
+  - var intro = '<p>De deeltijd Pabo heeft 3 modules die je los kunt volgen. Je krijgt een certificaat voor elke afgeronde module. Besluit je later om toch de hele opleiding te doen? Je kunt vrijstellingen aanvragen met de certificaten: ze zijn elk 30 studiepunten waard. </p>'
+  - var buttons = []
+  - buttons.push({ type: BUTTON_PRIMARY, label: 'Alle 8 modules bekijken', href: '#takeover1', icon: 'external'})
+  +section-textmedia-image(ALIGN_RIGHT, image, eyebrow, title, intro, buttons)#losse-modules
+
   +todo('video')#ervaringen-van-anderen
 
   - var items = [];

@@ -150,22 +150,11 @@
  */
 
 .shout__text__buttons {
-  display: flex;
-  flex-wrap: wrap;
-
-  @include breakpoint($bp-m) {
-    margin-bottom: -16px;
-  }
+  @include button-row;
 }
 
 .shout__text__buttons__button {
-  margin: 0 8px 8px 0;
-
-  @include breakpoint($bp-m) {
-    margin: 0 16px 16px 0;
-  }
-
-  // .btn-primary {}
+  @include button-row-item;
 
   .btn-secondary {
     @include btn-secondary-on-black;

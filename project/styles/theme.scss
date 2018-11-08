@@ -28,6 +28,7 @@
 
 // atoms
 @import "./components/atoms/richtext";
+@import "./components/atoms/button-row";
 @import "./components/atoms/btn-primary";
 @import "./components/atoms/btn-secondary";
 @import "./components/atoms/strong-link";
@@ -42,6 +43,7 @@
 @import "./components/section";
 @import "./components/hero/course-hero";
 @import "./components/content/textmedia";
+@import "./components/content/textmedia-image";
 @import "./components/content/collapsibles";
 @import "./components/content/intro";
 @import "./components/content/locations";
