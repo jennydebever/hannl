@@ -11,7 +11,7 @@
 @mixin button-row {
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: 8px;
+  margin-bottom: -8px;
 
   @include breakpoint($bp-m) {
     margin-bottom: -16px;

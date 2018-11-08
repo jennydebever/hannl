@@ -65,7 +65,9 @@ mixin section-textmedia-image(align, image, eyebrow, title, intro, buttons)
 
 mixin section-textmedia-facts(align, facts, eyebrow, title, intro, buttons)
   include ./section
+  include ../atoms/facts
 
   +section(class='section--textmedia-facts')&attributes(attributes)
     +textmedia(align, eyebrow, title, intro, buttons)
-      | facts
+      .textmedia-facts
+        +facts(facts)
