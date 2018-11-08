@@ -135,7 +135,6 @@
 
 .shout__text__title {
   @include h1;
-  @include underscore;
   margin-bottom: 0.5em;
   color: $white;
 }

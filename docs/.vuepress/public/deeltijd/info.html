@@ -38,7 +38,7 @@
       </nav>
       <nav class="coursenav js-coursenav" aria-label="Opleidingsnavigatie" role="navigation" id="coursenav">
         <div class="coursenav-wrapper js-coursenav-wrapper">
-          <div class="coursenav-body-wrapper"><a class="coursenav__title" href="/deeltijd/overzicht.html">leraar basisonderwijs (pabo) deeltijd</a>
+          <div class="coursenav-body-wrapper"><a class="coursenav__title js-underscore" href="/deeltijd/overzicht.html">leraar basisonderwijs (pabo) deeltijd</a>
             <ul class="coursenav__links">
               <li class="coursenav__links__item js-subnav__item"><a class="coursenav__links__item__link" href="/deeltijd/overzicht.html">Overzicht<svg class="icon icon-arrow" aria-hidden="true" viewBox="0 0 48 40" width="48" height="40"><use xlink:href="#arrow"></use></svg></a>
                 <ul class="coursenav__links__item__subnav coursenav-dropdown js-coursenav-dropdown">
@@ -69,7 +69,7 @@
             </ul>
           </div>
         </div>
-        <button class="coursenav__toggle js-coursenav-toggle js-modal-toggle" aria-label="Opleidingsnavigatie" aria-controls="coursenav" type="button" aria-expanded="false"><span class="coursenav__toggle__label">leraar basisonderwijs (pabo) deeltijd</span><svg class="icon icon-chevron" aria-hidden="true" viewBox="0 0 12 18" width="12" height="18"><use xlink:href="#chevron"></use></svg>
+        <button class="coursenav__toggle js-coursenav-toggle js-modal-toggle" aria-label="Opleidingsnavigatie" aria-controls="coursenav" type="button" aria-expanded="false"><span class="coursenav__toggle__label"><span class="js-underscore">leraar basisonderwijs (pabo) deeltijd</span></span><svg class="icon icon-chevron" aria-hidden="true" viewBox="0 0 12 18" width="12" height="18"><use xlink:href="#chevron"></use></svg>
         </button>
       </nav>
       <div class="coursenav-overlay"></div>
@@ -94,7 +94,7 @@
         </div>
         <div class="course-hero__content">
           <div class="course-hero__content-wrapper">
-            <h1 class="course-hero__content__title">Praktische info</h1>
+            <h1 class="course-hero__content__title js-underscore">Praktische info</h1>
             <p class="course-hero__content__intro">Hoeveel tijd kost mijn deeltijdstudie? Wat zijn de toelatingseisen voor de Pabo, de studiekosten, vergoedingen, fiscale spelregels... Op deze pagina vind je alle praktische informatie over de deeltijd Pabo.
             </p>
           </div>
@@ -148,8 +148,10 @@
                   <li class="locations__locations__item" data-rel="adres-ruitenberglaan-26-arnhem" id="adres-ruitenberglaan-26-arnhem">
                     <div class="address">
                       <div class="address__body">
-                        <h4 class="address__body__title">HAN campus Arnhem</h4><a class="address__body__text" href="#"><span>Ruitenberglaan 26<br/></span><span>6826 CC Arnhem</span></a>
-                        <p class="address__body__phone">Telefoon: <a href="tel:0263000000">026-300 00 00</a></p>
+                        <h4 class="address__body__title">HAN campus Arnhem</h4>
+                        <address class="address__body__text"><a href="">Ruitenberglaan 26<br>6826 CC Arnhem</a><br>
+                          Telefoon: <a href="tel:0263000000">026-300 00 00</a>
+                        </address>
                       </div>
                       <div class="address__footer"><a class="btn-secondary" href="#"><span class="btn-secondary__label">Bereken je reistijd</span><svg class="icon icon-arrow" aria-hidden="true" viewBox="0 0 48 40" width="48" height="40"><use xlink:href="#arrow"></use></svg></a>
                       </div>
@@ -158,8 +160,10 @@
                   <li class="locations__locations__item" data-rel="adres-kapittelweg-33-nijmegen" id="adres-kapittelweg-33-nijmegen">
                     <div class="address">
                       <div class="address__body">
-                        <h4 class="address__body__title">HAN campus Nijmegen</h4><a class="address__body__text" href="#"><span>Kapittelweg 33<br/></span><span>6525 EN Nijmegen</span></a>
-                        <p class="address__body__phone">Telefoon: <a href="tel:0243530000">024-353 00 00</a></p>
+                        <h4 class="address__body__title">HAN campus Nijmegen</h4>
+                        <address class="address__body__text"><a href="">Kapittelweg 33<br>6525 EN Nijmegen</a><br>
+                          Telefoon: <a href="tel:0243530000">024-353 00 00</a>
+                        </address>
                       </div>
                       <div class="address__footer"><a class="btn-secondary" href="#"><span class="btn-secondary__label">Bereken je reistijd</span><svg class="icon icon-arrow" aria-hidden="true" viewBox="0 0 48 40" width="48" height="40"><use xlink:href="#arrow"></use></svg></a>
                       </div>
@@ -382,7 +386,7 @@
                 </div>
                 <div class="shout__text-wrapper">
                   <div class="shout__text">
-                    <h2 class="shout__text__title">Nieuwsgierig</h2>
+                    <h2 class="shout__text__title js-underscore">Nieuwsgierig</h2>
                     <p class="shout__text__intro">Je eigen oordeel is het belangrijkste. Kom kennismaken en sfeer proeven: onze deuren staan voor je open!</p>
                     <div class="shout__text__buttons">
                       <div class="shout__text__buttons__button"><a class="btn-primary" href="/"><span class="btn-primary__label">Bezoek de Open Avond</span><svg class="icon icon-external" aria-hidden="true" viewBox="0 0 48 44" width="48" height="44"><use xlink:href="#external"></use></svg></a>
@@ -572,10 +576,34 @@
           </div>
         </div>
       </div>
-      <div class="section section--todo">
+      <div class="section section--scream">
         <div class="section-wrapper">
           <div class="section__content">
-            <p class="todo" style="background-color: lightyellow; border: 1px solid rgba(0, 0, 0, .1); padding: 8px;"> <strong>TODO:&nbsp;</strong>scream for action</p>
+            <div class="scream">
+              <div class="scream__content-wrapper">
+                <div class="scream__content js-click-block">
+                  <h2 class="scream__content__title"><span class="scream__content__title__label js-underscore">Zin om te starten?</span>
+                  </h2>
+                  <p class="scream__content__intro">Dan is het tijd voor een intake.</p>
+                  <div class="scream__content__button"><a class="btn-primary" href="./studie.html"><span class="btn-primary__label">Meld je aan voor het intakegesprek</span><svg class="icon icon-arrow" aria-hidden="true" viewBox="0 0 48 40" width="48" height="40"><use xlink:href="#arrow"></use></svg></a>
+                  </div>
+                </div>
+              </div>
+              <picture class="scream__picture">
+                <source srcset="https://hannl-eightmedia.imgix.net/kind-robot.jpg?q=20&amp;fit=crop&amp;crop=faces&amp;dpr=2&amp;auto=format&amp;w=1440&amp;h=617 2880w" sizes="(min-width: 1200px) 1440px" media="(min-width: 1200px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 1200px) and (min-resolution: 120dpi)"/>
+                <source srcset="https://hannl-eightmedia.imgix.net/kind-robot.jpg?q=55&amp;fit=crop&amp;crop=faces&amp;dpr=1&amp;auto=format&amp;w=1440&amp;h=617 1440w" sizes="(min-width: 1200px) 1440px" media="(min-width: 1200px)"/>
+                <source srcset="https://hannl-eightmedia.imgix.net/kind-robot.jpg?q=20&amp;fit=crop&amp;crop=faces&amp;dpr=2&amp;auto=format&amp;w=1200&amp;h=514 2400w" sizes="(min-width: 1024px) 1200px" media="(min-width: 1024px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 1024px) and (min-resolution: 120dpi)"/>
+                <source srcset="https://hannl-eightmedia.imgix.net/kind-robot.jpg?q=55&amp;fit=crop&amp;crop=faces&amp;dpr=1&amp;auto=format&amp;w=1200&amp;h=514 1200w" sizes="(min-width: 1024px) 1200px" media="(min-width: 1024px)"/>
+                <source srcset="https://hannl-eightmedia.imgix.net/kind-robot.jpg?q=20&amp;fit=crop&amp;crop=faces&amp;dpr=2&amp;auto=format&amp;w=1024&amp;h=439 2048w" sizes="(min-width: 768px) 1024px" media="(min-width: 768px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 768px) and (min-resolution: 120dpi)"/>
+                <source srcset="https://hannl-eightmedia.imgix.net/kind-robot.jpg?q=55&amp;fit=crop&amp;crop=faces&amp;dpr=1&amp;auto=format&amp;w=1024&amp;h=439 1024w" sizes="(min-width: 768px) 1024px" media="(min-width: 768px)"/>
+                <source srcset="https://hannl-eightmedia.imgix.net/kind-robot.jpg?q=20&amp;fit=crop&amp;crop=faces&amp;dpr=2&amp;auto=format&amp;w=768&amp;h=329 1536w" sizes="(min-width: 500px) 768px" media="(min-width: 500px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 500px) and (min-resolution: 120dpi)"/>
+                <source srcset="https://hannl-eightmedia.imgix.net/kind-robot.jpg?q=55&amp;fit=crop&amp;crop=faces&amp;dpr=1&amp;auto=format&amp;w=768&amp;h=329 768w" sizes="(min-width: 500px) 768px" media="(min-width: 500px)"/>
+                <source srcset="https://hannl-eightmedia.imgix.net/kind-robot.jpg?q=20&amp;fit=crop&amp;crop=faces&amp;dpr=2&amp;auto=format&amp;w=500&amp;h=214 1000w" sizes="(min-width: 320px) 500px" media="(min-width: 320px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 320px) and (min-resolution: 120dpi)"/>
+                <source srcset="https://hannl-eightmedia.imgix.net/kind-robot.jpg?q=55&amp;fit=crop&amp;crop=faces&amp;dpr=1&amp;auto=format&amp;w=500&amp;h=214 500w" sizes="(min-width: 320px) 500px" media="(min-width: 320px)"/>
+                <source srcset="https://hannl-eightmedia.imgix.net/kind-robot.jpg?q=20&amp;fit=crop&amp;crop=faces&amp;dpr=2&amp;auto=format&amp;w=320&amp;h=137 640w" sizes="(min-width: 1px) 320px" media="(min-width: 1px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 1px) and (min-resolution: 120dpi)"/>
+                <source srcset="https://hannl-eightmedia.imgix.net/kind-robot.jpg?q=55&amp;fit=crop&amp;crop=faces&amp;dpr=1&amp;auto=format&amp;w=320&amp;h=137 320w" sizes="(min-width: 1px) 320px" media="(min-width: 1px)"/><img src="" alt=""/>
+              </picture>
+            </div>
           </div>
         </div>
       </div>

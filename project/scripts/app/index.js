@@ -18,6 +18,8 @@ require("./components/content/tooltip");
 require("./components/content/table");
 require("./components/content/locations");
 require("./components/content/tabs");
+require("./components/content/click-block");
+require("./components/content/underscore");
 require("./components/modal");
 require("./utils/video");
 require("./utils/grid");

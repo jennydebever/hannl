@@ -8,6 +8,7 @@ include ../../components/content/facts-table
 include ../../components/content/takeover
 include ../../components/content/locations
 include ../../components/content/shout
+include ../../components/content/scream
 include ../../components/atoms/btn-primary
 
 block append vars
@@ -89,7 +90,8 @@ block main
   +section-collapsibles('Investering', items)#investering
 
   +todo('contact')#contact
-  +todo('scream for action')
+  
+  +section-scream('kind-robot.jpg', null, 'Zin om te starten?', 'Dan is het tijd voor een intake.', { label: 'Meld je aan voor het intakegesprek', href: './studie.html' })
 
 
 block append takeover

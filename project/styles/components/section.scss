@@ -2,7 +2,6 @@
   @include page-spacing;
   position: relative;
   overflow: hidden;
-  // margin: 100px 0; // TODO: section spacings
 }
 
 .section-wrapper {
@@ -41,6 +40,7 @@
  * Content
  */
 
+.section__header,
 .section__content {
   width: 100%;
 }
@@ -59,10 +59,6 @@
   @include h2;
   margin-bottom: 0.5em;
   display: block;
-
-  @include breakpoint($bp-m) {
-    @include underscore;
-  }
 }
 
 .section__header__intro {
@@ -180,5 +176,21 @@
     @include breakpoint($bp-l) {
       padding-bottom: 50px;
     }
+  }
+}
+
+/**
+ * Shout for action
+ */
+
+.section--scream {
+  background-color: $black;
+
+  @include breakpoint($bp-s) {
+    background-color: $white;
+  }
+
+  .section-wrapper {
+    position: static;
   }
 }
