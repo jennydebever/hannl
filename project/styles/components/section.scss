@@ -78,15 +78,10 @@
  * Text media
  */
 
-.section--textmedia {
-  @include grid;
+.section--textmedia-image {
 }
-// .section--textmedia-left {}
 
-.section--textmedia-right {
-  .textmedia {
-    flex-direction: row-reverse;
-  }
+.section--textmedia-facts {
 }
 
 /**
