@@ -4,6 +4,11 @@
   "description": "",
   "main": "index.js",
   "browsers": "last 20 versions",
+  "variables": {
+    "ALIGNMENT_LEFT": "left",
+    "ALIGNMENT_RIGHT": "right",
+    "IMGIX_URL": "https://hannl-eightmedia.imgix.net/"
+  },
   "scripts": {
     "start": "gulp",
     "start-docs": "vuepress dev docs",

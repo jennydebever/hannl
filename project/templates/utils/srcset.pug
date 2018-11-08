@@ -35,4 +35,4 @@ mixin srcset(image, sizes)
 
 mixin srcset-source(image, params, sizesAttr, mediaAttr)
   include ./querystring
-  source(srcset=IMGIX_URL + image + '?' + querystring(params) + ' ' + (params.w * params.dpr) + 'w', sizes=sizesAttr, media=mediaAttr)
+  source(srcset=htmlWebpackPlugin.options.variables.IMGIX_URL + image + '?' + querystring(params) + ' ' + (params.w * params.dpr) + 'w', sizes=sizesAttr, media=mediaAttr)

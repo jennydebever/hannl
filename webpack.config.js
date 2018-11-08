@@ -92,7 +92,8 @@ module.exports = {
               .replace(".pug", ".html")}`,
             template: file,
             inject: false,
-            minify: false
+            minify: false,
+            variables: pkg.variables // insert all custom variables to pug
           })
       )
     )

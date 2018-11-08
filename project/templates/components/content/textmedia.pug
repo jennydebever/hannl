@@ -21,7 +21,7 @@ mixin textmedia-image(image)
 
 mixin textmedia-video(video)
   .textmedia__media__video
-    video(loop, muted, autoplay, playsinline, defaultmuted, poster=IMGIX_URL + video.fallback + '?w=600&h=600&q=55&fit=crop&dpr=1&auto=format' id=options.id)
+    video(loop, muted, autoplay, playsinline, defaultmuted, poster=htmlWebpackPlugin.options.variables.IMGIX_URL + video.fallback + '?w=600&h=600&q=55&fit=crop&dpr=1&auto=format' id=options.id)
       source(src=video.source, type='video/mp4')
 
 
@@ -31,7 +31,7 @@ mixin textmedia-video(video)
 
 mixin textmedia-video-btn(video)
   .textmedia__media__video
-    video(loop, muted, autoplay, playsinline, defaultmuted, poster=IMGIX_URL + video.fallback + '?w=600&h=600&q=55&fit=crop&dpr=1&auto=format' id=options.id)
+    video(loop, muted, autoplay, playsinline, defaultmuted, poster=htmlWebpackPlugin.options.variables.IMGIX_URL + video.fallback + '?w=600&h=600&q=55&fit=crop&dpr=1&auto=format' id=options.id)
       source(src=video.source, type='video/mp4')
     button(type='button' class='play-pause playing' id='button1' data-target=options.id)
       span play
