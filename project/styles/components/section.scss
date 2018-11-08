@@ -126,13 +126,13 @@
 }
 
 /*
- * Link-list
+ * list
  */
 
-.section--link-list {
+.section--list {
   @include section-inner(10);
 
-  .link-list {
+  .list__list--split {
     @include breakpoint($bp-m) {
       columns: 2;
       column-gap: $grid-item-spacing-m * 2;
@@ -140,6 +140,24 @@
 
     @include breakpoint($bp-l) {
       column-gap: $grid-item-spacing-l * 2;
+    }
+  }
+
+  .list__lists {
+    @include breakpoint($bp-l) {
+      @include grid;
+    }
+    .list__wrapper--12 {
+      // desktop view, make 12 grid columns wide
+      @include breakpoint($bp-l) {
+        @include grid-item(12);
+      }
+    }
+    .list__wrapper--6 {
+      // desktop view, make 6 grid columns wide
+      @include breakpoint($bp-l) {
+        @include grid-item(6);
+      }
     }
   }
 }

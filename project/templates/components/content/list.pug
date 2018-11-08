@@ -1,0 +1,32 @@
+//- @pugdoc
+  name: Lijst
+
+mixin list(items, options={})
+  - var className = options.split ? "list__list--split" : ''
+  - className += options.checkmark ? "list__list--checkmark" : ''
+  ul.list__list(class=className)
+    each item in items
+      li.list__list__item
+        if item.href
+          a.list__list__item__link(href=item.href) #{item.label}
+        if !item.href
+          span.list__list__item__content #{item.label}
+
+
+//- @pugdoc
+  name: Sectie (Lijst)
+
+mixin section-list(eyebrow, title, intro, lists)
+  include ./section
+  +section(eyebrow, title, intro)(class='section--list')&attributes(attributes)
+    if lists
+      .list__lists
+        each list in lists
+          - var length = lists.length;
+          if list.items
+            .list__wrapper(class="list__wrapper--" + 12 / length)
+              if list.title
+                h3.list__title #{list.title}
+              if list.intro
+                .list__intro #{list.intro}
+              +list(list.items, list.options)

@@ -2,7 +2,7 @@ extends ./_deeltijd
 include ../../utils/todo
 include ../../components/nav/coursenav
 include ../../components/content/line
-include ../../components/content/link-list
+include ../../components/content/list
 include ../../components/content/shout
 include ../../components/content/scream
 include ../../components/content/contact
@@ -18,7 +18,36 @@ block main
   +todo('course superhero')
   +todo('course facts')
   +todo('usp cards')
-  +todo('vaardigheden')#vaardigheden-en-beroepen
+  
+  - 
+    var skills = [
+      {
+        items: [
+          { label: 'lessen voorbereiden en inspirerend lesgeven;' },
+          { label: 'kinderen begeleiden in hun persoonlijke ontwikkeling;' },
+          { label: 'aansluiten bij de leerbehoeften van kinderen;' },
+          { label: 'stimulerende leermiddelen en –materialen ontwerpen;' },
+          { label: 'een veilige omgeving creëren, gedragsproblemen voorkomen.' }
+        ], 
+        title: 'Vaardigheden', 
+        intro: 'Dit zijn een aantal vaardigheden die je leert:', 
+        options: { 
+          checkmark: true 
+        }
+      }, 
+      {
+        items: [
+          { label: 'groepsleerkracht' },
+          { label: 'vakleerkracht' },
+          { label: 'remedial teacher' },
+          { label: 'intern begeleider' }
+        ],
+        title: 'Beroepen', 
+        intro: 'Op deze banen kun je solliciteren na de Pabo deeltijd:'
+      }
+    ];
+  +section-list('Je wordt meer waard', 'Vaardigheden en beroepen', 'Als je klaar bent met de opleiding tot leraar basisonderwijs, heb je veel theorie- en<br />praktijkervaring in je rugzak.', skills)
+
   
   - var title = 'Kom sparren met je studieadviseur';
   - var image = 'kind-robot.jpg';
@@ -30,14 +59,23 @@ block main
   +todo('textmedia')#toekomst-van-het-onderwijs
   +todo('textmedia highlight')#combineren-met-werk-en-prive
   
-  - var items = [];
-  - items.push({ label: 'Toelatingseisen', href: './info.html#toelatingsinformatie' });
-  - items.push({ label: 'Aanmeldprocedure', href: './info.html#' });
-  - items.push({ label: 'Financiering.', href: './info.html#investering' });
-  - items.push({ label: 'Voordelen voor je werkgever', href: './info.html#voor-werkgevers' });
-  - items.push({ label: 'Kennis bijspijkeren', href: './info.html#' });
-  - items.push({ label: 'Studeren met een beperking', href: './info.html#' });
-  +section-link-list('Informatie voor het aanmelden', 'Zin om te starten? We wijzen je graag de weg.', items)
+  - 
+    var links = [
+      {
+        items: [
+          { label: 'Toelatingseisen', href: './info.html#toelatingsinformatie' },
+          { label: 'Aanmeldprocedure', href: './info.html#' },
+          { label: 'Financiering.', href: './info.html#investering' },
+          { label: 'Voordelen voor je werkgever', href: './info.html#voor-werkgevers' },
+          { label: 'Kennis bijspijkeren', href: './info.html#' },
+          { label: 'Studeren met een beperking', href: './info.html#' }
+        ], 
+        options: { 
+          split: true 
+        }
+      }
+    ];
+  +section-list(null, 'Informatie voor het aanmelden', 'Zin om te starten? We wijzen je graag de weg.', links)
 
   +section-line
 
