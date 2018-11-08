@@ -1,0 +1,96 @@
+// .contact {}
+
+/**
+ * Buttons
+ */
+
+.contact__buttons {
+  position: relative;
+  margin: 24px 0;
+
+  @include breakpoint($bp-m) {
+    margin: 40px 0;
+  }
+
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 24px;
+    z-index: -1;
+    transform: translateY(100%) translateX(-100vw);
+    width: 200vw;
+    height: 1px;
+    background-color: $grey2;
+
+    @include breakpoint($bp-m) {
+      top: 32px;
+    }
+  }
+}
+
+.contact__buttons__button {
+  display: inline-block;
+  margin-bottom: 24px;
+
+  @include breakpoint($bp-m) {
+    margin-bottom: 0;
+  }
+
+  & + & {
+    @include breakpoint($bp-m) {
+      margin-left: $grid-item-spacing-m;
+    }
+
+    @include breakpoint($bp-l) {
+      margin-left: $grid-item-spacing-l;
+    }
+  }
+}
+
+/**
+ * Meta data
+ */
+
+// .contact__meta {}
+
+.contact__metas__meta {
+  margin-bottom: 30px;
+
+  @include breakpoint($bp-m) {
+    display: inline-block;
+    margin-right: $grid-item-spacing-m * 2;
+  }
+
+  @include breakpoint($bp-l) {
+    margin-right: $grid-item-spacing-l * 2;
+  }
+}
+
+.contact__metas__meta__title {
+  margin: 10px 0;
+  display: block;
+  font-family: $demi;
+  color: $grey6;
+  font-size: 15px;
+
+  @include breakpoint($bp-m) {
+    font-size: 16px;
+  }
+}
+
+.contact__metas__meta__content {
+  p {
+    @include p;
+    color: $grey5;
+    font-size: 13px;
+    @include breakpoint($bp-m) {
+      font-size: 14px;
+    }
+  }
+
+  a {
+    @include link;
+    color: $black;
+  }
+}
