@@ -1,0 +1,27 @@
+/**
+ * Mixin for group of buttons
+ * .button-row
+ *   .button-row__item
+ *     +btn-primary
+  *
+ *   .button-row__item
+ *     +btn-secondary
+ */
+
+@mixin button-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: -8px;
+
+  @include breakpoint($bp-m) {
+    margin-bottom: -16px;
+  }
+}
+
+@mixin button-row-item {
+  margin: 0 8px 8px 0;
+
+  @include breakpoint($bp-m) {
+    margin: 0 16px 16px 0;
+  }
+}

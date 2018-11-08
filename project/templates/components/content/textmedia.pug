@@ -1,203 +1,111 @@
-//- @pugdoc
-  name: Textmedia picture
-  capture: 0
 
-mixin textmedia-image(image)
-  picture.textmedia__media__picture
-    - var sizes = []
-    - sizes.push({ minWidth: 1200, width: 560, ratio: 1 });
-    - sizes.push({ minWidth: 1024, width: 430, ratio: 1 });
-    - sizes.push({ minWidth: 768, width: 310, ratio: 1 });
-    - sizes.push({ minWidth: 500, width: 310, ratio: 1 });
-    - sizes.push({ minWidth: 1, width: 500, ratio: 1 });
-    +srcset(image, sizes)
-
-    img(src='', alt='')
-
-
-//- @pugdoc
-  name: Textmedia video
-  capture: 0
-
-mixin textmedia-video(video)
-  .textmedia__media__video
-    video(loop, muted, autoplay, playsinline, defaultmuted, poster=IMGIX_URL + video.fallback + '?w=600&h=600&q=55&fit=crop&dpr=1&auto=format' id=options.id)
-      source(src=video.source, type='video/mp4')
-
-
-//- @pugdoc
-  name: Textmedia video with button
-  capture: 0
-
-mixin textmedia-video-btn(video)
-  .textmedia__media__video
-    video(loop, muted, autoplay, playsinline, defaultmuted, poster=IMGIX_URL + video.fallback + '?w=600&h=600&q=55&fit=crop&dpr=1&auto=format' id=options.id)
-      source(src=video.source, type='video/mp4')
-    button(type='button' class='play-pause playing' id='button1' data-target=options.id)
-      span play
-
-//- @pugdoc
-  name: Text and Media
-  description: Tekst component met video / afbeelding
-  capture: 0
-
-mixin textmedia(options)
-  include ../../utils/srcset
+mixin textmedia(align, eyebrow, title, intro, buttons)
   include ../atoms/btn-primary
   include ../atoms/btn-secondary
+  include ../atoms/strong-link
 
-  .textmedia
-    .textmedia__media
-      .textmedia__container
-        if options.image
-          +textmedia-image(options.image)
-          if options.caption
-            .textmedia__caption 
-              span #{options.caption}
-        if options.video
-          if options.video.link
-            if options.caption
-              +textmedia-video(options.video)
-              .textmedia__caption 
-                span #{options.caption}
-                button(type='button' class='play-pause playing' id='button1' data-target=options.id)
-                  span play
-          else
-            if options.caption
-              +textmedia-video(options.video)
-              .textmedia__caption 
-                span #{options.caption}
-                button(type='button' class='play-pause playing' id='button1' data-target=options.id)
-                  span play
-            else
-              +textmedia-video-btn(options.video)
-            
-    
-    .textmedia__text
-      if options.eyebrow
-        .textmedia__header
-          h2.textmedia__header__title
-            span.textmedia__header__eyebrow #{options.eyebrow}
+  - var cls = [];
+  if align === ALIGN_RIGHT
+    - cls.push('textmedia--align-right');
+
+  .textmedia(class=cls)
+    .textmedia__body
+
+      if title || eyebrow
+        h2.textmedia__body__title
+          if eyebrow
+            span.textmedia__body__title__eyebrow #{eyebrow}
+            span.accessibility :&nbsp;
+          span.textmedia__body__title__eyebrow__label #{title}
+
+      if intro
+        .textmedia__body__intro !{intro}
       
-      if options.title
-        h2.textmedia__text__title #{options.title}
+      if buttons && buttons.length
+        .textmedia__buttons
+          each button in buttons
+            .textmedia__buttons__button
+              if button.type === BUTTON_PRIMARY
+                +btn-primary(button.label, button.href, button.icon)
 
-      if block
-        .textmedia__text__body
-          .richtext
-            block
+              else if button.type === BUTTON_SECONDARY
+                +btn-secondary(button.label, button.href, button.icon)
 
-      if options.buttons
-        .textmedia__text__buttons
-          each button in options.buttons
-            .textmedia__text__buttons__button
-              if button.type === 'primary'
-                +btn-primary(button.label, button.href, "arrow")
+              else if button.type === STRONG_LINK
+                +strong-link(button.label, button.href, button.icon)
 
-              else if button.type === 'secondary'
-                +btn-secondary(button.label, button.href, "arrow")
+    .textmedia__media
+      block
 
 
 //- @pugdoc
-  name: Sectie (Tekst en Media)
-  examples: 
+  name: Sectie (Tekst en Media, afbeelding)
+  examples:
     - 
-      name: Sectie (Tekst en Media, foto links)
+      name: Sectie (Tekst en Media, tekst links, media rechts)
       example: |
         include ./textmedia
-
-        style.
-          body > div {
-            padding: 0 !important;
-          }
-
-        - var options = {};
-        - options.image = 'koraal.jpg';
-        - options.eyebrow = 'vaardigheden';
-        - options.title = 'Hoe en wat ga je allemaal leren?';
-        - options.buttons = [];
-        - options.buttons.push({ href: '/', label: 'Meld je aan', type: 'primary' });
-        - options.buttons.push({ href: '/', label: 'Meld je aan 2', type: 'secondary' });
-      
-        +section-textmedia(ALIGNMENT_LEFT, options)
-          p We vertellen je niet hoe het moet, maar helpen je om zelf tot de beste oplossing te komen. Afhankelijk van je specialisatie leer je:
-          ul
-            li Hoe regeltechniek en elektrotechnisch ontwerken werkt.
-            li Alles over aandrijvingen en vermogenselektronica.
-        
-    -
-      name: Sectie (Tekst en Media, foto rechts)
-      example: |
-        include ./textmedia
-        - var options = {};
-        - options.image = 'vrouw-techniek.jpg';
-        - options.caption = 'Een korte beschrijving van deze image';
-        - options.eyebrow = 'BAANKANSEN';
-        - options.title = 'Wat kun je allemaal worden met elektrotechniek?';
-        - options.buttons = [];
-        - options.buttons.push({ href: '/', label: 'Meld je aan', type: 'primary' });
-        - options.buttons.push({ href: '/', label: 'Meld je aan 2', type: 'secondary' });
-
-        +section-textmedia(ALIGNMENT_RIGHT, options)
-          p Een systeem- of service-engineer die windturbines verbetert. Een soft-of hardware-ontwikkelaar die alledaagse apparaten slimmer maakt. Of een commercieel engineer die weet hoe je techniek aan de man brengt.
+        - var image = 'kind-robot.jpg'
+        - var eyebrow = 'Hoe is je studie ingedeeld?'
+        - var title = 'De opbouw van de studie'
+        - var intro = '<p>De deeltijd Pabo duurt 4 jaar en bestaat uit 8 modules van een half jaar. Je loopt elk jaar stage, dus je past meteen toe wat je leert. Heb je een hbo of wo vooropleiding? Dan kun je de Pabo deeltijd ook in 2,5 jaar: een half jaar propedeuse, 1 jaar kernfase en 1 jaar afstuderen.</p>'
+        - var buttons = []
+        - buttons.push({ type: BUTTON_PRIMARY, label: 'Alle 8 modules bekijken', href: '#takeover1', icon: 'external'})
+        - buttons.push({ type: STRONG_LINK, label: 'Vrijstellingen', href: './info#vrijstellingen', icon: 'external'})
+        +section-textmedia-image(ALIGN_LEFT, image, eyebrow, title, intro, buttons)#de-opbouw-van-de-studie
     
-    -
-      name: Sectie (Tekst en Media, video rechts)
+    - 
+      name: Sectie (Tekst en Media, tekst links, media links)
       example: |
         include ./textmedia
+        - var image = 'kind-robot.jpg'
+        - var eyebrow = 'Studie zelf indelen'
+        - var title = 'Losse modules'
+        - var intro = '<p>De deeltijd Pabo heeft 3 modules die je los kunt volgen. Je krijgt een certificaat voor elke afgeronde module. Besluit je later om toch de hele opleiding te doen? Je kunt vrijstellingen aanvragen met de certificaten: ze zijn elk 30 studiepunten waard. </p>'
+        - var buttons = []
+        - buttons.push({ type: BUTTON_PRIMARY, label: 'Alle 8 modules bekijken', href: '#takeover1', icon: 'external'})
+        +section-textmedia-image(ALIGN_RIGHT, image, eyebrow, title, intro, buttons)#losse-modules
 
-        - var options = {};
-        - options.id = 'video1'
-        - options.video = {};
-        - options.video.fallback = 'koraal.jpg';
-        - options.video.source = '../../lib/images/imgix/tt-assen.mp4';
-        - options.caption = 'Een korte beschrijving van deze video';
-        - options.eyebrow = 'techniek';
-        - options.title = 'Hoe en wat ga je allemaal leren?';
-        - options.buttons = [];
-        - options.buttons.push({ href: '/', label: 'Meld je aan', type: 'primary' });
-      
-        +section-textmedia(ALIGNMENT_RIGHT, options)
-          p dit is richtext
-          ul
-            li dsfljsdhflsjhdfl
-            li dsfljsdhflsjhdfl
-            li dsfljsdhflsjhdfl
+mixin section-textmedia-image(align, image, eyebrow, title, intro, buttons)
+  include ./section
+  include ../../utils/srcset
 
-    -
-      name: Sectie (Tekst en Media, video links)
-      example: |
-        include ./textmedia
-
-        - var options = {};
-        - options.id = 'video2'
-        - options.video = {};
-        - options.video.fallback = 'koraal.jpg';
-        - options.video.source = '../../lib/images/imgix/tt-assen.mp4';
-        - options.eyebrow = 'techniek';
-        - options.title = 'Hoe en wat ga je allemaal leren?';
-        - options.buttons = [];
-        - options.buttons.push({ href: '/', label: 'Meld je aan', type: 'primary' });
+  +section(class='section--textmedia-image')&attributes(attributes)
+    +textmedia(align, eyebrow, title, intro, buttons)
+      picture.textmedia-picture
+        - var sizes = []
+        - sizes.push({ minWidth: 1024, width: 520, ratio: 1 });
+        - sizes.push({ minWidth: 900, width: 1024, ratio: 21/9 });
+        - sizes.push({ minWidth: 768, width: 900, ratio: 21/9 });
+        - sizes.push({ minWidth: 500, width: 768, ratio: 21/9 });
+        - sizes.push({ minWidth: 375, width: 500, ratio: 21/9 });
+        - sizes.push({ minWidth: 1, width: 375, ratio: 21/9 });
         
-        +section-textmedia(ALIGNMENT_LEFT, options)
-          p dit is richtext
-          ul
-            li dsfljsdhflsjhdfl
-            li dsfljsdhflsjhdfl
-            li dsfljsdhflsjhdfl
+        +srcset(image, sizes)
+        img(src='', alt='')
 
-mixin section-textmedia(alignment, options)
-  - var cls = [];
-  - cls.push('section--textmedia');
 
-  if alignment === ALIGNMENT_RIGHT
-    - cls.push('section--textmedia-right');
+//- @pugdoc
+  name: Sectie (Tekst en Media, feiten)
+  examples:
+    - 
+      name: Sectie (Tekst en Media, tekst links, feiten rechts)
+      example: |
+        include ./textmedia
+        - var image = 'kind-robot.jpg'
+        - var eyebrow = 'Waar gaat je vak heen?'
+        - var title = 'Toekomst van het onderwijs'
+        - var intro = '<p>De staatssecretaris van Onderwijs heeft in 2015 opdracht gegeven voor een maatschappelijke dialoog over de toekomst van het Nederlandse onderwijs. De positie van leraren is een belangrijke pijler van deze toekomstvisie. Er is afgesproken om te investeren in de professionele ontwikkeling van leraren. Een moderne, eigentijdse opleiding zoals de Pabo deeltijd van de HAN sluit helemaal aan op deze toekomstvisie. </p>'
+        - var buttons = []
+        - buttons.push({ type: BUTTON_SECONDARY, label: 'Meer over de toekomst van het onderwijs', href: '#takeover1', icon: 'external'})
+        +section-textmedia-facts(ALIGN_LEFT, [1,2,3,4], eyebrow, title, intro, buttons)#toekomst-van-het-onderwijs
+        
 
-  if alignment === ALIGNMENT_LEFT
-    - cls.push('section--textmedia-left');
+mixin section-textmedia-facts(align, facts, eyebrow, title, intro, buttons)
+  include ./section
+  include ../atoms/facts
 
-  .section(class=cls)
-    .section-wrapper
-      .section__content
-        +textmedia(options)
-          block
+  +section(class='section--textmedia-facts')&attributes(attributes)
+    +textmedia(align, eyebrow, title, intro, buttons)
+      .textmedia-facts
+        +facts(facts)
