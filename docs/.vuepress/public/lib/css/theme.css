@@ -4752,21 +4752,37 @@ hr {
 }
 .contact__buttons {
   position: relative;
-  margin: 40px 0;
+  margin: 24px 0;
+}
+@media (min-width: 768px) {
+  .contact__buttons {
+    margin: 40px 0;
+  }
 }
 .contact__buttons:before {
   content: "";
   display: block;
   position: absolute;
-  left: -999px;
-  top: 50%;
+  top: 24px;
   z-index: -1;
-  width: 9999px;
+  transform: translateY(100%) translateX(-100vw);
+  width: 200vw;
   height: 1px;
   background-color: #e3e3e3;
 }
+@media (min-width: 768px) {
+  .contact__buttons:before {
+    top: 32px;
+  }
+}
 .contact__buttons__button {
   display: inline-block;
+  margin-bottom: 24px;
+}
+@media (min-width: 768px) {
+  .contact__buttons__button {
+    margin-bottom: 0;
+  }
 }
 @media (min-width: 768px) {
   .contact__buttons__button + .contact__buttons__button {
