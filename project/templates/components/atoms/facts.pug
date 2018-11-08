@@ -1,4 +1,29 @@
+//- @pugdoc
+  name: Feiten
+  arguments:
+    - {object} items
+    - {string} items.number
+    - {string} items.subject
+    - {string} items.meta
+    - {string} items.tooltip
+
 mixin facts(items)
+  include ./tooltip
+  include ../../utils/slugify
+
   .facts
     each item in items
-      .facts__item #{item}
+      .facts__item
+        .fact
+          if item.number
+            strong.fact__number #{item.number}
+          
+          if item.subject
+            span.fact__subject #{item.subject}
+
+          if item.meta
+            span.fact__meta #{item.meta}
+
+          if item.tooltip
+            - var id = 'tooltip-' + slugify(item.subject);
+            +tooltip({ content: item.tooltip })(id=id)

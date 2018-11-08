@@ -13,3 +13,44 @@
     background-color: $grey1;
   }
 }
+
+/**
+ * Single fact
+ */
+
+.fact {
+  position: relative;
+
+  .tippy-tooltip {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    .icon-info {
+      fill: $grey4;
+    }
+  }
+}
+
+.fact__number {
+  display: block;
+  font-family: $bold;
+  font-size: 29px;
+  color: $hanred;
+}
+
+.fact__subject {
+  @include base;
+  display: block;
+  font-family: $demi;
+  color: $grey6;
+  line-height: 1.3;
+  margin-top: 5px;
+}
+
+.fact__meta {
+  display: block;
+  font-size: 13px;
+  color: $grey5;
+  margin-top: 5px;
+}

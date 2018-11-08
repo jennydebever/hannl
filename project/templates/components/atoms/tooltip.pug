@@ -36,12 +36,13 @@ mixin tooltip(options)
         .tooltip__content__text #{options.content}  
 
       if options.buttons
-        each button in options.buttons
-          if button.type === BUTTON_PRIMARY
-            +btn-primary(button.label, button.href, "arrow")
+        .tooltip__buttons
+          each button in options.buttons
+            if button.type === BUTTON_PRIMARY
+              +btn-primary(button.label, button.href, "arrow")
 
-          else if button.type === BUTTON_SECONDARY
-            +btn-secondary(button.label, button.href, "arrow")
+            else if button.type === BUTTON_SECONDARY
+              +btn-secondary(button.label, button.href, "arrow")
 
-          else if button.type === BUTTON_STRONG_LINK
-            +strong-link(button.label, button.href) 
+            else if button.type === BUTTON_STRONG_LINK
+              +strong-link(button.label, button.href) 

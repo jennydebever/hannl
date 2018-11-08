@@ -9,6 +9,7 @@ include ../../components/content/takeover
 include ../../components/content/locations
 include ../../components/content/shout
 include ../../components/content/scream
+include ../../components/content/contact
 include ../../components/atoms/btn-primary
 
 block append vars
@@ -89,7 +90,15 @@ block main
   - items.push({ title: 'Levenlanglerenkrediet', body: '<p>…</p>', is_open: false })
   +section-collapsibles('Investering', items)#investering
 
-  +todo('contact')#contact
+  - var contactOptions = {};
+  - contactOptions['buttons'] = [];
+  - contactOptions['buttons'].push({ type: 'primary', label: 'Start de Chat', href: 'https://han.nl', icon: 'clock-line' });
+  - contactOptions['buttons'].push({ type: 'secondary', label: 'Stel ons een vraag via het formulier', href: 'https://han.nl', icon: 'external' });
+  - contactOptions['metas'] = [];
+  - contactOptions['metas'].push({ title: 'Openingstijden', content: '<p>Werkdagen: 09:00 tot 16:30 uur<br />Schoolvakanties: 09:00 tot 15:00 uur</p>' });
+  - contactOptions['metas'].push({ title: 'Liever bellen of appen?', content: '<p>Bellen: <a href="tel:0243530500">024 - 353 0500</a><br />WhatsApp: <a href="whatsapp:0625640470">06 - 25 64 04 70</a></p>' });
+  +section-contact('Contact',  'Vragen over de Pabo deeltijd of de verkorte Pabo opleiding? <br>Het HAN Voorlichtingscentrum geeft je direct antwoord.', contactOptions)
+
   
   +section-scream('kind-robot.jpg', null, 'Zin om te starten?', 'Dan is het tijd voor een intake.', { label: 'Meld je aan voor het intakegesprek', href: './studie.html' })
 
