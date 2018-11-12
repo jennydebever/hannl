@@ -1,7 +1,10 @@
 .highlight {
-  @include grid;
   margin-top: 32px;
-  align-items: center;
+
+  @include breakpoint($bp-m) {
+    @include grid;
+    align-items: center;
+  }
 }
 
 /**
@@ -33,10 +36,13 @@
  */
 
 .highlight__text-wrapper {
+  max-width: 400px;
+
   @include breakpoint($bp-m) {
     @include grid-item-spaceless(7);
     display: flex;
     align-items: center;
+    max-width: 100%;
   }
 
   @include breakpoint($bp-l) {
@@ -50,6 +56,7 @@
   z-index: 1;
   padding: 32px;
 
+  // white background on top of shadow
   &::before {
     content: "";
     z-index: 1;

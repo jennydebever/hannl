@@ -206,8 +206,8 @@
 
 .section--highlight {
   background-color: $grey1;
-  padding-top: 120px;
-  padding-bottom: 120px;
+  // padding-top: 120px;
+  // padding-bottom: 120px;
 
   .section__header {
     @include section-inner-self(10);
