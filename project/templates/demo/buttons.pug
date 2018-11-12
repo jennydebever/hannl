@@ -1,0 +1,49 @@
+//- @pugdoc
+  name: Button hierarchie opties
+  examples:
+    -
+      name: Button hierarchie opties (Primary + Secondary + Strong Link)
+      example: |
+        include ../components/atoms/btn-primary
+        include ../components/atoms/btn-secondary
+        include ../components/atoms/strong-link
+
+        .demo-theme-white
+          +btn-primary('Bereken je reistijd', 'https://www.han.nl')
+          +btn-secondary('Meld je aan', 'https://www.han.nl')
+          +strong-link('Gebruik het contactformulier', '/')    
+
+    -
+      name: Button hierarchie opties (Primary + Secondary)
+      example: |
+        include ../components/atoms/btn-primary
+        include ../components/atoms/btn-secondary
+        include ../components/atoms/strong-link
+
+        .demo-theme-white
+          +btn-primary('Bereken je reistijd', 'https://www.han.nl')
+          +btn-secondary('Meld je aan', 'https://www.han.nl')      
+
+    -
+      name: Button hierarchie opties (Primary + Strong Link)
+      example: |
+        include ../components/atoms/btn-primary
+        include ../components/atoms/btn-secondary
+        include ../components/atoms/strong-link
+
+        .demo-theme-white
+          +btn-primary('Bereken je reistijd', 'https://www.han.nl')
+          +strong-link('Gebruik het contactformulier', '/')  
+
+    -
+      name: Button hierarchie opties (Secondary + Strong Link)
+      example: |
+        include ../components/atoms/btn-primary
+        include ../components/atoms/btn-secondary
+        include ../components/atoms/strong-link
+
+        .demo-theme-white      
+          +btn-secondary('Meld je aan', 'https://www.han.nl')
+          +strong-link('Gebruik het contactformulier', '/')
+
+div

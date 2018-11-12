@@ -1,4 +1,3 @@
-﻿# hannl
+﻿# 📖 han.nl Design System
 
 https://han-devteam.netlify.com/
-https://han-devteam.netlify.com/docs/

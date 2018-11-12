@@ -1,8 +1,7 @@
-const gulp = require("gulp");
+const gulp = require("gulp-v4");
 const sass = require("gulp-sass");
 const sassLint = require("gulp-sass-lint");
 const prefix = require("gulp-autoprefixer");
-const minify = require("gulp-minify-css");
 const cssnano = require("gulp-cssnano");
 const changed = require("gulp-changed");
 const preprocess = require("gulp-preprocess");
@@ -15,10 +14,7 @@ const paths = require("../paths");
 
 gulp.task("styles:lint", () => {
   return gulp
-    .src([
-      paths.SRC.styles + "**/*.scss",
-      "!" + paths.SRC.styles + "libs/*.scss"
-    ])
+    .src([paths.SRC.styles + "**/*.scss", "!" + paths.SRC.styles + "libs/*.scss"])
     .pipe(sassLint())
     .pipe(sassLint.format());
 });
@@ -27,11 +23,7 @@ gulp.task("styles:lint", () => {
 
 gulp.task("styles:compile", () => {
   return gulp
-    .src([
-      paths.SRC.styles + "theme.scss",
-      paths.SRC.styles + "design-manual.scss",
-      paths.SRC.styles + "print.scss"
-    ])
+    .src([paths.SRC.styles + "theme.scss", paths.SRC.styles + "print.scss"])
     .pipe(changed(paths.DEST.styles, { extension: "*" }))
     .pipe(sass({ style: "expanded" }).on("error", sass.logError))
     .pipe(
@@ -40,7 +32,6 @@ gulp.task("styles:compile", () => {
       })
     )
     .pipe(prefix({ browsers: ["last 20 versions"], cascade: false }))
-    .pipe(minify())
     .pipe(
       cssnano({
         zindex: false,

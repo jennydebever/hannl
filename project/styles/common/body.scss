@@ -9,7 +9,45 @@ body {
 
 body {
   overflow-x: hidden;
+  overflow-y: scroll;
   color: $black;
+  background-color: $grey1;
+
+  &.modal-is-open--coursenav,
+  &.modal-is-open--takeover {
+    overflow-y: hidden;
+  }
+
+  &.modal-is-opening--takeover,
+  &.modal-is-closing--takeover {
+    overflow-y: auto;
+  }
+}
+
+/**
+ * Main container
+ */
+
+.main {
+  background-color: $white;
+  margin: 0 auto;
+  max-width: 1440px;
+  transform: scale3d(1, 1, 1);
+  transition: transform 0.5s ease-in-out;
+  transform-origin: top center;
+
+  &:focus {
+    outline: 0;
+  }
+
+  .modal-is-open--takeover & {
+    transform: scale3d(0.97, 0.97, 0.97);
+  }
+
+  .modal-is-closing--takeover & {
+    transition-duration: 0.25s;
+    transform: scale3d(1, 1, 1);
+  }
 }
 
 /**

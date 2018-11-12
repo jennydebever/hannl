@@ -1,4 +1,4 @@
-const gulp = require("gulp");
+const gulp = require("gulp-v4");
 const bs = require("browser-sync").create("dev");
 
 const paths = require("../paths");
@@ -10,11 +10,7 @@ gulp.task("server", () => {
       baseDir: paths.serve,
       directory: true
     },
-    files: [
-      paths.DEST.styles,
-      paths.DEST.scripts,
-      paths.DEST.styleguide + "lib/"
-    ],
+    files: [paths.DEST.styles, paths.DEST.scripts, paths.DEST.styleguide + "lib/"],
     notify: false,
     port: 8000,
     open: false

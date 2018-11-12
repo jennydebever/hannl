@@ -1,34 +1,70 @@
-@import './vars';
-@import './libs/fonts';
+@import "./vars";
+@import "./libs/fonts";
 
 // libs
-@import './libs/normalize';
-@import './libs/reset';
-@import './libs/breakpoint';
-@import './libs/margins';
+@import "./libs/normalize";
+@import "./libs/reset";
+@import "./libs/breakpoint";
+@import "./libs/scrollbar";
+@import "./libs/hyphens";
 
 // common
-@import './common/body';
-@import './common/layout';
-@import './common/accessibility';
+@import "./common/body";
+@import "./common/layout";
+@import "./common/accessibility";
+@import "./common/icon";
 
 // typography
-@import './typography/text';
-@import './typography/demo-typo';
-@import './typography/richtext.scss';
+@import "./typography/text";
+@import "./typography/demo-typo";
+@import "./typography/richtext.scss";
+
+// nav
+@import "./components/nav/nav";
+@import "./components/nav/coursenav";
+@import "./components/nav/coursenav-desktop";
+@import "./components/nav/coursenav-mobile";
+@import "./components/nav/tmpbar";
 
 // atoms
-@import './components/atoms/richtext';
-@import './components/atoms/btn-primary';
-@import './components/atoms/btn-secondary';
-@import './components/atoms/strong-link';
+@import "./components/atoms/richtext";
+@import "./components/atoms/button-row";
+@import "./components/atoms/btn-primary";
+@import "./components/atoms/btn-secondary";
+@import "./components/atoms/strong-link";
+@import "./components/atoms/hr";
+@import "./components/atoms/table";
+@import "./components/atoms/tabs";
+@import "./components/atoms/address";
+@import "./components/atoms/shadow";
+@import "./components/atoms/underscore";
+@import "./components/atoms/facts";
+@import "./components/atoms/nav-switch";
+@import "./components/atoms/strong-link-list";
 
 // components
-@import './components/section';
-@import './components/content/textmedia';
-@import './components/content/collapsibles';
-@import './components/content/intro';
-@import './components/content/hero';
+@import "./components/section";
+@import "./components/hero/course-hero";
+@import "./components/content/textmedia";
+@import "./components/content/textmedia-image";
+@import "./components/content/textmedia-facts";
+@import "./components/content/collapsibles";
+@import "./components/content/intro";
+@import "./components/content/locations";
+@import "./components/content/link-list";
+@import "./components/content/shout";
+@import "./components/content/image-list";
+@import "./components/content/scream";
+@import "./components/content/contact";
+@import "./components/content/highlight";
+@import "./components/content/course-details";
+
+@import "./components/nav/sitesearch";
+@import "./components/nav/menu";
+@import "./components/nav/skiplinks";
+@import "./components/nav/footer";
+@import "./components/content/takeover";
+@import "./components/atoms/tooltip";
 
 // demo
-@import './demo/theme';
+@import "./demo/theme";

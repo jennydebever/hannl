@@ -1,0 +1,39 @@
+@keyframes animate-sitesearch-in {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes animate-sitesearch-out {
+  to {
+    opacity: 0;
+  }
+}
+
+.sitesearch {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 101;
+  width: 100vw;
+  opacity: 0;
+  background: $grey5;
+  transform: scale(0, 0, 0);
+
+  &.is-open {
+    animation: animate-sitesearch-in 0.4s $ease forwards;
+    transform: scale(1, 1, 1);
+  }
+
+  &.is-closed {
+    transform: scale3d(1, 1, 1);
+    opacity: 1;
+    animation: animate-sitesearch-out 0.4s $ease forwards;
+  }
+}
+
+.sitesearch__close {
+  color: white;
+}

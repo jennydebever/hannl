@@ -1,0 +1,129 @@
+.tmpbar {
+  @include page-spacing;
+  background-color: $black;
+  position: relative;
+  z-index: 99;
+  overflow: hidden;
+
+  @include breakpoint(max $bp-l) {
+    padding-right: 0;
+  }
+}
+
+.tmpbar-wrapper {
+  @include grid;
+  height: 48px;
+
+  @include breakpoint($bp-m) {
+    height: 87px;
+  }
+
+  @include breakpoint(max $bp-l) {
+    padding-right: 0;
+  }
+}
+
+.tmpbar-body-wrapper {
+  @include grid-item(12);
+  display: flex;
+
+  @include breakpoint(max $bp-l) {
+    padding-right: 0;
+  }
+}
+
+/**
+ * Logo
+ */
+
+.tmpbar__logo {
+  @include focusable($white, 1px, 10px);
+  align-self: center;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  padding-right: 16px;
+  height: 100%;
+  position: relative;
+
+  @include breakpoint($bp-l) {
+    padding-right: 24px;
+  }
+
+  .icon-chevron {
+    fill: $white;
+    transform: rotate(180deg);
+    margin-right: 16px;
+    z-index: 2;
+    position: relative;
+    transition: fill 0.15s $ease;
+    width: 10px;
+
+    @include breakpoint($bp-l) {
+      margin-right: 24px;
+    }
+  }
+
+  &::before {
+    content: "";
+    display: block;
+    height: 100%;
+    background-color: $white;
+    opacity: 0.15;
+    position: absolute;
+    right: 0;
+    width: 100vw;
+    z-index: 1;
+    transition: opacity 0.15s $ease;
+  }
+
+  &:hover {
+    .icon-chevron {
+      fill: $hanred;
+    }
+  }
+}
+
+.tmpbar__logo__image {
+  display: block;
+  width: 48px;
+  height: 20px;
+  position: relative;
+  z-index: 2;
+
+  @include breakpoint($bp-m) {
+    width: 82px;
+    height: 34px;
+  }
+}
+
+/**
+ * Text
+ */
+
+.tmpbar__message {
+  @include focusable($white);
+  text-decoration: none;
+  font-family: $demi;
+  color: $white;
+  align-self: center;
+  font-size: 13px;
+  margin-left: 16px;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  @include breakpoint($bp-s) {
+    font-size: 14px;
+  }
+
+  @include breakpoint($bp-m) {
+    font-size: 15px;
+    margin-left: 24px;
+  }
+
+  @include breakpoint($bp-l) {
+    font-size: 16px;
+  }
+}

@@ -1,0 +1,78 @@
+extends ./_deeltijd
+include ../../utils/todo
+include ../../components/nav/coursenav
+include ../../components/content/line
+include ../../components/content/link-list
+include ../../components/content/shout
+include ../../components/content/scream
+include ../../components/content/textmedia
+include ../../components/content/highlight
+include ../../components/content/contact
+include ../../components/content/course-details
+
+block append vars
+  - pageTitle.push('Deeltijd');
+  - pagePath = '/deeltijd/overzicht';
+
+block subnav
+  +coursenav('leraar basisonderwijs (pabo) deeltijd', coursenavItems)
+
+block main
+  +todo('course superhero')
+  
+  +section-course-details()
+
+  +todo('usp cards')
+
+  +todo('vaardigheden')#vaardigheden-en-beroepen
+  
+  - var title = 'Kom sparren met je studieadviseur';
+  - var image = 'kind-robot.jpg';
+  - var intro = 'Je eigen oordeel is het belangrijkst bij zo`n beslissende keuze. Een adviesgesprek met een HAN studieadviseur kan daarbij helpen. Je kunt je verwachtingen toetsen en je krijgt inzicht in je persoonlijke studieprogramma.';
+  - var buttons = [];
+  - buttons.push({ href: '/', label: 'Regel een adviesgesprek', type: BUTTON_PRIMARY, icon: 'external' });
+  +section-shout(title, image, intro, buttons)
+
+  - var image = 'kind-robot.jpg'
+  - var eyebrow = 'Waar gaat je vak heen?'
+  - var title = 'Toekomst van het onderwijs'
+  - var intro = '<p>De staatssecretaris van Onderwijs heeft in 2015 opdracht gegeven voor een maatschappelijke dialoog over de toekomst van het Nederlandse onderwijs. De positie van leraren is een belangrijke pijler van deze toekomstvisie. Er is afgesproken om te investeren in de professionele ontwikkeling van leraren. Een moderne, eigentijdse opleiding zoals de Pabo deeltijd van de HAN sluit helemaal aan op deze toekomstvisie. </p>'
+  - var buttons = []
+  - buttons.push({ type: BUTTON_SECONDARY, label: 'Meer over de toekomst van het onderwijs', href: '#takeover1', icon: 'external'})
+  - var facts = []
+  - facts.push({ number: '24%', subject: 'Groei in de sector', meta: 'in 2017' })
+  - facts.push({ number: '4000', subject: 'Leerkrachten tekort', meta: 'in 2022' })
+  - facts.push({ number: '74%', subject: 'Heeft de gezochte baan gevonden', meta: null })
+  - facts.push({ number: '66%', subject: 'Heeft geen spijt van de opleiding', meta: null, tooltip: 'dus 34% heeft wel spijt' })
+  +section-textmedia-facts(ALIGN_LEFT, facts, eyebrow, title, intro, buttons)#toekomst-van-het-onderwijs
+  
+  - var eyebrow = 'Hoe past een deeltijd opleiding in het dagelijks leven?';
+  - var title = 'Combineren met werk en prive';
+  - var intro = 'Een studie combineren met werk en privé is voor iedereen even wennen. Gelukkig ben je met een HAN deeltijdstudie super flexibel. Als je vooraf bedenkt hoe je \'t kunt organiseren, pak je je nieuwe leven straks soepel op.';
+  - var title2 = 'tips voor een goede balans';
+  - var image = 'kind-robot.jpg';
+  - var intro2 = 'Wie kan je nu beter vertellen wat studeren in deeltijd betekent dan onze huidige studenten? Wij hebben de beste tips van onze \'ervaringsdeskundigen\' voor je op een rijtje gezet. ';
+  - var button = { type: BUTTON_PRIMARY, label: 'Studie, werk en privé combineren', href: '#takeover1', icon: 'external' }
+  +section-highlight(eyebrow, title, intro, image, title2, intro2, button)#combineren-met-werk-en-prive
+  
+  - var items = [];
+  - items.push({ label: 'Toelatingseisen', href: './info.html#toelatingsinformatie' });
+  - items.push({ label: 'Aanmeldprocedure', href: './info.html#' });
+  - items.push({ label: 'Financiering.', href: './info.html#investering' });
+  - items.push({ label: 'Voordelen voor je werkgever', href: './info.html#voor-werkgevers' });
+  - items.push({ label: 'Kennis bijspijkeren', href: './info.html#' });
+  - items.push({ label: 'Studeren met een beperking', href: './info.html#' });
+  +section-link-list('Informatie voor het aanmelden', 'Zin om te starten? We wijzen je graag de weg.', items)
+
+  +section-line
+
+  - var contactOptions = {};
+  - contactOptions['buttons'] = [];
+  - contactOptions['buttons'].push({ type: 'primary', label: 'Start de Chat', href: 'https://han.nl', icon: 'clock-line' });
+  - contactOptions['buttons'].push({ type: 'secondary', label: 'Stel ons een vraag via het formulier', href: 'https://han.nl', icon: 'external' });
+  - contactOptions['metas'] = [];
+  - contactOptions['metas'].push({ title: 'Openingstijden', content: '<p>Werkdagen: 09:00 tot 16:30 uur<br />Schoolvakanties: 09:00 tot 15:00 uur</p>' });
+  - contactOptions['metas'].push({ title: 'Liever bellen of appen?', content: '<p>Bellen: <a href="tel:0243530500">024 - 353 0500</a><br />WhatsApp: <a href="whatsapp:0625640470">06 - 25 64 04 70</a></p>' });
+  +section-contact('Contact',  'Vragen over de Pabo deeltijd of de verkorte Pabo opleiding? <br>Het HAN Voorlichtingscentrum geeft je direct antwoord.', contactOptions)
+
+  +section-scream('kind-robot.jpg', 'Volgende pagina', 'Dit is je studie', 'Hoe is de opleiding tot leraar basisonderwijs opgebouwd?', { label: 'Bekijk wat en hoe je gaat leren', href: './studie.html' })

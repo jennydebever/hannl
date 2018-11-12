@@ -1,5 +1,11 @@
+include ../components/nav/tmpbar
+include ../components/nav/footer
+include ../components/nav/sitesearch
+include ../components/nav/menu
+
 block vars
   - let pageTitle = [];
+  - let pagePath = '/';
 
 doctype html
 html(lang='nl')
@@ -13,18 +19,50 @@ html(lang='nl')
     meta(name='author', content='Eight Media')
     meta(name='format-detection', content='telephone=no')
 
+    script(src=JS_URL + 'head.js', async)
+
+    //- preload fonts
+    link(rel='preload', href=FONTS_URL + '627fbb5a-3bae-4cd9-b617-2f923e29d55e.woff2', as="font", type="font/woff2", crossorigin="anonymous")
+    link(rel='preload', href=FONTS_URL + 'aad99a1f-7917-4dd6-bbb5-b07cedbff64f.woff2', as="font", type="font/woff2", crossorigin="anonymous")
+    link(rel='preload', href=FONTS_URL + '14c73713-e4df-4dba-933b-057feeac8dd1.woff2', as="font", type="font/woff2", crossorigin="anonymous")
+
+    link(rel='stylesheet', href=CSS_URL + 'theme.css')
+    link(rel='stylesheet', href=CSS_URL + 'print.css', media='print')
+    
     //- preload js
     link(rel='preload', href=JS_URL + 'app.js', as='script')
     link(rel='preload', href=JS_URL + 'libs.js', as='script')
 
-    link(rel='stylesheet', href=CSS_URL + 'theme.css')
-    link(rel='stylesheet', href=CSS_URL + 'print.css', media='print')
-
   body
+
+    include ../icons/_symbols
+
+    block skiplinks
+      .skiplinks
+        a(href='#content') Direct naar de inhoud
+
+    block nav
+      .nav-spacer(class='js-nav-spacer')
+      .nav(class='js-nav')
+        +tmpbar
+        block subnav
+    
 
     .main(role='main', id='content')
       block main
 
+
+    block footer
+      +footer
+
+    block takeover
+
     block scripts
       script(src=JS_URL + 'libs.js', defer)
       script(src=JS_URL + 'app.js', defer)
+
+    script.
+      window.intercomSettings = {
+        app_id: "fn52gd6r"
+      };
+      (function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/fn52gd6r';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()

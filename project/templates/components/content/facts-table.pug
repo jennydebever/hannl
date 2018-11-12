@@ -1,0 +1,14 @@
+//- @pugdoc
+  name: Sectie (Feiten tabel)
+
+mixin section-facts-table(title, rows)
+  include ./section
+  include ../atoms/richtext
+
+  +section(null, title)(class='section--facts-table')&attributes(attributes)
+    +richtext
+      table
+        each row in rows
+          tr
+            th #{row[0]}
+            td !{row[1]}

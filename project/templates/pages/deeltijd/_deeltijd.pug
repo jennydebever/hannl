@@ -1,0 +1,85 @@
+extends ../_base
+include ../../components/content/takeover
+
+block append vars
+  - 
+    var coursenavItems = [
+    {
+      href: "/deeltijd/overzicht.html",
+      label: "Overzicht",
+      subitems: [
+        {
+          href: "#vaardigheden-en-beroepen",
+          label: "Vaardigheden en beroepen"
+        },
+        {
+          href: "#toekomst-van-het-onderwijs",
+          label: "Toekomst van het onderwijs"
+        },
+        {
+          href: "#combineren-met-werk-en-prive",
+          label: "Combineren met werk en privé"
+        }
+      ]
+    },
+    {
+      href: "/deeltijd/studie.html",
+      label: "Dit is je studie",
+      subitems: [
+        {
+          href: "#de-opbouw-van-de-studie",
+          label: "De opbouw van de studie"
+        },
+        {
+          href: "#losse-modules",
+          label: "Losse modules"
+        },
+        {
+          href: "#ervaringen-van-anderen",
+          label: "Ervaringen van anderen"
+        },
+        {
+          href: "#programma",
+          label: "Programma"
+        }
+      ]
+    },
+    {
+      href: "/deeltijd/info.html",
+      label: "Praktische info",
+      subitems: [
+        {
+          href: "#locatie",
+          label: "Locatie"
+        },
+        {
+          href: "#studiefeiten",
+          label: "Studiefeiten"
+        },
+        {
+          href: "#toelatingsinformatie",
+          label: "Toelatingsinformatie"
+        },
+        {
+          href: "#voor-werkgevers",
+          label: "Voor werkgevers"
+        },
+        {
+          href: "#voor-jou-als-student",
+          label: "Voor jou als student"
+        },
+        {
+          href: "#investering",
+          label: "Investering"
+        },
+        {
+          href: "#contact",
+          label: "Contact"
+        }
+      ]
+    }
+    ];
+
+block append takeover
+  +takeover()#pilot
+    | Welkom op de pilot van de nieuwe HAN.nl

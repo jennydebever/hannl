@@ -1,0 +1,56 @@
+//- @pugdoc
+  name: Coursenav
+  example: |
+    - var items = [];
+    - items.push({ href: '/deeltijd/overzicht.html', label: 'Overzicht' });
+    - items[0].subitems = [];
+    - items[0].subitems.push({ href: '#id1', label: 'item 1' });
+    - items.push({ href: '/deeltijd/studie.html', label: 'Dit is je studie' });
+    - items[1].subitems = [];
+    - items[1].subitems.push({ href: '#id1', label: 'item 1' });
+    - items[1].subitems.push({ href: '#id2', label: 'item 2' });
+    - items[1].subitems.push({ href: '#id3', label: 'item 3' });
+    - items.push({ href: '/deeltijd/praktisch.html', label: 'Praktische info' });
+    - items[2].subitems = [];
+    - items[2].subitems.push({ href: '#id1', label: 'item 1' });
+    - items[2].subitems.push({ href: '#id2', label: 'item 2' });
+    - items[2].subitems.push({ href: '#id3', label: 'item 3' });
+    - items[2].subitems.push({ href: '#id4', label: 'item 4' });
+    +coursenav('Pabo Deeltijd', items)
+
+mixin coursenav(title, links)
+  include ../../icons/_icon
+
+  nav.coursenav(class='js-coursenav', aria-label="Opleidingsnavigatie", role="navigation", id="coursenav")
+    .coursenav-wrapper(class='js-coursenav-wrapper')
+      .coursenav-body-wrapper
+        if title
+          a.coursenav__title(href=links[0].href, class='js-underscore') #{title}
+
+        ul.coursenav__links
+          each item in links
+            - var isActive = (item.href.replace('.html', '') === pagePath);
+            - const cls = [isActive ? 'is-active' : null, 'js-subnav__item']
+            li.coursenav__links__item(class=cls)
+              a.coursenav__links__item__link(href=item.href)
+                | #{item.label}
+                +icon#arrow
+
+              if item.subitems
+                ul.coursenav__links__item__subnav(class="coursenav-dropdown js-coursenav-dropdown")
+                  each subitem in item.subitems
+                    - var href = [item.href, subitem.href].join('');
+                    if isActive
+                      - href = subitem.href;
+                      
+                    li.coursenav-dropdown__item
+                      a.coursenav-dropdown__item__link(href=href) #{subitem.label}
+
+    //- mobile toggle
+    button.coursenav__toggle(class="js-coursenav-toggle js-modal-toggle", aria-label="Opleidingsnavigatie", aria-controls="coursenav", type="button", aria-expanded="false")
+      span.coursenav__toggle__label
+        span(class='js-underscore') #{title}
+      +icon#chevron
+
+  .coursenav-overlay
+

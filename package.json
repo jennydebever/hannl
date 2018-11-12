@@ -5,15 +5,12 @@
   "main": "index.js",
   "scripts": {
     "start": "gulp",
+    "start-docs": "vuepress dev docs",
     "styles": "gulp styles",
     "templates": "gulp templates",
     "build": "gulp build",
     "server": "gulp server",
-    "preexport": "gulp build && gulp design-manual",
-    "export": "gulp export",
-    "postexport": "gulp build",
-    "design-manual": "gulp design-manual",
-    "pug-doc": "gulp pug-doc"
+    "docs:build": "vuepress build docs"
   },
   "author": "",
   "license": "ISC",
@@ -23,13 +20,13 @@
     "copy-dir": "^0.3.0",
     "del": "^3.0.0",
     "design-manual": "^1.0.3",
+    "discodip": "^1.3.0",
     "emitty": "^1.4.0",
     "envify": "^4.1.0",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.12.0",
-    "gulp": "github:gulpjs/gulp#4.0",
     "gulp-autoprefixer": "^5.0.0",
     "gulp-banner": "^0.1.3",
     "gulp-changed": "^3.2.0",
@@ -47,17 +44,37 @@
     "gulp-sass-lint": "^1.4.0",
     "gulp-uglify": "^3.0.0",
     "gulp-util": "^3.0.8",
+    "gulp-v4": "^4.0.0-alpha.5",
+    "husky": "1.1.2",
+    "prettier": "1.14.3",
+    "pretty-quick": "1.8.0",
     "pug": "^2.0.3",
-    "pug-doc": "^2.13.0",
+    "pug-doc": "^2.15.0",
     "pug-lint-config-clock": "^2.0.0",
     "require-dir": "^1.0.0",
     "vinyl-buffer": "^1.0.1",
-    "vinyl-source-stream": "^2.0.0"
+    "vinyl-source-stream": "^2.0.0",
+    "vuepress": "^0.14.4"
   },
   "dependencies": {
+    "classlist-polyfill": "^1.2.0",
+    "debounce": "^1.2.0",
     "find-parent": "^2.0.2",
+    "focus-trap": "^3.0.0",
+    "intersection-observer": "^0.5.1",
     "keymirror": "^0.1.1",
+    "picturefill": "^3.0.3",
+    "scroll-into-view": "^1.9.3",
+    "scrollama": "^1.4.4",
     "slide-anim": "^1.2.0",
-    "track-focus": "^1.0.0"
+    "smoothscroll-polyfill": "^0.4.3",
+    "tippy.js": "^3.1.1",
+    "track-focus": "^1.0.0",
+    "what-input": "^5.1.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
   }
 }

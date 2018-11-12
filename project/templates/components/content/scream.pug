@@ -1,0 +1,43 @@
+//- @pugdoc
+  name: Sectie (Scream for action)
+  examples:
+    - 
+      name: Sectie (Scream for action, zonder eyebrow)
+      example: |
+        +section-scream('kind-robot.jpg', null, 'Zin om te starten?', 'Dan is het tijd voor een intake.', { label: 'Meld je aan voor het intakegesprek', href: './studie.html' })
+      
+    -
+      name: Sectie (Scream for action, met eyebrow)
+      example: |
+        +section-scream('kind-robot.jpg', 'Volgende pagina', 'Dit is je studie', 'Hoe is de opleiding tot leraar basisonderwijs opgebouwd?', { label: 'Bekijk wat en hoe je gaat leren', href: './studie.html' })
+
+mixin section-scream(image, eyebrow, title, intro, button)
+  include ./section
+  include ../../utils/srcset
+  include ../atoms/btn-primary
+
+  +section(class="section--scream")&attributes(attributes)
+    .scream
+      .scream__content-wrapper
+        .scream__content(class='js-click-block')
+          h2.scream__content__title
+            if eyebrow
+              span.scream__content__title__eyebrow #{eyebrow}
+              span.accessibility :&nbsp;
+            span.scream__content__title__label(class='js-underscore') #{title}
+
+          p.scream__content__intro #{intro}
+          .scream__content__button
+            +btn-primary(button.label, button.href, 'arrow')
+
+      picture.scream__picture
+        - var sizes = []
+        - sizes.push({ minWidth: 1200, width: 1440, ratio: 21/9 });
+        - sizes.push({ minWidth: 1024, width: 1200, ratio: 21/9 });
+        - sizes.push({ minWidth: 768, width: 1024, ratio: 21/9 });
+        - sizes.push({ minWidth: 500, width: 768, ratio: 21/9 });
+        - sizes.push({ minWidth: 320, width: 500, ratio: 21/9 });
+        - sizes.push({ minWidth: 1, width: 320, ratio: 21/9 });
+        
+        +srcset(image, sizes)
+        img(src='', alt='')

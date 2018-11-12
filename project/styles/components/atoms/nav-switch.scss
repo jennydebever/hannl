@@ -1,0 +1,137 @@
+.nav-switch {
+}
+
+.nav-switch__item {
+  background-color: $grey1;
+  margin-bottom: 2px;
+}
+
+/**
+ * Single item
+ */
+
+.nav-subswitch {
+  /**
+  * Calendar icon is hidden on mobile
+  */
+
+  &.nav-subswitch--calendar {
+    @include breakpoint(max $bp-l) {
+      .nav-subswitch__title__icon {
+        display: none;
+      }
+
+      .nav-subswitch__title {
+        padding-left: 24px;
+      }
+
+      .nav-subswitch__title__label {
+        padding-right: 16px;
+      }
+    }
+  }
+}
+
+/**
+ * Button
+ */
+
+.nav-subswitch__title {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.nav-subswitch__title__icon {
+  flex-shrink: 0;
+  padding: 0 16px 0 24px;
+
+  .icon {
+    fill: $black;
+    width: 24px;
+    max-height: 24px;
+  }
+}
+
+/**
+ * Label
+ */
+
+.nav-subswitch__title__label {
+  padding: 14px 56px 14px 0;
+}
+
+.nav-subswitch__title__label__super {
+  font-size: 16px;
+  font-family: $demi;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.nav-subswitch__title__label__sub {
+  font-size: 14px;
+  line-height: 1.6;
+  color: $grey5;
+  display: block;
+  white-space: pre-wrap;
+}
+
+/**
+ * Button overlay
+ */
+
+.nav-subswitch__title__button {
+  @include focusable($black);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+
+  .icon-chevron {
+    fill: $black;
+    width: 6px;
+    margin: auto 32px auto auto;
+    transition: transform 0.15s;
+    transform: rotate(90deg);
+    transform-origin: 50% 50%;
+
+    .is-open & {
+      transform: rotate(-90deg);
+    }
+  }
+}
+
+/**
+ * Content
+ */
+
+.nav-switch__content {
+  padding: 0 24px 16px 64px;
+
+  &:focus {
+    outline: 0;
+  }
+}
+
+.nav-switch__content__text {
+  @include tiny;
+  color: $grey5;
+
+  a {
+    color: inherit;
+  }
+}
+
+.nav-switch__content__links {
+  .strong-link {
+    color: $black;
+  }
+
+  .nav-switch__content__text + & {
+    margin-top: 8px;
+  }
+}

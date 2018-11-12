@@ -1,0 +1,42 @@
+//- @pugdoc
+  name: Sectie (Highlight)
+  examples:
+    - 
+      name: Sectie (Highlight a)
+      example: |  
+        - var eyebrow = 'Hoe past een deeltijd opleiding in het dagelijks leven?';
+        - var title = 'Combineren met werk en prive';
+        - var intro = '<p>Een studie combineren met werk en privé is voor iedereen even wennen. Gelukkig ben je met een HAN deeltijdstudie super flexibel. Als je vooraf bedenkt hoe je \'t kunt organiseren, pak je je nieuwe leven straks soepel op.</p>';
+        - var title2 = 'tips voor een goede balans';
+        - var image = 'kind-robot.jpg';
+        - var intro2 = 'Wie kan je nu beter vertellen wat studeren in deeltijd betekent dan onze huidige studenten? Wij hebben de beste tips van onze \'ervaringsdeskundigen\' voor je op een rijtje gezet. ';
+        - var button = { type: BUTTON_PRIMARY, label: 'Studie, werk en privé combineren', href: '#takeover1', icon: 'external' }
+        +section-highlight(eyebrow, title, intro, image, title2, intro2, button)#combineren-met-werk-en-prive
+        
+
+mixin section-highlight(eyebrow, title, intro, image, title2, intro2, button)
+  include ./section
+  include ../../utils/srcset
+  include ../atoms/btn-primary
+
+  +section(eyebrow, title, intro)(class='section--highlight')&attributes(attributes)
+    .highlight
+      picture.highlight-picture
+        - var sizes = []
+        - sizes.push({ minWidth: 1024, width: 480, ratio: 1 });
+        - sizes.push({ minWidth: 900, width: 380, ratio: 1 });
+        - sizes.push({ minWidth: 768, width: 320, ratio: 1 });
+        - sizes.push({ minWidth: 600, width: 768, ratio: 21/9 });
+        - sizes.push({ minWidth: 500, width: 600, ratio: 16/9 });
+        - sizes.push({ minWidth: 375, width: 500, ratio: 4/3 });
+        - sizes.push({ minWidth: 1, width: 375, ratio: 4/3 });
+        
+        +srcset(image, sizes)
+        img(src='', alt='')
+
+      .highlight__text-wrapper
+        .highlight__text
+          h3.highlight__text__title #{title2}
+          p.highlight__text__intro #{intro2}
+          .highlight__text__button
+            +btn-primary(button.label, button.href, button.icon)

@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <title>Deeltijd - HAN.nl</title>
+    <meta http-equiv="cleartype" content="on">
+    <meta name="author" content="Eight Media">
+    <meta name="format-detection" content="telephone=no">
+    <script src="/lib/js/head.js" async></script>
+    <link rel="preload" href="/lib/fonts/627fbb5a-3bae-4cd9-b617-2f923e29d55e.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="/lib/fonts/aad99a1f-7917-4dd6-bbb5-b07cedbff64f.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="/lib/fonts/14c73713-e4df-4dba-933b-057feeac8dd1.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="stylesheet" href="/lib/css/theme.css">
+    <link rel="stylesheet" href="/lib/css/print.css" media="print">
+    <link rel="preload" href="/lib/js/app.js" as="script">
+    <link rel="preload" href="/lib/js/libs.js" as="script">
+  </head>
+  <body>
+    <svg style="display: none !important;" id="icons">
+      <symbol id="arrow"><path d="m25.3275345 2.14970486c-.490046.49000382-.490046 1.29251008 0 1.7825139l13.9407228 13.93952284h-39.2682573v4.4322523h39.1425546l-13.7625152 13.7634754c-.490046.4900039-.490046 1.2925101 0 1.7825139l1.7826674 1.7825139c.490046.4900039 1.2926213.4900039 1.7826673 0l18.6917546-18.6901457c.2525237-.252502.3700347-.5850046.362534-.9150071.0075007-.3300026-.1125105-.6650052-.362534-.9150072l-18.7442595-18.74264612c-.490046-.49250384-1.2926214-.49250384-1.7826674-.00250002z" fill-rule="evenodd"/></symbol>
+      <symbol id="chevron"><path d="m0 2.25 2.33443636-2.25 9.12010914 9-9.12010914 9-2.33443636-2.25 6.87272727-6.75z"/></symbol>
+      <symbol id="download"><path d="m26 22h10l-18 20-18-20h10v-22h16zm2 22h-20v4h20z" /></symbol>
+      <symbol id="external"><path d="m42 23.7948718v19.8290598h-42v-37.67521365h24v3.96581196h-20v29.74358979h34v-15.8632479zm6-23.7948718h-21.976l8.07 7.93162393-13.954 14.01914527 5.656 5.6076582 13.954-14.0191453 8.25 8.2726837z" /></symbol>
+      <symbol id="clock-line"><path d="m24 4c11.028 0 20 8.972 20 20s-8.972 20-20 20-20-8.972-20-20 8.972-20 20-20zm0-4c-13.254 0-24 10.746-24 24s10.746 24 24 24 24-10.746 24-24-10.746-24-24-24zm2 24v-12h-4v16h14v-4z" /></symbol>
+      <symbol id="hamburger"><path d="m0 10.2857143h24v3.4285714h-24zm0 10.2857143h24v3.4285714h-24zm0-20.5714286h24v3.42857143h-24z"/></symbol>
+      <symbol id="search"><path d="m22 19.4-5.3337251-5.295c.7807908-1.2208333 1.2316346-2.6666667 1.2316346-4.21583333.0008396-4.34916667-3.5656116-7.88916667-7.94895475-7.88916667-4.38334313 0-7.94895475 3.54-7.94895475 7.89 0 4.3508333 3.56561162 7.8908333 7.94895475 7.8908333 1.48434225 0 2.87213495-.4058333 4.06263115-1.1108333l5.3698262 5.33zm-17.03803207-9.51c0-2.7275 2.23742759-4.94833333 4.98614726-4.94833333 2.74955921 0 4.98698681 2.22 4.98698681 4.94833333 0 2.7291667-2.2374276 4.9491667-4.98698681 4.9491667-2.74871967 0-4.98614726-2.22-4.98614726-4.9491667z" fill-rule="nonzero"/></symbol>
+      <symbol id="info"><path d="m24 0c13.254834 0 24 10.745166 24 24s-10.745166 24-24 24-24-10.745166-24-24 10.745166-24 24-24zm3.4285714 10.2857143c0-.48254211-.0911845-.93333125-.2735562-1.35238097-.1823717-.41904971-.4255304-.78095085-.7294833-1.08571428s-.6686909-.54603086-1.0942249-.72380953c-.4255341-.17777866-.8692986-.26666666-1.331307-.26666666-.4863246 0-.9361681.09523714-1.3495441.28571428-.4133759.19047715-.7781139.43809372-1.0942249.74285715-.316111.30476342-.5592697.66666457-.7294833 1.08571428-.1702136.41904972-.2553191.85714057-.2553191 1.31428573 0 .9396872.3282642 1.7460284.9848024 2.4190476s1.4711198 1.0095238 2.443769 1.0095238c.4620084 0 .9057729-.088888 1.331307-.2666667.425534-.1777786.790272-.419046 1.0942249-.7238095.3039529-.3047634.5471116-.6666645.7294833-1.0857143.1823717-.4190497.2735562-.8698388.2735562-1.3523809zm-6.8571428 27.4285714h6.8571428v-20.5714286h-6.8571428z" /></symbol>
+      <symbol id="hat"><path d="M38.7692308,20.11875 L38.7692308,29.49455 C38.7692308,34.58945 28.0818462,37 22.1538462,37 C16.5193846,37 5.53846154,34.4248 5.53846154,29.49455 L5.53846154,17.85065 L22.1538462,26.8472 L38.7692308,20.11875 Z M23.8467692,0 L0,10.6375 L22.1538462,22.6625 L42.4615385,14.49105 L42.4615385,27.75 L46.1538462,27.75 L46.1538462,12.4875 L23.8467692,0 Z M48,37 L40.6153846,37 C41.6824615,35.15 42.4615385,32.375 42.4615385,29.6 L46.1538462,29.6 C46.1538462,32.4046 46.8756923,34.88915 48,37 Z"></path></symbol>
+      <symbol id="calendar"><path d="M43.2,7.2 L40.8,7.2 L40.8,0 L36,0 L36,12 L33.6,12 L33.6,7.2 L16.8,7.2 L16.8,0 L12,0 L12,12 L9.6,12 L9.6,7.2 L4.8,7.2 C2.1528,7.2 0,9.3552 0,12 L0,43.2 C0,45.8472 2.1528,48 4.8,48 L43.2,48 C45.8472,48 48,45.8472 48,43.2 L48,12 C48,9.3552 45.8472,7.2 43.2,7.2 L43.2,7.2 Z M43.1928,43.2 L4.8,43.2 L4.8,16.8 L43.2,16.8 L43.1928,43.2 L43.1928,43.2 Z M21.6,21.6 L31.2,21.6 L31.2,31.2 L21.6,31.2 L21.6,21.6 Z M9.6,21.6 L19.2,21.6 L19.2,31.2 L9.6,31.2 L9.6,21.6 Z"></path></symbol>
+      <symbol id="chat"><path d="M43.0685891,22.3472679 C48.8503996,26.1711426 49.2743858,32.8469239 45.7645007,37.0427865 C45.7065026,39.0427209 46.8804642,41.910627 47.9404295,44.0005585 C45.1025224,43.4845754 41.0646547,42.3526125 39.2367146,41.2306493 C32.6789294,42.824597 27.1091119,40.7846639 24.083211,37.0307869 C25.273172,36.8587925 26.4391338,36.6208003 27.563097,36.3028107 C31.2109775,39.4047091 35.4868374,39.0507207 39.7406981,38.0127547 C41.1126531,38.8547271 41.2866474,39.0247215 43.070589,39.6387014 C42.6966012,38.0067549 42.7525994,37.3987748 42.794598,35.9088236 C46.3804806,31.6309638 45.2205186,27.7030924 41.8666284,25.1791751 C42.3466127,24.2692049 42.7465996,23.3232359 43.0685891,22.3472679 Z M19.9993448,3.55259729e-15 C30.4970009,0 39.9986896,6.99977068 39.9986896,16.7034528 C39.9986896,25.2531727 31.9549531,33.3289081 20.1493399,33.3289081 C18.00941,33.3289081 15.7474841,33.0649168 13.3855615,32.4869357 C10.591653,34.2008796 4.42385507,35.9348228 0.0879971172,36.7167971 C1.70794405,33.5289016 3.50388521,29.1470451 3.40988829,26.0931452 C1.22995971,23.4852306 0,20.1253407 0,16.7034528 C0,7.05176898 9.43769082,3.55259729e-15 19.9993448,3.55259729e-15 Z M11.5,14 C10.1204482,14 9,15.1181139 9,16.5 C9,17.8818861 10.1204482,19 11.5,19 C12.8795518,19 14,17.8818861 14,16.5 C14,15.1181139 12.8795518,14 11.5,14 Z M19.5,14 C18.1204482,14 17,15.1181139 17,16.5 C17,17.8818861 18.1204482,19 19.5,19 C20.8795518,19 22,17.8818861 22,16.5 C22,15.1181139 20.8795518,14 19.5,14 Z M28.5,14 C27.1204482,14 26,15.1181139 26,16.5 C26,17.8818861 27.1204482,19 28.5,19 C29.8795518,19 31,17.8818861 31,16.5 C31,15.1181139 29.8795518,14 28.5,14 Z"></path></symbol>
+      <symbol id="marker"><path d="M17.6834731,0 C7.93327837,0 0,7.92762404 0,17.671852 C0,20.2135255 0.520593741,22.6402489 1.54654194,24.8852137 C5.96790181,34.5532995 14.4448786,44.7607663 16.9382228,47.6585885 C17.125027,47.8752252 17.3973678,48 17.6839647,48 C17.9705617,48 18.2429025,47.8752252 18.4297067,47.6585885 C20.9220676,44.7612576 29.3990445,34.554282 33.8218791,24.8852137 C34.8483189,22.6402489 35.3684211,20.2135255 35.3684211,17.671852 C35.3674379,7.92762404 27.4341595,0 17.6834731,0 Z M17.6834731,26.8506632 C12.618622,26.8506632 8.49762362,22.7326019 8.49762362,17.6713607 C8.49762362,12.6096283 12.618622,8.49156705 17.6834731,8.49156705 C22.7483242,8.49156705 26.8693227,12.6096283 26.8693227,17.6713607 C26.8698143,22.7326019 22.7488158,26.8506632 17.6834731,26.8506632 Z"></path></symbol>
+    </svg>
+    <div class="skiplinks"><a href="#content">Direct naar de inhoud</a></div>
+    <div class="nav-spacer js-nav-spacer"></div>
+    <div class="nav js-nav">
+      <nav class="tmpbar js-topbar">
+        <div class="tmpbar-wrapper">
+          <div class="tmpbar-body-wrapper"><a class="tmpbar__logo" href="https://www.han.nl" title="www.han.nl"><svg class="icon icon-chevron" aria-hidden="true" viewBox="0 0 12 18" width="12" height="18"><use xlink:href="#chevron"></use></svg><svg class="tmpbar__logo__image" height="34" viewBox="0 0 82 34" width="82" xmlns="http://www.w3.org/2000/svg"><title>Logo HAN</title><g fill="#fff"><path d="m82 34h-19v-3h18.9895719z"/><path d="m13.2527473 28v-12.420318h-8.48351653v12.420318h-4.76923077v-28h4.75824176v11.3563397h8.48351644v-11.3563397h4.7582418v28z"/><path d="m55.5599506 28-8.1433869-19.77045366h-.1223733l.0778739 19.77045366h-4.3720643v-28h5.5624227l8.065513 19.8898798h.1557479v-19.8898798h4.2163164v28z"/><path d="m33.1342079 0h-5.7320888l-4.5665994 18.7860465-3.8355197 1.324031 1.1972755 3.6682171 1.5469223-.531783-1.1548941 4.7534884h4.2381433l1.536327-6.3271318 7.2790111-2.496124 2.1190716 8.8232558h4.2381433zm-5.7320888 17.2015504 2.723007-11.17829459h.2754793l2.2780021 9.36589149z"/></g></svg></a><a class="tmpbar__message" href="#pilot">Welkom op de pilot van de nieuwe HAN.nl</a></div>
+        </div>
+      </nav>
+      <nav class="coursenav js-coursenav" aria-label="Opleidingsnavigatie" role="navigation" id="coursenav">
+        <div class="coursenav-wrapper js-coursenav-wrapper">
+          <div class="coursenav-body-wrapper"><a class="coursenav__title js-underscore" href="/deeltijd/overzicht.html">leraar basisonderwijs (pabo) deeltijd</a>
+            <ul class="coursenav__links">
+              <li class="coursenav__links__item is-active js-subnav__item"><a class="coursenav__links__item__link" href="/deeltijd/overzicht.html">Overzicht<svg class="icon icon-arrow" aria-hidden="true" viewBox="0 0 48 40" width="48" height="40"><use xlink:href="#arrow"></use></svg></a>
+                <ul class="coursenav__links__item__subnav coursenav-dropdown js-coursenav-dropdown">
+                  <li class="coursenav-dropdown__item"><a class="coursenav-dropdown__item__link" href="#vaardigheden-en-beroepen">Vaardigheden en beroepen</a></li>
+                  <li class="coursenav-dropdown__item"><a class="coursenav-dropdown__item__link" href="#toekomst-van-het-onderwijs">Toekomst van het onderwijs</a></li>
+                  <li class="coursenav-dropdown__item"><a class="coursenav-dropdown__item__link" href="#combineren-met-werk-en-prive">Combineren met werk en privé</a></li>
+                </ul>
+              </li>
+              <li class="coursenav__links__item js-subnav__item"><a class="coursenav__links__item__link" href="/deeltijd/studie.html">Dit is je studie<svg class="icon icon-arrow" aria-hidden="true" viewBox="0 0 48 40" width="48" height="40"><use xlink:href="#arrow"></use></svg></a>
+                <ul class="coursenav__links__item__subnav coursenav-dropdown js-coursenav-dropdown">
+                  <li class="coursenav-dropdown__item"><a class="coursenav-dropdown__item__link" href="/deeltijd/studie.html#de-opbouw-van-de-studie">De opbouw van de studie</a></li>
+                  <li class="coursenav-dropdown__item"><a class="coursenav-dropdown__item__link" href="/deeltijd/studie.html#losse-modules">Losse modules</a></li>
+                  <li class="coursenav-dropdown__item"><a class="coursenav-dropdown__item__link" href="/deeltijd/studie.html#ervaringen-van-anderen">Ervaringen van anderen</a></li>
+                  <li class="coursenav-dropdown__item"><a class="coursenav-dropdown__item__link" href="/deeltijd/studie.html#programma">Programma</a></li>
+                </ul>
+              </li>
+              <li class="coursenav__links__item js-subnav__item"><a class="coursenav__links__item__link" href="/deeltijd/info.html">Praktische info<svg class="icon icon-arrow" aria-hidden="true" viewBox="0 0 48 40" width="48" height="40"><use xlink:href="#arrow"></use></svg></a>
+                <ul class="coursenav__links__item__subnav coursenav-dropdown js-coursenav-dropdown">
+                  <li class="coursenav-dropdown__item"><a class="coursenav-dropdown__item__link" href="/deeltijd/info.html#locatie">Locatie</a></li>
+                  <li class="coursenav-dropdown__item"><a class="coursenav-dropdown__item__link" href="/deeltijd/info.html#studiefeiten">Studiefeiten</a></li>
+                  <li class="coursenav-dropdown__item"><a class="coursenav-dropdown__item__link" href="/deeltijd/info.html#toelatingsinformatie">Toelatingsinformatie</a></li>
+                  <li class="coursenav-dropdown__item"><a class="coursenav-dropdown__item__link" href="/deeltijd/info.html#voor-werkgevers">Voor werkgevers</a></li>
+                  <li class="coursenav-dropdown__item"><a class="coursenav-dropdown__item__link" href="/deeltijd/info.html#voor-jou-als-student">Voor jou als student</a></li>
+                  <li class="coursenav-dropdown__item"><a class="coursenav-dropdown__item__link" href="/deeltijd/info.html#investering">Investering</a></li>
+                  <li class="coursenav-dropdown__item"><a class="coursenav-dropdown__item__link" href="/deeltijd/info.html#contact">Contact</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <button class="coursenav__toggle js-coursenav-toggle js-modal-toggle" aria-label="Opleidingsnavigatie" aria-controls="coursenav" type="button" aria-expanded="false"><span class="coursenav__toggle__label"><span class="js-underscore">leraar basisonderwijs (pabo) deeltijd</span></span><svg class="icon icon-chevron" aria-hidden="true" viewBox="0 0 12 18" width="12" height="18"><use xlink:href="#chevron"></use></svg>
+        </button>
+      </nav>
+      <div class="coursenav-overlay"></div>
+    </div>
+    <div class="main" role="main" id="content">
+      <div class="section section--todo">
+        <div class="section-wrapper">
+          <div class="section__content">
+            <p class="todo" style="background-color: lightyellow; border: 1px solid rgba(0, 0, 0, .1); padding: 8px;"> <strong>TODO:&nbsp;</strong>course superhero</p>
+          </div>
+        </div>
+      </div>
+      <div class="section section--course-details">
+        <div class="section-wrapper">
+          <div class="section__content">
+            <div class="course-details">
+              <div class="course-details__sidebar">
+                <div class="course-details__sidebar__item">
+                  <div class="nav-switch js-collapsibles">
+                    <div class="nav-switch__item js-collapsible">
+                      <div class="nav-subswitch nav-subswitch--hat">
+                        <div class="nav-subswitch__title">
+                          <div class="nav-subswitch__title__icon"><svg class="icon icon-hat" aria-hidden="true" viewBox="0 0 48 37" width="48" height="37"><use xlink:href="#hat"></use></svg>
+                          </div>
+                          <div class="nav-subswitch__title__label"> <strong class="nav-subswitch__title__label__super">Deeltijd Bachelor</strong><span class="nav-subswitch__title__label__sub">4 jaar</span></div>
+                          <button class="nav-subswitch__title__button js-collapsible__button" type="button" aria-expanded="true" aria-controls="deeltijd-bachelor4-jaar"><svg class="icon icon-chevron" aria-hidden="true" viewBox="0 0 12 18" width="12" height="18"><use xlink:href="#chevron"></use></svg>
+                          </button>
+                        </div>
+                        <div class="nav-switch__content js-collapsible__content" id="deeltijd-bachelor4-jaar">
+                          <div class="nav-switch__content__links">
+                            <div class="strong-link-list">
+                              <div class="strong-link-list__item"><a class="strong-link strong-link--small" href=""><span class="strong-link__label">Bachelor deeltijd (4 jaar)</span><svg class="icon icon-arrow" aria-hidden="true" viewBox="0 0 48 40" width="48" height="40"><use xlink:href="#arrow"></use></svg></a>
+                              </div>
+                              <div class="strong-link-list__item"><a class="strong-link strong-link--small" href=""><span class="strong-link__label">Bachelor Duaal (4 jaar)</span><svg class="icon icon-arrow" aria-hidden="true" viewBox="0 0 48 40" width="48" height="40"><use xlink:href="#arrow"></use></svg></a>
+                              </div>
+                              <div class="strong-link-list__item"><a class="strong-link strong-link--small" href=""><span class="strong-link__label">Associate Degree Deeltijd (2 jaar)</span><svg class="icon icon-arrow" aria-hidden="true" viewBox="0 0 48 40" width="48" height="40"><use xlink:href="#arrow"></use></svg></a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="nav-switch__item js-collapsible">
+                      <div class="nav-subswitch nav-subswitch--chat">
+                        <div class="nav-subswitch__title">
+                          <div class="nav-subswitch__title__icon"><svg class="icon icon-chat" aria-hidden="true" viewBox="0 0 48 48" width="48" height="48"><use xlink:href="#chat"></use></svg>
+                          </div>
+                          <div class="nav-subswitch__title__label"> <strong class="nav-subswitch__title__label__super">Nederlands</strong><span class="nav-subswitch__title__label__sub">Tweetalig onderwijs</span></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="nav-switch__item js-collapsible">
+                      <div class="nav-subswitch nav-subswitch--marker">
+                        <div class="nav-subswitch__title">
+                          <div class="nav-subswitch__title__icon"><svg class="icon icon-marker" aria-hidden="true" viewBox="0 0 38 48" width="38" height="48"><use xlink:href="#marker"></use></svg>
+                          </div>
+                          <div class="nav-subswitch__title__label"> <strong class="nav-subswitch__title__label__super">Nijmegen</strong><span class="nav-subswitch__title__label__sub">Kapittelweg 35</span></div>
+                          <button class="nav-subswitch__title__button js-collapsible__button" type="button" aria-expanded="true" aria-controls="nijmegenkapittelweg-35"><svg class="icon icon-chevron" aria-hidden="true" viewBox="0 0 12 18" width="12" height="18"><use xlink:href="#chevron"></use></svg>
+                          </button>
+                        </div>
+                        <div class="nav-switch__content js-collapsible__content" id="nijmegenkapittelweg-35">
+                          <p class="nav-switch__content__text"><a href="">Ruitenberglaan 26<br>6826 CC Arnhem</a><br>Telefoon 026 369 12 00</p>
+                          <div class="nav-switch__content__links">
+                            <div class="strong-link-list">
+                              <div class="strong-link-list__item"><a class="strong-link strong-link--small" href=""><span class="strong-link__label">Bereken je reistijd</span><svg class="icon icon-arrow" aria-hidden="true" viewBox="0 0 48 40" width="48" height="40"><use xlink:href="#arrow"></use></svg></a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="nav-switch__item js-collapsible">
+                      <div class="nav-subswitch nav-subswitch--calendar">
+                        <div class="nav-subswitch__title">
+                          <div class="nav-subswitch__title__icon"><svg class="icon icon-calendar" aria-hidden="true" viewBox="0 0 48 48" width="48" height="48"><use xlink:href="#calendar"></use></svg>
+                          </div>
+                          <div class="nav-subswitch__title__label"> <strong class="nav-subswitch__title__label__super">Lesdagen in Arnhem</strong><span class="nav-subswitch__title__label__sub">September   Woensdag 13.45 - 20.45<br>Februari        Woensdag 13.45 - 20.45</span></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="course-details__main">
+                <div class="course-details__main__item">
+                  <div class="course-details-score">
+                    <div class="course-details-score__rating"></div>
+                    <div class="course-details-score__badges"><img src="https://hannl-eightmedia.imgix.net/topopleiding.png?h=50&amp;dpr=2" alt="Topopleiding Hbo 2017"/><img src="https://hannl-eightmedia.imgix.net/nvao.png?h=50&amp;dpr=2" alt="NVAO geaccrediteerde opleiding"/></div>
+                  </div>
+                </div>
+                <div class="course-details__main__item">
+                  <div class="facts">
+                    <div class="facts__item">
+                      <div class="fact"><strong class="fact__number">24%</strong><span class="fact__subject">Groei in de sector</span><span class="fact__meta">in 2017</span>
+                      </div>
+                    </div>
+                    <div class="facts__item">
+                      <div class="fact"><strong class="fact__number">4000</strong><span class="fact__subject">Leerkrachten tekort</span><span class="fact__meta">in 2022</span>
+                      </div>
+                    </div>
+                    <div class="facts__item">
+                      <div class="fact"><strong class="fact__number">74%</strong><span class="fact__subject">Heeft de gezochte baan gevonden</span>
+                      </div>
+                    </div>
+                    <div class="facts__item">
+                      <div class="fact"><strong class="fact__number">66%</strong><span class="fact__subject">Heeft geen spijt van de opleiding</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section section--todo">
+        <div class="section-wrapper">
+          <div class="section__content">
+            <p class="todo" style="background-color: lightyellow; border: 1px solid rgba(0, 0, 0, .1); padding: 8px;"> <strong>TODO:&nbsp;</strong>usp cards</p>
+          </div>
+        </div>
+      </div>
+      <div class="section section--todo" id="vaardigheden-en-beroepen">
+        <div class="section-wrapper">
+          <div class="section__content">
+            <p class="todo" style="background-color: lightyellow; border: 1px solid rgba(0, 0, 0, .1); padding: 8px;"> <strong>TODO:&nbsp;</strong>vaardigheden</p>
+          </div>
+        </div>
+      </div>
+      <div class="section section--shout">
+        <div class="section-wrapper">
+          <div class="section__content">
+            <div class="shout">
+              <div class="shout-wrapper">
+                <div class="shout__picture-wrapper">
+                  <picture class="shout__picture">
+                    <source srcset="https://hannl-eightmedia.imgix.net/kind-robot.jpg?q=20&amp;fit=crop&amp;crop=faces&amp;dpr=2&amp;auto=format&amp;w=520&amp;h=520 1040w" sizes="(min-width: 1024px) 520px" media="(min-width: 1024px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 1024px) and (min-resolution: 120dpi)"/>
+                    <source srcset="https://hannl-eightmedia.imgix.net/kind-robot.jpg?q=55&amp;fit=crop&amp;crop=faces&amp;dpr=1&amp;auto=format&amp;w=520&amp;h=520 520w" sizes="(min-width: 1024px) 520px" media="(min-width: 1024px)"/>
+                    <source srcset="https://hannl-eightmedia.imgix.net/kind-robot.jpg?q=20&amp;fit=crop&amp;crop=faces&amp;dpr=2&amp;auto=format&amp;w=1024&amp;h=439 2048w" sizes="(min-width: 900px) 1024px" media="(min-width: 900px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 900px) and (min-resolution: 120dpi)"/>
+                    <source srcset="https://hannl-eightmedia.imgix.net/kind-robot.jpg?q=55&amp;fit=crop&amp;crop=faces&amp;dpr=1&amp;auto=format&amp;w=1024&amp;h=439 1024w" sizes="(min-width: 900px) 1024px" media="(min-width: 900px)"/>
+                    <source srcset="https://hannl-eightmedia.imgix.net/kind-robot.jpg?q=20&amp;fit=crop&amp;crop=faces&amp;dpr=2&amp;auto=format&amp;w=900&amp;h=386 1800w" sizes="(min-width: 768px) 900px" media="(min-width: 768px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 768px) and (min-resolution: 120dpi)"/>
+                    <source srcset="https://hannl-eightmedia.imgix.net/kind-robot.jpg?q=55&amp;fit=crop&amp;crop=faces&amp;dpr=1&amp;auto=format&amp;w=900&amp;h=386 900w" sizes="(min-width: 768px) 900px" media="(min-width: 768px)"/>
+                    <source srcset="https://hannl-eightmedia.imgix.net/kind-robot.jpg?q=20&amp;fit=crop&amp;crop=faces&amp;dpr=2&amp;auto=format&amp;w=768&amp;h=329 1536w" sizes="(min-width: 500px) 768px" media="(min-width: 500px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 500px) and (min-resolution: 120dpi)"/>
+                    <source srcset="https://hannl-eightmedia.imgix.net/kind-robot.jpg?q=55&amp;fit=crop&amp;crop=faces&amp;dpr=1&amp;auto=format&amp;w=768&amp;h=329 768w" sizes="(min-width: 500px) 768px" media="(min-width: 500px)"/>
+                    <source srcset="https://hannl-eightmedia.imgix.net/kind-robot.jpg?q=20&amp;fit=crop&amp;crop=faces&amp;dpr=2&amp;auto=format&amp;w=500&amp;h=214 1000w" sizes="(min-width: 375px) 500px" media="(min-width: 375px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 375px) and (min-resolution: 120dpi)"/>
+                    <source srcset="https://hannl-eightmedia.imgix.net/kind-robot.jpg?q=55&amp;fit=crop&amp;crop=faces&amp;dpr=1&amp;auto=format&amp;w=500&amp;h=214 500w" sizes="(min-width: 375px) 500px" media="(min-width: 375px)"/>
+                    <source srcset="https://hannl-eightmedia.imgix.net/kind-robot.jpg?q=20&amp;fit=crop&amp;crop=faces&amp;dpr=2&amp;auto=format&amp;w=375&amp;h=161 750w" sizes="(min-width: 1px) 375px" media="(min-width: 1px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 1px) and (min-resolution: 120dpi)"/>
+                    <source srcset="https://hannl-eightmedia.imgix.net/kind-robot.jpg?q=55&amp;fit=crop&amp;crop=faces&amp;dpr=1&amp;auto=format&amp;w=375&amp;h=161 375w" sizes="(min-width: 1px) 375px" media="(min-width: 1px)"/><img src="" alt=""/>
+                  </picture>
+                </div>
+                <div class="shout__text-wrapper">
+                  <div class="shout__text">
+                    <h2 class="shout__text__title js-underscore">Kom sparren met je studieadviseur</h2>
+                    <p class="shout__text__intro">Je eigen oordeel is het belangrijkst bij zo`n beslissende keuze. Een adviesgesprek met een HAN studieadviseur kan daarbij helpen. Je kunt je verwachtingen toetsen en je krijgt inzicht in je persoonlijke studieprogramma.</p>
+                    <div class="shout__text__buttons">
+                      <div class="shout__text__buttons__button"><a class="btn-primary" href="/"><span class="btn-primary__label">Regel een adviesgesprek</span><svg class="icon icon-external" aria-hidden="true" viewBox="0 0 48 44" width="48" height="44"><use xlink:href="#external"></use></svg></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section section--textmedia-facts" id="toekomst-van-het-onderwijs">
+        <div class="section-wrapper">
+          <div class="section__content">
+            <div class="textmedia">
+              <div class="textmedia__body">
+                <h2 class="textmedia__body__title"><span class="textmedia__body__title__eyebrow">Waar gaat je vak heen?</span><span class="accessibility">:&nbsp;</span><span class="textmedia__body__title__eyebrow__label">Toekomst van het onderwijs</span>
+                </h2>
+                <div class="textmedia__body__intro"><p>De staatssecretaris van Onderwijs heeft in 2015 opdracht gegeven voor een maatschappelijke dialoog over de toekomst van het Nederlandse onderwijs. De positie van leraren is een belangrijke pijler van deze toekomstvisie. Er is afgesproken om te investeren in de professionele ontwikkeling van leraren. Een moderne, eigentijdse opleiding zoals de Pabo deeltijd van de HAN sluit helemaal aan op deze toekomstvisie. </p></div>
+                <div class="textmedia__buttons">
+                  <div class="textmedia__buttons__button"><a class="btn-secondary" href="#takeover1"><span class="btn-secondary__label">Meer over de toekomst van het onderwijs</span><svg class="icon icon-external" aria-hidden="true" viewBox="0 0 48 44" width="48" height="44"><use xlink:href="#external"></use></svg></a>
+                  </div>
+                </div>
+              </div>
+              <div class="textmedia__media">
+                <div class="textmedia-facts">
+                  <div class="facts">
+                    <div class="facts__item">
+                      <div class="fact"><strong class="fact__number">24%</strong><span class="fact__subject">Groei in de sector</span><span class="fact__meta">in 2017</span>
+                      </div>
+                    </div>
+                    <div class="facts__item">
+                      <div class="fact"><strong class="fact__number">4000</strong><span class="fact__subject">Leerkrachten tekort</span><span class="fact__meta">in 2022</span>
+                      </div>
+                    </div>
+                    <div class="facts__item">
+                      <div class="fact"><strong class="fact__number">74%</strong><span class="fact__subject">Heeft de gezochte baan gevonden</span>
+                      </div>
+                    </div>
+                    <div class="facts__item">
+                      <div class="fact"><strong class="fact__number">66%</strong><span class="fact__subject">Heeft geen spijt van de opleiding</span>
+                        <button class="js-tooltip-button tippy-tooltip" id="tooltip-heeft-geen-spijt-van-de-opleiding" aria-controls="tooltip-tooltip-heeft-geen-spijt-van-de-opleiding"><svg class="icon icon-info" aria-hidden="true" viewBox="0 0 48 48" width="48" height="48"><use xlink:href="#info"></use></svg>
+                        </button>
+                        <div class="tooltip js-tooltip" id="tooltip-tooltip-heeft-geen-spijt-van-de-opleiding">
+                          <div class="tooltip__content">
+                            <div class="tooltip__content__text">dus 34% heeft wel spijt  </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section section--highlight" id="combineren-met-werk-en-prive">
+        <div class="section-wrapper">
+          <div class="section__header">
+            <h2 class="section__header__title"><span class="section__header__title__eyebrow">Hoe past een deeltijd opleiding in het dagelijks leven?</span><span class="accessibility">:&nbsp;</span><span class="section__header__title__text">Combineren met werk en prive</span>
+            </h2>
+            <p class="section__header__intro">Een studie combineren met werk en privé is voor iedereen even wennen. Gelukkig ben je met een HAN deeltijdstudie super flexibel. Als je vooraf bedenkt hoe je 't kunt organiseren, pak je je nieuwe leven straks soepel op.</p>
+          </div>
+          <div class="section__content">
+            <div class="highlight">
+              <picture class="highlight-picture">
+                <source srcset="https://hannl-eightmedia.imgix.net/kind-robot.jpg?q=20&amp;fit=crop&amp;crop=faces&amp;dpr=2&amp;auto=format&amp;w=480&amp;h=480 960w" sizes="(min-width: 1024px) 480px" media="(min-width: 1024px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 1024px) and (min-resolution: 120dpi)"/>
+                <source srcset="https://hannl-eightmedia.imgix.net/kind-robot.jpg?q=55&amp;fit=crop&amp;crop=faces&amp;dpr=1&amp;auto=format&amp;w=480&amp;h=480 480w" sizes="(min-width: 1024px) 480px" media="(min-width: 1024px)"/>
+                <source srcset="https://hannl-eightmedia.imgix.net/kind-robot.jpg?q=20&amp;fit=crop&amp;crop=faces&amp;dpr=2&amp;auto=format&amp;w=380&amp;h=380 760w" sizes="(min-width: 900px) 380px" media="(min-width: 900px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 900px) and (min-resolution: 120dpi)"/>
+                <source srcset="https://hannl-eightmedia.imgix.net/kind-robot.jpg?q=55&amp;fit=crop&amp;crop=faces&amp;dpr=1&amp;auto=format&amp;w=380&amp;h=380 380w" sizes="(min-width: 900px) 380px" media="(min-width: 900px)"/>
+                <source srcset="https://hannl-eightmedia.imgix.net/kind-robot.jpg?q=20&amp;fit=crop&amp;crop=faces&amp;dpr=2&amp;auto=format&amp;w=320&amp;h=320 640w" sizes="(min-width: 768px) 320px" media="(min-width: 768px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 768px) and (min-resolution: 120dpi)"/>
+                <source srcset="https://hannl-eightmedia.imgix.net/kind-robot.jpg?q=55&amp;fit=crop&amp;crop=faces&amp;dpr=1&amp;auto=format&amp;w=320&amp;h=320 320w" sizes="(min-width: 768px) 320px" media="(min-width: 768px)"/>
+                <source srcset="https://hannl-eightmedia.imgix.net/kind-robot.jpg?q=20&amp;fit=crop&amp;crop=faces&amp;dpr=2&amp;auto=format&amp;w=768&amp;h=329 1536w" sizes="(min-width: 600px) 768px" media="(min-width: 600px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 600px) and (min-resolution: 120dpi)"/>
+                <source srcset="https://hannl-eightmedia.imgix.net/kind-robot.jpg?q=55&amp;fit=crop&amp;crop=faces&amp;dpr=1&amp;auto=format&amp;w=768&amp;h=329 768w" sizes="(min-width: 600px) 768px" media="(min-width: 600px)"/>
+                <source srcset="https://hannl-eightmedia.imgix.net/kind-robot.jpg?q=20&amp;fit=crop&amp;crop=faces&amp;dpr=2&amp;auto=format&amp;w=600&amp;h=338 1200w" sizes="(min-width: 500px) 600px" media="(min-width: 500px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 500px) and (min-resolution: 120dpi)"/>
+                <source srcset="https://hannl-eightmedia.imgix.net/kind-robot.jpg?q=55&amp;fit=crop&amp;crop=faces&amp;dpr=1&amp;auto=format&amp;w=600&amp;h=338 600w" sizes="(min-width: 500px) 600px" media="(min-width: 500px)"/>
+                <source srcset="https://hannl-eightmedia.imgix.net/kind-robot.jpg?q=20&amp;fit=crop&amp;crop=faces&amp;dpr=2&amp;auto=format&amp;w=500&amp;h=375 1000w" sizes="(min-width: 375px) 500px" media="(min-width: 375px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 375px) and (min-resolution: 120dpi)"/>
+                <source srcset="https://hannl-eightmedia.imgix.net/kind-robot.jpg?q=55&amp;fit=crop&amp;crop=faces&amp;dpr=1&amp;auto=format&amp;w=500&amp;h=375 500w" sizes="(min-width: 375px) 500px" media="(min-width: 375px)"/>
+                <source srcset="https://hannl-eightmedia.imgix.net/kind-robot.jpg?q=20&amp;fit=crop&amp;crop=faces&amp;dpr=2&amp;auto=format&amp;w=375&amp;h=281 750w" sizes="(min-width: 1px) 375px" media="(min-width: 1px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 1px) and (min-resolution: 120dpi)"/>
+                <source srcset="https://hannl-eightmedia.imgix.net/kind-robot.jpg?q=55&amp;fit=crop&amp;crop=faces&amp;dpr=1&amp;auto=format&amp;w=375&amp;h=281 375w" sizes="(min-width: 1px) 375px" media="(min-width: 1px)"/><img src="" alt=""/>
+              </picture>
+              <div class="highlight__text-wrapper">
+                <div class="highlight__text">
+                  <h3 class="highlight__text__title">tips voor een goede balans</h3>
+                  <p class="highlight__text__intro">Wie kan je nu beter vertellen wat studeren in deeltijd betekent dan onze huidige studenten? Wij hebben de beste tips van onze 'ervaringsdeskundigen' voor je op een rijtje gezet. </p>
+                  <div class="highlight__text__button"><a class="btn-primary" href="#takeover1"><span class="btn-primary__label">Studie, werk en privé combineren</span><svg class="icon icon-external" aria-hidden="true" viewBox="0 0 48 44" width="48" height="44"><use xlink:href="#external"></use></svg></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section section--link-list">
+        <div class="section-wrapper">
+          <div class="section__header">
+            <h2 class="section__header__title"><span class="section__header__title__text">Informatie voor het aanmelden</span>
+            </h2>
+            <p class="section__header__intro">Zin om te starten? We wijzen je graag de weg.</p>
+          </div>
+          <div class="section__content">
+            <ul class="link-list">
+              <li class="link-list__item"><a class="link-list__item__link" href="./info.html#toelatingsinformatie">Toelatingseisen</a></li>
+              <li class="link-list__item"><a class="link-list__item__link" href="./info.html#">Aanmeldprocedure</a></li>
+              <li class="link-list__item"><a class="link-list__item__link" href="./info.html#investering">Financiering.</a></li>
+              <li class="link-list__item"><a class="link-list__item__link" href="./info.html#voor-werkgevers">Voordelen voor je werkgever</a></li>
+              <li class="link-list__item"><a class="link-list__item__link" href="./info.html#">Kennis bijspijkeren</a></li>
+              <li class="link-list__item"><a class="link-list__item__link" href="./info.html#">Studeren met een beperking</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="section section--line">
+        <div class="section-wrapper">
+          <div class="section__content">
+            <hr/>
+          </div>
+        </div>
+      </div>
+      <div class="section section--contact">
+        <div class="section-wrapper">
+          <div class="section__header">
+            <h2 class="section__header__title"><span class="section__header__title__text">Contact</span>
+            </h2>
+            <p class="section__header__intro">Vragen over de Pabo deeltijd of de verkorte Pabo opleiding? <br>Het HAN Voorlichtingscentrum geeft je direct antwoord.</p>
+          </div>
+          <div class="section__content">
+            <div class="contact">
+              <div class="contact__buttons">
+                <div class="contact__buttons__button"><a class="btn-primary" href="https://han.nl"><svg class="icon icon-clock-line" aria-hidden="true" viewBox="0 0 48 48" width="48" height="48"><use xlink:href="#clock-line"></use></svg><span class="btn-primary__label">Start de Chat</span></a>
+                </div>
+                <div class="contact__buttons__button"><a class="btn-secondary" href="https://han.nl"><span class="btn-secondary__label">Stel ons een vraag via het formulier</span><svg class="icon icon-external" aria-hidden="true" viewBox="0 0 48 44" width="48" height="44"><use xlink:href="#external"></use></svg></a>
+                </div>
+              </div>
+              <div class="contact__metas">
+                <div class="contact__metas__meta"><strong class="contact__metas__meta__title">Openingstijden</strong>
+                  <div class="contact__metas__meta__content"><p>Werkdagen: 09:00 tot 16:30 uur<br />Schoolvakanties: 09:00 tot 15:00 uur</p></div>
+                </div>
+                <div class="contact__metas__meta"><strong class="contact__metas__meta__title">Liever bellen of appen?</strong>
+                  <div class="contact__metas__meta__content"><p>Bellen: <a href="tel:0243530500">024 - 353 0500</a><br />WhatsApp: <a href="whatsapp:0625640470">06 - 25 64 04 70</a></p></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section section--scream">
+        <div class="section-wrapper">
+          <div class="section__content">
+            <div class="scream">
+              <div class="scream__content-wrapper">
+                <div class="scream__content js-click-block">
+                  <h2 class="scream__content__title"><span class="scream__content__title__eyebrow">Volgende pagina</span><span class="accessibility">:&nbsp;</span><span class="scream__content__title__label js-underscore">Dit is je studie</span>
+                  </h2>
+                  <p class="scream__content__intro">Hoe is de opleiding tot leraar basisonderwijs opgebouwd?</p>
+                  <div class="scream__content__button"><a class="btn-primary" href="./studie.html"><span class="btn-primary__label">Bekijk wat en hoe je gaat leren</span><svg class="icon icon-arrow" aria-hidden="true" viewBox="0 0 48 40" width="48" height="40"><use xlink:href="#arrow"></use></svg></a>
+                  </div>
+                </div>
+              </div>
+              <picture class="scream__picture">
+                <source srcset="https://hannl-eightmedia.imgix.net/kind-robot.jpg?q=20&amp;fit=crop&amp;crop=faces&amp;dpr=2&amp;auto=format&amp;w=1440&amp;h=617 2880w" sizes="(min-width: 1200px) 1440px" media="(min-width: 1200px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 1200px) and (min-resolution: 120dpi)"/>
+                <source srcset="https://hannl-eightmedia.imgix.net/kind-robot.jpg?q=55&amp;fit=crop&amp;crop=faces&amp;dpr=1&amp;auto=format&amp;w=1440&amp;h=617 1440w" sizes="(min-width: 1200px) 1440px" media="(min-width: 1200px)"/>
+                <source srcset="https://hannl-eightmedia.imgix.net/kind-robot.jpg?q=20&amp;fit=crop&amp;crop=faces&amp;dpr=2&amp;auto=format&amp;w=1200&amp;h=514 2400w" sizes="(min-width: 1024px) 1200px" media="(min-width: 1024px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 1024px) and (min-resolution: 120dpi)"/>
+                <source srcset="https://hannl-eightmedia.imgix.net/kind-robot.jpg?q=55&amp;fit=crop&amp;crop=faces&amp;dpr=1&amp;auto=format&amp;w=1200&amp;h=514 1200w" sizes="(min-width: 1024px) 1200px" media="(min-width: 1024px)"/>
+                <source srcset="https://hannl-eightmedia.imgix.net/kind-robot.jpg?q=20&amp;fit=crop&amp;crop=faces&amp;dpr=2&amp;auto=format&amp;w=1024&amp;h=439 2048w" sizes="(min-width: 768px) 1024px" media="(min-width: 768px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 768px) and (min-resolution: 120dpi)"/>
+                <source srcset="https://hannl-eightmedia.imgix.net/kind-robot.jpg?q=55&amp;fit=crop&amp;crop=faces&amp;dpr=1&amp;auto=format&amp;w=1024&amp;h=439 1024w" sizes="(min-width: 768px) 1024px" media="(min-width: 768px)"/>
+                <source srcset="https://hannl-eightmedia.imgix.net/kind-robot.jpg?q=20&amp;fit=crop&amp;crop=faces&amp;dpr=2&amp;auto=format&amp;w=768&amp;h=329 1536w" sizes="(min-width: 500px) 768px" media="(min-width: 500px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 500px) and (min-resolution: 120dpi)"/>
+                <source srcset="https://hannl-eightmedia.imgix.net/kind-robot.jpg?q=55&amp;fit=crop&amp;crop=faces&amp;dpr=1&amp;auto=format&amp;w=768&amp;h=329 768w" sizes="(min-width: 500px) 768px" media="(min-width: 500px)"/>
+                <source srcset="https://hannl-eightmedia.imgix.net/kind-robot.jpg?q=20&amp;fit=crop&amp;crop=faces&amp;dpr=2&amp;auto=format&amp;w=500&amp;h=214 1000w" sizes="(min-width: 320px) 500px" media="(min-width: 320px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 320px) and (min-resolution: 120dpi)"/>
+                <source srcset="https://hannl-eightmedia.imgix.net/kind-robot.jpg?q=55&amp;fit=crop&amp;crop=faces&amp;dpr=1&amp;auto=format&amp;w=500&amp;h=214 500w" sizes="(min-width: 320px) 500px" media="(min-width: 320px)"/>
+                <source srcset="https://hannl-eightmedia.imgix.net/kind-robot.jpg?q=20&amp;fit=crop&amp;crop=faces&amp;dpr=2&amp;auto=format&amp;w=320&amp;h=137 640w" sizes="(min-width: 1px) 320px" media="(min-width: 1px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 1px) and (min-resolution: 120dpi)"/>
+                <source srcset="https://hannl-eightmedia.imgix.net/kind-robot.jpg?q=55&amp;fit=crop&amp;crop=faces&amp;dpr=1&amp;auto=format&amp;w=320&amp;h=137 320w" sizes="(min-width: 1px) 320px" media="(min-width: 1px)"/><img src="" alt=""/>
+              </picture>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="footer">
+      <div class="footer-wrapper">
+        <div class="footer-body-wrapper">footer</div>
+      </div>
+    </footer>
+    <div class="takeover js-takeover" hidden="hidden" id="pilot" role="dialog" aria-modal="true" aria-label="Hoofdnavigatie" data-modal="takeover">
+      <div class="takeover__background"></div>
+      <div class="takeover__content">Welkom op de pilot van de nieuwe HAN.nl
+      </div>
+      <button class="takeover__close js-modal-close" type="button" aria-label="Verdieping sluiten" aria-expanded="false" aria-controls="pilot">Sluiten</button>
+    </div>
+    <script src="/lib/js/libs.js" defer></script>
+    <script src="/lib/js/app.js" defer></script>
+    <script>
+      window.intercomSettings = {
+        app_id: "fn52gd6r"
+      };
+      (function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/fn52gd6r';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()
+    </script>
+  </body>
+</html>

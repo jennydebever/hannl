@@ -1,0 +1,48 @@
+//- @pugdoc
+  name: Tooltip
+  description: Tooltip to be used in other components
+  attributes:
+    - {string} id
+  examples:
+    - |
+      - var options = {};
+      - options.content = 'hier komt de content van de eerste tooltip'
+      - options.buttons = [];
+      - options.buttons.push({ href: '/', label: 'Meld je aan 2', type: BUTTON_PRIMARY });
+      +tooltip(options)#tt1
+  arguments:
+    - {object} options
+    -   {string} options.title
+    -   {string} options.content
+    -   {array} options.buttons
+    -     {string} options.buttons.label
+    -     {string} options.buttons.href
+
+mixin tooltip(options)
+  include ./btn-primary
+  include ./btn-secondary
+  include ./strong-link
+  include ../../icons/_icon
+
+  button.js-tooltip-button(class='tippy-tooltip', id=attributes.id, aria-controls='tooltip-' + attributes.id)
+    +icon#info
+
+  .tooltip(class='js-tooltip', id='tooltip-' + attributes.id)
+    .tooltip__content
+      if options.header
+        strong.tooltip__content__header #{options.title}
+
+      if options.content 
+        .tooltip__content__text #{options.content}  
+
+      if options.buttons
+        .tooltip__buttons
+          each button in options.buttons
+            if button.type === BUTTON_PRIMARY
+              +btn-primary(button.label, button.href, "arrow")
+
+            else if button.type === BUTTON_SECONDARY
+              +btn-secondary(button.label, button.href, "arrow")
+
+            else if button.type === BUTTON_STRONG_LINK
+              +strong-link(button.label, button.href) 

@@ -1,0 +1,15 @@
+.navbar {
+  background-color: #e50056;
+}
+.navbar,
+.navbar .site-name {
+  color: #fff;
+}
+.navbar .links {
+  background-color: transparent;
+}
+.nav-links .icon.outbound,
+.nav-links a.router-link-active,
+.nav-links a:hover {
+  color: #fff;
+}

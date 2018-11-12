@@ -1,0 +1,53 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 100;
+  transition: transform 0.35s $ease;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+
+  @mixin hide-topbar {
+    transform: translateY(-48px);
+
+    @include breakpoint($bp-m) {
+      transform: translateY(-88px);
+    }
+  }
+
+  .is-scrolled-free & {
+    @include hide-topbar;
+  }
+
+  .is-scrolled-to-top & {
+    transform: translateY(0);
+  }
+
+  .is-scrolled-to-bottom & {
+    transform: translateY(0);
+  }
+
+  .is-scrolling-up & {
+    transform: translateY(0);
+  }
+
+  .modal-is-open--coursenav & {
+    @include hide-topbar;
+    bottom: 0;
+    height: 100%;
+  }
+}
+
+/**
+ * Nav spacer, real time spacing is done by javascript
+ */
+.nav-spacer {
+  height: 48px;
+  max-height: 165px;
+
+  @include breakpoint($bp-m) {
+    height: 87px;
+  }
+}

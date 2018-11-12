@@ -1,29 +1,35 @@
 //- @pugdoc
   name: Sectie
   examples:
-    - |
-      +section(null, 'section title')
-        | my section content
-    - |
-      hr.demo
-      +section('eyebrow', 'section title')
-        | my section content
-    - |
-      hr.demo
-      +section('eyebrow', 'section title', 'This is intro text')
-        | my section content
+    - 
+      name: Sectie (titel)
+      example: |
+        +section(null, 'section title')
+          | my section content
+    - 
+      name: Sectie (eyebrow en titel)
+      example: |
+        +section('eyebrow', 'section title')
+          | my section content
+    -
+      name: Sectie (eyebrow, titel en introtekst)
+      example: |
+        +section('eyebrow', 'section title', 'This is intro text')
+          | my section content
 
 mixin section(eyebrow, title, intro)
   .section&attributes(attributes)
     .section-wrapper
-      if title || intro
+      if title || eyebrow || intro
         .section__header
-          if title
+          if title || eyebrow
             h2.section__header__title
               if eyebrow
                 span.section__header__title__eyebrow #{eyebrow}
                 span.accessibility :&nbsp;
-              span.section__header__title__text #{title}
+
+              if title
+                span.section__header__title__text #{title}
       
           if intro
             p.section__header__intro !{intro}

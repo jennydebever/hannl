@@ -1,0 +1,170 @@
+@include breakpoint($bp-l) {
+  @keyframes animate-coursenav-out-desktop {
+    to {
+      height: auto;
+    }
+  }
+
+  .coursenav {
+    @include page-spacing;
+    position: relative;
+    z-index: 98;
+    background-color: $grey1;
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      height: 1px;
+      background-color: $grey2;
+      z-index: -1;
+    }
+
+    &.is-closed {
+      animation: animate-coursenav-out-desktop 0 forwards; // easiest fix for providing an onanimationend event for modal.js
+    }
+  }
+
+  .coursenav-wrapper {
+    @include grid;
+  }
+
+  .coursenav-body-wrapper {
+    @include grid-item(12);
+    display: flex;
+  }
+
+  /**
+  * Title
+  */
+
+  .coursenav__title {
+    @include coursenav-title;
+    display: block;
+  }
+
+  /**
+  * Links
+  */
+
+  .coursenav__links {
+    display: flex;
+    align-self: center;
+    margin-left: auto;
+  }
+
+  .coursenav__links__item {
+    position: relative;
+
+    &.has-focus {
+      .coursenav__links__item__subnav {
+        transform: scale(1, 1, 1);
+
+        &::after {
+          display: block;
+        }
+      }
+    }
+
+    &:last-of-type {
+      .coursenav__links__item__subnav {
+        left: auto;
+        right: 0;
+      }
+    }
+  }
+
+  .coursenav__links__item__link {
+    @include focusable($grey3, 1px, -1px);
+    display: block;
+    padding: 27px 24px;
+    border-bottom: 5px solid transparent;
+    color: $black;
+    text-decoration: none;
+    font-size: 15px;
+    transition: border-color 0.15s, background-color 0.15s;
+
+    .has-focus & {
+      background-color: $white;
+      border-bottom-color: $grey2;
+    }
+
+    .is-active & {
+      border-bottom-color: $hanred;
+      background-color: $white;
+      font-family: $demi;
+    }
+
+    .icon-arrow {
+      display: none;
+    }
+  }
+
+  /**
+  * Dropdown
+  */
+
+  .coursenav__links__item__subnav {
+    transform: scale(0, 0, 0);
+    position: absolute;
+    left: 0;
+    width: 235px;
+
+    &::after {
+      z-index: 1;
+      content: "";
+      display: none;
+      position: absolute;
+      top: 0;
+      right: -15px;
+      bottom: -15px;
+      left: -15px;
+      background-color: transparent;
+    }
+  }
+
+  .coursenav-dropdown {
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  .coursenav-dropdown__item {
+    border-bottom: 1px solid $grey2;
+    z-index: 2;
+    position: relative;
+
+    &:last-of-type {
+      border-bottom: 0;
+    }
+  }
+
+  .coursenav-dropdown__item__link {
+    @include focusable($grey3, 1px, -3px);
+    font-size: 14px;
+    color: $grey5;
+    background-color: $white;
+    padding: 24px;
+    display: block;
+    transition: background-color 0.15s;
+    text-decoration: none;
+
+    &:hover {
+      background-color: $grey2;
+      text-decoration: underline;
+    }
+
+    &.is-inview {
+      font-family: $bold;
+    }
+  }
+
+  /**
+   * Mobile toggle
+   */
+
+  .coursenav__toggle {
+    display: none;
+  }
+}

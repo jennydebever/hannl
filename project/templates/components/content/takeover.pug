@@ -1,0 +1,16 @@
+//- @pugdoc
+  name: Takeover
+
+mixin takeover
+
+  if !attributes.id
+    - throw new TypeError('Takeover needs an id')
+
+  .takeover(class='js-takeover', hidden, id=attributes.id, role='dialog', aria-modal='true', aria-label='Hoofdnavigatie', data-modal='takeover')
+    .takeover__background
+
+    .takeover__content
+      block
+    
+    button.takeover__close(type="button", aria-label='Verdieping sluiten', aria-expanded='false', aria-controls=attributes.id, class='js-modal-close')
+      | Sluiten

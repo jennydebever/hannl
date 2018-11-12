@@ -1,0 +1,7 @@
+{
+  "name": "typo",
+  "slug": "typo",
+  "height": 15,
+  "description": "typography HAN.nl",
+  "source": "<div class=\"course-hero js-course-hero\"><div class=\"course-hero__image js-course-hero__image\"><picture class=\"course-hero__image__picture js-course-hero__image__picture\"><span class=\"course-hero__image__picture__overlay js-course-hero__image__picture__overlay\"></span><img src=\"\" alt=\"\"/></picture></div><div class=\"course-hero__content\"><div class=\"course-hero__content-wrapper\"></div></div></div>"
+}

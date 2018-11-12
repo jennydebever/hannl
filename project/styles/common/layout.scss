@@ -2,10 +2,6 @@ $grid-item-spacing-s: 8px;
 $grid-item-spacing-m: 16px;
 $grid-item-spacing-l: 20px;
 
-* {
-  box-sizing: border-box;
-}
-
 @mixin page-spacing-s {
   padding-left: $grid-item-spacing-s;
   padding-right: $grid-item-spacing-s;
@@ -36,7 +32,6 @@ $grid-item-spacing-l: 20px;
   }
 }
 
-
 /**
  * Grid
  */
@@ -46,13 +41,13 @@ $grid-item-spacing-l: 20px;
   justify-content: center;
   flex-wrap: wrap;
   max-width: #{$container-width + 40px};
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 @function grid-calc($columns) {
   @return calc(100% / 12 * #{$columns});
 }
-
 
 /**
  * Grid item
@@ -101,7 +96,6 @@ $grid-item-spacing-l: 20px;
   flex-basis: grid-calc($columns);
 }
 
-
 /**
  * DEMO ONLY Grid
  */
@@ -128,7 +122,7 @@ $grid-item-spacing-l: 20px;
 
   .demo-grid__item {
     span {
-      background-color: rgba(blue, .25);
+      background-color: rgba($hanred, 0.25);
     }
   }
 }

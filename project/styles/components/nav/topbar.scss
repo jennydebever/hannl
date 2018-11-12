@@ -1,0 +1,133 @@
+.topbar {
+  @include page-spacing;
+  background-color: $black;
+  position: relative;
+  z-index: 99;
+
+  @include breakpoint(max $bp-l) {
+    padding-right: 0;
+  }
+}
+
+.topbar-wrapper {
+  @include grid;
+  height: 48px;
+
+  @include breakpoint($bp-m) {
+    height: 87px;
+  }
+
+  @include breakpoint(max $bp-l) {
+    padding-right: 0;
+  }
+}
+
+.topbar-body-wrapper {
+  @include grid-item(12);
+  display: flex;
+
+  @include breakpoint(max $bp-l) {
+    padding-right: 0;
+  }
+}
+
+/**
+ * Logo
+ */
+
+.topbar__logo {
+  @include focusable($white, 1px, 10px);
+  align-self: center;
+
+  svg {
+    display: block;
+    width: 48px;
+    height: 20px;
+
+    @include breakpoint($bp-m) {
+      width: 82px;
+      height: 34px;
+    }
+  }
+}
+
+/**
+ * Links
+ */
+
+.topbar__links {
+  display: flex;
+  align-self: center;
+  margin-left: auto;
+
+  @include breakpoint(max $bp-l) {
+    display: none;
+  }
+}
+
+.topbar__links__item {
+  font-family: $demi;
+}
+
+.topbar__links__item__link {
+  @include focusable($white, 1px, -1px);
+  display: block;
+  color: $white;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 24px;
+}
+
+/**
+ * Search
+ */
+
+.topbar__search {
+  @include focusable($white, 1px, -4px);
+  width: 56px;
+  height: 100%;
+  background-color: $grey6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+
+  .icon-search {
+    fill: $white;
+    margin: auto;
+  }
+
+  @include breakpoint($bp-m) {
+    width: 87px;
+  }
+}
+
+/**
+ * Hamburger
+ */
+
+.topbar__hamburger {
+  @include focusable($white, 1px, -4px);
+  width: 56px;
+  height: 100%;
+  background-color: $hanred;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .icon-hamburger {
+    fill: $white;
+    width: 20px;
+    height: 16px;
+    margin: auto;
+
+    @include breakpoint($bp-m) {
+      width: auto;
+      height: auto;
+    }
+  }
+
+  @include breakpoint($bp-m) {
+    width: 87px;
+  }
+}

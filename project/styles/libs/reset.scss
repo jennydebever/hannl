@@ -51,3 +51,8 @@ h5,
 h6 {
   margin: 0;
 }
+
+/* suppress focus ring on form controls for mouse users */
+[data-whatinput="touch"] *:focus {
+  outline: none;
+}

@@ -1,0 +1,5 @@
+.textmedia-facts {
+  @include breakpoint($bp-xl) {
+    padding: 35px;
+  }
+}

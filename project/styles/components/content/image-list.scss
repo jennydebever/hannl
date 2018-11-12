@@ -1,0 +1,96 @@
+/**
+ * Image list grid
+ */
+
+.image-list {
+  @include grid;
+  padding-left: 0;
+  padding-right: 0;
+  margin-bottom: -35px;
+  justify-content: flex-start;
+}
+
+.image-list__item {
+  width: 100%;
+  margin-bottom: 35px;
+
+  @include breakpoint($bp-m) {
+    @include grid-item(4);
+    max-width: grid-calc(4);
+  }
+}
+
+/**
+ * Single image list item
+ */
+
+.imagelistunit {
+  display: flex;
+
+  @include breakpoint($bp-m) {
+    display: block;
+  }
+
+  @include breakpoint($bp-l) {
+    display: flex;
+  }
+}
+
+/**
+ * Image
+ */
+
+.imagelistunit__picture {
+  width: 100px;
+  flex-shrink: 0;
+
+  @include breakpoint($bp-m) {
+    width: 100%;
+  }
+
+  @include breakpoint($bp-l) {
+    width: 100px;
+  }
+
+  img {
+    display: block;
+  }
+}
+
+/**
+ * Text
+ */
+
+.imagelistunit__body {
+  padding-left: 16px;
+
+  @include breakpoint($bp-m) {
+    padding-left: 0;
+    padding-top: 16px;
+  }
+
+  @include breakpoint($bp-l) {
+    padding-left: 16px;
+    padding-top: 0;
+  }
+}
+
+.imagelistunit__body__title {
+  font-family: $bold;
+  color: $black;
+  font-size: 16px;
+  margin: -2px 0 4px 0;
+
+  @include breakpoint($bp-m) {
+    font-size: 18px;
+  }
+
+  @include breakpoint($bp-l) {
+    font-size: 19px;
+  }
+}
+
+.imagelistunit__body__text {
+  @include small;
+  color: $grey5;
+}

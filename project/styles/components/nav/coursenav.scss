@@ -1,0 +1,54 @@
+@mixin coursenav-title {
+  @include focusable($black);
+  align-self: center;
+  text-decoration: none;
+  color: $black;
+  text-transform: uppercase;
+  font-family: $bold-condensed;
+  font-size: 18px;
+  line-height: 1;
+
+  @include breakpoint($bp-m) {
+    font-size: 22px;
+  }
+
+  @include breakpoint($bp-l) {
+    font-size: 21px;
+  }
+}
+
+/**
+ * Close overlay
+ */
+
+@keyframes animate-coursenav-overlay-in {
+  to {
+    opacity: 0.15;
+  }
+}
+
+@keyframes animate-coursenav-overlay-out {
+  to {
+    opacity: 0;
+  }
+}
+
+.coursenav-overlay {
+  background-color: $black;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: calc(100vh + 250px); // add some for scroll up logic
+  width: 100vw;
+  opacity: 0;
+  z-index: 97;
+  transform: scale(0, 0, 0);
+
+  .modal-is-open--coursenav &,
+  .has-coursenav-dropdown-open & {
+    animation: animate-coursenav-overlay-in 2.5s $ease forwards;
+    transform: scale(1, 1, 1);
+  }
+}

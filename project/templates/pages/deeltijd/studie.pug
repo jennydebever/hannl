@@ -1,0 +1,67 @@
+extends ./_deeltijd
+include ../../utils/todo
+include ../../components/nav/coursenav
+include ../../components/hero/course-hero
+include ../../components/content/collapsibles
+include ../../components/content/shout
+include ../../components/content/image-list
+include ../../components/content/line
+include ../../components/content/scream
+include ../../components/content/textmedia
+
+block append vars
+  - pageTitle.push('Deeltijd studie');
+  - pagePath = '/deeltijd/studie';
+
+block subnav
+  +coursenav('leraar basisonderwijs (pabo) deeltijd', coursenavItems)
+
+block main
+  +course-hero('kind-robot.jpg', 'Dit is je studie')
+    | Op de deeltijd Pabo kun je jezelf ontwikkelen tot een moderne leerkracht met een eigen visie. In deze flexibele Pabo kies je de accenten die jij interessant vindt. Na 4 jaar deeltijd Pabo heb je alles in huis om het talent in kinderen te laten opbloeien. Hoe verschillend ze ook zijn.
+
+  +section-line
+
+  - var items = [];
+  - items.push({ image: 'kind-robot.jpg', title: 'Groepsleerkracht', text: 'Je kunt lesgeven aan alle 8 groepen van het basisonderwijs. Je begeleidt kinderen én je bent gesprekspartner voor ouders.' })
+  - items.push({ image: 'kind-robot.jpg', title: 'Remedial teacher', text: 'Je werkt met kinderen die extra hulp nodig hebben. Van bijlessen tot emotionele kwesties: jij bent de rots in de branding.' })
+  - items.push({ image: 'kind-robot.jpg', title: 'Intern begeleider', text: 'Je hebt een belangrijke rol \'achter de schermen\'. Je regelt alles voor kinderen die extra zorg nodig hebben.' })
+  +section-image-list('Dit kun je worden', items)
+  
+  +section-line
+
+  - var image = 'kind-robot.jpg'
+  - var eyebrow = 'Hoe is je studie ingedeeld?'
+  - var title = 'De opbouw van de studie'
+  - var intro = '<p>De deeltijd Pabo duurt 4 jaar en bestaat uit 8 modules van een half jaar. Je loopt elk jaar stage, dus je past meteen toe wat je leert. Heb je een hbo of wo vooropleiding? Dan kun je de Pabo deeltijd ook in 2,5 jaar: een half jaar propedeuse, 1 jaar kernfase en 1 jaar afstuderen.</p>'
+  - var buttons = []
+  - buttons.push({ type: BUTTON_PRIMARY, label: 'Alle 8 modules bekijken', href: '#takeover1', icon: 'external'})
+  - buttons.push({ type: STRONG_LINK, label: 'Vrijstellingen', href: './info#vrijstellingen', icon: 'external'})
+  +section-textmedia-image(ALIGN_LEFT, image, eyebrow, title, intro, buttons)#de-opbouw-van-de-studie
+
+  - var image = 'kind-robot.jpg'
+  - var eyebrow = 'Studie zelf indelen'
+  - var title = 'Losse modules'
+  - var intro = '<p>De deeltijd Pabo heeft 3 modules die je los kunt volgen. Je krijgt een certificaat voor elke afgeronde module. Besluit je later om toch de hele opleiding te doen? Je kunt vrijstellingen aanvragen met de certificaten: ze zijn elk 30 studiepunten waard. </p>'
+  - var buttons = []
+  - buttons.push({ type: BUTTON_PRIMARY, label: 'Alle 8 modules bekijken', href: '#takeover1', icon: 'external'})
+  +section-textmedia-image(ALIGN_RIGHT, image, eyebrow, title, intro, buttons)#losse-modules
+
+  +todo('video')#ervaringen-van-anderen
+
+  - var items = [];
+  - items.push({ title: 'Propedeuse', body: '<p>Dit is de oriëntatiefase van de deeltijd Pabo. Je duikt in de wereld van het onderwijs en leert de competenties kennen waar je aan moet gaan voldoen. Alle leergebieden komen aan de orde: van taal en rekenen tot en met kunsten en oriëntatie op de wereld. Al met al een pittig jaar waarin je ontdekt hoe je privé- en werk kunt combineren met je studie. </p>', is_open: true })
+  - items.push({ title: 'Hoofdfase', body: '<p>…</p>', is_open: false })
+  - items.push({ title: 'Minors', body: '<p>…</p>', is_open: false })
+  - items.push({ title: 'Afstuderen', body: '<p>…</p>', is_open: false })
+  +section-collapsibles('Programma', items)#programma
+  
+  - var title = 'De nodige ervaring in huis?';
+  - var image = 'kind-robot.jpg';
+  - var intro = 'Dan kun je waarschijnlijk vrijstellingen krijgen. Als je veel ervaring hebt en de juiste vooropleiding, kun je je deeltijd Pabo aanzienlijk inkorten. Meer weten over de verkorte Pabo en jouw persoonlijke leerroute? Maak een afspraak voor een gesprek.';
+  - var buttons = [];
+  - buttons.push({ href: '/', label: 'Maak afspraak over je persoonlijke leerroute', type: BUTTON_PRIMARY, icon: 'external' });
+  +section-shout(title, image, intro, buttons)
+
+  +todo('biocards')
+  +section-scream('kind-robot.jpg', 'Volgende pagina', 'Praktische info', 'Alles wat je wilt weten over de deeltijd Pabo.', { label: 'Bekijk alle praktische informatie', href: './info.html' })

@@ -1,21 +1,16 @@
 const paths = {
-  serve: "./httpdocs",
-  EXPORT: "export/",
+  serve: "./docs/.vuepress/public/",
 
   SRC: {
-    // Source paths
     templates: "project/templates/",
     styles: "project/styles/",
     scripts: "project/scripts/"
   },
 
   DEST: {
-    // Destination paths
-    templates: "httpdocs/",
-    styles: "httpdocs/lib/css/",
-    scripts: "httpdocs/lib/js/",
-    designsystem: "httpdocs/design-system/",
-    docs: "httpdocs/docs/"
+    templates: "docs/.vuepress/public/",
+    styles: "docs/.vuepress/public/lib/css/",
+    scripts: "docs/.vuepress/public/lib/js/"
   }
 };
 

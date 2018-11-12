@@ -1,5 +1,5 @@
 // // _text.scss
-// // Put all text-related styling in here 
+// // Put all text-related styling in here
 
 // body {
 // 	color: $primary-color;
@@ -45,7 +45,7 @@
 
 // h2 {
 // 	font-size: $font-size-h2;
-// 	line-height: $line-height-h2;	
+// 	line-height: $line-height-h2;
 // }
 
 // h3 {
@@ -78,8 +78,8 @@
 
 // .base {
 // 	font-size: $font-size-base;
-// 	line-height: $line-height-base;  
-// 	margin-bottom: 1em;	
+// 	line-height: $line-height-base;
+// 	margin-bottom: 1em;
 // }
 
 // /* einde font-size */
@@ -91,17 +91,14 @@
 // 	font-weight: $font-weight-bold;
 // }
 
-// // einde font-weight 
-
-
-
+// // einde font-weight
 
 // a {
 // 	display: inline-block;
 // 	//border-bottom: 4px solid rgba( $primary-color, .24 );
 // 	text-decoration: underline;
 // 	color: $link-color;
-	
+
 // 	&:hover {
 // 		text-decoration: none;
 // 	}
@@ -146,12 +143,11 @@
 // 	width: 100%;
 // 	height: 39px;
 
-	
-// 	@media (min-width: 992px) { 
+// 	@media (min-width: 992px) {
 // 		display: inline-block;
 // 		width: 33%;
 // 	}
-	
+
 // }
 
 // @media screen and (min-width: 992px) {
@@ -180,17 +176,17 @@
 // 			font-size: $font-size-lg-paragraph;
 // 			line-height: $line-height-lg-paragraph;
 // 		}
-		
+
 // 		.lead {
 // 			font-size: $font-size-lg-lead;
 // 			line-height: $line-height-lg-lead;
-			
+
 // 		}
-		
+
 // 		ul li, ol li {
 // 			font-size: $font-size-lg-paragraph;
 // 			line-height: $line-height-base;
 // 			margin: 0.5em;
 // 		}
-		
+
 // 	}

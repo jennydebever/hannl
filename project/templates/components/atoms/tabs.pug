@@ -1,0 +1,14 @@
+//- @pugdoc
+  name: Tabs
+  description: Tabs voor tabbed content. Maximaal 16 karakters.
+  examples:
+    - |
+      - labels = [];
+      - labels.push({ label: 'tab 1', rel: 'content-tab-1' });
+      - labels.push({ label: 'tab 2', rel: 'content-tab-1' });
+      +tabs(labels)
+
+mixin tabs(items)
+  .tabs(class="js-tabs" style="display: "+ (items.length === 1 ? 'none' : 'flex'))
+    each item, i in items
+      button.tabs__button(type='button', aria-expanded=(i === 0 ? 'true' : 'false'), class='js-tabs__button', aria-controls=item.rel, class="js-tab__button") #{item.label}

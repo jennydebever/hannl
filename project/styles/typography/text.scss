@@ -2,7 +2,7 @@
   font-family: $bold-condensed;
   font-size: 28px;
   color: $white;
-  text-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2);
+  text-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 
   @include breakpoint($bp-m) {
     font-size: 45px;
@@ -14,17 +14,17 @@
 }
 
 @mixin h1 {
+  margin-bottom: 1em;
   font-family: $bold-condensed;
   font-size: 28px;
   text-transform: uppercase;
-  @include margin-bottom-standard;
 
   @include breakpoint($bp-m) {
     font-size: 38px;
   }
 
   @include breakpoint($bp-l) {
-    font-size: 48px;
+    font-size: 47px;
   }
 }
 
@@ -60,7 +60,6 @@
   font-family: $bold-condensed;
   font-size: 18px;
   text-transform: uppercase;
-
 
   @include breakpoint($bp-m) {
     font-size: 20px;
@@ -115,7 +114,6 @@
   font-size: 15px;
   color: $hanred;
   text-transform: uppercase;
-  color: $hanred;
 
   @include breakpoint($bp-m) {
     font-size: 17px;
@@ -128,24 +126,24 @@
 
 @mixin lead {
   font-family: $demi;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.6;
 
   @include breakpoint($bp-m) {
-    font-size: 22px;
+    font-size: 20px;
   }
 
   @include breakpoint($bp-l) {
-    font-size: 24px;
+    font-size: 22px;
   }
 }
 
 // Also used for ul/ol
 @mixin p {
+  margin-bottom: 1em;
   font-family: $medium;
   font-size: 16px;
   line-height: 1.6;
-  @include margin-bottom-standard;
 
   @include breakpoint($bp-m) {
     font-size: 18px;
@@ -159,17 +157,24 @@
   line-height: 1.7;
 }
 
-/** 
-* Underscore can be used in titles
-*/
+@mixin small {
+  font-family: $medium;
+  font-size: 14px;
+  line-height: 1.6;
 
-@mixin underscore {
   @include breakpoint($bp-m) {
-    &::after {
-      color: $hanred;
-      content: '_';
-    }
+    font-size: 15px;
   }
+
+  @include breakpoint($bp-l) {
+    font-size: 16px;
+  }
+}
+
+@mixin tiny {
+  font-family: $medium;
+  font-size: 14px;
+  line-height: 1.6;
 }
 
 /**

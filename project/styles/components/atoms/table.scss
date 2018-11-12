@@ -1,0 +1,14 @@
+/**
+ * Scrollable wrapper for smaller screens
+ */
+
+.table-wrapper {
+  margin-bottom: 1.5em;
+  width: 100%;
+  -webkit-overflow-scrolling: touch; //sass-lint:disable-line no-misspelled-properties
+  overflow-x: auto;
+
+  &:only-child {
+    margin-bottom: 0;
+  }
+}

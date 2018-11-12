@@ -1,5 +1,5 @@
-const gulp = require("gulp");
 const pug = require("gulp-pug");
+const gulp = require("gulp-v4");
 const gutil = require("gulp-util");
 const plumber = require("gulp-plumber");
 const pugLint = require("gulp-pug-lint");
@@ -25,10 +25,14 @@ gulp.task("templates:lint", () => {
 gulp.task("templates:compile", () => {
   return new Promise((resolve, reject) => {
     gulp
-      .src([paths.SRC.templates + "pages/**/*.pug"])
-      // .pipe(gulpif((global.isWatching), emitty.filter(global.emittyChangedFile)))
+      .src([
+        paths.SRC.templates + "pages/**/*.pug",
+        paths.SRC.templates + "icons/_symbols.pug",
+        "!" + paths.SRC.templates + "pages/**/_*.pug"
+      ])
+      // .pipe(gulpif(global.isWatching, emitty.filter(global.emittyChangedFile)))
       .pipe(debug({ title: "Compiler:" }))
-      .pipe(changed(paths.DEST.templates, { extension: "*" }))
+      // .pipe(changed(paths.DEST.templates, { extension: "*" }))
       .pipe(plumber())
       .pipe(
         pug({
@@ -50,13 +54,5 @@ gulp.task("templates:compile", () => {
       });
   });
 });
-//});
 
-gulp.task(
-  "templates",
-  gulp.series("templates:lint", "templates:compile", "browser:reload")
-);
-
-// gulp.task('templates:compile', () => {
-//  return new Promise((resolve, reject) => {
-//    emitty.scan(global.emittyChangedFile).then(() =>
+gulp.task("templates", gulp.series("templates:lint", "templates:compile", "browser:reload"));

@@ -1,0 +1,21 @@
+//- @pugdoc
+  name: Adres
+  arguments:
+    - {object} location { city: '', street: '', number: '', zipcode: '', phone: '', btn: { label: '', href: ''} }
+  examples:
+    - |
+      +address({city: 'Nijmegen', image: 'vrouw-techniek.jpg', street: 'Kapittelweg', number: '33', zipcode: '6525 EN', city: 'Nijmegen', phone: '024-353 00 00', btn: { label: 'Bereken je reistijd', href: '#' }})
+mixin address(location)
+  include ../atoms/btn-secondary
+
+  .address
+    .address__body
+      h4.address__body__title HAN campus #{location.city}
+      address.address__body__text
+        <a href="">#{location.street} #{location.number}<br>#{location.zipcode} #{location.city}</a>
+        | <br>
+        | Telefoon: <a href="tel:#{location.phone.replace(/\s|-/g, '')}">#{location.phone}</a>
+
+    if location.btn
+      .address__footer
+        +btn-secondary(location.btn.label, location.btn.href, 'arrow')

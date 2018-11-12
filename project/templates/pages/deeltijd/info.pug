@@ -1,0 +1,111 @@
+extends ./_deeltijd
+include ../../utils/todo
+include ../../components/nav/coursenav
+include ../../components/hero/course-hero
+include ../../components/content/line
+include ../../components/content/collapsibles
+include ../../components/content/facts-table
+include ../../components/content/takeover
+include ../../components/content/locations
+include ../../components/content/shout
+include ../../components/content/scream
+include ../../components/content/contact
+include ../../components/atoms/btn-primary
+
+block append vars
+  - pageTitle.push('Deeltijd info');
+  - pagePath = '/deeltijd/info';
+
+block subnav
+  +coursenav('leraar basisonderwijs (pabo) deeltijd', coursenavItems)
+  
+block main
+  +course-hero('vrouw-techniek.jpg', 'Praktische info')
+    | Hoeveel tijd kost mijn deeltijdstudie? Wat zijn de toelatingseisen voor de Pabo, de studiekosten, vergoedingen, fiscale spelregels... Op deze pagina vind je alle praktische informatie over de deeltijd Pabo.
+
+  +btn-primary('Open modal', '#takeover1', 'external')
+
+  +section-line
+  
+  - var locations = [];
+  - locations.push({image: 'Arnhem-campus.jpg', street: 'Ruitenberglaan', number: '26', zipcode: '6826 CC', city: 'Arnhem', phone: '026-300 00 00', btn: { label: 'Bereken je reistijd', href: '#' }});
+  - locations.push({city: 'Nijmegen', image: 'Nijmegen-campus.jpg', street: 'Kapittelweg', number: '33', zipcode: '6525 EN', city: 'Nijmegen', phone: '024-353 00 00', btn: { label: 'Bereken je reistijd', href: '#' }});
+  +section-locations('De locaties van de opleiding', locations)#locatie
+
+  - var items = [];
+  - items.push({ title: 'Parkeergelegenheid', body: '<p>De HAN Campus is prima bereikbaar met de auto. Je parkeert je auto gratis.</p>', is_open: true })
+  - items.push({ title: 'Eten en drinken', body: '<p>…</p>', is_open: false })
+  +section-collapsibles(null, items)
+
+  - var items = [];
+  - items.push(['Diploma', 'Bachelor (HBO)'])
+  - items.push(['Accreditatie', '?'])
+  - items.push(['Vorm', 'Deeltijd'])
+  - items.push(['Voertaal', 'Nederlands'])
+  - items.push(['Startdatum', 'februari, september'])
+  - items.push(['Tijdsduur', '4 jaar, eventueel 2,5 jaar<br><a href="#takeover1">Bekijk vrijstellingen</a>'])
+  - items.push(['Studiepunten', '?'])
+  - items.push(['Investering', '?'])
+  - items.push(['Studiebelasting', 'x uur per week'])
+  - items.push(['Contacturen', '8'])
+  - items.push(['Zelfstudie-uren', '10 - 20'])
+  - items.push(['Werkplek-uren', '8 - 12 uur per week'])
+  - items.push(['Lesdagen', 'woensdag (september) of maandag (februari)'])
+  - items.push(['Lestijden', '13:45 - 20:45'])
+  - items.push(['Locatie', 'Kapittelweg 35, Nijmegen'])
+  +section-facts-table('Studiefeiten Opleiding Pabo 2019/2020', items)#studiefeiten
+
+  - var items = [];
+  - items.push({ title: 'Toelatingseisen 2018/2019', body: '<ul><li>Heb je een vwo- of een bachelordiploma? Dan kun je zonder toelatingstoetsen starten met de deeltijdpabo. </li><li>Met een bachelor- of wo-diploma kun je ook meteen starten met de verkorte deeltijdopleiding van 2,5 jaar.</li><li>Met een havo-diploma moet je examen hebben gedaan in Natuur & Techniek en de vakken geschiedenis en aardrijkskunde.</li></ul><p>In alle andere gevallen moet je aantonen dat je voldoende kennis hebt voor de 3 vakgebieden Natuur & Techniek, geschiedenis en aardrijkskunde. Daarvoor kun je toelatingstoetsen doen. Slaag je voor deze toetsen, dan kun je starten met de Pabo.</p><p>Op de website goedvoorbereidnaardepabo.nl vind je alle informatie die je nodig hebt om je voor te bereiden op de toelatingstoetsen. Je kunt ook meedoen aan de ondersteuningslessen van de HAN: in het voorjaar 2019 zijn er lessen voor alle vakken.</p>', is_open: true })
+  - items.push({ title: 'Niet het juiste diploma/21+', body: '<p>…</p>', is_open: false })
+  - items.push({ title: 'Buitenlands diploma/andere taal', body: '<p>…</p>', is_open: false })
+  - items.push({ title: 'Geen baan in het onderwijs vereist', body: '<p>…</p>', is_open: false })
+  +section-collapsibles('Toelatingsinformatie', items)#toelatingsinformatie
+
+  - var title = 'Nieuwsgierig';
+  - var image = 'kind-robot.jpg';
+  - var intro = 'Je eigen oordeel is het belangrijkste. Kom kennismaken en sfeer proeven: onze deuren staan voor je open!';
+  - var buttons = [];
+  - buttons.push({ href: '/', label: 'Bezoek de Open Avond', type: BUTTON_PRIMARY, icon: 'external' });
+  - buttons.push({ href: '/', label: 'Regel een adviesgesprek', type: BUTTON_SECONDARY, icon: 'external' });
+  +section-shout(title, image, intro, buttons)
+
+  - var items = [];
+  - items.push({ title: 'Vergoedingen', body: '<p>Heb je een WW-uitkering en wil je je laten omscholen? De overheid heeft een regeling waarmee je kunt studeren met behoud van uitkering: Brug-WW. Je moet dan wel een parttime baan vinden van minimaal 8 uur per week, mét de garantie van een baan na afloop van je studie. Je werkgever betaalt de uren die je voor hem 	werkt. Voor je studie-uren ontvang je een aanvullende WW-uitkering.</p>', is_open: true })
+  - items.push({ title: 'Voordelen', body: '<p>…</p>', is_open: false })
+  - items.push({ title: 'Eisen', body: '<p>…</p>', is_open: false })
+  +section-collapsibles('Voor werkgevers', items)#voor-werkgevers
+
+  - var items = [];
+  - items.push({ title: 'Vergoedingen', body: '<p>Er zijn twee soorten vergoedingen voor de deeltijd Pabo. De lerarenbeurs voor als je al HBO-docent bent. Of de Tegemoetkoming Leraren voor mensen die willen starten met beroep van leraar.</p>', is_open: true })
+  - items.push({ title: 'Vrijstellingen krijgen', body: '<p>…</p>', is_open: false })
+  - items.push({ title: 'Vrijstelling minor', body: '<p>…</p>', is_open: false })
+  - items.push({ title: 'Werkplek regelen', body: '<p>…</p>', is_open: false })
+  +section-collapsibles('Voor jou als student', items)#voor-jou-als-student
+
+  - var items = [];
+  - items.push({ title: 'Collegegeld', body: '<p>Nog niet eerder een bachelordiploma gehaald? Je betaalt het wettelijke collegegeld van €2.060. Misschien betaal je voor het 1e jaar maar helft van dit bedrag: op dit moment geldt de halveringsregeling van de overheid. </p><p>Heb je al eerder een bachelor- of masterdiploma gehaald? Dan betaal je het instellingscollegegeld van €4.300 per jaar. Er zijn enkele uitzonderingen. Je betaalt ook wettelijk collegegeld als je:</p><ul><li>voor de 1e keer een opleiding onderwijs of gezondheidszorg volgt;</li><li>een 2e (nieuwe) bachelor- of master start vóór het afronden van je 1e bachelor- of master;</li><li>een Associate degree hebt, maar nog geen Nederlandse bachelor of master hebt behaald.</li></ul>', is_open: true })
+  - items.push({ title: 'Materiaal', body: '<p>…</p>', is_open: false })
+  - items.push({ title: 'Fiscaal voordeel', body: '<p>…</p>', is_open: false })
+  - items.push({ title: 'Levenlanglerenkrediet', body: '<p>…</p>', is_open: false })
+  +section-collapsibles('Investering', items)#investering
+
+  - var contactOptions = {};
+  - contactOptions['buttons'] = [];
+  - contactOptions['buttons'].push({ type: 'primary', label: 'Start de Chat', href: 'https://han.nl', icon: 'clock-line' });
+  - contactOptions['buttons'].push({ type: 'secondary', label: 'Stel ons een vraag via het formulier', href: 'https://han.nl', icon: 'external' });
+  - contactOptions['metas'] = [];
+  - contactOptions['metas'].push({ title: 'Openingstijden', content: '<p>Werkdagen: 09:00 tot 16:30 uur<br />Schoolvakanties: 09:00 tot 15:00 uur</p>' });
+  - contactOptions['metas'].push({ title: 'Liever bellen of appen?', content: '<p>Bellen: <a href="tel:0243530500">024 - 353 0500</a><br />WhatsApp: <a href="whatsapp:0625640470">06 - 25 64 04 70</a></p>' });
+  +section-contact('Contact',  'Vragen over de Pabo deeltijd of de verkorte Pabo opleiding? <br>Het HAN Voorlichtingscentrum geeft je direct antwoord.', contactOptions)
+
+  
+  +section-scream('kind-robot.jpg', null, 'Zin om te starten?', 'Dan is het tijd voor een intake.', { label: 'Meld je aan voor het intakegesprek', href: './studie.html' })
+
+
+block append takeover
+  +takeover()#takeover1
+    +btn-primary('Open takeover 2', '#takeover2', 'external')
+
+  +takeover()#takeover2
+    +btn-primary('Open takeover 1', '#takeover1', 'external')

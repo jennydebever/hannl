@@ -1,4 +1,4 @@
-const gulp = require("gulp");
+const gulp = require("gulp-v4");
 const uglify = require("gulp-uglify");
 const browserify = require("browserify");
 const source = require("vinyl-source-stream");
@@ -69,11 +69,5 @@ gulp.task("scripts:build:head", () => {
 });
 
 gulp.task("scripts:app", gulp.series("scripts:lint:app", "scripts:build:app"));
-gulp.task(
-  "scripts:libs",
-  gulp.series("scripts:lint:libs", "scripts:build:libs")
-);
-gulp.task(
-  "scripts:head",
-  gulp.series("scripts:lint:head", "scripts:build:head")
-);
+gulp.task("scripts:libs", gulp.series("scripts:lint:libs", "scripts:build:libs"));
+gulp.task("scripts:head", gulp.series("scripts:lint:head", "scripts:build:head"));

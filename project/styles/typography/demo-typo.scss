@@ -5,21 +5,20 @@
 
 .demo-typo__bigtitle {
   @include bigtitle;
-  @include margin-bottom-small;
+  margin-bottom: 0.5em;
 
   text-transform: uppercase;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, .2);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .demo-typo__eyebrow {
   @include eyebrow;
-  @include margin-bottom-standard;
+  margin-bottom: 1em;
 }
 
 .demo-typo__title {
   @include h2;
-  @include margin-bottom-small;
-  @include underscore;
+  margin-bottom: 0.5em;
 }
 
 @mixin demo-section-padding {
@@ -29,12 +28,12 @@
 
 .demo-typo__intro {
   @include lead;
-  @include margin-bottom-standard;
+  margin-bottom: 1em;
 }
 
 .demo-typo__content {
   @include base;
-  @include margin-bottom-large;
+  margin-bottom: 2em;
 }
 
 .demo-typo__cards {
@@ -53,10 +52,10 @@
 
 .demo-typo__cards__card__title {
   @include title3;
-  @include margin-bottom-small;
+  margin-bottom: 0.5em;
 }
 
 .demo-typo__cards__card__content {
   @include base;
-  @include margin-bottom-large;
+  margin-bottom: 2em;
 }

@@ -1,0 +1,16 @@
+//- @pugdoc
+  name: Link lijst
+
+mixin link-list(items)
+  ul.link-list
+    each item in items
+      li.link-list__item
+        a.link-list__item__link(href=item.href) #{item.label}
+
+//- @pugdoc
+  name: Sectie (Link lijst)
+
+mixin section-link-list(title, intro, items)
+  include ./section
+  +section(null, title, intro)(class='section--link-list')&attributes(attributes)
+    +link-list(items)
