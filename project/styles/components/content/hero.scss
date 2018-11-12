@@ -1,0 +1,37 @@
+.hero {
+  max-width: $bp-xxl;
+  margin: 0 auto;
+
+  .hero__content {
+    @include grid;
+
+    .hero__header {
+      @include grid-item-spaceless(11);
+      background: white;
+      flex-grow: 0;
+      margin-top: -40px;
+      padding: 20px;
+
+      @include breakpoint($bp-m) {
+        margin-top: -56px;
+        padding: 40px;
+      }
+
+      @include breakpoint($bp-l) {
+        margin-top: -80px;
+        padding: 50px;
+      }
+    }
+
+    .hero__header__title {
+      @include h1;
+      @include underscore;
+      margin-bottom: 16px;
+    }
+
+    .hero__header__lead {
+      @include lead;
+      max-width: 700px;
+    }
+  }
+}
