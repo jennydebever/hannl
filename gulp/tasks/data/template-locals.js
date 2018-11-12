@@ -6,5 +6,6 @@ module.exports = Object.assign(constants, {
   IMGIX_URL: "https://hannl-eightmedia.imgix.net/",
   BUTTON_PRIMARY: "primary",
   BUTTON_SECONDARY: "secondary",
-  BUTTON_STRONG_LINK: "strong-link"
+  BUTTON_STRONG_LINK: "strong-link",
+  SMALL: "small"
 });

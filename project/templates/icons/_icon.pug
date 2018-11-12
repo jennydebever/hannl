@@ -41,6 +41,10 @@
     +icon#hamburger
     +icon#search
     +icon#info
+    +icon#hat
+    +icon#calendar
+    +icon#chat
+    +icon#marker
 
 
     script.
@@ -69,13 +73,17 @@ mixin icon
   - VIEWBOXES['hamburger'] = [0, 0, 24, 24];
   - VIEWBOXES['search'] = [0, 0, 24, 24];
   - VIEWBOXES['info'] = [0, 0, 48, 48];
+  - VIEWBOXES['hat'] = [0, 0, 48, 37];
+  - VIEWBOXES['calendar'] = [0, 0, 48, 48];
+  - VIEWBOXES['chat'] = [0, 0, 48, 48];
+  - VIEWBOXES['marker'] = [0, 0, 38, 48];
 
   //- get viewbox from  viewbox definitions file
   - var viewBox;
   if VIEWBOXES[attributes.id]
     - viewBox = VIEWBOXES[attributes.id];
   else
-    - console.error('ICON ERROR: viewbox not found for ' + attributes.id + ' - see /icons/_icon.pug');
+    - 
 
 
   //- add icon-class

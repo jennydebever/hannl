@@ -1,0 +1,37 @@
+//- @pugdoc
+  name: Nav-switch
+
+mixin nav-switch(...items)
+  include ../../icons/_icon
+  include ../../utils/slugify
+  include ./strong-link-list
+
+  .nav-switch(class='js-collapsibles')
+    each item in items
+      .nav-switch__item(class='js-collapsible')
+        //- collapsible
+        .nav-subswitch(class='nav-subswitch--' + item.icon)
+
+          //- button
+          .nav-subswitch__title
+            .nav-subswitch__title__icon
+              +icon(id=item.icon)
+            
+            .nav-subswitch__title__label 
+              strong.nav-subswitch__title__label__super #{item.label}
+              span.nav-subswitch__title__label__sub !{item.sublabel}
+            
+            if item.content || item.links
+              button.nav-subswitch__title__button(type='button', aria-expanded=(item.is_open ? 'false' : 'true'), class='js-collapsible__button', aria-controls=(slugify(item.label) + slugify(item.sublabel)))
+                +icon#chevron
+          
+          //- content
+          if item.content || item.links
+            .nav-switch__content(id=(slugify(item.label) + slugify(item.sublabel)), class='js-collapsible__content')
+
+              if item.content
+                p.nav-switch__content__text !{item.content}
+
+              if item.links
+                .nav-switch__content__links
+                  +strong-link-list(item.links, SMALL)

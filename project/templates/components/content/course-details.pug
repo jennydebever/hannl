@@ -4,13 +4,43 @@
 mixin section-course-details()
   include ./section
   include ../atoms/facts
+  include ../atoms/nav-switch
   include ../../utils/srcset
 
   +section(class='section--course-details')&attributes(attributes)
     .course-details
       .course-details__sidebar
+
+        //- nav switch
         .course-details__sidebar__item
-          | uitklapper
+          - var courseType = {};
+          - courseType.icon = 'hat';
+          - courseType.label = 'Deeltijd Bachelor';
+          - courseType.sublabel = '4 jaar';
+          - courseType.links = [];
+          - courseType.links.push({ label: 'Bachelor deeltijd (4 jaar)', href: '' });
+          - courseType.links.push({ label: 'Bachelor Duaal (4 jaar)', href: '' });
+          - courseType.links.push({ label: 'Associate Degree Deeltijd (2 jaar)', href: '' });
+
+          - var courseLanguage = {};
+          - courseLanguage.icon = 'chat';
+          - courseLanguage.label = 'Nederlands';
+          - courseLanguage.sublabel = 'Tweetalig onderwijs';
+
+          - var courseLocation = {};
+          - courseLocation.icon = 'marker';
+          - courseLocation.label = 'Nijmegen';
+          - courseLocation.sublabel = 'Kapittelweg 35';
+          - courseLocation.content = '<a href="">Ruitenberglaan 26<br>6826 CC Arnhem</a><br>Telefoon 026 369 12 00';
+          - courseLocation.links = [];
+          - courseLocation.links.push({ label: 'Bereken je reistijd', href: '' });
+
+          - var courseCalender = {};
+          - courseCalender.icon = 'calendar';
+          - courseCalender.label = 'Lesdagen in Arnhem';
+          - courseCalender.sublabel = 'September   Woensdag 13.45 - 20.45<br>Februari        Woensdag 13.45 - 20.45';
+
+          +nav-switch(courseType, courseLanguage, courseLocation, courseCalender)
 
       .course-details__main
         
@@ -22,6 +52,7 @@ mixin section-course-details()
               img(src=IMGIX_URL +'topopleiding.png?h=50&dpr=2', alt='Topopleiding Hbo 2017')
               img(src=IMGIX_URL +'nvao.png?h=50&dpr=2', alt='NVAO geaccrediteerde opleiding')
           
+        //- facts
         .course-details__main__item
           - var facts = [];
           - facts.push({ number: '24%', subject: 'Groei in de sector', meta: 'in 2017' })

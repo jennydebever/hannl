@@ -21,10 +21,13 @@
           +strong-link('Gebruik het contactformulier', '/')
           +strong-link('Gebruik het contactformulier', 'https://www.han.nl')
 
-mixin strong-link(label, href)
+mixin strong-link(label, href, size)
   include ../../icons/_icon
 
-  a.strong-link(href=href)
+  if size === SMALL
+    - var cls = 'strong-link--small';
+
+  a.strong-link(href=href, class=cls)
     span.strong-link__label #{label}
     if href.indexOf('http') > -1
       +icon#external
