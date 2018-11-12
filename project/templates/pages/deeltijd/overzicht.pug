@@ -6,6 +6,7 @@ include ../../components/content/link-list
 include ../../components/content/shout
 include ../../components/content/scream
 include ../../components/content/textmedia
+include ../../components/content/highlight
 include ../../components/content/contact
 
 block append vars
@@ -43,7 +44,14 @@ block main
   - facts.push({ number: '66%', subject: 'Heeft geen spijt van de opleiding', meta: null, tooltip: 'dus 34% heeft wel spijt' })
   +section-textmedia-facts(ALIGN_LEFT, facts, eyebrow, title, intro, buttons)#toekomst-van-het-onderwijs
   
-  +todo('textmedia highlight')#combineren-met-werk-en-prive
+  - var eyebrow = 'Hoe past een deeltijd opleiding in het dagelijks leven?';
+  - var title = 'Combineren met werk en prive';
+  - var intro = 'Een studie combineren met werk en privé is voor iedereen even wennen. Gelukkig ben je met een HAN deeltijdstudie super flexibel. Als je vooraf bedenkt hoe je \'t kunt organiseren, pak je je nieuwe leven straks soepel op.';
+  - var title2 = 'tips voor een goede balans';
+  - var image = 'kind-robot.jpg';
+  - var intro2 = 'Wie kan je nu beter vertellen wat studeren in deeltijd betekent dan onze huidige studenten? Wij hebben de beste tips van onze \'ervaringsdeskundigen\' voor je op een rijtje gezet. ';
+  - var button = { type: BUTTON_PRIMARY, label: 'Studie, werk en privé combineren', href: '#takeover1', icon: 'external' }
+  +section-highlight(eyebrow, title, intro, image, title2, intro2, button)#combineren-met-werk-en-prive
   
   - var items = [];
   - items.push({ label: 'Toelatingseisen', href: './info.html#toelatingsinformatie' });

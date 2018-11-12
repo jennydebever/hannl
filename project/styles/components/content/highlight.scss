@@ -1,0 +1,100 @@
+.highlight {
+  @include grid;
+  margin-top: 32px;
+  align-items: center;
+}
+
+/**
+ * Image
+ */
+
+.highlight-picture {
+  display: block;
+  margin: 0 #{-$grid-item-spacing-s} -48px;
+
+  @include breakpoint($bp-m) {
+    @include grid-item-spaceless(5);
+    margin: 0;
+    padding-right: $grid-item-spacing-l;
+  }
+
+  @include breakpoint($bp-l) {
+    @include grid-item-spaceless(6);
+  }
+
+  img {
+    border-radius: 3px;
+    display: block;
+  }
+}
+
+/**
+ * Text
+ */
+
+.highlight__text-wrapper {
+  @include breakpoint($bp-m) {
+    @include grid-item-spaceless(7);
+    display: flex;
+    align-items: center;
+  }
+
+  @include breakpoint($bp-l) {
+    @include grid-item-spaceless(6);
+  }
+}
+
+.highlight__text {
+  @include shadow(60px, 60px, 30px, 60px);
+  position: relative;
+  z-index: 1;
+  padding: 32px;
+
+  &::before {
+    content: "";
+    z-index: 1;
+    background-color: $white;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  @include breakpoint($bp-m) {
+    margin: 0 0 0 -68px;
+    padding: 36px;
+  }
+
+  @include breakpoint($bp-l) {
+    margin: 0 0 0 -80px;
+  }
+
+  @include breakpoint($bp-xl) {
+    margin: 0 -40px 0 -80px;
+    padding: 60px;
+  }
+}
+
+.highlight__text__title {
+  @include h2;
+  margin-bottom: 15px;
+  position: relative;
+  z-index: 2;
+}
+
+.highlight__text__intro {
+  @include base;
+  color: $grey5;
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 2;
+}
+
+.highlight__text__button {
+  position: relative;
+  z-index: 2;
+
+  .btn-primary {
+  }
+}

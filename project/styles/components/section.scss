@@ -62,8 +62,10 @@
 }
 
 .section__header__intro {
-  @include p;
+  @include base;
   margin-bottom: 1em;
+  max-width: 660px;
+  color: $grey5;
 }
 
 /**
@@ -196,4 +198,22 @@
 
 .section--contact {
   @include section-inner(10);
+}
+
+/**
+ * Highlight
+ */
+
+.section--highlight {
+  background-color: $grey1;
+  padding-top: 120px;
+  padding-bottom: 120px;
+
+  .section__header {
+    @include section-inner-self(10);
+  }
+
+  .section__content {
+    @include section-inner-self(10);
+  }
 }
