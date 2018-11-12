@@ -8,6 +8,7 @@ include ../../components/content/scream
 include ../../components/content/textmedia
 include ../../components/content/highlight
 include ../../components/content/contact
+include ../../components/content/course-details
 
 block append vars
   - pageTitle.push('Deeltijd');
@@ -18,7 +19,8 @@ block subnav
 
 block main
   +todo('course superhero')
-  +todo('course facts')
+  
+  +section-course-details()
 
   +todo('usp cards')
 

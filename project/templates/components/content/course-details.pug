@@ -1,0 +1,31 @@
+//- @pugdoc
+  name: Sectie (Opleidingsdetails)
+
+mixin section-course-details()
+  include ./section
+  include ../atoms/facts
+  include ../../utils/srcset
+
+  +section(class='section--course-details')&attributes(attributes)
+    .course-details
+      .course-details__sidebar
+        .course-details__sidebar__item
+          | uitklapper
+
+      .course-details__main
+        
+        //- badges
+        .course-details__main__item
+          .course-details-score
+            .course-details-score__rating
+            .course-details-score__badges
+              img(src=IMGIX_URL +'topopleiding.png?h=50&dpr=2', alt='Topopleiding Hbo 2017')
+              img(src=IMGIX_URL +'nvao.png?h=50&dpr=2', alt='NVAO geaccrediteerde opleiding')
+          
+        .course-details__main__item
+          - var facts = [];
+          - facts.push({ number: '24%', subject: 'Groei in de sector', meta: 'in 2017' })
+          - facts.push({ number: '4000', subject: 'Leerkrachten tekort', meta: 'in 2022' })
+          - facts.push({ number: '74%', subject: 'Heeft de gezochte baan gevonden', meta: null })
+          - facts.push({ number: '66%', subject: 'Heeft geen spijt van de opleiding', meta: null })
+          +facts(facts)
