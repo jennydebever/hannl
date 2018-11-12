@@ -39,6 +39,8 @@
 @import "./components/atoms/shadow";
 @import "./components/atoms/underscore";
 @import "./components/atoms/facts";
+@import "./components/atoms/nav-switch";
+@import "./components/atoms/strong-link-list";
 
 // components
 @import "./components/section";
@@ -55,6 +57,7 @@
 @import "./components/content/scream";
 @import "./components/content/contact";
 @import "./components/content/highlight";
+@import "./components/content/course-details";
 
 // least important loading order
 @import "./components/nav/sitesearch";

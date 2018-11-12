@@ -171,6 +171,12 @@
   }
 }
 
+@mixin tiny {
+  font-family: $medium;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
 /**
 * Normal links
 */

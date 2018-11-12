@@ -1,0 +1,10 @@
+//- @pugdoc
+  name: Strong link list
+
+mixin strong-link-list(items, size)
+  include ./strong-link
+
+  .strong-link-list(class=cls)
+    each item in items
+      .strong-link-list__item
+        +strong-link(item.label, item.href, size)
