@@ -3772,6 +3772,7 @@ hr {
   flex-direction: column;
   -ms-flex-pack: center;
   justify-content: center;
+  max-width: 660px;
 }
 @media (min-width: 768px) {
   .textmedia__body {
